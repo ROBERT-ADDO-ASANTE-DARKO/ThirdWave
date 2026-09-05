@@ -1,0 +1,23 @@
+# Runtime dependencies for the Streamlit app (streamlit_app/).
+# For regenerating risk_engine/ data from scratch, see the "Regenerating
+# the data" section in README.md -- that pipeline needs a few heavier,
+# one-time-use packages (pystac-client, planetary-computer, torch) not
+# listed here since they're not required just to run the app.
+
+streamlit>=1.37
+pandas
+numpy
+geopandas
+shapely
+rasterio
+folium
+streamlit-folium
+streamlit-geolocation
+osmnx
+networkx
+pydeck
+anthropic
+python-dotenv
+Pillow
+plotly
+requests
