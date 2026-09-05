@@ -34,6 +34,54 @@ def load_overlay_manifest():
     return json.loads(manifest_path.read_text())
 
 
+def _swatch(color: str, label: str) -> str:
+    return (
+        f"<span style='display:inline-flex;align-items:center;gap:5px;margin-right:14px;font-size:0.82rem;'>"
+        f"<span style='width:12px;height:12px;border-radius:2px;background:{color};"
+        f"border:1px solid rgba(0,0,0,.25);display:inline-block;'></span>{label}</span>"
+    )
+
+
+def _render_map_legend(manifest: dict | None):
+    """The map itself has no built-in legend for either the risk-zone
+    colors or the raw evidence overlays -- built from the same LEVEL_COLOR
+    dict and overlay manifest the map layers themselves are drawn from, so
+    it can't drift out of sync with what's actually on the map."""
+    st.markdown("**Map legend**")
+
+    zone_html = "".join(_swatch(c, level) for level, c in LEVEL_COLOR.items())
+    st.markdown(f"Risk zones (score): {zone_html}", unsafe_allow_html=True)
+
+    if not manifest:
+        return
+
+    sar_grad = "linear-gradient(90deg, rgba(20,90,200,0.05), rgba(20,90,200,1))"
+    st.markdown(
+        f"SAR water occurrence: "
+        f"<span style='display:inline-block;width:110px;height:12px;vertical-align:middle;"
+        f"background:{sar_grad};border:1px solid rgba(0,0,0,.25);border-radius:2px;'></span>"
+        f"<span style='font-size:0.82rem;'> &nbsp;less frequent &rarr; more frequent water</span>",
+        unsafe_allow_html=True,
+    )
+
+    dem_grad = "linear-gradient(90deg, rgb(27,120,55), rgb(230,210,130), rgb(110,66,30))"
+    st.markdown(
+        f"Elevation: "
+        f"<span style='display:inline-block;width:110px;height:12px;vertical-align:middle;"
+        f"background:{dem_grad};border:1px solid rgba(0,0,0,.25);border-radius:2px;'></span>"
+        f"<span style='font-size:0.82rem;'> &nbsp;low-lying &rarr; higher ground</span>",
+        unsafe_allow_html=True,
+    )
+
+    wc_classes = manifest["layers"].get("worldcover", {}).get("classes_present", [])
+    if wc_classes:
+        wc_html = "".join(
+            _swatch(f"rgb({c['color_rgb'][0]},{c['color_rgb'][1]},{c['color_rgb'][2]})", c["name"].replace("_", " "))
+            for c in wc_classes
+        )
+        st.markdown(f"Land cover: {wc_html}", unsafe_allow_html=True)
+
+
 def render():
     st.subheader("Ward / District Vulnerability Dashboard")
     st.caption(
@@ -130,6 +178,8 @@ def render():
                 "Raw SAR/DEM/WorldCover overlays not exported yet -- run "
                 "risk_engine/export_raster_overlays.py to enable the evidence-layer toggle."
             )
+
+        _render_map_legend(manifest)
 
     with chart_col:
         st.markdown("**Score by district**")
