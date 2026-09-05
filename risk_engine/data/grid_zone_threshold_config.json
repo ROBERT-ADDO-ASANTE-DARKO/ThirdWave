@@ -1,0 +1,2873 @@
+{
+  "grid_r0_c2": {
+    "zone_id": "grid_r0_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 51.6,
+    "rainfall_6h_warning_mm": 46.1,
+    "rainfall_6h_critical_mm": 84.5,
+    "river_level_warning_m": 3.38,
+    "river_level_critical_m": 4.23
+  },
+  "grid_r0_c3": {
+    "zone_id": "grid_r0_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 51.9,
+    "rainfall_6h_warning_mm": 46.0,
+    "rainfall_6h_critical_mm": 84.3,
+    "river_level_warning_m": 3.38,
+    "river_level_critical_m": 4.22
+  },
+  "grid_r0_c4": {
+    "zone_id": "grid_r0_c4",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 43.1,
+    "rainfall_6h_warning_mm": 48.4,
+    "rainfall_6h_critical_mm": 88.7,
+    "river_level_warning_m": 3.48,
+    "river_level_critical_m": 4.35
+  },
+  "grid_r0_c5": {
+    "zone_id": "grid_r0_c5",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 41.2,
+    "rainfall_6h_warning_mm": 48.9,
+    "rainfall_6h_critical_mm": 89.6,
+    "river_level_warning_m": 3.51,
+    "river_level_critical_m": 4.38
+  },
+  "grid_r0_c6": {
+    "zone_id": "grid_r0_c6",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 38.9,
+    "rainfall_6h_warning_mm": 49.5,
+    "rainfall_6h_critical_mm": 90.7,
+    "river_level_warning_m": 3.53,
+    "river_level_critical_m": 4.42
+  },
+  "grid_r1_c1": {
+    "zone_id": "grid_r1_c1",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 52.5,
+    "rainfall_6h_warning_mm": 45.8,
+    "rainfall_6h_critical_mm": 84.0,
+    "river_level_warning_m": 3.37,
+    "river_level_critical_m": 4.21
+  },
+  "grid_r1_c2": {
+    "zone_id": "grid_r1_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 53.6,
+    "rainfall_6h_warning_mm": 45.5,
+    "rainfall_6h_critical_mm": 83.5,
+    "river_level_warning_m": 3.36,
+    "river_level_critical_m": 4.2
+  },
+  "grid_r1_c3": {
+    "zone_id": "grid_r1_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 43.6,
+    "rainfall_6h_warning_mm": 48.2,
+    "rainfall_6h_critical_mm": 88.4,
+    "river_level_warning_m": 3.48,
+    "river_level_critical_m": 4.35
+  },
+  "grid_r1_c4": {
+    "zone_id": "grid_r1_c4",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 34.1,
+    "rainfall_6h_warning_mm": 50.8,
+    "rainfall_6h_critical_mm": 93.1,
+    "river_level_warning_m": 3.59,
+    "river_level_critical_m": 4.49
+  },
+  "grid_r1_c5": {
+    "zone_id": "grid_r1_c5",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 33.0,
+    "rainfall_6h_warning_mm": 51.1,
+    "rainfall_6h_critical_mm": 93.7,
+    "river_level_warning_m": 3.6,
+    "river_level_critical_m": 4.5
+  },
+  "grid_r1_c6": {
+    "zone_id": "grid_r1_c6",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 41.6,
+    "rainfall_6h_warning_mm": 48.8,
+    "rainfall_6h_critical_mm": 89.4,
+    "river_level_warning_m": 3.5,
+    "river_level_critical_m": 4.38
+  },
+  "grid_r1_c7": {
+    "zone_id": "grid_r1_c7",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 25.3,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.5,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r1_c8": {
+    "zone_id": "grid_r1_c8",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 28.2,
+    "rainfall_6h_warning_mm": 52.4,
+    "rainfall_6h_critical_mm": 96.0,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.58
+  },
+  "grid_r1_c9": {
+    "zone_id": "grid_r1_c9",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 27.7,
+    "rainfall_6h_warning_mm": 52.5,
+    "rainfall_6h_critical_mm": 96.3,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.58
+  },
+  "grid_r1_c10": {
+    "zone_id": "grid_r1_c10",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 31.6,
+    "rainfall_6h_warning_mm": 51.5,
+    "rainfall_6h_critical_mm": 94.4,
+    "river_level_warning_m": 3.62,
+    "river_level_critical_m": 4.53
+  },
+  "grid_r1_c11": {
+    "zone_id": "grid_r1_c11",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 35.7,
+    "rainfall_6h_warning_mm": 50.4,
+    "rainfall_6h_critical_mm": 92.3,
+    "river_level_warning_m": 3.57,
+    "river_level_critical_m": 4.46
+  },
+  "grid_r2_c1": {
+    "zone_id": "grid_r2_c1",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 54.1,
+    "rainfall_6h_warning_mm": 45.4,
+    "rainfall_6h_critical_mm": 83.2,
+    "river_level_warning_m": 3.35,
+    "river_level_critical_m": 4.19
+  },
+  "grid_r2_c2": {
+    "zone_id": "grid_r2_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 33.8,
+    "rainfall_6h_warning_mm": 50.9,
+    "rainfall_6h_critical_mm": 93.3,
+    "river_level_warning_m": 3.59,
+    "river_level_critical_m": 4.49
+  },
+  "grid_r2_c3": {
+    "zone_id": "grid_r2_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 27.3,
+    "rainfall_6h_warning_mm": 52.6,
+    "rainfall_6h_critical_mm": 96.5,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r2_c4": {
+    "zone_id": "grid_r2_c4",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 22.8,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r2_c5": {
+    "zone_id": "grid_r2_c5",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r2_c6": {
+    "zone_id": "grid_r2_c6",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 31.5,
+    "rainfall_6h_warning_mm": 51.5,
+    "rainfall_6h_critical_mm": 94.4,
+    "river_level_warning_m": 3.62,
+    "river_level_critical_m": 4.53
+  },
+  "grid_r2_c7": {
+    "zone_id": "grid_r2_c7",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 27.1,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.6,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r2_c8": {
+    "zone_id": "grid_r2_c8",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r2_c9": {
+    "zone_id": "grid_r2_c9",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 23.4,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r2_c10": {
+    "zone_id": "grid_r2_c10",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r2_c11": {
+    "zone_id": "grid_r2_c11",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r2_c12": {
+    "zone_id": "grid_r2_c12",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 24.7,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r2_c13": {
+    "zone_id": "grid_r2_c13",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 34.8,
+    "rainfall_6h_warning_mm": 50.6,
+    "rainfall_6h_critical_mm": 92.8,
+    "river_level_warning_m": 3.58,
+    "river_level_critical_m": 4.48
+  },
+  "grid_r2_c14": {
+    "zone_id": "grid_r2_c14",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 43.0,
+    "rainfall_6h_warning_mm": 48.4,
+    "rainfall_6h_critical_mm": 88.7,
+    "river_level_warning_m": 3.48,
+    "river_level_critical_m": 4.36
+  },
+  "grid_r3_c2": {
+    "zone_id": "grid_r3_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 33.5,
+    "rainfall_6h_warning_mm": 51.0,
+    "rainfall_6h_critical_mm": 93.4,
+    "river_level_warning_m": 3.6,
+    "river_level_critical_m": 4.5
+  },
+  "grid_r3_c3": {
+    "zone_id": "grid_r3_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 24.7,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r3_c4": {
+    "zone_id": "grid_r3_c4",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.7,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r3_c5": {
+    "zone_id": "grid_r3_c5",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r3_c6": {
+    "zone_id": "grid_r3_c6",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 23.8,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.2,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r3_c7": {
+    "zone_id": "grid_r3_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.5,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r3_c8": {
+    "zone_id": "grid_r3_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.2,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.5,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r3_c9": {
+    "zone_id": "grid_r3_c9",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 29.3,
+    "rainfall_6h_warning_mm": 52.1,
+    "rainfall_6h_critical_mm": 95.5,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.56
+  },
+  "grid_r3_c10": {
+    "zone_id": "grid_r3_c10",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 22.9,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r3_c11": {
+    "zone_id": "grid_r3_c11",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r3_c12": {
+    "zone_id": "grid_r3_c12",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 22.8,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r3_c13": {
+    "zone_id": "grid_r3_c13",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 44.3,
+    "rainfall_6h_warning_mm": 48.0,
+    "rainfall_6h_critical_mm": 88.1,
+    "river_level_warning_m": 3.47,
+    "river_level_critical_m": 4.34
+  },
+  "grid_r3_c14": {
+    "zone_id": "grid_r3_c14",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 43.0,
+    "rainfall_6h_warning_mm": 48.4,
+    "rainfall_6h_critical_mm": 88.7,
+    "river_level_warning_m": 3.48,
+    "river_level_critical_m": 4.36
+  },
+  "grid_r3_c15": {
+    "zone_id": "grid_r3_c15",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 28.9,
+    "rainfall_6h_warning_mm": 52.2,
+    "rainfall_6h_critical_mm": 95.7,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.57
+  },
+  "grid_r3_c16": {
+    "zone_id": "grid_r3_c16",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 38.8,
+    "rainfall_6h_warning_mm": 49.5,
+    "rainfall_6h_critical_mm": 90.8,
+    "river_level_warning_m": 3.53,
+    "river_level_critical_m": 4.42
+  },
+  "grid_r4_c2": {
+    "zone_id": "grid_r4_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 36.3,
+    "rainfall_6h_warning_mm": 50.2,
+    "rainfall_6h_critical_mm": 92.0,
+    "river_level_warning_m": 3.56,
+    "river_level_critical_m": 4.46
+  },
+  "grid_r4_c3": {
+    "zone_id": "grid_r4_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r4_c4": {
+    "zone_id": "grid_r4_c4",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r4_c5": {
+    "zone_id": "grid_r4_c5",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r4_c6": {
+    "zone_id": "grid_r4_c6",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r4_c7": {
+    "zone_id": "grid_r4_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 23.8,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.2,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r4_c8": {
+    "zone_id": "grid_r4_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 26.7,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.8,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r4_c9": {
+    "zone_id": "grid_r4_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.2,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.5,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r4_c10": {
+    "zone_id": "grid_r4_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r4_c11": {
+    "zone_id": "grid_r4_c11",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 23.6,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r4_c12": {
+    "zone_id": "grid_r4_c12",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 18.4,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.9,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "grid_r4_c13": {
+    "zone_id": "grid_r4_c13",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 35.0,
+    "rainfall_6h_warning_mm": 50.6,
+    "rainfall_6h_critical_mm": 92.7,
+    "river_level_warning_m": 3.58,
+    "river_level_critical_m": 4.47
+  },
+  "grid_r4_c14": {
+    "zone_id": "grid_r4_c14",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 38.8,
+    "rainfall_6h_warning_mm": 49.5,
+    "rainfall_6h_critical_mm": 90.8,
+    "river_level_warning_m": 3.53,
+    "river_level_critical_m": 4.42
+  },
+  "grid_r4_c15": {
+    "zone_id": "grid_r4_c15",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 28.1,
+    "rainfall_6h_warning_mm": 52.4,
+    "rainfall_6h_critical_mm": 96.1,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.58
+  },
+  "grid_r4_c16": {
+    "zone_id": "grid_r4_c16",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r5_c2": {
+    "zone_id": "grid_r5_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 37.1,
+    "rainfall_6h_warning_mm": 50.0,
+    "rainfall_6h_critical_mm": 91.6,
+    "river_level_warning_m": 3.55,
+    "river_level_critical_m": 4.44
+  },
+  "grid_r5_c3": {
+    "zone_id": "grid_r5_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r5_c4": {
+    "zone_id": "grid_r5_c4",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r5_c5": {
+    "zone_id": "grid_r5_c5",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r5_c6": {
+    "zone_id": "grid_r5_c6",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r5_c7": {
+    "zone_id": "grid_r5_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.6,
+    "rainfall_6h_warning_mm": 53.1,
+    "rainfall_6h_critical_mm": 97.3,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r5_c8": {
+    "zone_id": "grid_r5_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.0,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r5_c9": {
+    "zone_id": "grid_r5_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 19.7,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.2,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r5_c10": {
+    "zone_id": "grid_r5_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r5_c11": {
+    "zone_id": "grid_r5_c11",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 16.7,
+    "rainfall_6h_warning_mm": 55.5,
+    "rainfall_6h_critical_mm": 101.7,
+    "river_level_warning_m": 3.8,
+    "river_level_critical_m": 4.75
+  },
+  "grid_r5_c12": {
+    "zone_id": "grid_r5_c12",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.8,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.2,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r5_c13": {
+    "zone_id": "grid_r5_c13",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 44.4,
+    "rainfall_6h_warning_mm": 48.0,
+    "rainfall_6h_critical_mm": 88.0,
+    "river_level_warning_m": 3.47,
+    "river_level_critical_m": 4.33
+  },
+  "grid_r5_c14": {
+    "zone_id": "grid_r5_c14",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 28.7,
+    "rainfall_6h_warning_mm": 52.3,
+    "rainfall_6h_critical_mm": 95.8,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.57
+  },
+  "grid_r5_c15": {
+    "zone_id": "grid_r5_c15",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 25.9,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.2,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r5_c16": {
+    "zone_id": "grid_r5_c16",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 24.1,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r5_c17": {
+    "zone_id": "grid_r5_c17",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 22.9,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r5_c18": {
+    "zone_id": "grid_r5_c18",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 30.5,
+    "rainfall_6h_warning_mm": 51.8,
+    "rainfall_6h_critical_mm": 94.9,
+    "river_level_warning_m": 3.63,
+    "river_level_critical_m": 4.54
+  },
+  "grid_r5_c19": {
+    "zone_id": "grid_r5_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.2,
+    "rainfall_6h_warning_mm": 52.9,
+    "rainfall_6h_critical_mm": 97.0,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r5_c20": {
+    "zone_id": "grid_r5_c20",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 36.5,
+    "rainfall_6h_warning_mm": 50.1,
+    "rainfall_6h_critical_mm": 91.9,
+    "river_level_warning_m": 3.56,
+    "river_level_critical_m": 4.45
+  },
+  "grid_r6_c1": {
+    "zone_id": "grid_r6_c1",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 42.2,
+    "rainfall_6h_warning_mm": 48.6,
+    "rainfall_6h_critical_mm": 89.1,
+    "river_level_warning_m": 3.49,
+    "river_level_critical_m": 4.37
+  },
+  "grid_r6_c2": {
+    "zone_id": "grid_r6_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 29.4,
+    "rainfall_6h_warning_mm": 52.1,
+    "rainfall_6h_critical_mm": 95.4,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.56
+  },
+  "grid_r6_c3": {
+    "zone_id": "grid_r6_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 19.2,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.5,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "grid_r6_c4": {
+    "zone_id": "grid_r6_c4",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 19.3,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.4,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "grid_r6_c5": {
+    "zone_id": "grid_r6_c5",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r6_c6": {
+    "zone_id": "grid_r6_c6",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 20.6,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r6_c7": {
+    "zone_id": "grid_r6_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.2,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r6_c8": {
+    "zone_id": "grid_r6_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.6,
+    "rainfall_6h_warning_mm": 53.1,
+    "rainfall_6h_critical_mm": 97.3,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r6_c9": {
+    "zone_id": "grid_r6_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r6_c10": {
+    "zone_id": "grid_r6_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 24.4,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.9,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r6_c11": {
+    "zone_id": "grid_r6_c11",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 26.9,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r6_c12": {
+    "zone_id": "grid_r6_c12",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 26.8,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r6_c13": {
+    "zone_id": "grid_r6_c13",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 31.0,
+    "rainfall_6h_warning_mm": 51.6,
+    "rainfall_6h_critical_mm": 94.7,
+    "river_level_warning_m": 3.63,
+    "river_level_critical_m": 4.54
+  },
+  "grid_r6_c14": {
+    "zone_id": "grid_r6_c14",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 43.2,
+    "rainfall_6h_warning_mm": 48.3,
+    "rainfall_6h_critical_mm": 88.6,
+    "river_level_warning_m": 3.48,
+    "river_level_critical_m": 4.35
+  },
+  "grid_r6_c15": {
+    "zone_id": "grid_r6_c15",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 37.7,
+    "rainfall_6h_warning_mm": 49.8,
+    "rainfall_6h_critical_mm": 91.3,
+    "river_level_warning_m": 3.55,
+    "river_level_critical_m": 4.43
+  },
+  "grid_r6_c16": {
+    "zone_id": "grid_r6_c16",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 35.0,
+    "rainfall_6h_warning_mm": 50.6,
+    "rainfall_6h_critical_mm": 92.7,
+    "river_level_warning_m": 3.58,
+    "river_level_critical_m": 4.47
+  },
+  "grid_r6_c17": {
+    "zone_id": "grid_r6_c17",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 26.1,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.1,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r6_c18": {
+    "zone_id": "grid_r6_c18",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 28.7,
+    "rainfall_6h_warning_mm": 52.3,
+    "rainfall_6h_critical_mm": 95.8,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.57
+  },
+  "grid_r6_c19": {
+    "zone_id": "grid_r6_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 22.5,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r6_c20": {
+    "zone_id": "grid_r6_c20",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 19.5,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "grid_r6_c21": {
+    "zone_id": "grid_r6_c21",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 23.0,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r6_c22": {
+    "zone_id": "grid_r6_c22",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 37.1,
+    "rainfall_6h_warning_mm": 50.0,
+    "rainfall_6h_critical_mm": 91.6,
+    "river_level_warning_m": 3.55,
+    "river_level_critical_m": 4.44
+  },
+  "grid_r6_c23": {
+    "zone_id": "grid_r6_c23",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 40.5,
+    "rainfall_6h_warning_mm": 49.1,
+    "rainfall_6h_critical_mm": 90.0,
+    "river_level_warning_m": 3.51,
+    "river_level_critical_m": 4.39
+  },
+  "grid_r7_c1": {
+    "zone_id": "grid_r7_c1",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 46.6,
+    "rainfall_6h_warning_mm": 47.4,
+    "rainfall_6h_critical_mm": 86.9,
+    "river_level_warning_m": 3.44,
+    "river_level_critical_m": 4.3
+  },
+  "grid_r7_c2": {
+    "zone_id": "grid_r7_c2",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r7_c3": {
+    "zone_id": "grid_r7_c3",
+    "assembly": "Ablekuma West Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r7_c4": {
+    "zone_id": "grid_r7_c4",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r7_c5": {
+    "zone_id": "grid_r7_c5",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 21.3,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r7_c6": {
+    "zone_id": "grid_r7_c6",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 23.3,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r7_c7": {
+    "zone_id": "grid_r7_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r7_c8": {
+    "zone_id": "grid_r7_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.4,
+    "rainfall_6h_warning_mm": 53.1,
+    "rainfall_6h_critical_mm": 97.4,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r7_c9": {
+    "zone_id": "grid_r7_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 27.3,
+    "rainfall_6h_warning_mm": 52.6,
+    "rainfall_6h_critical_mm": 96.5,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r7_c10": {
+    "zone_id": "grid_r7_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 26.4,
+    "rainfall_6h_warning_mm": 52.9,
+    "rainfall_6h_critical_mm": 96.9,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r7_c11": {
+    "zone_id": "grid_r7_c11",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 38.8,
+    "rainfall_6h_warning_mm": 49.5,
+    "rainfall_6h_critical_mm": 90.8,
+    "river_level_warning_m": 3.53,
+    "river_level_critical_m": 4.42
+  },
+  "grid_r7_c12": {
+    "zone_id": "grid_r7_c12",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 44.8,
+    "rainfall_6h_warning_mm": 47.9,
+    "rainfall_6h_critical_mm": 87.8,
+    "river_level_warning_m": 3.46,
+    "river_level_critical_m": 4.33
+  },
+  "grid_r7_c13": {
+    "zone_id": "grid_r7_c13",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 38.3,
+    "rainfall_6h_warning_mm": 49.7,
+    "rainfall_6h_critical_mm": 91.0,
+    "river_level_warning_m": 3.54,
+    "river_level_critical_m": 4.43
+  },
+  "grid_r7_c14": {
+    "zone_id": "grid_r7_c14",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 28.7,
+    "rainfall_6h_warning_mm": 52.3,
+    "rainfall_6h_critical_mm": 95.8,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.57
+  },
+  "grid_r7_c15": {
+    "zone_id": "grid_r7_c15",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 37.5,
+    "rainfall_6h_warning_mm": 49.9,
+    "rainfall_6h_critical_mm": 91.4,
+    "river_level_warning_m": 3.55,
+    "river_level_critical_m": 4.44
+  },
+  "grid_r7_c16": {
+    "zone_id": "grid_r7_c16",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 27.4,
+    "rainfall_6h_warning_mm": 52.6,
+    "rainfall_6h_critical_mm": 96.4,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r7_c17": {
+    "zone_id": "grid_r7_c17",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 31.4,
+    "rainfall_6h_warning_mm": 51.5,
+    "rainfall_6h_critical_mm": 94.5,
+    "river_level_warning_m": 3.62,
+    "river_level_critical_m": 4.53
+  },
+  "grid_r7_c18": {
+    "zone_id": "grid_r7_c18",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 27.5,
+    "rainfall_6h_warning_mm": 52.6,
+    "rainfall_6h_critical_mm": 96.4,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r7_c19": {
+    "zone_id": "grid_r7_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 19.9,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r7_c20": {
+    "zone_id": "grid_r7_c20",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r7_c21": {
+    "zone_id": "grid_r7_c21",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 24.7,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r7_c22": {
+    "zone_id": "grid_r7_c22",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r7_c23": {
+    "zone_id": "grid_r7_c23",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.3,
+    "rainfall_6h_warning_mm": 52.9,
+    "rainfall_6h_critical_mm": 97.0,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r8_c1": {
+    "zone_id": "grid_r8_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 55.6,
+    "rainfall_6h_warning_mm": 45.0,
+    "rainfall_6h_critical_mm": 82.5,
+    "river_level_warning_m": 3.33,
+    "river_level_critical_m": 4.17
+  },
+  "grid_r8_c2": {
+    "zone_id": "grid_r8_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 18.1,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 101.0,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "grid_r8_c3": {
+    "zone_id": "grid_r8_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r8_c4": {
+    "zone_id": "grid_r8_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r8_c5": {
+    "zone_id": "grid_r8_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.7,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r8_c6": {
+    "zone_id": "grid_r8_c6",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r8_c7": {
+    "zone_id": "grid_r8_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 21.7,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r8_c8": {
+    "zone_id": "grid_r8_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.9,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r8_c9": {
+    "zone_id": "grid_r8_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 26.8,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r8_c10": {
+    "zone_id": "grid_r8_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 28.8,
+    "rainfall_6h_warning_mm": 52.2,
+    "rainfall_6h_critical_mm": 95.7,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.57
+  },
+  "grid_r8_c11": {
+    "zone_id": "grid_r8_c11",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 32.8,
+    "rainfall_6h_warning_mm": 51.1,
+    "rainfall_6h_critical_mm": 93.8,
+    "river_level_warning_m": 3.61,
+    "river_level_critical_m": 4.51
+  },
+  "grid_r8_c12": {
+    "zone_id": "grid_r8_c12",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 34.2,
+    "rainfall_6h_warning_mm": 50.8,
+    "rainfall_6h_critical_mm": 93.1,
+    "river_level_warning_m": 3.59,
+    "river_level_critical_m": 4.49
+  },
+  "grid_r8_c13": {
+    "zone_id": "grid_r8_c13",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 35.9,
+    "rainfall_6h_warning_mm": 50.3,
+    "rainfall_6h_critical_mm": 92.2,
+    "river_level_warning_m": 3.57,
+    "river_level_critical_m": 4.46
+  },
+  "grid_r8_c14": {
+    "zone_id": "grid_r8_c14",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 37.5,
+    "rainfall_6h_warning_mm": 49.9,
+    "rainfall_6h_critical_mm": 91.4,
+    "river_level_warning_m": 3.55,
+    "river_level_critical_m": 4.44
+  },
+  "grid_r8_c15": {
+    "zone_id": "grid_r8_c15",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 26.8,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r8_c16": {
+    "zone_id": "grid_r8_c16",
+    "assembly": "Accra Metropolis",
+    "vulnerability_score": 28.1,
+    "rainfall_6h_warning_mm": 52.4,
+    "rainfall_6h_critical_mm": 96.1,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.58
+  },
+  "grid_r8_c17": {
+    "zone_id": "grid_r8_c17",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.1,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.1,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r8_c18": {
+    "zone_id": "grid_r8_c18",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r8_c19": {
+    "zone_id": "grid_r8_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r8_c20": {
+    "zone_id": "grid_r8_c20",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 18.6,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.8,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "grid_r8_c21": {
+    "zone_id": "grid_r8_c21",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 24.2,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.0,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r8_c22": {
+    "zone_id": "grid_r8_c22",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 23.4,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r8_c23": {
+    "zone_id": "grid_r8_c23",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r9_c1": {
+    "zone_id": "grid_r9_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 53.9,
+    "rainfall_6h_warning_mm": 45.4,
+    "rainfall_6h_critical_mm": 83.3,
+    "river_level_warning_m": 3.35,
+    "river_level_critical_m": 4.19
+  },
+  "grid_r9_c2": {
+    "zone_id": "grid_r9_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r9_c3": {
+    "zone_id": "grid_r9_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r9_c4": {
+    "zone_id": "grid_r9_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r9_c5": {
+    "zone_id": "grid_r9_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r9_c6": {
+    "zone_id": "grid_r9_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r9_c7": {
+    "zone_id": "grid_r9_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r9_c8": {
+    "zone_id": "grid_r9_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r9_c9": {
+    "zone_id": "grid_r9_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 26.3,
+    "rainfall_6h_warning_mm": 52.9,
+    "rainfall_6h_critical_mm": 97.0,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r9_c10": {
+    "zone_id": "grid_r9_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 28.8,
+    "rainfall_6h_warning_mm": 52.2,
+    "rainfall_6h_critical_mm": 95.7,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.57
+  },
+  "grid_r9_c11": {
+    "zone_id": "grid_r9_c11",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 23.5,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r9_c12": {
+    "zone_id": "grid_r9_c12",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.0,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r9_c13": {
+    "zone_id": "grid_r9_c13",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 27.6,
+    "rainfall_6h_warning_mm": 52.5,
+    "rainfall_6h_critical_mm": 96.3,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r9_c14": {
+    "zone_id": "grid_r9_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 44.0,
+    "rainfall_6h_warning_mm": 48.1,
+    "rainfall_6h_critical_mm": 88.2,
+    "river_level_warning_m": 3.47,
+    "river_level_critical_m": 4.34
+  },
+  "grid_r9_c15": {
+    "zone_id": "grid_r9_c15",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 24.1,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r9_c16": {
+    "zone_id": "grid_r9_c16",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 27.9,
+    "rainfall_6h_warning_mm": 52.5,
+    "rainfall_6h_critical_mm": 96.2,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.58
+  },
+  "grid_r9_c17": {
+    "zone_id": "grid_r9_c17",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r9_c18": {
+    "zone_id": "grid_r9_c18",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 24.0,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r9_c19": {
+    "zone_id": "grid_r9_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 23.9,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.2,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r9_c20": {
+    "zone_id": "grid_r9_c20",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 22.6,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r9_c21": {
+    "zone_id": "grid_r9_c21",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.7,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.8,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r9_c22": {
+    "zone_id": "grid_r9_c22",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 24.2,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.0,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r9_c23": {
+    "zone_id": "grid_r9_c23",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.3,
+    "rainfall_6h_warning_mm": 52.9,
+    "rainfall_6h_critical_mm": 97.0,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r10_c1": {
+    "zone_id": "grid_r10_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 45.7,
+    "rainfall_6h_warning_mm": 47.7,
+    "rainfall_6h_critical_mm": 87.4,
+    "river_level_warning_m": 3.45,
+    "river_level_critical_m": 4.31
+  },
+  "grid_r10_c2": {
+    "zone_id": "grid_r10_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.4,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.9,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r10_c3": {
+    "zone_id": "grid_r10_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r10_c4": {
+    "zone_id": "grid_r10_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.0,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r10_c5": {
+    "zone_id": "grid_r10_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r10_c6": {
+    "zone_id": "grid_r10_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r10_c7": {
+    "zone_id": "grid_r10_c7",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 23.3,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r10_c8": {
+    "zone_id": "grid_r10_c8",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 26.0,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.1,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r10_c9": {
+    "zone_id": "grid_r10_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 25.3,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.5,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r10_c10": {
+    "zone_id": "grid_r10_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 22.6,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r10_c11": {
+    "zone_id": "grid_r10_c11",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r10_c12": {
+    "zone_id": "grid_r10_c12",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 13.4,
+    "rainfall_6h_warning_mm": 56.4,
+    "rainfall_6h_critical_mm": 103.4,
+    "river_level_warning_m": 3.84,
+    "river_level_critical_m": 4.8
+  },
+  "grid_r10_c13": {
+    "zone_id": "grid_r10_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.7,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r10_c14": {
+    "zone_id": "grid_r10_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 39.5,
+    "rainfall_6h_warning_mm": 49.3,
+    "rainfall_6h_critical_mm": 90.4,
+    "river_level_warning_m": 3.53,
+    "river_level_critical_m": 4.41
+  },
+  "grid_r10_c15": {
+    "zone_id": "grid_r10_c15",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 29.3,
+    "rainfall_6h_warning_mm": 52.1,
+    "rainfall_6h_critical_mm": 95.5,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.56
+  },
+  "grid_r10_c16": {
+    "zone_id": "grid_r10_c16",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.9,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r10_c17": {
+    "zone_id": "grid_r10_c17",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 23.2,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r10_c18": {
+    "zone_id": "grid_r10_c18",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 27.7,
+    "rainfall_6h_warning_mm": 52.5,
+    "rainfall_6h_critical_mm": 96.3,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.58
+  },
+  "grid_r10_c19": {
+    "zone_id": "grid_r10_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 22.5,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r10_c20": {
+    "zone_id": "grid_r10_c20",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 25.1,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r10_c21": {
+    "zone_id": "grid_r10_c21",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 24.6,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r10_c22": {
+    "zone_id": "grid_r10_c22",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r11_c1": {
+    "zone_id": "grid_r11_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 37.7,
+    "rainfall_6h_warning_mm": 49.8,
+    "rainfall_6h_critical_mm": 91.3,
+    "river_level_warning_m": 3.55,
+    "river_level_critical_m": 4.43
+  },
+  "grid_r11_c2": {
+    "zone_id": "grid_r11_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r11_c3": {
+    "zone_id": "grid_r11_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r11_c4": {
+    "zone_id": "grid_r11_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 17.2,
+    "rainfall_6h_warning_mm": 55.4,
+    "rainfall_6h_critical_mm": 101.5,
+    "river_level_warning_m": 3.79,
+    "river_level_critical_m": 4.74
+  },
+  "grid_r11_c5": {
+    "zone_id": "grid_r11_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r11_c6": {
+    "zone_id": "grid_r11_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.9,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r11_c7": {
+    "zone_id": "grid_r11_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.8,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.2,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r11_c8": {
+    "zone_id": "grid_r11_c8",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 18.3,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 100.9,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "grid_r11_c9": {
+    "zone_id": "grid_r11_c9",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r11_c10": {
+    "zone_id": "grid_r11_c10",
+    "assembly": "Ablekuma Central Municipal",
+    "vulnerability_score": 24.5,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.9,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r11_c11": {
+    "zone_id": "grid_r11_c11",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.1,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r11_c12": {
+    "zone_id": "grid_r11_c12",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 18.2,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 101.0,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "grid_r11_c13": {
+    "zone_id": "grid_r11_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.3,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r11_c14": {
+    "zone_id": "grid_r11_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 33.0,
+    "rainfall_6h_warning_mm": 51.1,
+    "rainfall_6h_critical_mm": 93.7,
+    "river_level_warning_m": 3.6,
+    "river_level_critical_m": 4.5
+  },
+  "grid_r11_c15": {
+    "zone_id": "grid_r11_c15",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.6,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.8,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r11_c16": {
+    "zone_id": "grid_r11_c16",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 29.0,
+    "rainfall_6h_warning_mm": 52.2,
+    "rainfall_6h_critical_mm": 95.6,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.57
+  },
+  "grid_r11_c17": {
+    "zone_id": "grid_r11_c17",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 27.5,
+    "rainfall_6h_warning_mm": 52.6,
+    "rainfall_6h_critical_mm": 96.4,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r11_c18": {
+    "zone_id": "grid_r11_c18",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 26.1,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.1,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r11_c19": {
+    "zone_id": "grid_r11_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 23.8,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.2,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r11_c20": {
+    "zone_id": "grid_r11_c20",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 21.9,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r12_c0": {
+    "zone_id": "grid_r12_c0",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.4,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.9,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r12_c1": {
+    "zone_id": "grid_r12_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.1,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r12_c2": {
+    "zone_id": "grid_r12_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r12_c3": {
+    "zone_id": "grid_r12_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r12_c4": {
+    "zone_id": "grid_r12_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 25.1,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r12_c5": {
+    "zone_id": "grid_r12_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r12_c6": {
+    "zone_id": "grid_r12_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r12_c7": {
+    "zone_id": "grid_r12_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.2,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r12_c8": {
+    "zone_id": "grid_r12_c8",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r12_c9": {
+    "zone_id": "grid_r12_c9",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r12_c10": {
+    "zone_id": "grid_r12_c10",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.9,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r12_c11": {
+    "zone_id": "grid_r12_c11",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.9,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r12_c12": {
+    "zone_id": "grid_r12_c12",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 19.8,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.2,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r12_c13": {
+    "zone_id": "grid_r12_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 29.8,
+    "rainfall_6h_warning_mm": 52.0,
+    "rainfall_6h_critical_mm": 95.2,
+    "river_level_warning_m": 3.64,
+    "river_level_critical_m": 4.55
+  },
+  "grid_r12_c14": {
+    "zone_id": "grid_r12_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.1,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r12_c15": {
+    "zone_id": "grid_r12_c15",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r12_c16": {
+    "zone_id": "grid_r12_c16",
+    "assembly": "Ayawaso Central Municipal",
+    "vulnerability_score": 24.0,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r12_c17": {
+    "zone_id": "grid_r12_c17",
+    "assembly": "Ayawaso Central Municipal",
+    "vulnerability_score": 23.7,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r12_c18": {
+    "zone_id": "grid_r12_c18",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 23.7,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r12_c19": {
+    "zone_id": "grid_r12_c19",
+    "assembly": "Korle Klottey Municipal",
+    "vulnerability_score": 25.3,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.5,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r13_c0": {
+    "zone_id": "grid_r13_c0",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r13_c1": {
+    "zone_id": "grid_r13_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.5,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r13_c2": {
+    "zone_id": "grid_r13_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.7,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r13_c3": {
+    "zone_id": "grid_r13_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r13_c4": {
+    "zone_id": "grid_r13_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.6,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r13_c5": {
+    "zone_id": "grid_r13_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r13_c6": {
+    "zone_id": "grid_r13_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.6,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r13_c7": {
+    "zone_id": "grid_r13_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.5,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r13_c8": {
+    "zone_id": "grid_r13_c8",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r13_c9": {
+    "zone_id": "grid_r13_c9",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r13_c10": {
+    "zone_id": "grid_r13_c10",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r13_c11": {
+    "zone_id": "grid_r13_c11",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.6,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r13_c12": {
+    "zone_id": "grid_r13_c12",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.2,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r13_c13": {
+    "zone_id": "grid_r13_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.1,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r13_c14": {
+    "zone_id": "grid_r13_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r13_c15": {
+    "zone_id": "grid_r13_c15",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.9,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r13_c16": {
+    "zone_id": "grid_r13_c16",
+    "assembly": "Ayawaso Central Municipal",
+    "vulnerability_score": 26.9,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r13_c17": {
+    "zone_id": "grid_r13_c17",
+    "assembly": "Ayawaso Central Municipal",
+    "vulnerability_score": 23.1,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r13_c18": {
+    "zone_id": "grid_r13_c18",
+    "assembly": "Ayawaso Central Municipal",
+    "vulnerability_score": 27.6,
+    "rainfall_6h_warning_mm": 52.5,
+    "rainfall_6h_critical_mm": 96.3,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r14_c0": {
+    "zone_id": "grid_r14_c0",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r14_c1": {
+    "zone_id": "grid_r14_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.2,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r14_c2": {
+    "zone_id": "grid_r14_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r14_c3": {
+    "zone_id": "grid_r14_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r14_c4": {
+    "zone_id": "grid_r14_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.3,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r14_c5": {
+    "zone_id": "grid_r14_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r14_c6": {
+    "zone_id": "grid_r14_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r14_c7": {
+    "zone_id": "grid_r14_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 19.5,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "grid_r14_c8": {
+    "zone_id": "grid_r14_c8",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r14_c9": {
+    "zone_id": "grid_r14_c9",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 26.9,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r14_c10": {
+    "zone_id": "grid_r14_c10",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r14_c11": {
+    "zone_id": "grid_r14_c11",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.3,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r14_c12": {
+    "zone_id": "grid_r14_c12",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.0,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r14_c13": {
+    "zone_id": "grid_r14_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r14_c14": {
+    "zone_id": "grid_r14_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r14_c15": {
+    "zone_id": "grid_r14_c15",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r14_c17": {
+    "zone_id": "grid_r14_c17",
+    "assembly": "Ayawaso Central Municipal",
+    "vulnerability_score": 30.3,
+    "rainfall_6h_warning_mm": 51.8,
+    "rainfall_6h_critical_mm": 95.0,
+    "river_level_warning_m": 3.64,
+    "river_level_critical_m": 4.55
+  },
+  "grid_r14_c18": {
+    "zone_id": "grid_r14_c18",
+    "assembly": "Ayawaso Central Municipal",
+    "vulnerability_score": 26.9,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "grid_r15_c0": {
+    "zone_id": "grid_r15_c0",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r15_c1": {
+    "zone_id": "grid_r15_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r15_c2": {
+    "zone_id": "grid_r15_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r15_c3": {
+    "zone_id": "grid_r15_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r15_c4": {
+    "zone_id": "grid_r15_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r15_c5": {
+    "zone_id": "grid_r15_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r15_c6": {
+    "zone_id": "grid_r15_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r15_c7": {
+    "zone_id": "grid_r15_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r15_c8": {
+    "zone_id": "grid_r15_c8",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r15_c9": {
+    "zone_id": "grid_r15_c9",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r15_c10": {
+    "zone_id": "grid_r15_c10",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.9,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.2,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r15_c11": {
+    "zone_id": "grid_r15_c11",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 27.5,
+    "rainfall_6h_warning_mm": 52.6,
+    "rainfall_6h_critical_mm": 96.4,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "grid_r15_c12": {
+    "zone_id": "grid_r15_c12",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.0,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r15_c13": {
+    "zone_id": "grid_r15_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 19.5,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "grid_r15_c14": {
+    "zone_id": "grid_r15_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 19.0,
+    "rainfall_6h_warning_mm": 54.9,
+    "rainfall_6h_critical_mm": 100.6,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "grid_r15_c15": {
+    "zone_id": "grid_r15_c15",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.3,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 98.0,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r16_c1": {
+    "zone_id": "grid_r16_c1",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r16_c2": {
+    "zone_id": "grid_r16_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r16_c3": {
+    "zone_id": "grid_r16_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "grid_r16_c4": {
+    "zone_id": "grid_r16_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.1,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r16_c5": {
+    "zone_id": "grid_r16_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.4,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r16_c6": {
+    "zone_id": "grid_r16_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r16_c7": {
+    "zone_id": "grid_r16_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.3,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r16_c8": {
+    "zone_id": "grid_r16_c8",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.7,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r16_c9": {
+    "zone_id": "grid_r16_c9",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "grid_r16_c10": {
+    "zone_id": "grid_r16_c10",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 26.1,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.1,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r16_c11": {
+    "zone_id": "grid_r16_c11",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 32.4,
+    "rainfall_6h_warning_mm": 51.3,
+    "rainfall_6h_critical_mm": 94.0,
+    "river_level_warning_m": 3.61,
+    "river_level_critical_m": 4.51
+  },
+  "grid_r16_c12": {
+    "zone_id": "grid_r16_c12",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r16_c13": {
+    "zone_id": "grid_r16_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.7,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r16_c14": {
+    "zone_id": "grid_r16_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 25.1,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r16_c15": {
+    "zone_id": "grid_r16_c15",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.5,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r17_c2": {
+    "zone_id": "grid_r17_c2",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r17_c3": {
+    "zone_id": "grid_r17_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r17_c4": {
+    "zone_id": "grid_r17_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.6,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r17_c5": {
+    "zone_id": "grid_r17_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.2,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.0,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r17_c6": {
+    "zone_id": "grid_r17_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.0,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r17_c7": {
+    "zone_id": "grid_r17_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r17_c12": {
+    "zone_id": "grid_r17_c12",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 26.1,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.1,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r17_c13": {
+    "zone_id": "grid_r17_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.6,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r17_c14": {
+    "zone_id": "grid_r17_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.6,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "grid_r18_c3": {
+    "zone_id": "grid_r18_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 25.7,
+    "rainfall_6h_warning_mm": 53.1,
+    "rainfall_6h_critical_mm": 97.3,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "grid_r18_c4": {
+    "zone_id": "grid_r18_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r18_c5": {
+    "zone_id": "grid_r18_c5",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 22.5,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "grid_r18_c6": {
+    "zone_id": "grid_r18_c6",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 21.5,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "grid_r18_c7": {
+    "zone_id": "grid_r18_c7",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 23.4,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "grid_r18_c13": {
+    "zone_id": "grid_r18_c13",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "grid_r18_c14": {
+    "zone_id": "grid_r18_c14",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.0,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "grid_r19_c3": {
+    "zone_id": "grid_r19_c3",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 25.1,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "grid_r19_c4": {
+    "zone_id": "grid_r19_c4",
+    "assembly": "Ablekuma North Municipal",
+    "vulnerability_score": 24.5,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.9,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.63
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "n_cells": 319,
+  "n_no_s2_coverage": 0,
+  "sar_s2_correlation": -0.071,
+  "agreement_counts": {
+    "agree": 123,
+    "minor_disagreement": 140,
+    "major_disagreement": 56
+  },
+  "major_disagreements": [
+    {
+      "zone_id": "grid_r0_c5",
+      "sar_water_occ_pct": 2.6,
+      "s2_water_occ_pct": 21.98,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r0_c6",
+      "sar_water_occ_pct": 5.1,
+      "s2_water_occ_pct": 30.57,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r1_c2",
+      "sar_water_occ_pct": 15.6,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r1_c3",
+      "sar_water_occ_pct": 21.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r2_c2",
+      "sar_water_occ_pct": 35.6,
+      "s2_water_occ_pct": 0.8,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r2_c3",
+      "sar_water_occ_pct": 18.1,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r3_c9",
+      "sar_water_occ_pct": 22.5,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r3_c15",
+      "sar_water_occ_pct": 19.7,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r4_c2",
+      "sar_water_occ_pct": 2.5,
+      "s2_water_occ_pct": 33.88,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r4_c3",
+      "sar_water_occ_pct": 4.1,
+      "s2_water_occ_pct": 23.01,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r4_c11",
+      "sar_water_occ_pct": 16.9,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r4_c15",
+      "sar_water_occ_pct": 18.1,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r5_c14",
+      "sar_water_occ_pct": 16.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r5_c18",
+      "sar_water_occ_pct": 18.1,
+      "s2_water_occ_pct": 1.84,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r6_c11",
+      "sar_water_occ_pct": 15.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r6_c14",
+      "sar_water_occ_pct": 26.7,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r6_c15",
+      "sar_water_occ_pct": 39.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r6_c16",
+      "sar_water_occ_pct": 33.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r6_c18",
+      "sar_water_occ_pct": 19.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c9",
+      "sar_water_occ_pct": 16.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c11",
+      "sar_water_occ_pct": 15.5,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c14",
+      "sar_water_occ_pct": 18.1,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c15",
+      "sar_water_occ_pct": 38.8,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c16",
+      "sar_water_occ_pct": 16.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c17",
+      "sar_water_occ_pct": 29.0,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c18",
+      "sar_water_occ_pct": 18.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c20",
+      "sar_water_occ_pct": 16.75,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c1",
+      "sar_water_occ_pct": 15.6,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c9",
+      "sar_water_occ_pct": 15.1,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c10",
+      "sar_water_occ_pct": 19.6,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c15",
+      "sar_water_occ_pct": 15.2,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c16",
+      "sar_water_occ_pct": 18.0,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c17",
+      "sar_water_occ_pct": 15.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c1",
+      "sar_water_occ_pct": 26.1,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c10",
+      "sar_water_occ_pct": 19.6,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c13",
+      "sar_water_occ_pct": 15.5,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c14",
+      "sar_water_occ_pct": 24.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c16",
+      "sar_water_occ_pct": 19.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c19",
+      "sar_water_occ_pct": 15.7,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c20",
+      "sar_water_occ_pct": 16.08,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c14",
+      "sar_water_occ_pct": 27.5,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c15",
+      "sar_water_occ_pct": 20.75,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c16",
+      "sar_water_occ_pct": 15.42,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c18",
+      "sar_water_occ_pct": 18.67,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c20",
+      "sar_water_occ_pct": 15.07,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c15",
+      "sar_water_occ_pct": 16.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c16",
+      "sar_water_occ_pct": 19.9,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c17",
+      "sar_water_occ_pct": 16.7,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c13",
+      "sar_water_occ_pct": 21.8,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c16",
+      "sar_water_occ_pct": 15.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c18",
+      "sar_water_occ_pct": 16.8,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c9",
+      "sar_water_occ_pct": 15.4,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c17",
+      "sar_water_occ_pct": 22.9,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c18",
+      "sar_water_occ_pct": 15.3,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c11",
+      "sar_water_occ_pct": 16.6,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c11",
+      "sar_water_occ_pct": 27.5,
+      "s2_water_occ_pct": 0.0,
+      "agreement": "major_disagreement"
+    }
+  ],
+  "interpretation_caveat": "Sentinel-2 sample is cloud-filtered (<20% cover), which excludes ~93% of rainy-season scenes (0 of 40 sampled scenes were from June/July). This field is a DRY-SEASON optical baseline, not a flood-season cross-check -- SAR-S2 spatial correlation was ~0 (r=-0.07) because the two sensors sample different seasonal populations, not because either is wrong. Do not read this as a validated QA agreement signal.",
+  "conclusion": "Sentinel-2/MNDWI cross-validation for FLOODS is not viable with a simple cloud-filtered approach -- the cloud filter removes the rainy season. Parked per team decision (2026-08). Sentinel-2 remains a strong candidate for a future FIRE detection module, where clear-sky bias is not a problem."
+}

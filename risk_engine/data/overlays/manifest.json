@@ -1,0 +1,114 @@
+{
+  "bounds": [
+    [
+      5.509287109000174,
+      -0.292592772999919
+    ],
+    [
+      5.618520508000026,
+      -0.165109862999818
+    ]
+  ],
+  "scenes_used": 40,
+  "layers": {
+    "sar_water_occurrence": {
+      "file": "sar_water_occurrence.png",
+      "min": 0.0,
+      "max": 1.0,
+      "legend": "Sentinel-1 SAR water occurrence, 2020-2024 (darker blue = more frequently water-like)"
+    },
+    "dem_elevation": {
+      "file": "dem_elevation.png",
+      "min_m": 0.0,
+      "max_m": 59.2,
+      "legend": "Copernicus DEM 30m elevation (green = low-lying/flood-prone, brown = higher ground)"
+    },
+    "worldcover": {
+      "file": "worldcover.png",
+      "legend": "ESA WorldCover 2021 land cover",
+      "classes_present": [
+        {
+          "code": 10,
+          "name": "tree_cover",
+          "color_rgb": [
+            0,
+            100,
+            0
+          ]
+        },
+        {
+          "code": 20,
+          "name": "shrubland",
+          "color_rgb": [
+            255,
+            187,
+            34
+          ]
+        },
+        {
+          "code": 30,
+          "name": "grassland",
+          "color_rgb": [
+            255,
+            255,
+            76
+          ]
+        },
+        {
+          "code": 40,
+          "name": "cropland",
+          "color_rgb": [
+            240,
+            150,
+            255
+          ]
+        },
+        {
+          "code": 50,
+          "name": "built_up",
+          "color_rgb": [
+            250,
+            0,
+            0
+          ]
+        },
+        {
+          "code": 60,
+          "name": "bare_sparse_veg",
+          "color_rgb": [
+            180,
+            180,
+            180
+          ]
+        },
+        {
+          "code": 80,
+          "name": "permanent_water",
+          "color_rgb": [
+            0,
+            100,
+            200
+          ]
+        },
+        {
+          "code": 90,
+          "name": "herbaceous_wetland",
+          "color_rgb": [
+            0,
+            150,
+            160
+          ]
+        },
+        {
+          "code": 95,
+          "name": "mangroves",
+          "color_rgb": [
+            0,
+            207,
+            117
+          ]
+        }
+      ]
+    }
+  }
+}

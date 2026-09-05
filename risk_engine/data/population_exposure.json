@@ -1,0 +1,2238 @@
+{
+  "source_note": "WorldPop Ghana 2020, unconstrained 100m gridded population count (data.worldpop.org, id 6365). Each pixel is an estimated person-count, summed per zone -- not a census, a model-based estimate. Building counts here are a CLEAN centroid-based assignment (one cell per building, no double-counting) -- deliberately different from channel_encroachment_index.py's n_buildings, which uses a padded/overlapping bbox appropriate for its own distance-to-waterway calculation but wrong for a district-wide infrastructure total (summing it double-counts buildings near cell edges: 228,330 vs. 123,944 unique buildings in the same area -- caught and fixed here, not shipped).",
+  "zones": {
+    "grid_r0_c2": {
+      "estimated_population": 1648.9,
+      "n_buildings": 0,
+      "score": 51.6,
+      "level": "High",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r0_c3": {
+      "estimated_population": 1738.8,
+      "n_buildings": 0,
+      "score": 51.9,
+      "level": "High",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r0_c4": {
+      "estimated_population": 1536.2,
+      "n_buildings": 39,
+      "score": 43.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r0_c5": {
+      "estimated_population": 1321.0,
+      "n_buildings": 355,
+      "score": 41.2,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r0_c6": {
+      "estimated_population": 751.2,
+      "n_buildings": 92,
+      "score": 38.9,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c1": {
+      "estimated_population": 1284.2,
+      "n_buildings": 160,
+      "score": 52.5,
+      "level": "High",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c2": {
+      "estimated_population": 2104.1,
+      "n_buildings": 89,
+      "score": 53.6,
+      "level": "High",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c3": {
+      "estimated_population": 2285.8,
+      "n_buildings": 22,
+      "score": 43.6,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c4": {
+      "estimated_population": 2679.1,
+      "n_buildings": 12,
+      "score": 34.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c5": {
+      "estimated_population": 3325.2,
+      "n_buildings": 307,
+      "score": 33.0,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c6": {
+      "estimated_population": 2675.0,
+      "n_buildings": 956,
+      "score": 41.6,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c7": {
+      "estimated_population": 3193.5,
+      "n_buildings": 2242,
+      "score": 25.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c8": {
+      "estimated_population": 2721.1,
+      "n_buildings": 2217,
+      "score": 28.2,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c9": {
+      "estimated_population": 2046.3,
+      "n_buildings": 1152,
+      "score": 27.7,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c10": {
+      "estimated_population": 1913.0,
+      "n_buildings": 388,
+      "score": 31.6,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r1_c11": {
+      "estimated_population": 738.0,
+      "n_buildings": 32,
+      "score": 35.7,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c1": {
+      "estimated_population": 2191.6,
+      "n_buildings": 79,
+      "score": 54.1,
+      "level": "High",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c2": {
+      "estimated_population": 3708.9,
+      "n_buildings": 109,
+      "score": 33.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c3": {
+      "estimated_population": 3896.8,
+      "n_buildings": 267,
+      "score": 27.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c4": {
+      "estimated_population": 4149.0,
+      "n_buildings": 263,
+      "score": 22.8,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c5": {
+      "estimated_population": 4934.6,
+      "n_buildings": 20,
+      "score": 21.0,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c6": {
+      "estimated_population": 4323.8,
+      "n_buildings": 1,
+      "score": 31.5,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c7": {
+      "estimated_population": 5341.9,
+      "n_buildings": 21,
+      "score": 27.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c8": {
+      "estimated_population": 4386.5,
+      "n_buildings": 79,
+      "score": 22.7,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c9": {
+      "estimated_population": 4514.1,
+      "n_buildings": 59,
+      "score": 23.4,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c10": {
+      "estimated_population": 4821.1,
+      "n_buildings": 525,
+      "score": 21.0,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c11": {
+      "estimated_population": 3758.9,
+      "n_buildings": 785,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c12": {
+      "estimated_population": 4031.8,
+      "n_buildings": 769,
+      "score": 24.7,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c13": {
+      "estimated_population": 2168.7,
+      "n_buildings": 66,
+      "score": 34.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r2_c14": {
+      "estimated_population": 1541.4,
+      "n_buildings": 37,
+      "score": 43.0,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r3_c2": {
+      "estimated_population": 2751.8,
+      "n_buildings": 316,
+      "score": 33.5,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c3": {
+      "estimated_population": 3748.9,
+      "n_buildings": 437,
+      "score": 24.7,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c4": {
+      "estimated_population": 4145.2,
+      "n_buildings": 564,
+      "score": 21.7,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c5": {
+      "estimated_population": 4810.0,
+      "n_buildings": 112,
+      "score": 21.0,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c6": {
+      "estimated_population": 3937.1,
+      "n_buildings": 20,
+      "score": 23.8,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c7": {
+      "estimated_population": 4986.5,
+      "n_buildings": 3,
+      "score": 22.5,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r3_c8": {
+      "estimated_population": 4081.9,
+      "n_buildings": 1,
+      "score": 25.2,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r3_c9": {
+      "estimated_population": 4352.8,
+      "n_buildings": 85,
+      "score": 29.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c10": {
+      "estimated_population": 5315.0,
+      "n_buildings": 171,
+      "score": 22.9,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c11": {
+      "estimated_population": 3842.7,
+      "n_buildings": 481,
+      "score": 21.6,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c12": {
+      "estimated_population": 4464.9,
+      "n_buildings": 837,
+      "score": 22.8,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c13": {
+      "estimated_population": 2718.3,
+      "n_buildings": 220,
+      "score": 44.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r3_c14": {
+      "estimated_population": 2724.5,
+      "n_buildings": 165,
+      "score": 43.0,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r3_c15": {
+      "estimated_population": 3461.8,
+      "n_buildings": 782,
+      "score": 28.9,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r3_c16": {
+      "estimated_population": 1845.0,
+      "n_buildings": 75,
+      "score": 38.8,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r4_c2": {
+      "estimated_population": 2942.2,
+      "n_buildings": 277,
+      "score": 36.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r4_c3": {
+      "estimated_population": 4305.2,
+      "n_buildings": 397,
+      "score": 21.8,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r4_c4": {
+      "estimated_population": 5128.6,
+      "n_buildings": 450,
+      "score": 20.8,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r4_c5": {
+      "estimated_population": 6522.6,
+      "n_buildings": 100,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r4_c6": {
+      "estimated_population": 5443.6,
+      "n_buildings": 58,
+      "score": 22.7,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r4_c7": {
+      "estimated_population": 6488.5,
+      "n_buildings": 20,
+      "score": 23.8,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r4_c8": {
+      "estimated_population": 5348.4,
+      "n_buildings": 2,
+      "score": 26.7,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r4_c9": {
+      "estimated_population": 5354.1,
+      "n_buildings": 119,
+      "score": 25.2,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r4_c10": {
+      "estimated_population": 6242.0,
+      "n_buildings": 92,
+      "score": 21.8,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r4_c11": {
+      "estimated_population": 4867.6,
+      "n_buildings": 94,
+      "score": 23.6,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r4_c12": {
+      "estimated_population": 5682.4,
+      "n_buildings": 102,
+      "score": 18.4,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r4_c13": {
+      "estimated_population": 3937.6,
+      "n_buildings": 70,
+      "score": 35.0,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r4_c14": {
+      "estimated_population": 4473.1,
+      "n_buildings": 664,
+      "score": 38.8,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r4_c15": {
+      "estimated_population": 5417.2,
+      "n_buildings": 695,
+      "score": 28.1,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r4_c16": {
+      "estimated_population": 3398.8,
+      "n_buildings": 548,
+      "score": 22.4,
+      "level": "Low",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r5_c2": {
+      "estimated_population": 2579.6,
+      "n_buildings": 104,
+      "score": 37.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r5_c3": {
+      "estimated_population": 3236.1,
+      "n_buildings": 71,
+      "score": 22.7,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r5_c4": {
+      "estimated_population": 3665.1,
+      "n_buildings": 174,
+      "score": 21.2,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r5_c5": {
+      "estimated_population": 4578.3,
+      "n_buildings": 89,
+      "score": 22.3,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r5_c6": {
+      "estimated_population": 3999.0,
+      "n_buildings": 56,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r5_c7": {
+      "estimated_population": 4542.2,
+      "n_buildings": 173,
+      "score": 25.6,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r5_c8": {
+      "estimated_population": 4477.4,
+      "n_buildings": 105,
+      "score": 22.0,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r5_c9": {
+      "estimated_population": 4599.1,
+      "n_buildings": 64,
+      "score": 19.7,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r5_c10": {
+      "estimated_population": 5223.8,
+      "n_buildings": 63,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r5_c11": {
+      "estimated_population": 4599.2,
+      "n_buildings": 115,
+      "score": 16.7,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r5_c12": {
+      "estimated_population": 4866.3,
+      "n_buildings": 1185,
+      "score": 25.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r5_c13": {
+      "estimated_population": 3728.1,
+      "n_buildings": 5395,
+      "score": 44.4,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r5_c14": {
+      "estimated_population": 4111.8,
+      "n_buildings": 894,
+      "score": 28.7,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r5_c15": {
+      "estimated_population": 5444.9,
+      "n_buildings": 643,
+      "score": 25.9,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r5_c16": {
+      "estimated_population": 3988.7,
+      "n_buildings": 338,
+      "score": 24.1,
+      "level": "Low",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r5_c17": {
+      "estimated_population": 4182.5,
+      "n_buildings": 202,
+      "score": 22.9,
+      "level": "Low",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r5_c18": {
+      "estimated_population": 2763.5,
+      "n_buildings": 259,
+      "score": 30.5,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r5_c19": {
+      "estimated_population": 2088.8,
+      "n_buildings": 1,
+      "score": 26.2,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r5_c20": {
+      "estimated_population": 1600.1,
+      "n_buildings": 0,
+      "score": 36.5,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r6_c1": {
+      "estimated_population": 1851.1,
+      "n_buildings": 163,
+      "score": 42.2,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r6_c2": {
+      "estimated_population": 3255.2,
+      "n_buildings": 126,
+      "score": 29.4,
+      "level": "Moderate",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r6_c3": {
+      "estimated_population": 3203.5,
+      "n_buildings": 137,
+      "score": 19.2,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r6_c4": {
+      "estimated_population": 3400.2,
+      "n_buildings": 134,
+      "score": 19.3,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r6_c5": {
+      "estimated_population": 4004.3,
+      "n_buildings": 298,
+      "score": 21.0,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c6": {
+      "estimated_population": 3037.8,
+      "n_buildings": 256,
+      "score": 20.6,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c7": {
+      "estimated_population": 3772.1,
+      "n_buildings": 60,
+      "score": 22.2,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c8": {
+      "estimated_population": 4542.3,
+      "n_buildings": 48,
+      "score": 25.6,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c9": {
+      "estimated_population": 4913.2,
+      "n_buildings": 28,
+      "score": 22.1,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c10": {
+      "estimated_population": 5702.0,
+      "n_buildings": 41,
+      "score": 24.4,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c11": {
+      "estimated_population": 4768.8,
+      "n_buildings": 195,
+      "score": 26.9,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c12": {
+      "estimated_population": 5509.5,
+      "n_buildings": 825,
+      "score": 26.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r6_c13": {
+      "estimated_population": 4355.4,
+      "n_buildings": 7224,
+      "score": 31.0,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r6_c14": {
+      "estimated_population": 4609.7,
+      "n_buildings": 2071,
+      "score": 43.2,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r6_c15": {
+      "estimated_population": 5605.9,
+      "n_buildings": 421,
+      "score": 37.7,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r6_c16": {
+      "estimated_population": 4785.1,
+      "n_buildings": 300,
+      "score": 35.0,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r6_c17": {
+      "estimated_population": 5741.2,
+      "n_buildings": 189,
+      "score": 26.1,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r6_c18": {
+      "estimated_population": 3838.1,
+      "n_buildings": 140,
+      "score": 28.7,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r6_c19": {
+      "estimated_population": 3264.1,
+      "n_buildings": 73,
+      "score": 22.5,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r6_c20": {
+      "estimated_population": 3578.5,
+      "n_buildings": 100,
+      "score": 19.5,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r6_c21": {
+      "estimated_population": 2550.9,
+      "n_buildings": 398,
+      "score": 23.0,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r6_c22": {
+      "estimated_population": 2315.8,
+      "n_buildings": 294,
+      "score": 37.1,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r6_c23": {
+      "estimated_population": 910.8,
+      "n_buildings": 158,
+      "score": 40.5,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r7_c1": {
+      "estimated_population": 2377.2,
+      "n_buildings": 388,
+      "score": 46.6,
+      "level": "High",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r7_c2": {
+      "estimated_population": 4207.8,
+      "n_buildings": 628,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r7_c3": {
+      "estimated_population": 4226.6,
+      "n_buildings": 585,
+      "score": 20.3,
+      "level": "Low",
+      "assembly": "Ablekuma West Municipal"
+    },
+    "grid_r7_c4": {
+      "estimated_population": 3733.3,
+      "n_buildings": 618,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c5": {
+      "estimated_population": 4103.2,
+      "n_buildings": 1030,
+      "score": 21.3,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c6": {
+      "estimated_population": 3403.3,
+      "n_buildings": 1138,
+      "score": 23.3,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c7": {
+      "estimated_population": 4546.4,
+      "n_buildings": 132,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c8": {
+      "estimated_population": 5359.0,
+      "n_buildings": 0,
+      "score": 25.4,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c9": {
+      "estimated_population": 5995.5,
+      "n_buildings": 13,
+      "score": 27.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c10": {
+      "estimated_population": 7162.5,
+      "n_buildings": 3,
+      "score": 26.4,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c11": {
+      "estimated_population": 5799.6,
+      "n_buildings": 264,
+      "score": 38.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c12": {
+      "estimated_population": 6786.6,
+      "n_buildings": 1476,
+      "score": 44.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c13": {
+      "estimated_population": 5546.7,
+      "n_buildings": 1904,
+      "score": 38.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r7_c14": {
+      "estimated_population": 5680.0,
+      "n_buildings": 2718,
+      "score": 28.7,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r7_c15": {
+      "estimated_population": 6849.3,
+      "n_buildings": 360,
+      "score": 37.5,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r7_c16": {
+      "estimated_population": 5876.4,
+      "n_buildings": 466,
+      "score": 27.4,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r7_c17": {
+      "estimated_population": 7162.1,
+      "n_buildings": 104,
+      "score": 31.4,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r7_c18": {
+      "estimated_population": 5458.8,
+      "n_buildings": 79,
+      "score": 27.5,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r7_c19": {
+      "estimated_population": 4805.5,
+      "n_buildings": 72,
+      "score": 19.9,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r7_c20": {
+      "estimated_population": 5635.4,
+      "n_buildings": 192,
+      "score": 24.9,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r7_c21": {
+      "estimated_population": 4371.5,
+      "n_buildings": 647,
+      "score": 24.7,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r7_c22": {
+      "estimated_population": 4572.3,
+      "n_buildings": 634,
+      "score": 22.1,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r7_c23": {
+      "estimated_population": 3538.2,
+      "n_buildings": 414,
+      "score": 26.3,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r8_c1": {
+      "estimated_population": 2007.8,
+      "n_buildings": 332,
+      "score": 55.6,
+      "level": "High",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r8_c2": {
+      "estimated_population": 3064.5,
+      "n_buildings": 255,
+      "score": 18.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r8_c3": {
+      "estimated_population": 3812.9,
+      "n_buildings": 438,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r8_c4": {
+      "estimated_population": 3938.6,
+      "n_buildings": 692,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r8_c5": {
+      "estimated_population": 3389.6,
+      "n_buildings": 906,
+      "score": 20.7,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r8_c6": {
+      "estimated_population": 2903.6,
+      "n_buildings": 1139,
+      "score": 20.8,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c7": {
+      "estimated_population": 4698.1,
+      "n_buildings": 148,
+      "score": 21.7,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c8": {
+      "estimated_population": 4540.0,
+      "n_buildings": 97,
+      "score": 22.9,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c9": {
+      "estimated_population": 4960.0,
+      "n_buildings": 62,
+      "score": 26.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c10": {
+      "estimated_population": 5898.1,
+      "n_buildings": 9,
+      "score": 28.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c11": {
+      "estimated_population": 4817.4,
+      "n_buildings": 444,
+      "score": 32.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c12": {
+      "estimated_population": 5747.4,
+      "n_buildings": 302,
+      "score": 34.2,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c13": {
+      "estimated_population": 4786.6,
+      "n_buildings": 135,
+      "score": 35.9,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c14": {
+      "estimated_population": 4697.2,
+      "n_buildings": 463,
+      "score": 37.5,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r8_c15": {
+      "estimated_population": 5657.8,
+      "n_buildings": 560,
+      "score": 26.8,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r8_c16": {
+      "estimated_population": 4855.0,
+      "n_buildings": 263,
+      "score": 28.1,
+      "level": "Moderate",
+      "assembly": "Accra Metropolis"
+    },
+    "grid_r8_c17": {
+      "estimated_population": 6052.3,
+      "n_buildings": 119,
+      "score": 26.1,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r8_c18": {
+      "estimated_population": 4827.1,
+      "n_buildings": 56,
+      "score": 22.7,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r8_c19": {
+      "estimated_population": 3943.8,
+      "n_buildings": 101,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r8_c20": {
+      "estimated_population": 4530.5,
+      "n_buildings": 104,
+      "score": 18.6,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r8_c21": {
+      "estimated_population": 3590.7,
+      "n_buildings": 412,
+      "score": 24.2,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r8_c22": {
+      "estimated_population": 4141.8,
+      "n_buildings": 479,
+      "score": 23.4,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r8_c23": {
+      "estimated_population": 3637.9,
+      "n_buildings": 541,
+      "score": 20.1,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c1": {
+      "estimated_population": 2073.8,
+      "n_buildings": 505,
+      "score": 53.9,
+      "level": "High",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r9_c2": {
+      "estimated_population": 4883.2,
+      "n_buildings": 268,
+      "score": 22.7,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r9_c3": {
+      "estimated_population": 4831.1,
+      "n_buildings": 451,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r9_c4": {
+      "estimated_population": 4696.1,
+      "n_buildings": 552,
+      "score": 22.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r9_c5": {
+      "estimated_population": 3976.1,
+      "n_buildings": 775,
+      "score": 21.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r9_c6": {
+      "estimated_population": 3885.5,
+      "n_buildings": 834,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r9_c7": {
+      "estimated_population": 5762.9,
+      "n_buildings": 383,
+      "score": 22.4,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r9_c8": {
+      "estimated_population": 5098.3,
+      "n_buildings": 429,
+      "score": 22.1,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r9_c9": {
+      "estimated_population": 5959.0,
+      "n_buildings": 324,
+      "score": 26.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r9_c10": {
+      "estimated_population": 7213.2,
+      "n_buildings": 64,
+      "score": 28.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r9_c11": {
+      "estimated_population": 5429.7,
+      "n_buildings": 214,
+      "score": 23.5,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r9_c12": {
+      "estimated_population": 6029.7,
+      "n_buildings": 81,
+      "score": 25.0,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r9_c13": {
+      "estimated_population": 5509.8,
+      "n_buildings": 130,
+      "score": 27.6,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r9_c14": {
+      "estimated_population": 5783.7,
+      "n_buildings": 402,
+      "score": 44.0,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r9_c15": {
+      "estimated_population": 7026.0,
+      "n_buildings": 611,
+      "score": 24.1,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c16": {
+      "estimated_population": 5911.7,
+      "n_buildings": 302,
+      "score": 27.9,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c17": {
+      "estimated_population": 7201.2,
+      "n_buildings": 137,
+      "score": 21.8,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c18": {
+      "estimated_population": 5753.5,
+      "n_buildings": 95,
+      "score": 24.0,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c19": {
+      "estimated_population": 4735.1,
+      "n_buildings": 135,
+      "score": 23.9,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c20": {
+      "estimated_population": 5160.3,
+      "n_buildings": 176,
+      "score": 22.6,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c21": {
+      "estimated_population": 3853.3,
+      "n_buildings": 343,
+      "score": 26.7,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c22": {
+      "estimated_population": 5197.1,
+      "n_buildings": 457,
+      "score": 24.2,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r9_c23": {
+      "estimated_population": 4491.3,
+      "n_buildings": 428,
+      "score": 26.3,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c1": {
+      "estimated_population": 1350.6,
+      "n_buildings": 332,
+      "score": 45.7,
+      "level": "High",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c2": {
+      "estimated_population": 5095.2,
+      "n_buildings": 449,
+      "score": 24.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c3": {
+      "estimated_population": 4243.3,
+      "n_buildings": 372,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c4": {
+      "estimated_population": 3202.1,
+      "n_buildings": 232,
+      "score": 20.0,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c5": {
+      "estimated_population": 3206.4,
+      "n_buildings": 608,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c6": {
+      "estimated_population": 3903.4,
+      "n_buildings": 563,
+      "score": 21.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c7": {
+      "estimated_population": 4608.1,
+      "n_buildings": 360,
+      "score": 23.3,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r10_c8": {
+      "estimated_population": 3809.0,
+      "n_buildings": 393,
+      "score": 26.0,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r10_c9": {
+      "estimated_population": 4327.9,
+      "n_buildings": 365,
+      "score": 25.3,
+      "level": "Moderate",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r10_c10": {
+      "estimated_population": 5862.7,
+      "n_buildings": 70,
+      "score": 22.6,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r10_c11": {
+      "estimated_population": 3992.2,
+      "n_buildings": 15,
+      "score": 24.9,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r10_c12": {
+      "estimated_population": 4425.2,
+      "n_buildings": 12,
+      "score": 13.4,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r10_c13": {
+      "estimated_population": 4415.9,
+      "n_buildings": 64,
+      "score": 23.7,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c14": {
+      "estimated_population": 4880.3,
+      "n_buildings": 474,
+      "score": 39.5,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r10_c15": {
+      "estimated_population": 5990.0,
+      "n_buildings": 496,
+      "score": 29.3,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c16": {
+      "estimated_population": 5135.4,
+      "n_buildings": 374,
+      "score": 26.9,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c17": {
+      "estimated_population": 6239.8,
+      "n_buildings": 290,
+      "score": 23.2,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c18": {
+      "estimated_population": 5002.6,
+      "n_buildings": 172,
+      "score": 27.7,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c19": {
+      "estimated_population": 3954.7,
+      "n_buildings": 110,
+      "score": 22.5,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c20": {
+      "estimated_population": 4544.0,
+      "n_buildings": 176,
+      "score": 25.1,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c21": {
+      "estimated_population": 3916.9,
+      "n_buildings": 385,
+      "score": 24.6,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r10_c22": {
+      "estimated_population": 4599.6,
+      "n_buildings": 211,
+      "score": 21.0,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r11_c1": {
+      "estimated_population": 2742.8,
+      "n_buildings": 386,
+      "score": 37.7,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c2": {
+      "estimated_population": 6154.1,
+      "n_buildings": 461,
+      "score": 21.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c3": {
+      "estimated_population": 5299.7,
+      "n_buildings": 511,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c4": {
+      "estimated_population": 4718.7,
+      "n_buildings": 242,
+      "score": 17.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c5": {
+      "estimated_population": 4757.0,
+      "n_buildings": 841,
+      "score": 21.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c6": {
+      "estimated_population": 4569.6,
+      "n_buildings": 440,
+      "score": 21.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c7": {
+      "estimated_population": 4779.9,
+      "n_buildings": 252,
+      "score": 23.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c8": {
+      "estimated_population": 3612.3,
+      "n_buildings": 94,
+      "score": 18.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c9": {
+      "estimated_population": 4202.7,
+      "n_buildings": 34,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r11_c10": {
+      "estimated_population": 6970.2,
+      "n_buildings": 5,
+      "score": 24.5,
+      "level": "Low",
+      "assembly": "Ablekuma Central Municipal"
+    },
+    "grid_r11_c11": {
+      "estimated_population": 5357.6,
+      "n_buildings": 66,
+      "score": 24.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c12": {
+      "estimated_population": 5803.4,
+      "n_buildings": 29,
+      "score": 18.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c13": {
+      "estimated_population": 5383.7,
+      "n_buildings": 45,
+      "score": 23.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c14": {
+      "estimated_population": 5960.5,
+      "n_buildings": 131,
+      "score": 33.0,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r11_c15": {
+      "estimated_population": 7264.8,
+      "n_buildings": 234,
+      "score": 26.6,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r11_c16": {
+      "estimated_population": 6248.7,
+      "n_buildings": 344,
+      "score": 29.0,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r11_c17": {
+      "estimated_population": 7620.8,
+      "n_buildings": 345,
+      "score": 27.5,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r11_c18": {
+      "estimated_population": 6318.8,
+      "n_buildings": 226,
+      "score": 26.1,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r11_c19": {
+      "estimated_population": 5077.6,
+      "n_buildings": 189,
+      "score": 23.8,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r11_c20": {
+      "estimated_population": 5639.8,
+      "n_buildings": 91,
+      "score": 21.9,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r12_c0": {
+      "estimated_population": 2155.5,
+      "n_buildings": 161,
+      "score": 24.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c1": {
+      "estimated_population": 3865.9,
+      "n_buildings": 369,
+      "score": 21.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c2": {
+      "estimated_population": 5033.2,
+      "n_buildings": 498,
+      "score": 20.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c3": {
+      "estimated_population": 4353.6,
+      "n_buildings": 730,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c4": {
+      "estimated_population": 4425.8,
+      "n_buildings": 1025,
+      "score": 25.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c5": {
+      "estimated_population": 4597.5,
+      "n_buildings": 1002,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c6": {
+      "estimated_population": 3780.7,
+      "n_buildings": 683,
+      "score": 20.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c7": {
+      "estimated_population": 3933.4,
+      "n_buildings": 32,
+      "score": 20.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c8": {
+      "estimated_population": 3183.1,
+      "n_buildings": 44,
+      "score": 22.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c9": {
+      "estimated_population": 3485.3,
+      "n_buildings": 89,
+      "score": 21.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c10": {
+      "estimated_population": 5743.9,
+      "n_buildings": 31,
+      "score": 21.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c11": {
+      "estimated_population": 4810.3,
+      "n_buildings": 49,
+      "score": 21.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c12": {
+      "estimated_population": 5842.3,
+      "n_buildings": 36,
+      "score": 19.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c13": {
+      "estimated_population": 4935.7,
+      "n_buildings": 95,
+      "score": 29.8,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c14": {
+      "estimated_population": 5064.0,
+      "n_buildings": 23,
+      "score": 24.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c15": {
+      "estimated_population": 6267.4,
+      "n_buildings": 48,
+      "score": 22.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r12_c16": {
+      "estimated_population": 5352.2,
+      "n_buildings": 153,
+      "score": 24.0,
+      "level": "Low",
+      "assembly": "Ayawaso Central Municipal"
+    },
+    "grid_r12_c17": {
+      "estimated_population": 6453.6,
+      "n_buildings": 310,
+      "score": 23.7,
+      "level": "Low",
+      "assembly": "Ayawaso Central Municipal"
+    },
+    "grid_r12_c18": {
+      "estimated_population": 5117.2,
+      "n_buildings": 424,
+      "score": 23.7,
+      "level": "Low",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r12_c19": {
+      "estimated_population": 4291.9,
+      "n_buildings": 46,
+      "score": 25.3,
+      "level": "Moderate",
+      "assembly": "Korle Klottey Municipal"
+    },
+    "grid_r13_c0": {
+      "estimated_population": 3687.0,
+      "n_buildings": 104,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c1": {
+      "estimated_population": 4193.9,
+      "n_buildings": 286,
+      "score": 23.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c2": {
+      "estimated_population": 5210.2,
+      "n_buildings": 296,
+      "score": 20.7,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c3": {
+      "estimated_population": 4515.7,
+      "n_buildings": 417,
+      "score": 20.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c4": {
+      "estimated_population": 4499.4,
+      "n_buildings": 741,
+      "score": 22.6,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c5": {
+      "estimated_population": 4521.8,
+      "n_buildings": 415,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c6": {
+      "estimated_population": 3634.6,
+      "n_buildings": 575,
+      "score": 20.6,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c7": {
+      "estimated_population": 4189.3,
+      "n_buildings": 21,
+      "score": 21.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c8": {
+      "estimated_population": 3578.0,
+      "n_buildings": 69,
+      "score": 20.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c9": {
+      "estimated_population": 3678.0,
+      "n_buildings": 70,
+      "score": 22.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c10": {
+      "estimated_population": 5377.3,
+      "n_buildings": 63,
+      "score": 21.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c11": {
+      "estimated_population": 4601.2,
+      "n_buildings": 66,
+      "score": 23.6,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c12": {
+      "estimated_population": 5886.2,
+      "n_buildings": 61,
+      "score": 23.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c13": {
+      "estimated_population": 4831.2,
+      "n_buildings": 49,
+      "score": 23.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c14": {
+      "estimated_population": 5046.6,
+      "n_buildings": 15,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c15": {
+      "estimated_population": 6326.2,
+      "n_buildings": 65,
+      "score": 22.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r13_c16": {
+      "estimated_population": 5347.3,
+      "n_buildings": 323,
+      "score": 26.9,
+      "level": "Moderate",
+      "assembly": "Ayawaso Central Municipal"
+    },
+    "grid_r13_c17": {
+      "estimated_population": 6465.6,
+      "n_buildings": 1022,
+      "score": 23.1,
+      "level": "Low",
+      "assembly": "Ayawaso Central Municipal"
+    },
+    "grid_r13_c18": {
+      "estimated_population": 4763.5,
+      "n_buildings": 1033,
+      "score": 27.6,
+      "level": "Moderate",
+      "assembly": "Ayawaso Central Municipal"
+    },
+    "grid_r14_c0": {
+      "estimated_population": 4116.0,
+      "n_buildings": 4,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c1": {
+      "estimated_population": 5023.7,
+      "n_buildings": 72,
+      "score": 22.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c2": {
+      "estimated_population": 6263.0,
+      "n_buildings": 34,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c3": {
+      "estimated_population": 5412.6,
+      "n_buildings": 11,
+      "score": 21.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c4": {
+      "estimated_population": 5101.1,
+      "n_buildings": 65,
+      "score": 23.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c5": {
+      "estimated_population": 5308.0,
+      "n_buildings": 44,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c6": {
+      "estimated_population": 4271.5,
+      "n_buildings": 40,
+      "score": 20.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c7": {
+      "estimated_population": 4939.9,
+      "n_buildings": 19,
+      "score": 19.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c8": {
+      "estimated_population": 4189.6,
+      "n_buildings": 3,
+      "score": 22.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c9": {
+      "estimated_population": 4178.5,
+      "n_buildings": 22,
+      "score": 26.9,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c10": {
+      "estimated_population": 5533.0,
+      "n_buildings": 102,
+      "score": 22.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c11": {
+      "estimated_population": 5529.1,
+      "n_buildings": 58,
+      "score": 21.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c12": {
+      "estimated_population": 6637.0,
+      "n_buildings": 19,
+      "score": 22.0,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c13": {
+      "estimated_population": 4881.6,
+      "n_buildings": 9,
+      "score": 20.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c14": {
+      "estimated_population": 5407.8,
+      "n_buildings": 56,
+      "score": 22.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c15": {
+      "estimated_population": 7603.2,
+      "n_buildings": 77,
+      "score": 21.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r14_c17": {
+      "estimated_population": 7379.4,
+      "n_buildings": 1479,
+      "score": 30.3,
+      "level": "Moderate",
+      "assembly": "Ayawaso Central Municipal"
+    },
+    "grid_r14_c18": {
+      "estimated_population": 5180.1,
+      "n_buildings": 1070,
+      "score": 26.9,
+      "level": "Moderate",
+      "assembly": "Ayawaso Central Municipal"
+    },
+    "grid_r15_c0": {
+      "estimated_population": 1861.8,
+      "n_buildings": 5,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c1": {
+      "estimated_population": 3799.6,
+      "n_buildings": 219,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c2": {
+      "estimated_population": 5068.4,
+      "n_buildings": 84,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c3": {
+      "estimated_population": 4272.0,
+      "n_buildings": 3,
+      "score": 20.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c4": {
+      "estimated_population": 3774.0,
+      "n_buildings": 33,
+      "score": 21.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c5": {
+      "estimated_population": 4268.8,
+      "n_buildings": 57,
+      "score": 22.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c6": {
+      "estimated_population": 3410.7,
+      "n_buildings": 85,
+      "score": 20.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c7": {
+      "estimated_population": 4155.4,
+      "n_buildings": 329,
+      "score": 20.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c8": {
+      "estimated_population": 3449.0,
+      "n_buildings": 92,
+      "score": 22.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c9": {
+      "estimated_population": 3560.2,
+      "n_buildings": 1,
+      "score": 20.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c10": {
+      "estimated_population": 4302.2,
+      "n_buildings": 26,
+      "score": 23.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c11": {
+      "estimated_population": 4035.8,
+      "n_buildings": 12,
+      "score": 27.5,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c12": {
+      "estimated_population": 5271.9,
+      "n_buildings": 4,
+      "score": 23.0,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c13": {
+      "estimated_population": 3803.3,
+      "n_buildings": 11,
+      "score": 19.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c14": {
+      "estimated_population": 4286.0,
+      "n_buildings": 833,
+      "score": 19.0,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r15_c15": {
+      "estimated_population": 5844.0,
+      "n_buildings": 242,
+      "score": 24.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c1": {
+      "estimated_population": 2328.2,
+      "n_buildings": 4,
+      "score": 20.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c2": {
+      "estimated_population": 5717.1,
+      "n_buildings": 11,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c3": {
+      "estimated_population": 4557.6,
+      "n_buildings": 1,
+      "score": 20.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c4": {
+      "estimated_population": 4232.9,
+      "n_buildings": 43,
+      "score": 21.1,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c5": {
+      "estimated_population": 4949.5,
+      "n_buildings": 7,
+      "score": 23.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c6": {
+      "estimated_population": 4093.0,
+      "n_buildings": 53,
+      "score": 20.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c7": {
+      "estimated_population": 5062.5,
+      "n_buildings": 32,
+      "score": 21.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c8": {
+      "estimated_population": 4243.2,
+      "n_buildings": 51,
+      "score": 21.7,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c9": {
+      "estimated_population": 4268.2,
+      "n_buildings": 12,
+      "score": 22.3,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c10": {
+      "estimated_population": 5291.4,
+      "n_buildings": 11,
+      "score": 26.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c11": {
+      "estimated_population": 4365.1,
+      "n_buildings": 8,
+      "score": 32.4,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c12": {
+      "estimated_population": 5464.9,
+      "n_buildings": 17,
+      "score": 24.9,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c13": {
+      "estimated_population": 4711.4,
+      "n_buildings": 207,
+      "score": 23.7,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c14": {
+      "estimated_population": 4967.4,
+      "n_buildings": 1533,
+      "score": 25.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r16_c15": {
+      "estimated_population": 5763.9,
+      "n_buildings": 715,
+      "score": 22.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c2": {
+      "estimated_population": 2231.8,
+      "n_buildings": 13,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c3": {
+      "estimated_population": 3368.8,
+      "n_buildings": 5,
+      "score": 20.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c4": {
+      "estimated_population": 3483.9,
+      "n_buildings": 5,
+      "score": 20.6,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c5": {
+      "estimated_population": 4002.8,
+      "n_buildings": 157,
+      "score": 24.2,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c6": {
+      "estimated_population": 3366.3,
+      "n_buildings": 37,
+      "score": 24.0,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c7": {
+      "estimated_population": 4148.7,
+      "n_buildings": 14,
+      "score": 21.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c12": {
+      "estimated_population": 4567.7,
+      "n_buildings": 123,
+      "score": 26.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c13": {
+      "estimated_population": 3889.0,
+      "n_buildings": 1058,
+      "score": 22.6,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r17_c14": {
+      "estimated_population": 3899.9,
+      "n_buildings": 1135,
+      "score": 24.6,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r18_c3": {
+      "estimated_population": 1628.8,
+      "n_buildings": 75,
+      "score": 25.7,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r18_c4": {
+      "estimated_population": 2918.6,
+      "n_buildings": 45,
+      "score": 21.6,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r18_c5": {
+      "estimated_population": 3964.6,
+      "n_buildings": 169,
+      "score": 22.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r18_c6": {
+      "estimated_population": 3302.1,
+      "n_buildings": 63,
+      "score": 21.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r18_c7": {
+      "estimated_population": 4024.1,
+      "n_buildings": 44,
+      "score": 23.4,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r18_c13": {
+      "estimated_population": 3745.7,
+      "n_buildings": 1050,
+      "score": 20.8,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r18_c14": {
+      "estimated_population": 3678.4,
+      "n_buildings": 450,
+      "score": 24.0,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r19_c3": {
+      "estimated_population": 1687.9,
+      "n_buildings": 33,
+      "score": 25.1,
+      "level": "Moderate",
+      "assembly": "Ablekuma North Municipal"
+    },
+    "grid_r19_c4": {
+      "estimated_population": 1666.8,
+      "n_buildings": 47,
+      "score": 24.5,
+      "level": "Low",
+      "assembly": "Ablekuma North Municipal"
+    }
+  }
+}

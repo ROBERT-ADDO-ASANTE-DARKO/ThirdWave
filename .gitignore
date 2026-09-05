@@ -1,0 +1,18 @@
+.env
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+
+# Research-only source photos -- explicitly not for redistribution
+# (see project notes). Never commit these, public or private repo.
+risk_engine/data/Flooding_Accra_6.jpg
+risk_engine/data/Flooding_Accra_6_annotated.jpg
+risk_engine/data/hq720 (1).jpg
+risk_engine/data/ablekuma_z18_stitched.jpg
+risk_engine/data/circle_z18_stitched.jpg
+
+# Ephemeral API/data caches -- regenerable, not source
+risk_engine/cache/
+
+# OS/editor cruft
+.DS_Store

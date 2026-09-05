@@ -1,0 +1,22 @@
+{
+  "description": "High-resolution optical basemap imagery pulled to visually inspect the two vulnerability-grid hotspots, as a cheap alternative to chasing SAR resolution enhancement (blocked -- see despeckle_experiment_results.json and project chat history for why). Research/internal use only, per team decision -- not for redistribution.",
+  "source": "Esri World Imagery (server.arcgisonline.com/ArcGIS/rest/services/World_Imagery), public tile service",
+  "usage_note": "Esri World Imagery carries its own terms of use (viewing/analysis permitted, redistribution restricted). Kept here for internal reference only, consistent with team decision on 2026-08-30 not to redistribute.",
+  "images": [
+    {
+      "file": "circle_z18_stitched.jpg",
+      "location": "Kwame Nkrumah Circle, Accra (-0.215275, 5.569222)",
+      "zoom": 18,
+      "grid": "5x5 tiles stitched, ~760m x 760m coverage",
+      "finding": "Directly visible: the Odaw River channel (canalized, dark waterway) running close to the interchange, with dense informal settlement built up to its banks -- visual confirmation of the 'drainage-channel encroachment' hypothesis behind Circle's recurring flood history."
+    },
+    {
+      "file": "ablekuma_z18_stitched.jpg",
+      "location": "Ablekuma West vulnerability-grid hotspot cluster (-0.2754, 5.5571)",
+      "zoom": 18,
+      "grid": "5x5 tiles stitched, ~760m x 760m coverage",
+      "finding": "Correction to an earlier hypothesis in this project: the dark water feature here is man-made infrastructure (rectangular basins, likely a water treatment/settling facility tied to the Weija supply system), NOT a natural wetland/floodplain. This means the SAR-derived vulnerability score for this cell is likely picking up permanent infrastructure water, not transient flood risk -- worth a human sanity-check before trusting this cell's score the same way as Circle's."
+    }
+  ],
+  "computed_at": "2026-08-30"
+}

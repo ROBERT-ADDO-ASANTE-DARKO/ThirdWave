@@ -1,0 +1,50 @@
+{
+  "Ablekuma Central Municipal": {
+    "zone_id": "ablekuma_central_municipal",
+    "vulnerability_score": 25.6,
+    "rainfall_6h_warning_mm": 53.1,
+    "rainfall_6h_critical_mm": 97.3,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.62
+  },
+  "Ablekuma North Municipal": {
+    "zone_id": "ablekuma_north_municipal",
+    "vulnerability_score": 23.1,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "Ablekuma West Municipal": {
+    "zone_id": "ablekuma_west_municipal",
+    "vulnerability_score": 29.1,
+    "rainfall_6h_warning_mm": 52.1,
+    "rainfall_6h_critical_mm": 95.6,
+    "river_level_warning_m": 3.65,
+    "river_level_critical_m": 4.56
+  },
+  "Accra Metropolis": {
+    "zone_id": "accra_metropolis",
+    "vulnerability_score": 31.0,
+    "rainfall_6h_warning_mm": 51.6,
+    "rainfall_6h_critical_mm": 94.7,
+    "river_level_warning_m": 3.63,
+    "river_level_critical_m": 4.54
+  },
+  "Ayawaso Central Municipal": {
+    "zone_id": "ayawaso_central_municipal",
+    "vulnerability_score": 25.0,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "Korle Klottey Municipal": {
+    "zone_id": "korle_klottey_municipal",
+    "vulnerability_score": 24.6,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  }
+}

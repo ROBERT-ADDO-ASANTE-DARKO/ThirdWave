@@ -1,0 +1,510 @@
+<title>ThirdWave Field Report</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#EEF1EC; --panel:#FFFFFF; --panel-2:#F5F7F3;
+    --ink:#0B2545; --ink-soft:#48606B; --ink-faint:#7C8F94;
+    --accent:#1B7A9E; --accent-soft:#DCEBF0;
+    --line:#C9D3CC; --line-strong:#0B2545;
+    --low:#1E8A4C; --mod:#B8860B; --high:#C1621B; --vhigh:#B0241D;
+    --shadow: 0 1px 0 rgba(11,37,69,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0A1620; --panel:#0F1E2B; --panel-2:#0C1922;
+      --ink:#E9EFEA; --ink-soft:#9FB6B4; --ink-faint:#5E767A;
+      --accent:#54C7E8; --accent-soft:#123240;
+      --line:#22333D; --line-strong:#3C5560;
+      --low:#3FA96A; --mod:#D2A23A; --high:#DD8347; --vhigh:#E05B4C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A1620; --panel:#0F1E2B; --panel-2:#0C1922;
+    --ink:#E9EFEA; --ink-soft:#9FB6B4; --ink-faint:#5E767A;
+    --accent:#54C7E8; --accent-soft:#123240;
+    --line:#22333D; --line-strong:#3C5560;
+    --low:#3FA96A; --mod:#D2A23A; --high:#DD8347; --vhigh:#E05B4C;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ text-wrap:balance; margin:0; font-weight:500; }
+  p{ margin:0; }
+  .mono{ font-family:"IBM Plex Mono",ui-monospace,monospace; }
+  .display{ font-family:"Fraunces",Georgia,serif; }
+
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--ink-faint);
+  }
+
+  .sheet{ max-width:920px; margin:0 auto; padding:0 28px; }
+
+  /* running marginalia header, repeated per plate/section like a survey document */
+  .marginalia{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink-faint);
+    border-bottom:1px solid var(--line); padding:14px 0 10px;
+  }
+
+  section{ padding:64px 0 20px; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  /* ---------- Cover ---------- */
+  .cover{ position:relative; padding-top:0; overflow:hidden; }
+  .cover-inner{ position:relative; padding:54px 0 56px; }
+  .cover-coords{ display:flex; gap:22px; flex-wrap:wrap; }
+  .cover-coords span{ font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--ink-faint); letter-spacing:.06em;}
+  .cover h1{
+    font-family:"Fraunces",Georgia,serif; font-weight:500;
+    font-size:clamp(2.6rem, 6.4vw, 4.6rem); line-height:1.02; letter-spacing:-.01em;
+    margin-top:22px; max-width:14ch;
+  }
+  .cover .thesis{
+    margin-top:22px; max-width:56ch; font-size:1.12rem; line-height:1.55; color:var(--ink-soft);
+  }
+  .cover-meta{
+    margin-top:40px; display:flex; gap:36px; flex-wrap:wrap;
+    padding-top:18px; border-top:1px solid var(--line);
+  }
+  .cover-meta div{ display:flex; flex-direction:column; gap:4px; }
+  .cover-meta .k{ font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+  .cover-meta .v{ font-size:.95rem; font-weight:500; }
+  .contours{ position:absolute; inset:0; z-index:-1; opacity:.55; }
+  :root[data-theme="dark"] .contours,
+  :root:not([data-theme="light"]) .contours{ opacity:.35; }
+
+  /* ---------- generic section head ---------- */
+  .sec-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:30px;}
+  .sec-head h2{ font-family:"Fraunces",Georgia,serif; font-weight:500; font-size:clamp(1.7rem,3.4vw,2.3rem); max-width:20ch; }
+  .sec-num{ font-family:"IBM Plex Mono",monospace; font-size:.72rem; color:var(--accent); letter-spacing:.1em; }
+  .lede{ max-width:62ch; color:var(--ink-soft); font-size:1.02rem; line-height:1.6; margin-bottom:8px; }
+
+  /* ---------- problem stats ---------- */
+  .stat-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:28px; }
+  .stat{ background:var(--panel); padding:22px 20px; }
+  .stat .num{ font-family:"IBM Plex Mono",monospace; font-size:1.7rem; font-weight:600; color:var(--ink); }
+  .stat .lab{ margin-top:6px; font-size:.85rem; color:var(--ink-soft); line-height:1.45; }
+
+  /* ---------- plates (real images) ---------- */
+  .plate-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:8px; }
+  figure.plate{ margin:0; }
+  .plate-frame{
+    aspect-ratio:4/3.2; border:1px solid var(--line); background:var(--panel-2);
+    overflow:hidden; position:relative;
+  }
+  .plate-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .plate-tag{
+    position:absolute; top:8px; left:8px; font-family:"IBM Plex Mono",monospace;
+    font-size:.6rem; letter-spacing:.08em; text-transform:uppercase;
+    background:rgba(10,22,32,.72); color:#EAF3F1; padding:3px 7px;
+  }
+  figcaption{ margin-top:10px; }
+  figcaption .cap-title{ font-size:.86rem; font-weight:600; }
+  figcaption .cap-sub{ font-size:.78rem; color:var(--ink-faint); margin-top:2px; line-height:1.4; }
+
+  .formula-strip{
+    margin-top:34px; border:1px solid var(--line); background:var(--panel);
+    padding:20px 24px; display:flex; align-items:center; gap:22px; flex-wrap:wrap;
+  }
+  .formula-strip .formula{ font-family:"IBM Plex Mono",monospace; font-size:1rem; color:var(--ink); }
+  .formula-strip .formula .w1{ color:var(--low); }
+  .formula-strip .formula .w2{ color:var(--accent); }
+  .formula-strip .formula .w3{ color:var(--mod); }
+  .formula-strip .note{ font-size:.8rem; color:var(--ink-faint); max-width:34ch; line-height:1.5; }
+
+  /* ---------- architecture diagram ---------- */
+  .diagram-wrap{ margin-top:20px; border:1px solid var(--line); background:var(--panel); padding:26px 18px; overflow-x:auto; }
+  .diagram-wrap svg{ display:block; margin:0 auto; }
+
+  /* ---------- feature screenshots ---------- */
+  .feat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:8px; }
+  .feat-frame{ border:1px solid var(--line); background:var(--panel-2); overflow:hidden; }
+  .feat-frame img{ width:100%; display:block; }
+  .feat-cap{ padding:12px 4px 0; }
+  .feat-cap .t{ font-size:.9rem; font-weight:600; }
+  .feat-cap .s{ font-size:.78rem; color:var(--ink-faint); margin-top:3px; line-height:1.45; }
+
+  .vlm-block{ margin-top:40px; border-top:1px solid var(--line); padding-top:32px; }
+  .vlm-head{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+  .vlm-head .plate-tag{ background:var(--ink); color:var(--bg); }
+  .vlm-head h3{ font-family:"Fraunces",Georgia,serif; font-weight:500; font-size:1.3rem; }
+  .vlm-frame{
+    margin-top:18px; border:1px solid var(--line); background:var(--panel-2); overflow:hidden;
+  }
+  .vlm-frame img{ width:100%; display:block; }
+  .vlm-credit{ margin-top:10px; font-size:.74rem; color:var(--ink-faint); }
+  .vlm-credit a{ color:var(--ink-faint); }
+
+  /* ---------- ai problems list ---------- */
+  .problem-list{ margin-top:10px; border-top:1px solid var(--line); }
+  .problem{
+    display:grid; grid-template-columns:40px 1fr; gap:18px;
+    padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  .problem .pn{ font-family:"IBM Plex Mono",monospace; color:var(--accent); font-size:.82rem; padding-top:3px; }
+  .problem h3{ font-size:1.02rem; font-weight:600; }
+  .problem p{ margin-top:6px; font-size:.9rem; color:var(--ink-soft); line-height:1.6; max-width:62ch; }
+
+  .callout{
+    margin-top:8px; background:var(--accent-soft); border:1px solid var(--accent);
+    padding:26px 26px; display:flex; gap:18px; align-items:flex-start;
+  }
+  .callout .mk{ font-family:"Fraunces",Georgia,serif; font-size:2.4rem; line-height:1; color:var(--accent); }
+  .callout p{ font-size:.98rem; line-height:1.6; color:var(--ink); max-width:64ch; }
+  .callout p b{ font-weight:600; }
+
+  /* ---------- roadmap ---------- */
+  .road{ margin-top:24px; display:flex; flex-direction:column; }
+  .road-row{ display:grid; grid-template-columns:170px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--line); }
+  .road-row:last-child{ border-bottom:1px solid var(--line); }
+  .road-row .stage{ font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); padding-top:2px;}
+  .road-row .stage.now{ color:var(--low); }
+  .road-row .stage.next{ color:var(--mod); }
+  .road-row h3{ font-size:.96rem; font-weight:600; }
+  .road-row p{ font-size:.86rem; color:var(--ink-soft); margin-top:5px; line-height:1.55; max-width:60ch; }
+
+  /* ---------- close ---------- */
+  .close{ padding-bottom:70px; }
+  .close h2{ font-family:"Fraunces",Georgia,serif; font-weight:500; font-size:clamp(1.9rem,4vw,2.6rem); max-width:18ch; }
+  .ask-row{ margin-top:26px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .ask{ background:var(--panel); padding:20px; }
+  .ask .k{ font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
+  .ask p{ margin-top:8px; font-size:.88rem; color:var(--ink-soft); line-height:1.55; }
+  footer{ padding:26px 0 50px; }
+  footer .marginalia{ border-bottom:none; border-top:1px solid var(--line); }
+
+  @media (max-width:760px){
+    .plate-grid{ grid-template-columns:1fr; }
+    .feat-grid{ grid-template-columns:1fr; }
+    .road-row{ grid-template-columns:1fr; }
+  }
+</style>
+
+<div class="cover">
+  <svg class="contours" viewBox="0 0 920 380" preserveAspectRatio="none" aria-hidden="true">
+    <rect x="0" y="0" width="920" height="380" fill="none"></rect>
+    <g fill="none" stroke="var(--accent)" stroke-width="1">
+      <path d="M -20 60 C 160 10, 300 110, 480 50 S 820 20, 960 90" opacity=".35"></path>
+      <path d="M -20 110 C 180 60, 320 160, 500 100 S 800 70, 960 140" opacity=".3"></path>
+      <path d="M -20 160 C 200 110, 340 210, 520 150 S 780 120, 960 190" opacity=".25"></path>
+      <path d="M -20 210 C 220 160, 360 260, 540 200 S 760 170, 960 240" opacity=".2"></path>
+      <path d="M -20 260 C 240 210, 380 310, 560 250 S 740 220, 960 290" opacity=".15"></path>
+    </g>
+  </svg>
+  <div class="sheet cover-inner">
+    <div class="marginalia">
+      <span>THIRDWAVE — FLOOD EARLY-WARNING SYSTEM</span>
+      <span>MVP FIELD REPORT · 2026</span>
+    </div>
+    <div class="cover-coords" style="margin-top:20px;">
+      <span>05°33'N&nbsp;00°13'W</span>
+      <span>ACCRA, GHANA</span>
+      <span>PILOT DISTRICT · 6 ASSEMBLIES</span>
+    </div>
+    <h1>Reading a flooding<br>city with no gauges.</h1>
+    <p class="thesis">ThirdWave turns free satellite data into an explainable flood-vulnerability
+      picture for Accra, and puts it in front of the two people who need it most during a storm —
+      the government officer deciding where to send a pump crew, and the resident deciding
+      whether to leave.</p>
+    <div class="cover-meta">
+      <div><span class="k">Composite score</span><span class="v">SAR + DEM + land cover</span></div>
+      <div><span class="k">Pilot coverage</span><span class="v">319 scored zones, 500m grid</span></div>
+      <div><span class="k">Interfaces</span><span class="v">Government console · Citizen app</span></div>
+      <div><span class="k">Ground truth</span><span class="v">Zero local sensors</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+
+<section id="problem">
+  <div class="marginalia"><span>01 — The Problem</span><span>Data-poor, storm-prone</span></div>
+  <div class="sec-head">
+    <h2>Accra floods every rainy season. It has almost nothing to see it coming with.</h2>
+    <span class="sec-num">§1</span>
+  </div>
+  <p class="lede">No dense rain-gauge network. No calibrated hydraulic model of the drainage system —
+    because the drainage system itself is largely undocumented. No shared picture between the
+    officials who'd respond and the residents in the water's path. Kwame Nkrumah Circle floods
+    on a predictable basis, and until this project scored it, that pattern lived in institutional
+    memory and news archives, not in any system a duty officer could query.</p>
+  <div class="stat-row">
+    <div class="stat"><div class="num">0</div><div class="lab">River or rain gauges instrumenting the pilot district</div></div>
+    <div class="stat"><div class="num">0</div><div class="lab">Documented drain/culvert capacity records available</div></div>
+    <div class="stat"><div class="num">3</div><div class="lab">Free global data sources this project fuses instead</div></div>
+    <div class="stat"><div class="num">2</div><div class="lab">Audiences with no shared system today — govt &amp; citizens</div></div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="marginalia"><span>02 — Data Fusion</span><span>Free, global, real</span></div>
+  <div class="sec-head">
+    <h2>Three public satellite layers, fused into one explainable score.</h2>
+    <span class="sec-num">§2</span>
+  </div>
+  <p class="lede">Every plate below is real output from this project's pipeline, over the actual pilot
+    district — not a mockup. Sentinel-1 radar sees standing water through cloud cover; Copernicus
+    DEM gives terrain; ESA WorldCover gives surface type. No signup, no cost, no dependency on
+    infrastructure records that don't exist.</p>
+
+  <div class="plate-grid">
+    <figure class="plate">
+      <div class="plate-frame"><span class="plate-tag">Plate 2.1</span><img src="" data-key="plate_sar" alt="Sentinel-1 SAR water occurrence"></div>
+      <figcaption><div class="cap-title">SAR water occurrence</div>
+        <div class="cap-sub">Sentinel-1, 2020–2024, 40-scene sample. Darker = more frequently water-like.</div></figcaption>
+    </figure>
+    <figure class="plate">
+      <div class="plate-frame"><span class="plate-tag">Plate 2.2</span><img src="" data-key="plate_dem" alt="Copernicus DEM elevation"></div>
+      <figcaption><div class="cap-title">Elevation</div>
+        <div class="cap-sub">Copernicus DEM 30m. Green = low-lying / flood-prone, brown = higher ground.</div></figcaption>
+    </figure>
+    <figure class="plate">
+      <div class="plate-frame"><span class="plate-tag">Plate 2.3</span><img src="" data-key="plate_worldcover" alt="ESA WorldCover land cover"></div>
+      <figcaption><div class="cap-title">Land cover</div>
+        <div class="cap-sub">ESA WorldCover 2021. Red = built-up/impervious, blue = water.</div></figcaption>
+    </figure>
+  </div>
+
+  <div class="formula-strip">
+    <div class="formula">SCORE&nbsp;=&nbsp;<span class="w1">0.45</span>·SAR_OCC&nbsp;+&nbsp;<span class="w2">0.35</span>·LOW_ELEV&nbsp;+&nbsp;<span class="w3">0.20</span>·IMPERVIOUS</div>
+    <div class="note">Transparent by design — every score traces to three numbers a duty officer can
+      audit, not a black box. Land cover was tested as a weighted term and dropped: it flattened
+      every zone toward "Low," so it's kept as disclosed context instead.</div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="marginalia"><span>03 — Architecture</span><span>Pipeline &amp; consumers</span></div>
+  <div class="sec-head">
+    <h2>One computed layer, two very different front doors.</h2>
+    <span class="sec-num">§3</span>
+  </div>
+  <p class="lede">Heavy geospatial fetches and simulation run offline; the interfaces read small,
+    fast, precomputed results — so a duty officer's query never waits on a satellite API.</p>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 860 300" width="860" height="300" role="img" aria-label="Architecture diagram: satellite sources feed a fusion engine, which produces risk zones consumed by government and citizen interfaces, with citizen reports feeding back in.">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--ink-faint)"></path>
+        </marker>
+      </defs>
+      <!-- sources -->
+      <g class="mono" font-family="IBM Plex Mono, monospace" font-size="10.5">
+        <g>
+          <rect x="20" y="20" width="150" height="42" fill="var(--panel-2)" stroke="var(--line-strong)"></rect>
+          <text x="95" y="37" text-anchor="middle" fill="var(--ink)" font-weight="600">Sentinel-1 SAR</text>
+          <text x="95" y="51" text-anchor="middle" fill="var(--ink-faint)">water occurrence</text>
+        </g>
+        <g>
+          <rect x="20" y="76" width="150" height="42" fill="var(--panel-2)" stroke="var(--line-strong)"></rect>
+          <text x="95" y="93" text-anchor="middle" fill="var(--ink)" font-weight="600">Copernicus DEM</text>
+          <text x="95" y="107" text-anchor="middle" fill="var(--ink-faint)">terrain / elevation</text>
+        </g>
+        <g>
+          <rect x="20" y="132" width="150" height="42" fill="var(--panel-2)" stroke="var(--line-strong)"></rect>
+          <text x="95" y="149" text-anchor="middle" fill="var(--ink)" font-weight="600">ESA WorldCover</text>
+          <text x="95" y="163" text-anchor="middle" fill="var(--ink-faint)">land cover</text>
+        </g>
+        <g>
+          <rect x="20" y="188" width="150" height="42" fill="var(--panel-2)" stroke="var(--line-strong)"></rect>
+          <text x="95" y="205" text-anchor="middle" fill="var(--ink)" font-weight="600">OSM</text>
+          <text x="95" y="219" text-anchor="middle" fill="var(--ink-faint)">buildings, waterways, roads</text>
+        </g>
+
+        <!-- arrows to fusion -->
+        <path d="M170 41 H228" stroke="var(--ink-faint)" fill="none" marker-end="url(#arrow)"></path>
+        <path d="M170 97 H228" stroke="var(--ink-faint)" fill="none" marker-end="url(#arrow)"></path>
+        <path d="M170 153 H228" stroke="var(--ink-faint)" fill="none" marker-end="url(#arrow)"></path>
+        <path d="M170 209 H228" stroke="var(--ink-faint)" fill="none" marker-end="url(#arrow)"></path>
+
+        <!-- fusion engine -->
+        <rect x="232" y="60" width="168" height="130" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.4"></rect>
+        <text x="316" y="90" text-anchor="middle" fill="var(--ink)" font-weight="600" font-size="11.5">Fusion engine</text>
+        <text x="316" y="108" text-anchor="middle" fill="var(--ink-soft)">composite score</text>
+        <text x="316" y="124" text-anchor="middle" fill="var(--ink-soft)">exposure counts</text>
+        <text x="316" y="140" text-anchor="middle" fill="var(--ink-soft)">encroachment index</text>
+        <text x="316" y="156" text-anchor="middle" fill="var(--ink-soft)">pluvial CA proxy</text>
+        <text x="316" y="172" text-anchor="middle" fill="var(--ink-faint)" font-size="9.5">(offline, precomputed)</text>
+
+        <path d="M400 125 H458" stroke="var(--ink-faint)" fill="none" marker-end="url(#arrow)"></path>
+
+        <!-- risk zones -->
+        <rect x="462" y="88" width="140" height="74" fill="var(--panel-2)" stroke="var(--line-strong)"></rect>
+        <text x="532" y="118" text-anchor="middle" fill="var(--ink)" font-weight="600">Risk zones</text>
+        <text x="532" y="134" text-anchor="middle" fill="var(--ink-faint)">319 cells, JSON</text>
+        <text x="532" y="148" text-anchor="middle" fill="var(--ink-faint)">score + factors</text>
+
+        <path d="M602 108 H656" stroke="var(--ink-faint)" fill="none" marker-end="url(#arrow)"></path>
+        <path d="M602 142 H656" stroke="var(--ink-faint)" fill="none" marker-end="url(#arrow)"></path>
+
+        <!-- two consumers -->
+        <rect x="660" y="30" width="180" height="60" fill="var(--panel-2)" stroke="var(--low)" stroke-width="1.4"></rect>
+        <text x="750" y="54" text-anchor="middle" fill="var(--ink)" font-weight="600">Government console</text>
+        <text x="750" y="70" text-anchor="middle" fill="var(--ink-faint)">dashboard · sim · AI chat</text>
+
+        <rect x="660" y="150" width="180" height="60" fill="var(--panel-2)" stroke="var(--accent)" stroke-width="1.4"></rect>
+        <text x="750" y="174" text-anchor="middle" fill="var(--ink)" font-weight="600">Citizen app</text>
+        <text x="750" y="190" text-anchor="middle" fill="var(--ink-faint)">alerts · routing · reports</text>
+
+        <!-- feedback loop -->
+        <path d="M750 210 C 750 250, 95 260, 95 234" stroke="var(--vhigh)" fill="none" stroke-dasharray="3 3" marker-end="url(#arrow)"></path>
+        <text x="420" y="262" text-anchor="middle" fill="var(--vhigh)" font-size="10">geotagged citizen reports feed back as ground-truth signal</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="built">
+  <div class="marginalia"><span>04 — What's Built</span><span>Working, not mocked</span></div>
+  <div class="sec-head">
+    <h2>Four interfaces, all screenshotted from the running app.</h2>
+    <span class="sec-num">§4</span>
+  </div>
+  <div class="feat-grid">
+    <div>
+      <div class="feat-frame"><img src="" data-key="dashboard" alt="District vulnerability dashboard"></div>
+      <div class="feat-cap"><div class="t">District Vulnerability Dashboard</div>
+        <div class="s">Composite score per assembly, with a live toggle onto the raw SAR/DEM/WorldCover evidence beneath it.</div></div>
+    </div>
+    <div>
+      <div class="feat-frame"><img src="" data-key="pluvial_circle" alt="Pluvial flood simulator"></div>
+      <div class="feat-cap"><div class="t">Pluvial Flood Simulator</div>
+        <div class="s">Rainfall-driven ponding proxy over real terrain — queried here for Kwame Nkrumah Circle: 52cm at 60mm rainfall.</div></div>
+    </div>
+    <div>
+      <div class="feat-frame"><img src="" data-key="flood3d" alt="3D flood view"></div>
+      <div class="feat-cap"><div class="t">3D Flood View</div>
+        <div class="s">Real OSM buildings and roads, true-scale simulated water — an intuitive read for non-technical stakeholders.</div></div>
+    </div>
+    <div>
+      <div class="feat-frame"><img src="" data-key="ai_chat" alt="AI assistant chat"></div>
+      <div class="feat-cap"><div class="t">AI Assistant</div>
+        <div class="s">Claude with tool-calling over the real computed data — plain-language access for non-GIS staff.</div></div>
+    </div>
+  </div>
+
+  <div class="vlm-block">
+    <div class="vlm-head">
+      <span class="plate-tag" style="position:static;">Plate 4.1</span>
+      <h3>The VLM in action — crowdsourced flood reporting</h3>
+    </div>
+    <p class="lede" style="margin-top:0;">A resident uploads a photo; a vision-language model finds a
+      reference object, draws the waterline against it, and drafts a triage-quality depth estimate —
+      before the resident reviews and edits it. Live output from the running app, not a mockup.</p>
+    <div class="vlm-frame"><img src="" data-key="vlm_report" alt="VLM-annotated flood report showing bounding box on reference vehicle and depth estimate"></div>
+    <p class="vlm-credit">Demo photo for this pitch (not a real pilot-district submission): flooded street,
+      Lagos, 2013 — <a href="https://commons.wikimedia.org/wiki/File:Swimming_Car.jpg" target="_blank" rel="noopener">Elgabarty2002, CC BY-SA 4.0, via Wikimedia Commons</a>.</p>
+  </div>
+</section>
+
+<section id="ai-problems">
+  <div class="marginalia"><span>05 — Where AI Does The Work</span><span>Five specific jobs</span></div>
+  <div class="sec-head">
+    <h2>Not "AI everywhere." AI where the constraint actually required it.</h2>
+    <span class="sec-num">§5</span>
+  </div>
+  <div class="problem-list">
+    <div class="problem">
+      <div class="pn">01</div>
+      <div><h3>Risk assessment with zero local ground truth</h3>
+        <p>Global ML-classified products (SAR, DEM, land cover) fused into one score, at a resolution
+          fine enough to catch the 2015 Circle disaster a coarser assembly-level score missed entirely.</p></div>
+    </div>
+    <div class="problem">
+      <div class="pn">02</div>
+      <div><h3>Noisy radar hiding small water bodies</h3>
+        <p>A deep despeckling model (SAR2SAR) cleans Sentinel-1 speckle before water-occurrence is
+          computed — validated against a known area before being trusted in the pipeline.</p></div>
+    </div>
+    <div class="problem">
+      <div class="pn">03</div>
+      <div><h3>Unstructured citizen photos</h3>
+        <p>A vision-language model turns a submitted flood photo into a structured depth/severity
+          read with bounding-box annotation — the resident validates it before it's submitted.</p></div>
+    </div>
+    <div class="problem">
+      <div class="pn">04</div>
+      <div><h3>Hydraulic modeling requiring infrastructure data nobody has</h3>
+        <p>A lightweight cellular-automaton proxy over real terrain shows plausible ponding
+          behavior without pretending to be a calibrated hydraulic model.</p></div>
+    </div>
+    <div class="problem">
+      <div class="pn">05</div>
+      <div><h3>GIS tools locking out non-technical officials</h3>
+        <p>Tool-calling chat over the real computed data — a duty officer asks in plain language,
+          gets an answer grounded in actual zone data, not a hallucination.</p></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="mk">”</div>
+    <p><b>The core risk score is a transparent formula, not a trained model.</b> We checked whether a
+      public satellite flood-extent dataset could justify a predictive model instead — it couldn't:
+      wrong resolution (250m MODIS) for street-scale urban flooding, and not enough local labeled
+      events to validate one responsibly either way. Knowing where <i>not</i> to force AI is the
+      same engineering discipline as knowing where to use it.</p>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="marginalia"><span>06 — Roadmap</span><span>Honest next steps</span></div>
+  <div class="sec-head">
+    <h2>What's next, gated on what would actually make it better.</h2>
+    <span class="sec-num">§6</span>
+  </div>
+  <div class="road">
+    <div class="road-row">
+      <div class="stage now">Shipped</div>
+      <div><h3>Composite risk score, 4 government tools, 5 citizen tools, AI assistant</h3>
+        <p>All screenshotted from the running pilot-district app in this report.</p></div>
+    </div>
+    <div class="road-row">
+      <div class="stage next">Accumulating now</div>
+      <div><h3>Citizen reports as a real ground-truth stream</h3>
+        <p>Each geotagged report with a VLM depth estimate is a sparse, real observation — the kind
+          of anchor data a physics-informed model actually needs.</p></div>
+    </div>
+    <div class="road-row">
+      <div class="stage">Future direction</div>
+      <div><h3>Physics-informed neural network (PINN) for surface flow</h3>
+        <p>Once enough citizen-report observations accumulate to anchor it, a shallow-water-equation
+          PINN could replace the CA proxy — trained against real local reports instead of assumed
+          boundary conditions, still bounded by the same missing drainage-capacity data as any
+          hydraulic model.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="marginalia"><span>07 — Close</span><span>ThirdWave</span></div>
+  <h2 style="margin-top:26px;">Built for the officer deciding where to send a pump crew, and the resident deciding whether to leave.</h2>
+  <div class="ask-row">
+    <div class="ask"><div class="k">What it is</div><p>A working MVP: real satellite fusion, real government &amp; citizen tools, tested end-to-end.</p></div>
+    <div class="ask"><div class="k">What it isn't</div><p>Not a calibrated hydraulic model, not a substitute for real sensors — every tool discloses its own limits in-app.</p></div>
+    <div class="ask"><div class="k">Ask</div><p>Feedback on the pilot scope, and a path to real citizen-report volume to anchor what comes next.</p></div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="sheet marginalia">
+    <span>THIRDWAVE — ACCRA, GHANA</span>
+    <span>PILOT DISTRICT SURVEY, PLATES 2.1–2.3 DERIVED FROM SENTINEL-1 / COPERNICUS DEM / ESA WORLDCOVER</span>
+  </div>
+</footer>
+
+<script>/*__IMAGES_PLACEHOLDER__*/</script>
+<script>
+  Object.entries(window.IMAGES || {}).forEach(([key, src]) => {
+    document.querySelectorAll('img[data-key="' + key + '"]').forEach(img => { img.src = src; });
+  });
+</script>

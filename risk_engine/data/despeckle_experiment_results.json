@@ -1,0 +1,18 @@
+{
+  "description": "SAR2SAR despeckling test (via deepdespeckling package, pretrained weights, no training/Ghana-coverage dependency) on the pilot's real Sentinel-1 GRD scenes -- alternative to the Amieva/Ayala/Galar Stripmap-based super-resolution approach, which was blocked by unknown/unlikely Ghana Stripmap coverage.",
+  "methodology_note": "First attempt used patch_size=64 (forced by the small 122x142 pilot raster, far below the model's intended patch_size=256) and produced visible tiling/blocking artifacts that directly contaminated the water mask (large rectangular blobs following patch seams). Corrected by despeckling on a padded extent (EXTRA_PAD_DEG=0.15, giving a 433x453 raster) at the intended patch_size=256/stride=254, then cropping back to the actual pilot bbox for comparison -- boundary effects become a small fraction of the image instead of dominating it.",
+  "results_corrected_methodology": {
+    "n_scenes_tested": 3,
+    "mean_water_pct_before": 8.21,
+    "mean_water_pct_after": 8.00,
+    "mean_pixel_level_agreement_pct": 93.4,
+    "qualitative": "Despeckled water mask shows a spatially coherent connected blob (plausible real channel/floodplain feature) rather than scattered isolated pixels seen in the raw classification. A few faint residual patch-seam lines remain but no longer dominate the result."
+  },
+  "results_flawed_methodology_patch64": {
+    "n_scenes_tested": 3,
+    "mean_pixel_level_agreement_pct": 89.8,
+    "note": "Superseded -- kept for the record to show why the padded-extent fix mattered. Lower agreement here was partly driven by tiling artifacts, not genuine despeckling signal."
+  },
+  "conclusion": "Real, positive effect on noise within the existing resolution -- does NOT address the actual resolution ceiling (same pixel dimensions; does not help resolve sub-100m features like the Circle interchange bottleneck). Real added cost: per-scene neural network inference on a padded extent, not benchmarked at full pipeline scale (40 scenes x full pilot grid). Worth a team decision on whether the noise-reduction quality gain justifies the added pipeline complexity and runtime before adopting as a default preprocessing step.",
+  "computed_at": "2026-08-30"
+}

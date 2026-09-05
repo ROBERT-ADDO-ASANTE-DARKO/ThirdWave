@@ -1,0 +1,42 @@
+{
+  "description": "Proof-of-concept: zero-shot flood depth estimation from a photo, using a vision-capable LLM reasoning against known object dimensions (car rocker-panel height, wheel diameter, ground clearance) -- same methodology as FloodVision/FloodDepth-GPT in the literature. No training, no model hosting required. Image itself was NOT persisted (downloaded, analyzed, deleted) to avoid any copyright/redistribution exposure -- only the derived numeric estimate and a citation to the publicly viewable source are kept.",
+  "methodology": "Vision-capable LLM (Claude) given the photo directly, asked to identify reference objects of known standard dimension (passenger car rocker-panel height ~35-40cm, wheel diameter, ground clearance) and reason about the waterline position relative to them, following the same zero-shot geometric-reasoning approach as FloodVision (arXiv:2509.04772) and FloodDepth-GPT.",
+  "literature_accuracy_band": "MAE 8-25cm reported in cited papers for this class of technique -- treat any single estimate as triage-quality, not survey-grade.",
+  "test_cases": [
+    {
+      "source_image": "File:Flooding Accra 6.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Flooding_Accra_6.jpg",
+      "license": "CC BY-SA 4.0",
+      "photographer": "Wikimedia Commons user Fquasie (own work)",
+      "date_depicted": "2022-06-18",
+      "location_description": "General Accra street/road junction flooding, rainy season -- image caption does not name a specific site",
+      "note": "NOT the 2015/2023 Kwame Nkrumah Circle events already catalogued in historical_flood_events.json -- this is a different, later (2022) flood photo, chosen because it carries a free license (avoiding the copyright issue that blocks using actual news-outlet photos). Used here purely to validate the depth-estimation technique, not as a new event record.",
+      "estimated_depth_m": {
+        "low": 0.4,
+        "high": 0.6,
+        "note": "Deepest visible turbulent flow channel in the image plausibly exceeds this range; estimate given for the vehicle crossing point, not the whole scene."
+      },
+      "reasoning": "Water reaches the rocker-panel/bottom-of-door line on the orange hatchback and teal sedan mid-frame, with visible bow-wave splash off their front wheels -- consistent with depth at or just above standard rocker-panel height (~35-40cm). The white pickup (higher ground clearance, larger wheels) shows roughly half-submerged wheels, consistent with the same depth band. A turbulent, white-capped flow channel across the mid-foreground suggests locally faster/deeper water than at the vehicles.",
+      "derivative_image_saved": true,
+      "derivative_image_path": "data/Flooding_Accra_6_annotated.jpg"
+    },
+    {
+      "source_image": "69202090607-k5fri7t2h0-flooding-in-accra-2020-1.webp",
+      "source_url": "https://citinewsroom.com/",
+      "license": "Copyrighted -- Citi Newsroom (citinewsroom.com), watermarked, NOT freely licensed",
+      "photographer": "Unknown / Citi Newsroom staff",
+      "date_depicted": "2020 (per filename; exact date not independently confirmed)",
+      "location_description": "Accra street flooding, black Hyundai Getz hatchback partially submerged, pedestrians wading, litter/debris floating -- specific site not identified",
+      "note": "Copyrighted commercial news photo, not freely licensed. Per team decision, analyzed by viewing only -- NO derivative image was generated or persisted for this case, unlike the CC-licensed test case above. Text estimate only.",
+      "estimated_depth_m": {
+        "low": 0.3,
+        "high": 0.4,
+        "note": "Shallower than the first test case; standing/slow water rather than fast turbulent flow, consistent with floating litter pattern rather than a visible current."
+      },
+      "reasoning": "Hyundai Getz reference: typical rear bumper lower edge ~35cm off the ground, wheel diameter ~55-60cm. Waterline sits at roughly the bottom of the rear bumper/license-plate area. Wading pedestrians in the background show water at shin-to-knee height, consistent with the same range.",
+      "derivative_image_saved": false
+    }
+  ],
+  "conclusion": "Technique works as a zero-shot capability -- no training, no separate model to host, usable directly via a vision-capable LLM call. Recommended as a Phase 1.5 AI Engineer feature: pre-fill a depth/severity estimate on the Operations Officer's Incident verification screen when a citizen report includes a photo, as an assistive suggestion (human verification stays mandatory per spec Section 2.2, this does not replace it). For historical backtesting specifically, value is limited by photo availability under a license that permits use -- most real event coverage is news-copyrighted (as the second test case demonstrates), and freely-licensed matches for specific cataloged events are unlikely to exist. Copyright status must be checked per-image before deciding whether to persist any derivative (annotated) output -- CC-licensed vs. commercially-copyrighted photos were handled differently in this POC for exactly that reason.",
+  "computed_at": "2026-08-29"
+}

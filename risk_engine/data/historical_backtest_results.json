@@ -1,0 +1,36 @@
+[
+  {
+    "event_id": "ACCRA-FLOOD-2015-06-03",
+    "date": "2015-06-03",
+    "name": "Kwame Nkrumah Circle flood and fuel station explosion",
+    "assembly": "Ablekuma North Municipal",
+    "assembly_score": 23.1,
+    "assembly_level": "Low",
+    "assembly_rank": "6 of 6",
+    "grid_zone_id": "grid_r11_c14",
+    "grid_score": 33.0,
+    "grid_level": "Moderate",
+    "grid_rank": "47 of 319",
+    "grid_percentile": 85.6
+  },
+  {
+    "event_id": "ACCRA-FLOOD-2016-06-09",
+    "date": "2016-06-09",
+    "name": "2016 Accra floods",
+    "backtest": "skipped - no specific geocoded location in source"
+  },
+  {
+    "event_id": "ACCRA-FLOOD-2023-03-07",
+    "date": "2023-03-07",
+    "name": "March 2023 Accra flood",
+    "assembly": "Ablekuma North Municipal",
+    "assembly_score": 23.1,
+    "assembly_level": "Low",
+    "assembly_rank": "6 of 6",
+    "grid_zone_id": "grid_r11_c14",
+    "grid_score": 33.0,
+    "grid_level": "Moderate",
+    "grid_rank": "47 of 319",
+    "grid_percentile": 85.6
+  }
+]
