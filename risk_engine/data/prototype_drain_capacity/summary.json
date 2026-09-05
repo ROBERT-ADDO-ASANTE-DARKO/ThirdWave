@@ -1,0 +1,14 @@
+{
+  "roi": "Mangere, Auckland, New Zealand -- NOT Accra, demo/prototype only",
+  "purpose": "Rehearses integrating a real drain-capacity dataset into the composite scoring pattern already used for the Accra pilot, ahead of obtaining equivalent GARID data.",
+  "pipe_source": "Auckland Council Stormwater Pipe (CC BY 4.0), https://data-aucklandcouncil.opendata.arcgis.com/datasets/stormwater-pipe",
+  "n_pipes_used": 2000,
+  "diameter_mm_range": [
+    100,
+    1800
+  ],
+  "grid_cells": 2025,
+  "mean_adjusted_score": 38.3,
+  "max_adjusted_score": 100.0,
+  "formula": "adjusted_score = clip((0.5 x low_elevation + 0.5 x drain_deficiency) x 100, 0, 100) -- illustrative weights, not validated the way the real Accra weights were."
+}
