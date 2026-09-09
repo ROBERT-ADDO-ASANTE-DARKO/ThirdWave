@@ -62,6 +62,14 @@ OSM ─────────────┘      precomputed)                
 
 See `pitch/ThirdWave_Field_Report.pptx` (or `pitch/pitch.html`) for the full pitch deck, including where AI is doing real work versus where a transparent rule-based approach was the deliberate choice.
 
+## Roadmap
+
+**Drain capacity data (GARID) — noted future direction, not current work.** The single biggest gap above (no drain/culvert capacity data) has a concrete path to closing it: the [Greater Accra Resilient and Integrated Development Project (GARID)](https://garid-accra.com/), a World Bank-funded program, has already produced drainage system maps for the Odaw River Basin — the exact corridor this pilot's historical flood events cluster around. That's a data-sharing conversation for a real deployment, not something built here.
+
+In the meantime, `risk_engine/prototype_drain_capacity_integration.py` rehearses the integration pattern against a real, openly-licensed drainage network (Auckland Council's stormwater pipe data, CC BY 4.0) as a stand-in — proving the pipeline can consume real pipe-capacity data (diameter, distance) and fold it into a composite score, so only the data source needs to change once GARID access comes through. It runs entirely against Auckland, NZ — not a claim about Accra.
+
+**Historical flood events.** `risk_engine/data/historical_flood_events.json` is a growing, hand-curated (not scraped) set of real, sourced flood events from Ghanaian and international news coverage (GhanaWeb, Ghana News Agency, Citi Newsroom, floodlist.com), each geocoded and district-assigned against this project's own pilot boundaries. It backs the historical-event option in the Incident Verification sandbox and is meant to be extended as more documented events are found — it is not, and doesn't claim to be, a complete flood record for the city.
+
 ## Getting started
 
 ```bash

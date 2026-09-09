@@ -92,6 +92,54 @@
       "cause": "Storm / heavy rainfall",
       "source": "https://watchers.news/2025/05/22/accra-floods-damage-fatalities-ghana/",
       "district": "Weija Gbawe Municipal"
+    },
+    {
+      "event_id": "ACCRA-FLOOD-2026-05-22",
+      "date": "2026-05-22",
+      "name": "May 2026 Kaneshie flood",
+      "location_name": "Kaneshie (First Light / Pamprom Junction), Accra",
+      "lon": -0.2344584,
+      "lat": 5.5665786,
+      "geocode_source": "OpenStreetMap Nominatim",
+      "geocode_confidence": "high",
+      "hazard_type": "urban_flood",
+      "deaths": null,
+      "displaced": null,
+      "cause": "Heavy downpour; also affected Kpone Barrier and Santa Maria",
+      "source": "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Watch-as-heavy-downpour-causes-flooding-gridlock-at-Kaneshie-Pamprom-2008511",
+      "note": "No casualties reported for this event -- vehicles stranded and major roads gridlocked. Kaneshie (Ablekuma Central Municipal) is inside the pilot district and floods repeatedly (see also ACCRA-FLOOD-2026-06-29)."
+    },
+    {
+      "event_id": "ACCRA-FLOOD-2026-06-29",
+      "date": "2026-06-29",
+      "name": "June 2026 Accra floods",
+      "location_name": "Kwame Nkrumah Circle, Accra (regional event -- also affected Alajo, Adabraka, Kaneshie, Weija, Tse Addo, Ofankor, Pantang, Ashongman Estates, parts of Tema)",
+      "lon": -0.215275,
+      "lat": 5.569222,
+      "geocode_source": "OpenStreetMap Nominatim (Circle used as anchor; other named areas not individually geocoded -- multi-site regional event, see ALAJO-FLOOD-2026-06-29 for one that is)",
+      "geocode_confidence": "medium - regional event, Circle is one of several named affected areas",
+      "hazard_type": "flash_flood",
+      "deaths": 12,
+      "missing": 7,
+      "displaced": "7,761 households (3,882 people) per Ghana News Agency; other contemporary reports cited up to 48,000 displaced",
+      "cause": "Torrential rainfall described by officials as one of the heaviest to hit Accra in recent years",
+      "source": "https://gna.org.gh/2026/06/june-29-floods-12-dead-seven-missing-7761-households-displaced/",
+      "note": "GNFS reported 150+ people rescued. Lectures/exams suspended at some tertiary institutions; GRIDCo/ECG cut power from Mallam and Achimota substations as a precaution."
+    },
+    {
+      "event_id": "ALAJO-FLOOD-2026-06-29",
+      "date": "2026-06-29",
+      "name": "Alajo electrocution deaths (June 2026 Accra floods)",
+      "location_name": "Alajo, Accra",
+      "lon": -0.2168952,
+      "lat": 5.5937033,
+      "geocode_source": "OpenStreetMap Nominatim",
+      "geocode_confidence": "high",
+      "hazard_type": "flash_flood",
+      "deaths": 3,
+      "cause": "Floodwater entered homes and contacted electrical installations; part of the same June 29, 2026 storm as ACCRA-FLOOD-2026-06-29",
+      "source": "https://www.citinewsroom.com/2026/06/floods-three-die-from-electrocution-at-alajo/",
+      "note": "OSM/Nominatim labels this area's district as 'Ayawaso Central Municipal', but it falls inside our own pilot_district_assemblies.geojson polygon for Ablekuma North Municipal -- used the latter (our authoritative boundary) for district assignment, consistent with how the rest of this project resolves district membership."
     }
   ]
 }
