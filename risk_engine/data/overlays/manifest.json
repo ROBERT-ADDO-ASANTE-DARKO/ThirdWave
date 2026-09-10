@@ -1,11 +1,11 @@
 {
   "bounds": [
     [
-      5.509287109000174,
-      -0.292592772999919
+      5.459726562000119,
+      -0.437612304999968
     ],
     [
-      5.618520508000026,
+      5.62267089800009,
       -0.165109862999818
     ]
   ],
@@ -20,7 +20,7 @@
     "dem_elevation": {
       "file": "dem_elevation.png",
       "min_m": 0.0,
-      "max_m": 59.2,
+      "max_m": 110.6,
       "legend": "Copernicus DEM 30m elevation (green = low-lying/flood-prone, brown = higher ground)"
     },
     "worldcover": {

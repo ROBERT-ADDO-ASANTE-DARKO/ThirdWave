@@ -22,7 +22,7 @@ DATA_DIR = Path(__file__).parent.parent / "risk_engine" / "data"
 
 @st.cache_data
 def load_assembly_scores() -> pd.DataFrame:
-    """The 6-assembly pilot vulnerability scores (geospatial_vulnerability.py output)."""
+    """The 7-assembly pilot vulnerability scores (geospatial_vulnerability.py output)."""
     raw = json.loads((DATA_DIR / "pilot_zone_vulnerability.json").read_text())
     rows = []
     for name, r in raw.items():
@@ -70,7 +70,7 @@ def load_extended_assembly_geometries() -> gpd.GeoDataFrame:
 
 @st.cache_data
 def load_risk_zones() -> list[dict]:
-    """The 319 fine-grained RiskZone records (score, contributing_factors, etc.)."""
+    """The 1013 fine-grained RiskZone records (score, contributing_factors, etc.)."""
     return json.loads((DATA_DIR / "risk_zones.json").read_text())["zones"]
 
 

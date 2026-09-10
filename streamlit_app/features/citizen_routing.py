@@ -3,7 +3,7 @@ Feature 10 — Citizen: Safer Routing During Heavy Rainfall.
 
 The heaviest-lift feature on the original checklist, flagged as such from
 the start. Precomputed in build_road_network.py (OSMnx road graph +
-risk-weighted edge costs from the 319-cell grid) -- this page only loads
+risk-weighted edge costs from the 1013-cell grid) -- this page only loads
 the ~5.5MB result and runs two shortest-path searches (networkx Dijkstra),
 not a live OSMnx build, which would be slow per session.
 
@@ -145,7 +145,7 @@ def render():
     st.subheader("Safer Routing")
     st.caption(
         "Compares the fastest route against a risk-weighted route that prefers lower-vulnerability zones "
-        "(precomputed in build_road_network.py -- OSMnx road graph, edges weighted by the same 319-cell "
+        "(precomputed in build_road_network.py -- OSMnx road graph, edges weighted by the same 1013-cell "
         "vulnerability score used throughout this project). Always shown side by side, not just the 'safer' "
         "route alone, so you can see the tradeoff yourself."
     )

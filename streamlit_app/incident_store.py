@@ -59,7 +59,7 @@ def _assembly_gdf():
 
 
 def assign_district(lon: float, lat: float) -> str | None:
-    """Point-in-polygon against the 6 pilot assemblies -- same approach
+    """Point-in-polygon against the 7 pilot assemblies -- same approach
     geo_tools.find_zone_by_address uses, factored out so both the report
     intake and the sandbox generator assign districts identically."""
     pt = Point(lon, lat)
@@ -76,7 +76,7 @@ def _risk_zones():
 
 
 def zone_for_point(lon: float, lat: float) -> dict | None:
-    """The 319-cell fine-grained RiskZone containing this point, if any --
+    """The 1013-cell fine-grained RiskZone containing this point, if any --
     lets a district officer see the pre-existing static score for a
     report's location as verification context ("this zone is already
     High-risk") instead of judging the report in isolation. Same source

@@ -117,7 +117,7 @@ def render():
             "- Which zones should get drain maintenance priority?\n"
             "- How many people live in high-risk zones?\n"
             "- What historical flood events have happened here?\n"
-            "- Compare the six assemblies by vulnerability score."
+            "- Compare the seven assemblies by vulnerability score."
         )
 
     for msg in st.session_state.ai_assistant_messages:

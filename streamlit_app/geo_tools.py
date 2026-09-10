@@ -133,7 +133,7 @@ def get_top_risk_zones(n: int = 5, level_filter: str | None = None) -> dict:
 
 
 def get_assembly_comparison() -> dict:
-    """District/assembly-level vulnerability comparison (the 6-assembly pilot)."""
+    """District/assembly-level vulnerability comparison (the 7-assembly pilot)."""
     df = load_assembly_scores()
     return {"assemblies": df[["assembly", "score", "level", "water_occ_pct", "impervious_pct"]].to_dict("records")}
 

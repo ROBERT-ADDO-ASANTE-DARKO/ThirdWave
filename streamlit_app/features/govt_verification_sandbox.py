@@ -220,7 +220,7 @@ def render():
                         unsafe_allow_html=True,
                     )
                 else:
-                    st.caption("📍 This location falls outside the 319-cell scored grid -- no pre-existing static score to cross-check against.")
+                    st.caption("📍 This location falls outside the 1013-cell scored grid -- no pre-existing static score to cross-check against.")
             with c2:
                 if st.button("✅ Verify", key=f"verify_{r['id']}", type="primary"):
                     store.verify_report(r["id"], approve=True)

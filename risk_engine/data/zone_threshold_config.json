@@ -1,50 +1,58 @@
 {
   "Ablekuma Central Municipal": {
     "zone_id": "ablekuma_central_municipal",
-    "vulnerability_score": 25.6,
-    "rainfall_6h_warning_mm": 53.1,
-    "rainfall_6h_critical_mm": 97.3,
-    "river_level_warning_m": 3.69,
-    "river_level_critical_m": 4.62
+    "vulnerability_score": 26.9,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
   },
   "Ablekuma North Municipal": {
     "zone_id": "ablekuma_north_municipal",
-    "vulnerability_score": 23.1,
-    "rainfall_6h_warning_mm": 53.8,
-    "rainfall_6h_critical_mm": 98.6,
-    "river_level_warning_m": 3.72,
-    "river_level_critical_m": 4.65
+    "vulnerability_score": 24.0,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
   },
   "Ablekuma West Municipal": {
     "zone_id": "ablekuma_west_municipal",
-    "vulnerability_score": 29.1,
-    "rainfall_6h_warning_mm": 52.1,
-    "rainfall_6h_critical_mm": 95.6,
-    "river_level_warning_m": 3.65,
-    "river_level_critical_m": 4.56
+    "vulnerability_score": 29.9,
+    "rainfall_6h_warning_mm": 51.9,
+    "rainfall_6h_critical_mm": 95.2,
+    "river_level_warning_m": 3.64,
+    "river_level_critical_m": 4.55
   },
   "Accra Metropolis": {
     "zone_id": "accra_metropolis",
-    "vulnerability_score": 31.0,
-    "rainfall_6h_warning_mm": 51.6,
-    "rainfall_6h_critical_mm": 94.7,
-    "river_level_warning_m": 3.63,
-    "river_level_critical_m": 4.54
+    "vulnerability_score": 32.1,
+    "rainfall_6h_warning_mm": 51.3,
+    "rainfall_6h_critical_mm": 94.1,
+    "river_level_warning_m": 3.61,
+    "river_level_critical_m": 4.52
   },
   "Ayawaso Central Municipal": {
     "zone_id": "ayawaso_central_municipal",
-    "vulnerability_score": 25.0,
-    "rainfall_6h_warning_mm": 53.2,
-    "rainfall_6h_critical_mm": 97.6,
-    "river_level_warning_m": 3.7,
-    "river_level_critical_m": 4.62
+    "vulnerability_score": 26.9,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.7,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
   },
   "Korle Klottey Municipal": {
     "zone_id": "korle_klottey_municipal",
-    "vulnerability_score": 24.6,
-    "rainfall_6h_warning_mm": 53.4,
-    "rainfall_6h_critical_mm": 97.8,
-    "river_level_warning_m": 3.7,
-    "river_level_critical_m": 4.63
+    "vulnerability_score": 25.9,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.2,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "Weija Gbawe Municipal": {
+    "zone_id": "weija_gbawe_municipal",
+    "vulnerability_score": 20.6,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
   }
 }

@@ -92,11 +92,12 @@ def render():
 
     scope = st.radio(
         "Coverage",
-        ["Pilot district (6 assemblies)", "Extended coverage (10 districts)"],
+        ["Pilot district (7 assemblies)", "Extended coverage (10 districts)"],
         horizontal=True,
-        help="Pilot district is the MVP's actual scope (spec Section 2.1). Extended coverage adds "
-             "4 districts with documented flood history (Weija Gbawe, Ga South, Tema, Ashaiman), "
-             "added for regional context -- not part of the MVP pilot deliverable.",
+        help="Pilot district is the MVP's actual scope (spec Section 2.1), now 7 assemblies after "
+             "extending to Weija Gbawe (documented recurring dam-release flooding -- see project "
+             "notes). Extended coverage adds 3 more districts with documented flood history "
+             "(Ga South, Tema, Ashaiman), added for regional context -- not part of the MVP pilot deliverable.",
     )
     is_extended = scope.startswith("Extended")
 
@@ -194,7 +195,7 @@ def render():
 
     st.divider()
     st.markdown("**Component breakdown**")
-    st.caption("Only relevant for the pilot district's 6 assemblies -- the extended-coverage set uses "
+    st.caption("Only relevant for the pilot district's 7 assemblies -- the extended-coverage set uses "
                "the same formula but wasn't re-audited for component-level display.")
     if not is_extended:
         display_df = df[["assembly", "score", "level", "water_occ_pct", "low_elev_frac_pct",

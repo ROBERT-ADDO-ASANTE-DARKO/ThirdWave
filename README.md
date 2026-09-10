@@ -1,7 +1,7 @@
 # ThirdWave
 
 A flood early-warning system for Accra, Ghana. ThirdWave fuses free satellite
-data into an explainable flood-vulnerability score for a 6-assembly pilot
+data into an explainable flood-vulnerability score for a 7-assembly pilot
 district, and puts it in front of the two people who need it during a
 storm: the government officer deciding where to send a pump crew, and the
 resident deciding whether to leave.
@@ -16,7 +16,7 @@ tools that say plainly what they are and aren't.
 
 ```
 Sentinel-1 SAR ──┐
-Copernicus DEM ──┼──► Fusion engine ──► Risk zones (319 cells) ──┬──► Government console
+Copernicus DEM ──┼──► Fusion engine ──► Risk zones (1013 cells) ──┬──► Government console
 ESA WorldCover ──┤     (offline,          score + factors        │      dashboard · simulators · AI chat
 OSM ─────────────┘      precomputed)                             └──► Citizen app
                                                                         alerts · routing · reporting
@@ -126,8 +126,9 @@ ui_prototype/          An earlier static HTML mockup of the risk map
 
 ## Pilot scope
 
-6 assemblies: Accra Metropolis, Korle Klottey, Ablekuma Central/North/West,
-Ayawaso Central — 319 scored zones on a ~500m grid. Extended-coverage
-scoring for 4 additional districts with documented flood history (Weija
-Gbawe, Ga South, Tema, Ashaiman) is included for regional context, not as
-part of the MVP pilot deliverable.
+7 assemblies: Accra Metropolis, Korle Klottey, Ablekuma Central/North/West,
+Ayawaso Central, and Weija Gbawe (added after 3 documented dam-release
+floods there in 2022, 2025, and 2026 — see `historical_flood_events.json`)
+— 1013 scored zones on a ~500m grid. Extended-coverage scoring for 3
+further districts with documented flood history (Ga South, Tema, Ashaiman)
+is included for regional context, not as part of the MVP pilot deliverable.
