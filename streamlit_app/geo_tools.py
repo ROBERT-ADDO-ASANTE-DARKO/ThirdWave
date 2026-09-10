@@ -24,6 +24,39 @@ from data_loader import (
 )
 
 
+HISTORICAL_EVENT_RADIUS_KM = 2.0
+
+
+def _haversine_km(lon1, lat1, lon2, lat2) -> float:
+    from math import radians, sin, cos, asin, sqrt
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+    dlon, dlat = lon2 - lon1, lat2 - lat1
+    a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+    return 2 * 6371 * asin(sqrt(a))
+
+
+def _nearby_historical_events(lat: float, lon: float, radius_km: float = HISTORICAL_EVENT_RADIUS_KM) -> list[dict]:
+    """Historical events within radius_km of a point -- the piece that
+    makes get_historical_flood_events() more than a separate, easy-to-skip
+    tool: find_zone_by_address calls this directly so a computed score is
+    never presented without also surfacing whether this exact area has a
+    documented flooding history, per project chat history ("the chatbot
+    must use historical reports as additional context besides the risk
+    score")."""
+    out = []
+    for e in load_historical_events():
+        if e.get("lat") is None or e.get("lon") is None:
+            continue
+        d = _haversine_km(lon, lat, e["lon"], e["lat"])
+        if d <= radius_km:
+            out.append({
+                "date": e["date"], "name": e["name"], "hazard_type": e.get("hazard_type"),
+                "deaths": e.get("deaths"), "cause": e.get("cause"),
+                "distance_km": round(d, 2),
+            })
+    return sorted(out, key=lambda r: r["distance_km"])
+
+
 def _geocode(address: str):
     try:
         resp = requests.get(
@@ -41,22 +74,49 @@ def _geocode(address: str):
 
 
 def find_zone_by_address(address: str) -> dict:
-    """Geocode an address/landmark and return the pilot RiskZone that contains it."""
+    """Geocode an address/landmark and return the pilot RiskZone that
+    contains it, PLUS any documented historical flood events within ~2km --
+    the computed score and the historical record are always returned
+    together, not as two things the model has to remember to combine
+    itself. A zone can look "Low" on the computed score yet still sit near
+    a real, documented flood (e.g. dam-release events, which the score's
+    SAR/DEM/land-cover inputs have no way to anticipate) -- that's exactly
+    the gap this join surfaces rather than hides."""
     result = _geocode(address)
     if not result:
         return {"error": f"Could not geocode '{address}'."}
     lat, lon, label = result
+    nearby_events = _nearby_historical_events(lat, lon)
     pt = Point(lon, lat)
     zones = load_risk_zones()
     for z in zones:
         if shape(z["geometry"]).contains(pt):
-            return {
+            out = {
                 "resolved_address": label, "zone_id": z["id"].replace("RZ-", ""),
                 "assembly": z["assembly"], "score": z["score"], "level": z["level"],
                 "confidence": z["confidence"],
                 "contributing_factors": [f["text"] for f in z["contributing_factors"]],
             }
-    return {"resolved_address": label, "error": "This location is outside the pilot district's coverage area."}
+            if nearby_events:
+                out["nearby_historical_events"] = nearby_events
+                out["historical_context_note"] = (
+                    f"{len(nearby_events)} documented flood event(s) within "
+                    f"{HISTORICAL_EVENT_RADIUS_KM:.0f}km -- weigh this alongside the computed score, "
+                    "don't rely on the score alone, especially for hazard types (like dam-release "
+                    "floods) the score's satellite/terrain inputs can't see coming."
+                )
+            else:
+                out["nearby_historical_events"] = []
+                out["historical_context_note"] = f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated record -- absence of history here is not the same as absence of risk."
+            return out
+    out = {"resolved_address": label, "error": "This location is outside the pilot district's coverage area."}
+    if nearby_events:
+        out["nearby_historical_events"] = nearby_events
+        out["historical_context_note"] = (
+            f"No computed score available (outside pilot coverage), but {len(nearby_events)} documented "
+            "flood event(s) exist within range -- mention this even though there's no score to give."
+        )
+    return out
 
 
 def get_top_risk_zones(n: int = 5, level_filter: str | None = None) -> dict:
@@ -144,7 +204,7 @@ def get_active_incidents() -> dict:
 TOOLS = [
     {
         "name": "find_zone_by_address",
-        "description": "Look up the flood vulnerability zone containing a given address or landmark in the pilot district.",
+        "description": "Look up the flood vulnerability zone containing a given address or landmark in the pilot district. Also returns any documented historical flood events within ~2km, since the computed score alone can miss hazard types (like dam-release floods) its satellite/terrain inputs can't detect -- always consider both together.",
         "input_schema": {"type": "object", "properties": {
             "address": {"type": "string", "description": "An address or landmark, e.g. 'Kwame Nkrumah Circle'"}},
             "required": ["address"]},

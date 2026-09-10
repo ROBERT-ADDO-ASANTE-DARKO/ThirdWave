@@ -140,6 +140,39 @@
       "cause": "Floodwater entered homes and contacted electrical installations; part of the same June 29, 2026 storm as ACCRA-FLOOD-2026-06-29",
       "source": "https://www.citinewsroom.com/2026/06/floods-three-die-from-electrocution-at-alajo/",
       "note": "OSM/Nominatim labels this area's district as 'Ayawaso Central Municipal', but it falls inside our own pilot_district_assemblies.geojson polygon for Ablekuma North Municipal -- used the latter (our authoritative boundary) for district assignment, consistent with how the rest of this project resolves district membership."
+    },
+    {
+      "event_id": "AKOSOMBO-DAM-SPILLAGE-2023-09-15",
+      "date": "2023-09-15",
+      "name": "2023 Akosombo/Kpong Dam spillage",
+      "location_name": "Mepe, North Tongu District, Volta Region (also affected: Central/South Tongu, Asuogyaman District (Eastern Region), Tefle, Wume, Sokpoe; Alikekope, Agorme, Agbave reported as having 'completely disappeared')",
+      "lon": 0.427456,
+      "lat": 6.0785368,
+      "geocode_source": "OpenStreetMap Nominatim (Mepe used as anchor -- 'most affected' per Wikipedia -- other named communities not individually geocoded)",
+      "geocode_confidence": "medium - regional event spanning multiple districts, Mepe is one of several named affected areas",
+      "hazard_type": "dam_release_flood",
+      "deaths": null,
+      "displaced": "35,857 by 2023-11-17 (escalated from ~8,000 across 8 communities initially)",
+      "cause": "Sustained heavy 2023 rainfall raised the Akosombo reservoir above its 276ft maximum operating level; VRA began controlled spillage at both Akosombo and Kpong dams on 2023-09-15, intensified 2023-10-09, flooding communities downstream on the Volta River",
+      "source": "https://en.wikipedia.org/wiki/2023_Akosombo_Dam_spillage",
+      "note": "OUTSIDE both the pilot district and the 4-district extended coverage (Volta/Eastern Region, not Greater Accra) -- included as a reference dam-release event, not a location this project scores. Same hazard_type as the Weija events below; useful for the AI Assistant to recognize dam-release flooding as a distinct pattern from urban/flash flooding, even where it can't provide a zone score for the location."
+    },
+    {
+      "event_id": "WEIJA-DAM-FLOOD-2026-05-27",
+      "date": "2026-05-27",
+      "name": "May 2026 Weija Dam spillage flood",
+      "location_name": "Tetegu, Weija Gbawe Municipal (also affected: Ashbread, Kinshasha, White Cross, Oblogo, Tatop)",
+      "lon": -0.3061774,
+      "lat": 5.5483218,
+      "geocode_source": "OpenStreetMap Nominatim",
+      "geocode_confidence": "high for Tetegu; other named communities not individually geocoded",
+      "hazard_type": "dam_release_flood",
+      "deaths": null,
+      "displaced": "hundreds of homes flooded; Regional Security Council (REGSEC) ordered evacuation of all downstream communities",
+      "cause": "Ghana Water Limited opened all spill gates 2026-05-27 after the dam's water level exceeded 48ft. Contested cause worth keeping both sides of: GWL itself publicly attributed the resulting FLOODING (not the spillage decision) to illegal structures and waterway encroachment rather than the spillage alone -- directly consistent with this project's own channel-encroachment findings (see channel_encroachment_index.py).",
+      "source": "https://www.citinewsroom.com/2026/05/flooding-in-weija-due-to-illegal-structures-not-dam-spillage-gwl/",
+      "district": "Weija Gbawe Municipal",
+      "note": "Third documented Weija dam-release flood in this file (see WEIJA-DAM-FLOOD-2022-10-04, WEIJA-FLOOD-2025-05) -- a genuinely recurring hazard, not a one-off. This is the only event in this file where an official source explicitly names encroachment/illegal structures as a contributing cause rather than just 'heavy rain'."
     }
   ]
 }
