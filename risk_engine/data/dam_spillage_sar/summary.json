@@ -1,0 +1,44 @@
+{
+  "events": [
+    {
+      "event_id": "AKOSOMBO-DAM-SPILLAGE-2023-09-15",
+      "name": "Akosombo/Kpong Dam spillage (Lower Volta)",
+      "bbox": [
+        0.35,
+        6.0,
+        0.5,
+        6.15
+      ],
+      "scene_dates": {
+        "baseline": "2023-09-05",
+        "peak": "2023-10-23",
+        "recession": "2023-11-28"
+      },
+      "baseline_open_water_km2": 22.3,
+      "new_flood_at_peak_km2": 7.96,
+      "receded_by_recession_km2": 6.9,
+      "still_flooded_at_recession_km2": 1.06,
+      "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line."
+    },
+    {
+      "event_id": "WEIJA-DAM-FLOOD-2026-05-27",
+      "name": "Weija Dam spillage (Tetegu / Weija Gbawe)",
+      "bbox": [
+        -0.325,
+        5.518,
+        -0.283,
+        5.56
+      ],
+      "scene_dates": {
+        "baseline": "2026-05-21",
+        "peak": "2026-05-28",
+        "recession": "2026-06-09"
+      },
+      "baseline_open_water_km2": 1.77,
+      "new_flood_at_peak_km2": 4.96,
+      "receded_by_recession_km2": 3.66,
+      "still_flooded_at_recession_km2": 1.3,
+      "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line."
+    }
+  ]
+}

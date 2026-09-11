@@ -70,6 +70,8 @@ In the meantime, `risk_engine/prototype_drain_capacity_integration.py` rehearses
 
 **Historical flood events.** `risk_engine/data/historical_flood_events.json` is a growing, hand-curated (not scraped) set of real, sourced flood events from Ghanaian and international news coverage (GhanaWeb, Ghana News Agency, Citi Newsroom, floodlist.com), each geocoded and district-assigned against this project's own pilot boundaries. It backs the historical-event option in the Incident Verification sandbox and is meant to be extended as more documented events are found — it is not, and doesn't claim to be, a complete flood record for the city.
 
+**SAR flood verification for the dam-spillage events.** `risk_engine/dam_spillage_sar_comparison.py` produces a before/during/after Sentinel-1 view of the two dam-spillage events in that record — the 2023 Akosombo/Lower Volta spillage and the May 2026 Weija spillage — using calibrated RTC gamma0 change detection (standard single-event flood-mapping method, not the multi-year percentile approach the composite score uses). It confirms free radar imagery does capture both floods: ~8 km² of new floodplain inundation for Akosombo at peak (mostly receded 5 weeks later), ~5 km² for Weija the day after the gates opened (mostly receded within 2 weeks). Evidence-only — it changes no score. Copernicus EMS also published a formal flood-extent map for Akosombo (activation EMSR705); no equivalent exists for Weija.
+
 ## Getting started
 
 ```bash
