@@ -20,6 +20,7 @@ from streamlit_folium import st_folium
 from data_loader import (
     DATA_DIR, load_assembly_scores, load_extended_district_scores,
     load_assembly_geometries, load_extended_assembly_geometries,
+    load_lower_volta_district_scores, load_lower_volta_assembly_geometries,
     LEVEL_COLOR, INK_NAVY,
 )
 
@@ -92,17 +93,39 @@ def render():
 
     scope = st.radio(
         "Coverage",
-        ["Pilot district (7 assemblies)", "Extended coverage (10 districts)"],
+        ["Pilot district (7 assemblies)", "Extended coverage (10 districts)", "Lower Volta basin (7 districts)"],
         horizontal=True,
         help="Pilot district is the MVP's actual scope (spec Section 2.1), now 7 assemblies after "
              "extending to Weija Gbawe (documented recurring dam-release flooding -- see project "
              "notes). Extended coverage adds 3 more districts with documented flood history "
-             "(Ga South, Tema, Ashaiman), added for regional context -- not part of the MVP pilot deliverable.",
+             "(Ga South, Tema, Ashaiman), added for regional context -- not part of the MVP pilot deliverable. "
+             "Lower Volta basin is a separate, non-contiguous region (~150km away, spanning 3 regions) added "
+             "for the 2023 Akosombo/Kpong dam-spillage flood history -- full pilot-grade treatment (fine grid, "
+             "roads, population, encroachment) but NOT part of the MVP pilot deliverable either.",
     )
     is_extended = scope.startswith("Extended")
+    is_lower_volta = scope.startswith("Lower Volta")
 
-    df = load_extended_district_scores() if is_extended else load_assembly_scores()
-    gdf = load_extended_assembly_geometries() if is_extended else load_assembly_geometries()
+    if is_lower_volta:
+        df = load_lower_volta_district_scores()
+        gdf = load_lower_volta_assembly_geometries()
+    elif is_extended:
+        df = load_extended_district_scores()
+        gdf = load_extended_assembly_geometries()
+    else:
+        df = load_assembly_scores()
+        gdf = load_assembly_geometries()
+
+    if is_lower_volta:
+        st.warning(
+            "⚠️ The composite score below is SAR water occurrence + elevation + land cover -- a "
+            "**multi-year statistical** measure. It cannot see a one-off dam-release flood like the "
+            "2023 Akosombo/Kpong spillage (35,857 displaced at Mepe), which is exactly why every "
+            "district here still scores Low/Moderate. That event is documented separately: "
+            "`historical_flood_events.json` (AKOSOMBO-DAM-SPILLAGE-2023-09-15) and a real Sentinel-1/"
+            "Sentinel-2 before/during/after comparison (`dam_spillage_sar_comparison.py`, "
+            "`dam_spillage_s2_mndwi.py`) confirming ~8 km² of new flood extent at peak."
+        )
 
     # ---- KPI row ----
     col1, col2, col3, col4 = st.columns(4)
@@ -123,7 +146,10 @@ def render():
         # NOTE: CartoDB's free tile styles now require an API key -- "CartoDB positron"
         # renders as an "API KEY REQUIRED" watermark without one. Plain OpenStreetMap
         # tiles remain genuinely free/anonymous.
-        m = folium.Map(location=[centroid.y, centroid.x], zoom_start=12, tiles="OpenStreetMap")
+        # Lower Volta spans ~90km basin-to-basin -- needs a much wider initial
+        # zoom than the compact Accra pilot/extended districts.
+        zoom_start = 9 if is_lower_volta else 12
+        m = folium.Map(location=[centroid.y, centroid.x], zoom_start=zoom_start, tiles="OpenStreetMap")
 
         zones_fg = folium.FeatureGroup(name="Risk zones (score)", show=True)
         for _, row in merged.iterrows():
@@ -145,7 +171,7 @@ def render():
         # Pilot-district scope only: the extended-coverage districts weren't
         # rasterized for this overlay. Off by default so the map opens on
         # the score view; an officer opts into the underlying evidence.
-        manifest = load_overlay_manifest() if not is_extended else None
+        manifest = load_overlay_manifest() if not is_extended and not is_lower_volta else None
         if manifest:
             bounds = manifest["bounds"]
             layer_specs = [
@@ -174,7 +200,7 @@ def render():
                 "ESA WorldCover land cover. Static export from a %d-scene SAR sample, not a live feed."
                 % manifest["scenes_used"]
             )
-        elif not is_extended:
+        elif not is_extended and not is_lower_volta:
             st.caption(
                 "Raw SAR/DEM/WorldCover overlays not exported yet -- run "
                 "risk_engine/export_raster_overlays.py to enable the evidence-layer toggle."
@@ -195,13 +221,15 @@ def render():
 
     st.divider()
     st.markdown("**Component breakdown**")
-    st.caption("Only relevant for the pilot district's 7 assemblies -- the extended-coverage set uses "
-               "the same formula but wasn't re-audited for component-level display.")
-    if not is_extended:
+    if is_extended:
+        st.caption("The extended-coverage set uses the same formula but wasn't re-audited for "
+                   "component-level display.")
+        st.dataframe(df, width="stretch", hide_index=True)
+    else:
         display_df = df[["assembly", "score", "level", "water_occ_pct", "low_elev_frac_pct",
                           "median_elev_m", "impervious_pct", "wetland_water_pct"]].copy()
         display_df.columns = ["Assembly", "Score", "Level", "SAR Water Occ. %", "Low Elev. %",
                                "Median Elev. (m)", "Impervious %", "Wetland/Water %"]
+        if is_lower_volta:
+            display_df.insert(1, "Region", df["region"])
         st.dataframe(display_df, width="stretch", hide_index=True)
-    else:
-        st.dataframe(df, width="stretch", hide_index=True)

@@ -238,16 +238,24 @@ def render():
                     st.caption(f"Estimated depth: {lo:.1f}-{hi:.1f}m")
                 if zone:
                     color = LEVEL_COLOR.get(zone["level"], "#999")
+                    ext_tag = " (Lower Volta ext. grid)" if zone.get("extended") else ""
                     st.markdown(
                         f"<span style='background:{color}22;border:1px solid {color};color:{color};"
                         f"border-radius:3px;padding:1px 7px;font-size:0.82rem;'>"
                         f"📍 Verification context: this zone's existing static score is "
-                        f"<b>{zone['score']:.1f} ({zone['level']})</b> -- {zone['id'].replace('RZ-', '')}"
+                        f"<b>{zone['score']:.1f} ({zone['level']})</b> -- {zone['id'].replace('RZ-', '')}{ext_tag}"
                         f"</span>",
                         unsafe_allow_html=True,
                     )
+                    if zone.get("extended"):
+                        st.caption(
+                            "This is the Lower Volta extended-coverage grid, not the MVP pilot -- same "
+                            "statistical SAR/DEM/land-cover formula, which structurally can't see a "
+                            "one-off dam-release flood. Don't read a Low/Moderate score here as clearing "
+                            "a dam-release report."
+                        )
                 else:
-                    st.caption("📍 This location falls outside the 1013-cell scored grid -- no pre-existing static score to cross-check against.")
+                    st.caption("📍 This location falls outside all scored coverage (pilot or extended) -- no pre-existing static score to cross-check against.")
             with c2:
                 if st.button("✅ Verify", key=f"verify_{r['id']}", type="primary"):
                     store.verify_report(r["id"], approve=True)

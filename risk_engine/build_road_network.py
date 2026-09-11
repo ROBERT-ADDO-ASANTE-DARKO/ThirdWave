@@ -18,10 +18,13 @@ simply didn't score.
 Usage
 ─────
     python3 build_road_network.py
+    python3 build_road_network.py --boundary data/lower_volta_district_boundary.geojson \
+        --grid data/lower_volta_risk_grid.geojson --out data/lower_volta_road_network.gpickle
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import logging
 import pickle
@@ -46,8 +49,8 @@ OUTPUT_GRAPH = HERE / "data" / "pilot_road_network.gpickle"
 MAX_PENALTY = 3.0
 
 
-def run():
-    boundary_gdf = gpd.read_file(BOUNDARY_PATH)
+def run(boundary_path=BOUNDARY_PATH, grid_path=GRID_PATH, output_graph=OUTPUT_GRAPH):
+    boundary_gdf = gpd.read_file(boundary_path)
     boundary_geom = boundary_gdf.union_all()
     # Small buffer so routes near the edge aren't artificially cut off
     buffered = boundary_geom.buffer(0.01)
@@ -56,7 +59,7 @@ def run():
     G = ox.graph_from_polygon(buffered, network_type="drive", simplify=True)
     log.info("Graph: %d nodes, %d edges", G.number_of_nodes(), G.number_of_edges())
 
-    grid = json.loads(GRID_PATH.read_text())
+    grid = json.loads(grid_path.read_text())
     zone_polys = [shape(f["geometry"]) for f in grid["features"]]
     zone_scores = [f["properties"]["score"] for f in grid["features"]]
     zone_tree = STRtree(zone_polys)
@@ -88,11 +91,16 @@ def run():
     log.info("Scored %d of %d edges against the risk grid (%.1f%%)",
               n_scored, G.number_of_edges(), 100 * n_scored / G.number_of_edges())
 
-    OUTPUT_GRAPH.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_GRAPH, "wb") as f:
+    output_graph.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_graph, "wb") as f:
         pickle.dump(G, f)
-    log.info("Saved -> %s", OUTPUT_GRAPH)
+    log.info("Saved -> %s", output_graph)
 
 
 if __name__ == "__main__":
-    run()
+    parser = argparse.ArgumentParser(description="Precompute a risk-weighted road graph for a district boundary")
+    parser.add_argument("--boundary", type=Path, default=BOUNDARY_PATH)
+    parser.add_argument("--grid", type=Path, default=GRID_PATH)
+    parser.add_argument("--out", type=Path, default=OUTPUT_GRAPH)
+    args = parser.parse_args()
+    run(boundary_path=args.boundary, grid_path=args.grid, output_graph=args.out)

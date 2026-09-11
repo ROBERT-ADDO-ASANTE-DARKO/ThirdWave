@@ -33,7 +33,10 @@ from shapely.geometry import Point
 
 from shapely.geometry import shape
 
-from data_loader import load_assembly_geometries, load_historical_events, load_risk_zones
+from data_loader import (
+    load_assembly_geometries, load_historical_events, load_risk_zones,
+    load_lower_volta_assembly_geometries, load_lower_volta_risk_grid_gdf,
+)
 
 
 def _now_iso() -> str:
@@ -58,15 +61,37 @@ def _assembly_gdf():
     return load_assembly_geometries()
 
 
+@st.cache_resource
+def _lower_volta_assembly_gdf():
+    return load_lower_volta_assembly_geometries()
+
+
+@st.cache_resource
+def _lower_volta_grid():
+    return load_lower_volta_risk_grid_gdf()
+
+
 def assign_district(lon: float, lat: float) -> str | None:
     """Point-in-polygon against the 7 pilot assemblies -- same approach
     geo_tools.find_zone_by_address uses, factored out so both the report
-    intake and the sandbox generator assign districts identically."""
+    intake and the sandbox generator assign districts identically.
+
+    Falls back to the Lower Volta basin (separate, non-contiguous
+    extended-coverage region -- Akosombo/Akuse/Sogakope/Ada) so a report
+    there gets a real district name instead of collapsing into "outside
+    pilot district," which used to conflate "not in the MVP pilot" with
+    "no data exists here at all." The " (Lower Volta ext.)" suffix keeps
+    that distinction visible rather than silently passing it off as the
+    pilot itself."""
     pt = Point(lon, lat)
     gdf = _assembly_gdf()
     for _, row in gdf.iterrows():
         if row.geometry.contains(pt):
             return row["name"]
+    lv_gdf = _lower_volta_assembly_gdf()
+    for _, row in lv_gdf.iterrows():
+        if row.geometry.contains(pt):
+            return f"{row['name']} (Lower Volta ext.)"
     return None
 
 
@@ -81,11 +106,24 @@ def zone_for_point(lon: float, lat: float) -> dict | None:
     report's location as verification context ("this zone is already
     High-risk") instead of judging the report in isolation. Same source
     (risk_zones.json) govt_district_dashboard.py and the AI Assistant use,
-    so this can't drift from the score shown everywhere else."""
+    so this can't drift from the score shown everywhere else.
+
+    Falls back to the Lower Volta basin's 16,941-cell grid (same
+    pilot-grade fine-grid treatment, separate non-contiguous region) --
+    tagged "extended" so callers can still tell it apart from a real pilot
+    zone rather than presenting it as one."""
     pt = Point(lon, lat)
     for z in _risk_zones():
         if shape(z["geometry"]).contains(pt):
             return z
+    lv_grid = _lower_volta_grid()
+    hits = lv_grid[lv_grid.contains(pt)]
+    if not hits.empty:
+        row = hits.iloc[0]
+        return {
+            "id": row["zone_id"], "score": float(row["score"]), "level": row["level"],
+            "assembly": row["assembly"], "extended": True,
+        }
     return None
 
 

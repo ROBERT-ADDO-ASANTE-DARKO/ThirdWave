@@ -110,7 +110,9 @@ only to recompute it. They need a few extra packages not in
 SAR2SAR despeckling step), and `matplotlib` (diagnostics). Entry points:
 `geospatial_vulnerability.py` (assembly-level scoring), `risk_grid.py`
 (fine 500m grid), `build_road_network.py` (routing graph),
-`precompute_inundation_inputs.py` (pluvial simulator inputs).
+`precompute_inundation_inputs.py` (pluvial simulator inputs),
+`extended_coverage.py` / `lower_volta_coverage.py` (the two extended-coverage
+regions described above).
 
 ## Project structure
 
@@ -136,3 +138,27 @@ floods there in 2022, 2025, and 2026 — see `historical_flood_events.json`)
 — 1013 scored zones on a ~500m grid. Extended-coverage scoring for 3
 further districts with documented flood history (Ga South, Tema, Ashaiman)
 is included for regional context, not as part of the MVP pilot deliverable.
+
+**Lower Volta basin (separate extended coverage, full pilot-grade depth).**
+`risk_engine/lower_volta_coverage.py` scores 7 more districts across 3
+regions — Asuogyaman (Akosombo/Kpong dam), Lower Manya (Akuse), North/
+Central/South Tongu (Mepe, Battor, Adidome, Sogakope), and Ada East/West
+(Ada Foah) — added for the 2023 Akosombo/Kpong dam-spillage flood (35,857
+displaced at Mepe alone). It's ~150km from Accra, a different flood
+mechanism (dam-release/riverine, not urban pluvial), and non-contiguous
+with the pilot, so it's kept as its own dataset rather than folded into
+either `pilot_*` or `extended_*`. Unlike the lighter extended-coverage set
+above, it gets the *same depth as the pilot*: a 16,941-cell fine grid,
+a risk-weighted road network, WorldPop population exposure (~695,000
+people, 93,000 buildings), and OSM channel-encroachment scoring (sparse by
+design here — only 364 waterway features are mapped basin-wide, so ~98% of
+cells are flagged `insufficient_data` rather than guessed at). Every
+district scores Low/Moderate on the composite formula, which is the
+correct and expected result, not a gap: SAR/DEM/land-cover water occurrence
+is a multi-year statistical measure and structurally can't see a one-off
+dam release — that's exactly why the dam-spillage SAR/S2 evidence below and
+`historical_flood_events.json` exist as separate, un-blended context. Wired
+into the District Dashboard (a third "Coverage" option), the AI Assistant
+(`geo_tools.find_zone_by_address` falls back to this grid and flags it),
+and the Incident Verification sandbox (dam-release reports here are
+district/zone-tagged for real instead of showing "outside pilot district").

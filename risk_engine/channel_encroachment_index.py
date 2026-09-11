@@ -91,7 +91,7 @@ def encroachment_score(min_dist_m: float) -> tuple[float, str]:
     return 10.0, "Low"
 
 
-def run(grid_path: Path):
+def run(grid_path: Path, output: Path = OUTPUT):
     grid = json.loads(grid_path.read_text())
     log.info("Computing channel encroachment index for %d cells (grid: %s)", len(grid["features"]), grid_path.name)
 
@@ -187,12 +187,13 @@ def run(grid_path: Path):
             log.info("  %-16s min=%.1fm  level=%s  (%d buildings, %d waterways)",
                      zid, r["min_building_to_waterway_m"], r["encroachment_level"], r["n_buildings"], r["n_waterways"])
 
-    OUTPUT.write_text(json.dumps(results, indent=2))
-    log.info("Saved -> %s", OUTPUT)
+    output.write_text(json.dumps(results, indent=2))
+    log.info("Saved -> %s", output)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--grid", type=Path, default=DEFAULT_GRID)
+    parser.add_argument("--out", type=Path, default=OUTPUT)
     args = parser.parse_args()
-    run(args.grid)
+    run(args.grid, args.out)

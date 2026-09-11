@@ -69,6 +69,53 @@ def load_extended_assembly_geometries() -> gpd.GeoDataFrame:
 
 
 @st.cache_data
+def load_lower_volta_district_scores() -> pd.DataFrame:
+    """The 7 Lower Volta basin districts (Asuogyaman, Lower Manya, North/Central/South
+    Tongu, Ada East/West) -- full pilot-grade coverage, but a separate, non-contiguous
+    region from the Accra pilot (see lower_volta_coverage.py docstring)."""
+    raw = json.loads((DATA_DIR / "lower_volta_district_vulnerability.json").read_text())
+    rows = []
+    for name, r in raw.items():
+        rows.append({
+            "assembly": name,
+            "region": r.get("region"),
+            "score": r["score"],
+            "level": r["level"],
+            "water_occ_pct": r["water_occ_pct"],
+            "low_elev_frac_pct": r["low_elev_frac_pct"],
+            "median_elev_m": r["median_elev_m"],
+            "impervious_pct": r["impervious_pct"],
+            "wetland_water_pct": r["wetland_water_pct"],
+            "vegetation_pct": r["vegetation_pct"],
+        })
+    return pd.DataFrame(rows).sort_values("score", ascending=False).reset_index(drop=True)
+
+
+@st.cache_data
+def load_lower_volta_assembly_geometries() -> gpd.GeoDataFrame:
+    return gpd.read_file(DATA_DIR / "lower_volta_district_assemblies.geojson")
+
+
+@st.cache_data
+def load_lower_volta_risk_grid_gdf() -> gpd.GeoDataFrame:
+    """16,941-cell fine grid over the Lower Volta basin (500m, same treatment as the pilot)."""
+    return gpd.read_file(DATA_DIR / "lower_volta_risk_grid.geojson")
+
+
+@st.cache_data
+def load_lower_volta_population_exposure() -> dict:
+    return json.loads((DATA_DIR / "lower_volta_population_exposure.json").read_text())
+
+
+@st.cache_data
+def load_lower_volta_encroachment_index() -> dict:
+    """Sparse by design -- OSM waterway mapping is much thinner here than in Accra
+    (364 waterway features basin-wide vs. dense urban coverage), so most cells are
+    flagged insufficient_data rather than scored. See channel_encroachment_index.py."""
+    return json.loads((DATA_DIR / "lower_volta_channel_encroachment_index.json").read_text())
+
+
+@st.cache_data
 def load_risk_zones() -> list[dict]:
     """The 1013 fine-grained RiskZone records (score, contributing_factors, etc.)."""
     return json.loads((DATA_DIR / "risk_zones.json").read_text())["zones"]

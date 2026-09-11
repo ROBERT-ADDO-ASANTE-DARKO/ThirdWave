@@ -20,7 +20,7 @@ from shapely.geometry import Point, shape
 
 from data_loader import (
     DATA_DIR, load_risk_zones, load_assembly_scores, load_encroachment_index,
-    load_historical_events, load_demo_seed_incidents,
+    load_historical_events, load_demo_seed_incidents, load_lower_volta_risk_grid_gdf,
 )
 
 
@@ -57,11 +57,11 @@ def _nearby_historical_events(lat: float, lon: float, radius_km: float = HISTORI
     return sorted(out, key=lambda r: r["distance_km"])
 
 
-def _geocode(address: str):
+def _geocode(address: str, region_hint: str = "Accra, Ghana"):
     try:
         resp = requests.get(
             "https://nominatim.openstreetmap.org/search",
-            params={"q": f"{address}, Accra, Ghana", "format": "json", "limit": 1},
+            params={"q": f"{address}, {region_hint}", "format": "json", "limit": 1},
             headers={"User-Agent": "ThirdWave-streamlit-poc/1.0"},
             timeout=10,
         )
@@ -71,6 +71,32 @@ def _geocode(address: str):
     except Exception:
         pass
     return None
+
+
+def _find_zone_in_lower_volta(lat: float, lon: float) -> dict | None:
+    """Lower Volta is a separate, non-contiguous extended-coverage region
+    (Akosombo/Akuse/Sogakope/Ada basin, ~150km from Accra) -- checked only
+    after the pilot grid misses, and only against a broadly re-geocoded
+    point (see find_zone_by_address), since the pilot-biased "Accra, Ghana"
+    geocode query can mis-resolve outlying basin towns."""
+    pt = Point(lon, lat)
+    gdf = load_lower_volta_risk_grid_gdf()
+    hits = gdf[gdf.contains(pt)]
+    if hits.empty:
+        return None
+    row = hits.iloc[0]
+    return {
+        "zone_id": row["zone_id"], "assembly": row["assembly"],
+        "score": round(float(row["score"]), 1), "level": row["level"],
+        "coverage_note": (
+            "This is in the Lower Volta extended-coverage region, NOT the MVP pilot district -- it gets "
+            "the same fine-grid treatment (500m cells, roads, population, encroachment) but the score is "
+            "the same multi-year statistical SAR/DEM/land-cover formula, which structurally cannot see a "
+            "one-off dam-release flood. This basin has documented 2023 Akosombo/Kpong dam-spillage "
+            "flooding (35,857 displaced at Mepe) -- check nearby_historical_events below before treating "
+            "a Low/Moderate score here as reassuring."
+        ),
+    }
 
 
 def find_zone_by_address(address: str) -> dict:
@@ -84,7 +110,12 @@ def find_zone_by_address(address: str) -> dict:
     the gap this join surfaces rather than hides."""
     result = _geocode(address)
     if not result:
-        return {"error": f"Could not geocode '{address}'."}
+        # "{address}, Accra, Ghana" can fail outright for a basin town
+        # (e.g. Mepe, Akuse) rather than just mis-resolving -- retry broadly
+        # before giving up entirely.
+        result = _geocode(address, region_hint="Ghana")
+        if not result:
+            return {"error": f"Could not geocode '{address}'."}
     lat, lon, label = result
     nearby_events = _nearby_historical_events(lat, lon)
     pt = Point(lon, lat)
@@ -109,6 +140,26 @@ def find_zone_by_address(address: str) -> dict:
                 out["nearby_historical_events"] = []
                 out["historical_context_note"] = f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated record -- absence of history here is not the same as absence of risk."
             return out
+    # Not in the pilot grid -- try the Lower Volta basin before giving up.
+    # Re-geocode broadly ("Ghana", not "Accra, Ghana"): the pilot-biased
+    # query above can mis-resolve outlying towns like Akosombo/Sogakope/Ada.
+    broad = _geocode(address, region_hint="Ghana")
+    if broad:
+        b_lat, b_lon, b_label = broad
+        lv = _find_zone_in_lower_volta(b_lat, b_lon)
+        if lv:
+            lv["resolved_address"] = b_label
+            b_events = _nearby_historical_events(b_lat, b_lon)
+            lv["nearby_historical_events"] = b_events
+            lv["historical_context_note"] = (
+                f"{len(b_events)} documented flood event(s) within {HISTORICAL_EVENT_RADIUS_KM:.0f}km -- "
+                "weigh this alongside the computed score."
+                if b_events else
+                f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated "
+                "record -- absence of history here is not the same as absence of risk."
+            )
+            return lv
+
     out = {"resolved_address": label, "error": "This location is outside the pilot district's coverage area."}
     if nearby_events:
         out["nearby_historical_events"] = nearby_events

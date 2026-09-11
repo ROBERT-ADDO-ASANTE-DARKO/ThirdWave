@@ -16,10 +16,13 @@ regardless of whether the waterway-distance metric could be computed).
 Usage
 ─────
     python3 population_exposure.py
+    python3 population_exposure.py --grid data/lower_volta_risk_grid.geojson \
+        --out data/lower_volta_population_exposure.json
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import logging
 import time
@@ -91,14 +94,14 @@ def fetch_buildings_clean(grid_features) -> list:
     return buildings
 
 
-def run():
+def run(grid_path=GRID_PATH, output=OUTPUT):
     if not POP_RASTER.exists():
         raise FileNotFoundError(
             f"{POP_RASTER} not found -- download first:\n"
             f"  curl -sL -o {POP_RASTER} https://data.worldpop.org/GIS/Population/Global_2000_2020/2020/GHA/gha_ppp_2020.tif"
         )
 
-    grid = json.loads(GRID_PATH.read_text())
+    grid = json.loads(grid_path.read_text())
     log.info("Computing population exposure for %d cells", len(grid["features"]))
 
     buildings = fetch_buildings_clean(grid["features"])
@@ -138,14 +141,18 @@ def run():
     total_pop = sum(r["estimated_population"] for r in results.values())
     total_buildings = sum(r["n_buildings"] for r in results.values())
     high_risk_pop = sum(r["estimated_population"] for r in results.values() if r["level"] in ("High", "Very High"))
-    log.info("Total estimated population in pilot grid: %.0f", total_pop)
+    log.info("Total estimated population in grid: %.0f", total_pop)
     log.info("Total buildings: %d", total_buildings)
     log.info("Estimated population in High/Very High zones: %.0f (%.1f%% of total)",
               high_risk_pop, 100 * high_risk_pop / total_pop if total_pop else 0)
 
-    OUTPUT.write_text(json.dumps({"source_note": SOURCE_NOTE, "zones": results}, indent=2))
-    log.info("Saved -> %s", OUTPUT)
+    output.write_text(json.dumps({"source_note": SOURCE_NOTE, "zones": results}, indent=2))
+    log.info("Saved -> %s", output)
 
 
 if __name__ == "__main__":
-    run()
+    parser = argparse.ArgumentParser(description="Population/building exposure per risk-grid cell")
+    parser.add_argument("--grid", type=Path, default=GRID_PATH)
+    parser.add_argument("--out", type=Path, default=OUTPUT)
+    args = parser.parse_args()
+    run(grid_path=args.grid, output=args.out)
