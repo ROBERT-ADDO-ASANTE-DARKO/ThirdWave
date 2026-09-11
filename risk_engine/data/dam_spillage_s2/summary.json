@@ -1,0 +1,26 @@
+{
+  "event_id": "AKOSOMBO-DAM-SPILLAGE-2023-09-15",
+  "sensor": "Sentinel-2 L2A, MNDWI = (B03-B11)/(B03+B11), water > 0.00",
+  "bbox": [
+    0.35,
+    6.0,
+    0.5,
+    6.15
+  ],
+  "resolution_deg": 0.00045,
+  "scene_dates": {
+    "baseline": "2022-12-29",
+    "peak": "2023-10-15",
+    "recession": "2023-11-29"
+  },
+  "aoi_cloud_masked_pct": {
+    "baseline": 1.5,
+    "peak": 9.8,
+    "recession": 16.5
+  },
+  "baseline_open_water_km2": 7.6,
+  "new_flood_at_peak_km2": 7.89,
+  "receded_by_recession_km2": 4.39,
+  "still_flooded_at_recession_km2": 0.66,
+  "note": "new_flood is a LOWER BOUND: 10% of the AOI was cloud-masked in the peak scene, so flooding under those clouds is not counted. Optical complements the SAR result in dam_spillage_sar/ (radar had no cloud issue but noisier margins); where both are clear they should broadly agree."
+}

@@ -72,6 +72,8 @@ In the meantime, `risk_engine/prototype_drain_capacity_integration.py` rehearses
 
 **SAR flood verification for the dam-spillage events.** `risk_engine/dam_spillage_sar_comparison.py` produces a before/during/after Sentinel-1 view of the two dam-spillage events in that record — the 2023 Akosombo/Lower Volta spillage and the May 2026 Weija spillage — using calibrated RTC gamma0 change detection (standard single-event flood-mapping method, not the multi-year percentile approach the composite score uses). It confirms free radar imagery does capture both floods: ~8 km² of new floodplain inundation for Akosombo at peak (mostly receded 5 weeks later), ~5 km² for Weija the day after the gates opened (mostly receded within 2 weeks). Evidence-only — it changes no score. Copernicus EMS also published a formal flood-extent map for Akosombo (activation EMSR705); no equivalent exists for Weija.
 
+**Optical cross-check (Akosombo only).** `risk_engine/dam_spillage_s2_mndwi.py` maps the same Akosombo flood with Sentinel-2 MNDWI. It only works for Akosombo — the 2026 Weija event was too short and too cloudy (its peak date is 92% cloud), which is exactly why the pilot uses radar. Even for Akosombo there is no usable rainy-season pre-flood scene, so the baseline is a near-cloud-free dry-season reference (Dec 2022). Two independent sensors and methods agree on the headline: **+7.9 km² new flood (Sentinel-2)** vs **+8.0 km² (Sentinel-1)** at peak. The optical margins are cleaner; the caveat is that ~10% of the peak scene is cloud-masked, so the optical figure is a lower bound.
+
 ## Getting started
 
 ```bash
