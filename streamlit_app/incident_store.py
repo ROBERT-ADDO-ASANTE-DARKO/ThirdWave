@@ -276,6 +276,43 @@ def generate_synthetic_report(
     )
 
 
+# Dam-release flooding is NOT rainfall ponding -- simulate_ponding() returns
+# ~0 for a point like Tetegu because it isn't a local rain sink, even
+# though the real 2026-05-27 Weija spillage submerged homes and forced
+# canoe evacuations. So a dam-release scenario is seeded from the DOCUMENTED
+# event (deaths/displaced/cause in historical_flood_events.json) and the
+# SAR-measured extent (risk_engine/dam_spillage_sar_comparison.py) instead,
+# not from the CA model. Depth range reflects "ground floors flooded", the
+# consistent signature of these events.
+_DAM_RELEASE_TEMPLATES = [
+    "Water rising fast from the direction of the dam -- not rain, the level jumped in under an hour. "
+    "Ground floors going under, people moving upstairs.",
+    "The spillage has reached us. Yard and street are one sheet of water now, maybe waist to chest deep. "
+    "Neighbours leaving by canoe.",
+    "Downstream of the dam gates -- water is over the doorsteps and still climbing. Some houses already "
+    "cut off, no road access.",
+    "This is the dam release, not the rain. Water came up to the windowsills on the low side of the "
+    "street. Families evacuating with what they can carry.",
+]
+_DAM_RELEASE_DEPTH_RANGE = (0.8, 2.2)  # metres -- ground-floor inundation typical of these events
+
+
+def generate_dam_release_report(*, lon: float, lat: float, location_label: str, rng) -> dict:
+    """Synthetic report for a dam-release scenario -- severity anchored to
+    the documented event pattern (submerged ground floors, upstream-driven,
+    canoe evacuation), NOT to simulate_ponding(), which structurally can't
+    represent this hazard."""
+    lo, hi = _DAM_RELEASE_DEPTH_RANGE
+    depth_m = float(rng.uniform(lo, hi))
+    return submit_report(
+        lon=lon, lat=lat, location_label=location_label, hazard_type="river_flood",
+        description=rng.choice(_DAM_RELEASE_TEMPLATES),
+        depth_estimate_m=(round(depth_m - 0.2, 2), round(depth_m + 0.2, 2)),
+        has_photo=False, ai_assisted=False, synthetic=True,
+        reporter_ref=f"+233-DEMO-SYNTH-{rng.integers(1000, 9999)}",
+    )
+
+
 def historical_scenario_points() -> list[dict]:
     """Real documented events with geocoded coordinates, for grounding a
     sandbox scenario in something that actually happened rather than a

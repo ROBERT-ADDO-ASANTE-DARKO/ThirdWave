@@ -133,13 +133,26 @@ def render():
                 "Scenario source", ["Historical event", "Custom location"], horizontal=True, key="sandbox_source"
             )
 
+            is_dam_release = False
             if scenario_source == "Historical event":
                 events = store.historical_scenario_points()
                 labels = [f"{e['name']} ({e['date']})" for e in events]
                 choice = st.selectbox("Event", labels, key="sandbox_event")
                 event = events[labels.index(choice)]
                 lon, lat, label = event["lon"], event["lat"], event["location_name"]
-                rainfall_mm = st.slider("Rainfall for this scenario (mm)", 0, 180, 110, 5, key="sandbox_rain_hist")
+                is_dam_release = event.get("hazard_type") == "dam_release_flood"
+                if is_dam_release:
+                    st.info(
+                        "**Dam-release event.** Rainfall ponding (the model behind the other scenarios) "
+                        "doesn't represent this hazard -- `simulate_ponding()` returns ~0 for a point like "
+                        "this because it isn't a local rain sink, even though the real event submerged ground "
+                        "floors. Reports here are seeded from the documented event and its SAR-measured "
+                        "extent (`risk_engine/dam_spillage_sar_comparison.py`) instead, with `river_flood` "
+                        "hazard type and ground-floor-inundation depths."
+                    )
+                    rainfall_mm = 0
+                else:
+                    rainfall_mm = st.slider("Rainfall for this scenario (mm)", 0, 180, 110, 5, key="sandbox_rain_hist")
             else:
                 addr = st.text_input("Location", placeholder="e.g. Kaneshie Market", key="sandbox_addr")
                 rainfall_mm = st.slider("Rainfall for this scenario (mm)", 0, 180, 80, 5, key="sandbox_rain_custom")
@@ -157,22 +170,36 @@ def render():
                 if lon is None:
                     st.error("Pick a valid location first.")
                 else:
-                    depth = _depth_at_point(dem, wc_int, bbox, rainfall_mm, lon, lat)
                     rng = np.random.default_rng()
                     created = []
-                    for _ in range(n_reports):
-                        jlon = lon + rng.uniform(-0.0015, 0.0015)
-                        jlat = lat + rng.uniform(-0.0015, 0.0015)
-                        jdepth = max(depth + rng.uniform(-0.05, 0.05), 0.0)
-                        r = store.generate_synthetic_report(
-                            lon=jlon, lat=jlat, location_label=label, depth_m=jdepth, rng=rng,
+                    if is_dam_release:
+                        for _ in range(n_reports):
+                            jlon = lon + rng.uniform(-0.0015, 0.0015)
+                            jlat = lat + rng.uniform(-0.0015, 0.0015)
+                            created.append(store.generate_dam_release_report(
+                                lon=jlon, lat=jlat, location_label=label, rng=rng,
+                            ))
+                        depths = [r["depth_estimate_m"] for r in created]
+                        lo = min(d[0] for d in depths); hi = max(d[1] for d in depths)
+                        st.success(
+                            f"Seeded {len(created)} synthetic dam-release report(s) near **{label}** "
+                            f"(ground-floor inundation, depth ≈ {lo:.1f}-{hi:.1f}m -- anchored to the "
+                            "documented event, not the rainfall model). Scroll down to verify them."
                         )
-                        created.append(r)
-                    st.success(
-                        f"Seeded {len(created)} synthetic report(s) near **{label}** "
-                        f"(simulated depth ≈ {depth * 100:.0f}cm at {rainfall_mm}mm rainfall). "
-                        "Scroll down to verify them."
-                    )
+                    else:
+                        depth = _depth_at_point(dem, wc_int, bbox, rainfall_mm, lon, lat)
+                        for _ in range(n_reports):
+                            jlon = lon + rng.uniform(-0.0015, 0.0015)
+                            jlat = lat + rng.uniform(-0.0015, 0.0015)
+                            jdepth = max(depth + rng.uniform(-0.05, 0.05), 0.0)
+                            created.append(store.generate_synthetic_report(
+                                lon=jlon, lat=jlat, location_label=label, depth_m=jdepth, rng=rng,
+                            ))
+                        st.success(
+                            f"Seeded {len(created)} synthetic report(s) near **{label}** "
+                            f"(simulated depth ≈ {depth * 100:.0f}cm at {rainfall_mm}mm rainfall). "
+                            "Scroll down to verify them."
+                        )
 
     st.divider()
 
