@@ -24,7 +24,7 @@ import streamlit as st
 from shapely.geometry import shape
 from streamlit_folium import st_folium
 
-from data_loader import load_risk_zones, LEVEL_COLOR, INK_NAVY
+from data_loader import load_risk_zones, load_obstruction_height, LEVEL_COLOR, INK_NAVY
 
 
 def render():
@@ -36,12 +36,14 @@ def render():
     )
 
     zones = load_risk_zones()
+    obstruction = load_obstruction_height()["zones"]
     rows = []
     for z in zones:
+        zid = z["id"].replace("RZ-", "")
         enc_factor = next((f for f in z["contributing_factors"] if f["type"] == "channel_encroachment"), None)
         has_encroachment = enc_factor is not None and not enc_factor.get("data_insufficient", True)
         rows.append({
-            "zone_id": z["id"].replace("RZ-", ""),
+            "zone_id": zid,
             "assembly": z["assembly"],
             "score": z["score"],
             "level": z["level"],
@@ -49,6 +51,7 @@ def render():
             "has_encroachment_data": has_encroachment,
             "encroachment_text": enc_factor["text"] if enc_factor else "n/a",
             "min_dist_m": enc_factor["value"] if has_encroachment else None,
+            "obstruction_m": obstruction.get(zid, {}).get("mean_obstruction_m"),
             "geometry": z["geometry"],
         })
     df = pd.DataFrame(rows)
@@ -86,15 +89,25 @@ def render():
                 style_function=lambda feat, c=LEVEL_COLOR.get(row["level"], "#999"): {
                     "fillColor": c, "color": INK_NAVY, "weight": 1, "fillOpacity": 0.65,
                 },
-                tooltip=folium.Tooltip(f"<b>{row['zone_id']}</b><br>Priority: {row['priority']:.0f}<br>{row['encroachment_text']}"),
+                tooltip=folium.Tooltip(
+                    f"<b>{row['zone_id']}</b><br>Priority: {row['priority']:.0f}<br>{row['encroachment_text']}"
+                    + (f"<br>Obstruction: {row['obstruction_m']:.1f}m" if row['obstruction_m'] is not None else "")
+                ),
             ).add_to(m)
         st_folium(m, height=420, use_container_width=True, returned_objects=[])
 
     with list_col:
         st.markdown("**Priority list**")
-        display = top[["zone_id", "assembly", "score", "min_dist_m", "priority"]].copy()
-        display.columns = ["Zone", "Assembly", "Score", "Nearest waterway (m)", "Priority"]
+        display = top[["zone_id", "assembly", "score", "min_dist_m", "obstruction_m", "priority"]].copy()
+        display.columns = ["Zone", "Assembly", "Score", "Nearest waterway (m)", "Obstruction (m)", "Priority"]
         st.dataframe(display, use_container_width=True, hide_index=True, height=420)
+        st.caption(
+            "Obstruction (m): Copernicus DEM minus FABDEM, a free per-cell height-above-ground proxy "
+            "(r=0.83 correlated with impervious land cover -- see building_obstruction_height.py). "
+            "~30m-class, not a building-level layer, and not part of the Priority score above -- shown "
+            "for context, same as everywhere else this project discloses without blending. "
+            "FABDEM: CC BY-NC-SA 4.0, Hawker et al. 2022, Univ. of Bristol / Fathom."
+        )
 
     if len(without_data):
         with st.expander(f"{len(without_data)} zones need a field survey (no usable OSM waterway/building data)"):

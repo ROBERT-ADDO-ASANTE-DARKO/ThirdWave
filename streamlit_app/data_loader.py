@@ -132,6 +132,21 @@ def load_encroachment_index() -> dict:
 
 
 @st.cache_data
+def load_obstruction_height() -> dict:
+    """Copernicus DEM minus FABDEM, per pilot grid cell -- a free, real
+    height-above-ground proxy (r=0.83 correlated with impervious land cover,
+    see building_obstruction_height.py). ~30m-class, so it's a per-cell
+    obstruction signal, not a building-level layer. Reported alongside the
+    score for context, not blended into it -- same discipline as LULC."""
+    return json.loads((DATA_DIR / "building_obstruction_height.json").read_text())
+
+
+@st.cache_data
+def load_lower_volta_obstruction_height() -> dict:
+    return json.loads((DATA_DIR / "lower_volta_building_obstruction_height.json").read_text())
+
+
+@st.cache_data
 def load_historical_events() -> list[dict]:
     return json.loads((DATA_DIR / "historical_flood_events.json").read_text())["events"]
 
