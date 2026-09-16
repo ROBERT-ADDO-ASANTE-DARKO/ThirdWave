@@ -1,0 +1,1949 @@
+{
+  "city": "Boston",
+  "bbox": [
+    -71.1,
+    42.32,
+    -71.0,
+    42.38
+  ],
+  "n_cells": 321,
+  "gba_key_format": "osmid (real OSM building footprints -- unlike Ghana's Plus-Code raster fallback)",
+  "n_osm_buildings_in_bbox": 26543,
+  "n_gba_points_joined": 26283,
+  "copdem_fabdem_obstruction_vs_impervious_corr": 0.7099912613937275,
+  "gba_height_vs_impervious_corr": 0.019553414842760998,
+  "n_cells_with_obstruction_data": 321,
+  "n_cells_with_gba_data": 246,
+  "accra_pilot_reference": {
+    "copdem_fabdem_corr": 0.828,
+    "gba_corr": 0.355
+  },
+  "rows": [
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 2.423487663269043,
+      "mean_gba_height_m": 8.438716487186712,
+      "n_gba_points": 41
+    },
+    {
+      "impervious_pct": 56.0,
+      "mean_obstruction_m": 2.947338342666626,
+      "mean_gba_height_m": 8.037100387091684,
+      "n_gba_points": 202
+    },
+    {
+      "impervious_pct": 52.0,
+      "mean_obstruction_m": 2.4056737422943115,
+      "mean_gba_height_m": 8.684733881950379,
+      "n_gba_points": 100
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 3.2863640785217285,
+      "mean_gba_height_m": 8.086427515524406,
+      "n_gba_points": 135
+    },
+    {
+      "impervious_pct": 60.0,
+      "mean_obstruction_m": 3.7354629039764404,
+      "mean_gba_height_m": 8.340964374257558,
+      "n_gba_points": 201
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 3.1042346954345703,
+      "mean_gba_height_m": 6.242974490954958,
+      "n_gba_points": 232
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 3.0470714569091797,
+      "mean_gba_height_m": 5.088795620870788,
+      "n_gba_points": 241
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.0067832469940186,
+      "mean_gba_height_m": 5.024278717167745,
+      "n_gba_points": 107
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.9148344993591309,
+      "mean_gba_height_m": 7.708230592634367,
+      "n_gba_points": 184
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.3409111499786377,
+      "mean_gba_height_m": 7.692359441440869,
+      "n_gba_points": 306
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 1.6642614603042603,
+      "mean_gba_height_m": 8.306072975459852,
+      "n_gba_points": 38
+    },
+    {
+      "impervious_pct": 56.67,
+      "mean_obstruction_m": 1.5056060552597046,
+      "mean_gba_height_m": 7.271352291107178,
+      "n_gba_points": 8
+    },
+    {
+      "impervious_pct": 20.0,
+      "mean_obstruction_m": 0.8519884347915649,
+      "mean_gba_height_m": 9.106342633565268,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.03241432085633278,
+      "mean_gba_height_m": 5.545059412717819,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.030189400538802147,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.8612242937088013,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.8158235549926758,
+      "mean_gba_height_m": 10.182493209838867,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 2.714184522628784,
+      "mean_gba_height_m": 6.912545753022035,
+      "n_gba_points": 96
+    },
+    {
+      "impervious_pct": 40.0,
+      "mean_obstruction_m": 4.7080864906311035,
+      "mean_gba_height_m": 7.9152131487683555,
+      "n_gba_points": 164
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 3.1890578269958496,
+      "mean_gba_height_m": 8.060385841048426,
+      "n_gba_points": 144
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 3.640090227127075,
+      "mean_gba_height_m": 8.122273982787618,
+      "n_gba_points": 98
+    },
+    {
+      "impervious_pct": 68.0,
+      "mean_obstruction_m": 3.7031166553497314,
+      "mean_gba_height_m": 8.93694331771449,
+      "n_gba_points": 171
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 3.069417953491211,
+      "mean_gba_height_m": 7.0800647542510236,
+      "n_gba_points": 142
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 1.605157494544983,
+      "mean_gba_height_m": 5.4766903148507176,
+      "n_gba_points": 106
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.2505462169647217,
+      "mean_gba_height_m": 5.230781815507832,
+      "n_gba_points": 34
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.5990484952926636,
+      "mean_gba_height_m": 9.274864567553296,
+      "n_gba_points": 34
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 2.334404230117798,
+      "mean_gba_height_m": 10.060357904158575,
+      "n_gba_points": 173
+    },
+    {
+      "impervious_pct": 40.0,
+      "mean_obstruction_m": 2.896336317062378,
+      "mean_gba_height_m": 10.712411679719624,
+      "n_gba_points": 38
+    },
+    {
+      "impervious_pct": 3.33,
+      "mean_obstruction_m": 0.26098406314849854,
+      "mean_gba_height_m": 3.6026081989208856,
+      "n_gba_points": 6
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0012326074065640569,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 2.980574131011963,
+      "mean_gba_height_m": 8.429448973614237,
+      "n_gba_points": 115
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 2.795640468597412,
+      "mean_gba_height_m": 7.511768498728352,
+      "n_gba_points": 62
+    },
+    {
+      "impervious_pct": 60.0,
+      "mean_obstruction_m": 3.017162799835205,
+      "mean_gba_height_m": 7.934352752324697,
+      "n_gba_points": 37
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.408576011657715,
+      "mean_gba_height_m": 10.18195845424265,
+      "n_gba_points": 69
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.5422155857086182,
+      "mean_gba_height_m": 6.87049663066864,
+      "n_gba_points": 48
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.8823847770690918,
+      "mean_gba_height_m": 10.642221258236813,
+      "n_gba_points": 26
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.5117065906524658,
+      "mean_gba_height_m": 6.04595826409365,
+      "n_gba_points": 38
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.953841209411621,
+      "mean_gba_height_m": 7.338227446262653,
+      "n_gba_points": 26
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.619063138961792,
+      "mean_gba_height_m": 5.217597451280145,
+      "n_gba_points": 17
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.610624074935913,
+      "mean_gba_height_m": 7.539963691367716,
+      "n_gba_points": 197
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.8440933227539062,
+      "mean_gba_height_m": 7.276514012783889,
+      "n_gba_points": 241
+    },
+    {
+      "impervious_pct": 76.67,
+      "mean_obstruction_m": 2.6049561500549316,
+      "mean_gba_height_m": 7.2190072390583016,
+      "n_gba_points": 286
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 2.227600574493408,
+      "mean_gba_height_m": 7.284824529905168,
+      "n_gba_points": 315
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 2.8486011028289795,
+      "mean_gba_height_m": 6.464306463978508,
+      "n_gba_points": 495
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.7250733375549316,
+      "mean_gba_height_m": 6.850265184443392,
+      "n_gba_points": 501
+    },
+    {
+      "impervious_pct": 52.0,
+      "mean_obstruction_m": 1.1927754878997803,
+      "mean_gba_height_m": 7.2913939617574215,
+      "n_gba_points": 224
+    },
+    {
+      "impervious_pct": 24.0,
+      "mean_obstruction_m": 0.3004682660102844,
+      "mean_gba_height_m": 6.757459648193851,
+      "n_gba_points": 31
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.11174854636192322,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.06980287283658981,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.04886948689818382,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.906129837036133,
+      "mean_gba_height_m": 12.31410734741776,
+      "n_gba_points": 54
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 2.332770586013794,
+      "mean_gba_height_m": 9.481584600039891,
+      "n_gba_points": 35
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 1.9326770305633545,
+      "mean_gba_height_m": 13.096220756399221,
+      "n_gba_points": 29
+    },
+    {
+      "impervious_pct": 72.0,
+      "mean_obstruction_m": 2.4164276123046875,
+      "mean_gba_height_m": 8.891746615254602,
+      "n_gba_points": 172
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.255901575088501,
+      "mean_gba_height_m": 9.67317842282066,
+      "n_gba_points": 129
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 3.5152885913848877,
+      "mean_gba_height_m": 11.156444452310863,
+      "n_gba_points": 152
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.7136285305023193,
+      "mean_gba_height_m": 15.47449043770911,
+      "n_gba_points": 71
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.232637882232666,
+      "mean_gba_height_m": 10.969093787399204,
+      "n_gba_points": 11
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.2827433347702026,
+      "mean_gba_height_m": 3.4926936896074388,
+      "n_gba_points": 21
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.6328480243682861,
+      "mean_gba_height_m": 5.509954056569508,
+      "n_gba_points": 56
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.6976559162139893,
+      "mean_gba_height_m": 7.130483512220712,
+      "n_gba_points": 522
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 4.163142681121826,
+      "mean_gba_height_m": 7.50768161053751,
+      "n_gba_points": 510
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 4.257193565368652,
+      "mean_gba_height_m": 7.419501522196782,
+      "n_gba_points": 446
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.761061429977417,
+      "mean_gba_height_m": 6.985154860640225,
+      "n_gba_points": 511
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 3.4585492610931396,
+      "mean_gba_height_m": 7.20996291359977,
+      "n_gba_points": 391
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.9457526206970215,
+      "mean_gba_height_m": 7.005857235221772,
+      "n_gba_points": 418
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 3.0374720096588135,
+      "mean_gba_height_m": 6.620658624630708,
+      "n_gba_points": 260
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.09076786786317825,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.4578927755355835,
+      "mean_gba_height_m": 0.8931162059307098,
+      "n_gba_points": 6
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 60.0,
+      "mean_obstruction_m": 2.8539600372314453,
+      "mean_gba_height_m": 14.67938845952352,
+      "n_gba_points": 30
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 3.445448398590088,
+      "mean_gba_height_m": 15.786739002574574,
+      "n_gba_points": 22
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 4.019307613372803,
+      "mean_gba_height_m": 14.01293907075558,
+      "n_gba_points": 53
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.750962734222412,
+      "mean_gba_height_m": 11.13921012648617,
+      "n_gba_points": 83
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 4.042376518249512,
+      "mean_gba_height_m": 9.473569789370478,
+      "n_gba_points": 414
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.790466070175171,
+      "mean_gba_height_m": 10.062713113881774,
+      "n_gba_points": 354
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.4662115573883057,
+      "mean_gba_height_m": 11.862592353965297,
+      "n_gba_points": 165
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.6959502696990967,
+      "mean_gba_height_m": 11.945396120868512,
+      "n_gba_points": 67
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.611655831336975,
+      "mean_gba_height_m": 7.36791718006134,
+      "n_gba_points": 13
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.880867600440979,
+      "mean_gba_height_m": 7.969914632118665,
+      "n_gba_points": 65
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.823702335357666,
+      "mean_gba_height_m": 7.303310792227298,
+      "n_gba_points": 207
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.7950708866119385,
+      "mean_gba_height_m": 6.955061284395365,
+      "n_gba_points": 156
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 1.8424755334854126,
+      "mean_gba_height_m": 6.871594806512197,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 1.1973291635513306,
+      "mean_gba_height_m": 5.253056729541106,
+      "n_gba_points": 17
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 1.7673022747039795,
+      "mean_gba_height_m": 7.356094781309366,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 0.6796082854270935,
+      "mean_gba_height_m": 3.838674690042223,
+      "n_gba_points": 28
+    },
+    {
+      "impervious_pct": 68.0,
+      "mean_obstruction_m": 0.47676587104797363,
+      "mean_gba_height_m": 3.807336197959052,
+      "n_gba_points": 9
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 0.8896161913871765,
+      "mean_gba_height_m": 4.934133672714234,
+      "n_gba_points": 5
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 0.917473554611206,
+      "mean_gba_height_m": 3.1104343930880227,
+      "n_gba_points": 6
+    },
+    {
+      "impervious_pct": 32.0,
+      "mean_obstruction_m": 1.1849220991134644,
+      "mean_gba_height_m": 0.9394366331398487,
+      "n_gba_points": 4
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.007306795101612806,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.0862107276916504,
+      "mean_gba_height_m": 14.376917213201523,
+      "n_gba_points": 52
+    },
+    {
+      "impervious_pct": 28.0,
+      "mean_obstruction_m": 2.8721039295196533,
+      "mean_gba_height_m": 8.416353838784355,
+      "n_gba_points": 7
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 4.7474260330200195,
+      "mean_gba_height_m": 14.329768211945243,
+      "n_gba_points": 46
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.1127021312713623,
+      "mean_gba_height_m": 14.971621939341228,
+      "n_gba_points": 75
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 4.0771260261535645,
+      "mean_gba_height_m": 12.208116004100212,
+      "n_gba_points": 312
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 4.300434112548828,
+      "mean_gba_height_m": 10.919546831392212,
+      "n_gba_points": 533
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 4.72510290145874,
+      "mean_gba_height_m": 11.047087711748572,
+      "n_gba_points": 557
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 3.736645460128784,
+      "mean_gba_height_m": 14.102358041490827,
+      "n_gba_points": 105
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.627858877182007,
+      "mean_gba_height_m": 26.224384709408408,
+      "n_gba_points": 19
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 1.6421442031860352,
+      "mean_gba_height_m": 16.323231824806758,
+      "n_gba_points": 28
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 2.0576658248901367,
+      "mean_gba_height_m": 20.997828044891357,
+      "n_gba_points": 25
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.400703191757202,
+      "mean_gba_height_m": 10.956475870949882,
+      "n_gba_points": 7
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 2.1718027591705322,
+      "mean_gba_height_m": 21.20758669326703,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 1.1344866752624512,
+      "mean_gba_height_m": 7.067437979910109,
+      "n_gba_points": 18
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 2.285651922225952,
+      "mean_gba_height_m": 16.685193167792427,
+      "n_gba_points": 9
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 1.7929661273956299,
+      "mean_gba_height_m": 6.872796716228608,
+      "n_gba_points": 31
+    },
+    {
+      "impervious_pct": 56.0,
+      "mean_obstruction_m": 1.6632943153381348,
+      "mean_gba_height_m": 8.56551010268075,
+      "n_gba_points": 21
+    },
+    {
+      "impervious_pct": 8.0,
+      "mean_obstruction_m": 0.33840569853782654,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 6.60953955957666e-05,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 2.1552195903495885e-06,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 3.3156261444091797,
+      "mean_gba_height_m": 14.472332234652537,
+      "n_gba_points": 53
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 3.133460760116577,
+      "mean_gba_height_m": 14.306911572431906,
+      "n_gba_points": 39
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 4.491684436798096,
+      "mean_gba_height_m": 17.67007955659433,
+      "n_gba_points": 251
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.1582999229431152,
+      "mean_gba_height_m": 21.642996659297,
+      "n_gba_points": 263
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.041649103164673,
+      "mean_gba_height_m": 24.352811004176285,
+      "n_gba_points": 132
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.2181994915008545,
+      "mean_gba_height_m": 22.31522819851384,
+      "n_gba_points": 66
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 2.598782539367676,
+      "mean_gba_height_m": 13.498927243550618,
+      "n_gba_points": 150
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 3.189051628112793,
+      "mean_gba_height_m": 12.113724497908896,
+      "n_gba_points": 176
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.978395462036133,
+      "mean_gba_height_m": 18.18702980488707,
+      "n_gba_points": 177
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.724616765975952,
+      "mean_gba_height_m": 20.209729533195496,
+      "n_gba_points": 50
+    },
+    {
+      "impervious_pct": 56.0,
+      "mean_obstruction_m": 1.8606818914413452,
+      "mean_gba_height_m": 20.89035808123075,
+      "n_gba_points": 13
+    },
+    {
+      "impervious_pct": 96.67,
+      "mean_obstruction_m": 2.0423505306243896,
+      "mean_gba_height_m": 23.028288595676422,
+      "n_gba_points": 50
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.9577709436416626,
+      "mean_gba_height_m": 28.239255320084723,
+      "n_gba_points": 19
+    },
+    {
+      "impervious_pct": 60.0,
+      "mean_obstruction_m": 1.357925534248352,
+      "mean_gba_height_m": 22.73461531798045,
+      "n_gba_points": 15
+    },
+    {
+      "impervious_pct": 68.0,
+      "mean_obstruction_m": 0.8665174245834351,
+      "mean_gba_height_m": 10.325190544128418,
+      "n_gba_points": 13
+    },
+    {
+      "impervious_pct": 28.0,
+      "mean_obstruction_m": 0.5247843861579895,
+      "mean_gba_height_m": 5.347017367680867,
+      "n_gba_points": 3
+    },
+    {
+      "impervious_pct": 16.0,
+      "mean_obstruction_m": 0.12756270170211792,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0002429622400086373,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 4.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 32.0,
+      "mean_obstruction_m": 0.04451438784599304,
+      "mean_gba_height_m": 0.3204386532306671,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 16.0,
+      "mean_obstruction_m": 0.1456749588251114,
+      "mean_gba_height_m": 2.0883973598480225,
+      "n_gba_points": 5
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0031014394480735064,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 16.0,
+      "mean_obstruction_m": 0.4518090486526489,
+      "mean_gba_height_m": 6.838144653609821,
+      "n_gba_points": 7
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.06740579009056091,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 16.0,
+      "mean_obstruction_m": 0.4359380304813385,
+      "mean_gba_height_m": 24.304849104447797,
+      "n_gba_points": 11
+    },
+    {
+      "impervious_pct": 32.0,
+      "mean_obstruction_m": 1.6255669593811035,
+      "mean_gba_height_m": 23.752783507354987,
+      "n_gba_points": 121
+    },
+    {
+      "impervious_pct": 56.0,
+      "mean_obstruction_m": 3.761159658432007,
+      "mean_gba_height_m": 20.48923424720764,
+      "n_gba_points": 200
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 4.637150287628174,
+      "mean_gba_height_m": 16.686120201344693,
+      "n_gba_points": 261
+    },
+    {
+      "impervious_pct": 44.0,
+      "mean_obstruction_m": 2.935760259628296,
+      "mean_gba_height_m": 16.786600213580662,
+      "n_gba_points": 90
+    },
+    {
+      "impervious_pct": 28.0,
+      "mean_obstruction_m": 2.48587965965271,
+      "mean_gba_height_m": 15.14932678722673,
+      "n_gba_points": 36
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 4.639570236206055,
+      "mean_gba_height_m": 24.54628925215929,
+      "n_gba_points": 133
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.2240025997161865,
+      "mean_gba_height_m": 31.769022490490567,
+      "n_gba_points": 88
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 1.6593931913375854,
+      "mean_gba_height_m": 54.491646919250485,
+      "n_gba_points": 25
+    },
+    {
+      "impervious_pct": 63.33,
+      "mean_obstruction_m": 1.8124867677688599,
+      "mean_gba_height_m": 29.825855626000298,
+      "n_gba_points": 27
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 0.5989959239959717,
+      "mean_gba_height_m": 29.773719000816346,
+      "n_gba_points": 10
+    },
+    {
+      "impervious_pct": 20.0,
+      "mean_obstruction_m": 0.44254639744758606,
+      "mean_gba_height_m": 6.2958038449287415,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0007819987367838621,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 28.0,
+      "mean_obstruction_m": 0.024693960323929787,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 72.0,
+      "mean_obstruction_m": 0.05805554240942001,
+      "mean_gba_height_m": 0.2395227551460266,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 0.03892098367214203,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 40.0,
+      "mean_obstruction_m": 0.11857178062200546,
+      "mean_gba_height_m": 0.7096916328494748,
+      "n_gba_points": 3
+    },
+    {
+      "impervious_pct": 16.0,
+      "mean_obstruction_m": 0.13820213079452515,
+      "mean_gba_height_m": 0.7547694314271212,
+      "n_gba_points": 8
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 1.9741621017456055,
+      "mean_gba_height_m": 8.992296946048736,
+      "n_gba_points": 45
+    },
+    {
+      "impervious_pct": 60.0,
+      "mean_obstruction_m": 2.8181934356689453,
+      "mean_gba_height_m": 12.484361110255122,
+      "n_gba_points": 32
+    },
+    {
+      "impervious_pct": 32.0,
+      "mean_obstruction_m": 1.488254189491272,
+      "mean_gba_height_m": 19.410189935139247,
+      "n_gba_points": 14
+    },
+    {
+      "impervious_pct": 4.0,
+      "mean_obstruction_m": 0.4075290560722351,
+      "mean_gba_height_m": 12.006597757339478,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.00609634630382061,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.4287929832935333,
+      "mean_gba_height_m": 2.8932047188282013,
+      "n_gba_points": 10
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 4.5446624755859375,
+      "mean_gba_height_m": 10.939899917020172,
+      "n_gba_points": 610
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 6.239192962646484,
+      "mean_gba_height_m": 11.047499537693305,
+      "n_gba_points": 529
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 4.167725563049316,
+      "mean_gba_height_m": 21.44209493320679,
+      "n_gba_points": 107
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.3710358142852783,
+      "mean_gba_height_m": 32.98991356425815,
+      "n_gba_points": 90
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 2.7725613117218018,
+      "mean_gba_height_m": 33.55913759129388,
+      "n_gba_points": 112
+    },
+    {
+      "impervious_pct": 33.33,
+      "mean_obstruction_m": 0.42808735370635986,
+      "mean_gba_height_m": 20.39651292303334,
+      "n_gba_points": 23
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 4.0,
+      "mean_obstruction_m": 0.039388202130794525,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 0.5845374464988708,
+      "mean_gba_height_m": 6.837486272056897,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 0.5513956546783447,
+      "mean_gba_height_m": 7.493178256920406,
+      "n_gba_points": 7
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 0.21490751206874847,
+      "mean_gba_height_m": 9.822125911712646,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 72.0,
+      "mean_obstruction_m": 0.04416516423225403,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 0.0710386112332344,
+      "mean_gba_height_m": 0.008266462944447994,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 40.0,
+      "mean_obstruction_m": 0.10872580856084824,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 60.0,
+      "mean_obstruction_m": 0.10103137791156769,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.1369168758392334,
+      "mean_gba_height_m": 11.109476190752687,
+      "n_gba_points": 113
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.0259854793548584,
+      "mean_gba_height_m": 15.419660081254674,
+      "n_gba_points": 47
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.2441699504852295,
+      "mean_gba_height_m": 30.168829882846158,
+      "n_gba_points": 34
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 2.854459524154663,
+      "mean_gba_height_m": 26.263813881647017,
+      "n_gba_points": 21
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.749751567840576,
+      "mean_gba_height_m": 20.434766054153442,
+      "n_gba_points": 33
+    },
+    {
+      "impervious_pct": 4.0,
+      "mean_obstruction_m": 0.2326706349849701,
+      "mean_gba_height_m": 44.38497543334961,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 68.0,
+      "mean_obstruction_m": 2.069206476211548,
+      "mean_gba_height_m": 21.23929725503022,
+      "n_gba_points": 53
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 3.887561559677124,
+      "mean_gba_height_m": 16.664414904139065,
+      "n_gba_points": 111
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.6549675464630127,
+      "mean_gba_height_m": 19.249375455263184,
+      "n_gba_points": 82
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.419340133666992,
+      "mean_gba_height_m": 10.41762732721008,
+      "n_gba_points": 226
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 4.019753456115723,
+      "mean_gba_height_m": 15.495003696737255,
+      "n_gba_points": 271
+    },
+    {
+      "impervious_pct": 26.67,
+      "mean_obstruction_m": 0.4993797242641449,
+      "mean_gba_height_m": 11.737521244929386,
+      "n_gba_points": 13
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0006248328718356788,
+      "mean_gba_height_m": 1.1860648393630981,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 4.0,
+      "mean_obstruction_m": 0.13378335535526276,
+      "mean_gba_height_m": 4.671931902567546,
+      "n_gba_points": 3
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 0.6633058190345764,
+      "mean_gba_height_m": 5.769431072932023,
+      "n_gba_points": 26
+    },
+    {
+      "impervious_pct": 28.0,
+      "mean_obstruction_m": 0.3849545419216156,
+      "mean_gba_height_m": 5.783801031740088,
+      "n_gba_points": 76
+    },
+    {
+      "impervious_pct": 72.0,
+      "mean_obstruction_m": 1.3261091709136963,
+      "mean_gba_height_m": 8.997298896312714,
+      "n_gba_points": 10
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.5706775188446045,
+      "mean_gba_height_m": 7.9578326642513275,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.555731177330017,
+      "mean_gba_height_m": 8.286328537123543,
+      "n_gba_points": 14
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 0.07194392383098602,
+      "mean_gba_height_m": 1.6224016547203064,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 68.0,
+      "mean_obstruction_m": 0.06447779387235641,
+      "mean_gba_height_m": 1.3786150217056274,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 0.08841512352228165,
+      "mean_gba_height_m": 0.48104122281074524,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 40.0,
+      "mean_obstruction_m": 0.09697277843952179,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 3.3224987983703613,
+      "mean_gba_height_m": 8.09724843157509,
+      "n_gba_points": 346
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 3.1278042793273926,
+      "mean_gba_height_m": 7.595117549101512,
+      "n_gba_points": 276
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.4033663272857666,
+      "mean_gba_height_m": 12.22353355884552,
+      "n_gba_points": 60
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.690901517868042,
+      "mean_gba_height_m": 8.257079042153915,
+      "n_gba_points": 197
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.0536675453186035,
+      "mean_gba_height_m": 9.555929368542087,
+      "n_gba_points": 124
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 2.9823501110076904,
+      "mean_gba_height_m": 29.490660773383247,
+      "n_gba_points": 9
+    },
+    {
+      "impervious_pct": 44.0,
+      "mean_obstruction_m": 1.5116915702819824,
+      "mean_gba_height_m": 24.306522766749065,
+      "n_gba_points": 6
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 1.9852502346038818,
+      "mean_gba_height_m": 19.2958943605423,
+      "n_gba_points": 20
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 2.3923637866973877,
+      "mean_gba_height_m": 19.819990739822387,
+      "n_gba_points": 25
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 2.649998664855957,
+      "mean_gba_height_m": 8.81133515948341,
+      "n_gba_points": 315
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 3.445056200027466,
+      "mean_gba_height_m": 10.791133777407191,
+      "n_gba_points": 298
+    },
+    {
+      "impervious_pct": 20.0,
+      "mean_obstruction_m": 0.4112248420715332,
+      "mean_gba_height_m": 11.085707255772181,
+      "n_gba_points": 21
+    },
+    {
+      "impervious_pct": 24.0,
+      "mean_obstruction_m": 0.3169417083263397,
+      "mean_gba_height_m": 22.98893184661865,
+      "n_gba_points": 5
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 2.4140400886535645,
+      "mean_gba_height_m": 10.216842495478117,
+      "n_gba_points": 130
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.0862796306610107,
+      "mean_gba_height_m": 8.337682015230866,
+      "n_gba_points": 294
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.4649848937988281,
+      "mean_gba_height_m": 7.487890699045445,
+      "n_gba_points": 123
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 1.1472584009170532,
+      "mean_gba_height_m": 5.483867458999157,
+      "n_gba_points": 6
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.374084234237671,
+      "mean_gba_height_m": 8.307135090231895,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.9713062047958374,
+      "mean_gba_height_m": 11.6308837890625,
+      "n_gba_points": 5
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 0.07627794146537781,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 56.0,
+      "mean_obstruction_m": 0.02617567963898182,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 0.13612399995326996,
+      "mean_gba_height_m": 2.9752213954925537,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.23099768161773682,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 2.8550469875335693,
+      "mean_gba_height_m": 8.995014252583625,
+      "n_gba_points": 362
+    },
+    {
+      "impervious_pct": 72.0,
+      "mean_obstruction_m": 2.529872179031372,
+      "mean_gba_height_m": 8.62843134884159,
+      "n_gba_points": 233
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 1.8419069051742554,
+      "mean_gba_height_m": 7.752513598869829,
+      "n_gba_points": 272
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 3.216951608657837,
+      "mean_gba_height_m": 7.636945567280054,
+      "n_gba_points": 320
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.3128063678741455,
+      "mean_gba_height_m": 8.862019249686488,
+      "n_gba_points": 162
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 1.6934584379196167,
+      "mean_gba_height_m": 15.360022041532728,
+      "n_gba_points": 18
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.5221868753433228,
+      "mean_gba_height_m": 11.796185666322708,
+      "n_gba_points": 30
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 1.6884241104125977,
+      "mean_gba_height_m": 6.247427009154057,
+      "n_gba_points": 69
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 2.8900516033172607,
+      "mean_gba_height_m": 8.56693821532704,
+      "n_gba_points": 107
+    },
+    {
+      "impervious_pct": 60.0,
+      "mean_obstruction_m": 1.0775139331817627,
+      "mean_gba_height_m": 7.35239513822504,
+      "n_gba_points": 37
+    },
+    {
+      "impervious_pct": 20.0,
+      "mean_obstruction_m": 0.2341405749320984,
+      "mean_gba_height_m": 10.027461250623068,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 6.67,
+      "mean_obstruction_m": 0.10734821856021881,
+      "mean_gba_height_m": 1.921921173731486,
+      "n_gba_points": 3
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 1.4780890941619873,
+      "mean_gba_height_m": 13.645945043098635,
+      "n_gba_points": 41
+    },
+    {
+      "impervious_pct": 96.0,
+      "mean_obstruction_m": 3.0792768001556396,
+      "mean_gba_height_m": 12.35795716531412,
+      "n_gba_points": 229
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 2.7432196140289307,
+      "mean_gba_height_m": 9.285573065613901,
+      "n_gba_points": 179
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 1.318049430847168,
+      "mean_gba_height_m": 7.829587319317986,
+      "n_gba_points": 17
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 0.7347441911697388,
+      "mean_gba_height_m": 5.886727571487427,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.4899952411651611,
+      "mean_gba_height_m": 11.078176736831665,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 0.28913578391075134,
+      "mean_gba_height_m": 5.835057258605957,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 32.0,
+      "mean_obstruction_m": 0.06344414502382278,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 64.0,
+      "mean_obstruction_m": 0.06747321039438248,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 40.0,
+      "mean_obstruction_m": 0.08759911358356476,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.023350190371274948,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.034939765930176,
+      "mean_gba_height_m": 7.457493330955505,
+      "n_gba_points": 375
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.4030876159667969,
+      "mean_gba_height_m": 6.700190030631766,
+      "n_gba_points": 113
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.1068472862243652,
+      "mean_gba_height_m": 7.083343683878581,
+      "n_gba_points": 75
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.6909394264221191,
+      "mean_gba_height_m": 10.40467518568039,
+      "n_gba_points": 18
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.8659394979476929,
+      "mean_gba_height_m": 7.563498278458913,
+      "n_gba_points": 12
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.3895790576934814,
+      "mean_gba_height_m": 5.020681029983929,
+      "n_gba_points": 14
+    },
+    {
+      "impervious_pct": 76.0,
+      "mean_obstruction_m": 1.605638027191162,
+      "mean_gba_height_m": 10.228559479117393,
+      "n_gba_points": 14
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.6439647674560547,
+      "mean_gba_height_m": 8.298127543146364,
+      "n_gba_points": 214
+    },
+    {
+      "impervious_pct": 92.0,
+      "mean_obstruction_m": 4.516665458679199,
+      "mean_gba_height_m": 8.172460323885867,
+      "n_gba_points": 342
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.7500662803649902,
+      "mean_gba_height_m": 8.08987627401948,
+      "n_gba_points": 160
+    },
+    {
+      "impervious_pct": 88.0,
+      "mean_obstruction_m": 2.7584831714630127,
+      "mean_gba_height_m": 14.627005219459534,
+      "n_gba_points": 34
+    },
+    {
+      "impervious_pct": 40.0,
+      "mean_obstruction_m": 0.6487757563591003,
+      "mean_gba_height_m": 14.479242597307477,
+      "n_gba_points": 7
+    },
+    {
+      "impervious_pct": 4.0,
+      "mean_obstruction_m": 0.11483246088027954,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.341386318206787,
+      "mean_gba_height_m": 9.013082228055815,
+      "n_gba_points": 246
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.955479621887207,
+      "mean_gba_height_m": 8.431183677535873,
+      "n_gba_points": 555
+    },
+    {
+      "impervious_pct": 84.0,
+      "mean_obstruction_m": 1.8662129640579224,
+      "mean_gba_height_m": 7.566085055150699,
+      "n_gba_points": 233
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.4420939683914185,
+      "mean_gba_height_m": 6.917949419021607,
+      "n_gba_points": 25
+    },
+    {
+      "impervious_pct": 52.0,
+      "mean_obstruction_m": 0.4846290946006775,
+      "mean_gba_height_m": 3.248787358955101,
+      "n_gba_points": 27
+    },
+    {
+      "impervious_pct": 8.0,
+      "mean_obstruction_m": 0.11722962558269501,
+      "mean_gba_height_m": 0.014173729345202446,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.0,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 48.0,
+      "mean_obstruction_m": 0.09818031638860703,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 52.0,
+      "mean_obstruction_m": 0.060563813894987106,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 0.10988645255565643,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 1.8341538906097412,
+      "mean_gba_height_m": 7.853028906716241,
+      "n_gba_points": 54
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.5857337713241577,
+      "mean_gba_height_m": 7.074984727234676,
+      "n_gba_points": 58
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.6300617456436157,
+      "mean_gba_height_m": 5.727810105816885,
+      "n_gba_points": 44
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.347717046737671,
+      "mean_gba_height_m": 5.758272424340248,
+      "n_gba_points": 8
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.340839385986328,
+      "mean_gba_height_m": 5.433717250823975,
+      "n_gba_points": 5
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.2101898193359375,
+      "mean_gba_height_m": 4.608458638191223,
+      "n_gba_points": 4
+    },
+    {
+      "impervious_pct": 90.0,
+      "mean_obstruction_m": 2.0338926315307617,
+      "mean_gba_height_m": 8.480093059539795,
+      "n_gba_points": 25
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 2.798116683959961,
+      "mean_gba_height_m": 7.820206881872291,
+      "n_gba_points": 183
+    },
+    {
+      "impervious_pct": 90.0,
+      "mean_obstruction_m": 3.791846752166748,
+      "mean_gba_height_m": 8.660160464625205,
+      "n_gba_points": 93
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.249450206756592,
+      "mean_gba_height_m": 9.140594977598925,
+      "n_gba_points": 26
+    },
+    {
+      "impervious_pct": 70.0,
+      "mean_obstruction_m": 2.9963908195495605,
+      "mean_gba_height_m": 11.050849013858372,
+      "n_gba_points": 9
+    },
+    {
+      "impervious_pct": 25.0,
+      "mean_obstruction_m": 0.685224711894989,
+      "mean_gba_height_m": 49.20148468017578,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 20.0,
+      "mean_obstruction_m": 0.483853280544281,
+      "mean_gba_height_m": 2.751779794692993,
+      "n_gba_points": 2
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 4.141452789306641,
+      "mean_gba_height_m": 7.64016322634722,
+      "n_gba_points": 152
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.9302940368652344,
+      "mean_gba_height_m": 7.1372180056216115,
+      "n_gba_points": 134
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 3.8722548484802246,
+      "mean_gba_height_m": 6.257680042487819,
+      "n_gba_points": 164
+    },
+    {
+      "impervious_pct": 80.0,
+      "mean_obstruction_m": 1.4572439193725586,
+      "mean_gba_height_m": 6.6469226042429606,
+      "n_gba_points": 30
+    },
+    {
+      "impervious_pct": 100.0,
+      "mean_obstruction_m": 1.0631906986236572,
+      "mean_gba_height_m": 5.799642358507429,
+      "n_gba_points": 7
+    },
+    {
+      "impervious_pct": 10.0,
+      "mean_obstruction_m": 0.36190930008888245,
+      "mean_gba_height_m": 9.683089256286621,
+      "n_gba_points": 1
+    },
+    {
+      "impervious_pct": 0.0,
+      "mean_obstruction_m": 0.03739916533231735,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 30.0,
+      "mean_obstruction_m": 0.03988354280591011,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    },
+    {
+      "impervious_pct": 30.0,
+      "mean_obstruction_m": 0.04747670888900757,
+      "mean_gba_height_m": null,
+      "n_gba_points": 0
+    }
+  ]
+}
