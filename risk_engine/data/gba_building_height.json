@@ -1,0 +1,5938 @@
+{
+  "method": "GlobalBuildingAtlas GBA.LoD1 height points aggregated per grid cell (mean/median/p90/max, point count) -- ~2-3m native point spacing, genuinely finer than the 30m CopDEM-FABDEM obstruction-height layer, IF it validates.",
+  "source_note": "GlobalBuildingAtlas GBA.LoD1 (Sun et al. 2025, TUM/DLR), CC BY-NC 4.0 -- non-commercial use only.",
+  "region_tile": "africa/w005_n10_e000_n05",
+  "country_filter": "GHA",
+  "n_points_total": 686822,
+  "n_points_with_valid_height": 586640,
+  "n_points_nodata_sentinel": 100182,
+  "max_plausible_m": 200.0,
+  "validation": {
+    "correlation_with_impervious_pct": 0.355,
+    "n_cells": 846
+  },
+  "zones": {
+    "grid_r1_c6": {
+      "mean_height_m": 1.61,
+      "median_height_m": 1.42,
+      "p90_height_m": 2.13,
+      "max_height_m": 3.62,
+      "n_points": 10
+    },
+    "grid_r2_c6": {
+      "mean_height_m": 1.75,
+      "median_height_m": 1.79,
+      "p90_height_m": 2.49,
+      "max_height_m": 2.75,
+      "n_points": 30
+    },
+    "grid_r2_c7": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.53,
+      "p90_height_m": 4.25,
+      "max_height_m": 4.99,
+      "n_points": 63
+    },
+    "grid_r2_c8": {
+      "mean_height_m": 2.38,
+      "median_height_m": 2.18,
+      "p90_height_m": 4.36,
+      "max_height_m": 5.74,
+      "n_points": 45
+    },
+    "grid_r2_c9": {
+      "mean_height_m": 2.25,
+      "median_height_m": 2.25,
+      "p90_height_m": 2.25,
+      "max_height_m": 2.25,
+      "n_points": 1
+    },
+    "grid_r3_c6": {
+      "mean_height_m": 1.48,
+      "median_height_m": 1.46,
+      "p90_height_m": 2.28,
+      "max_height_m": 2.65,
+      "n_points": 23
+    },
+    "grid_r3_c7": {
+      "mean_height_m": 2.26,
+      "median_height_m": 2.18,
+      "p90_height_m": 3.01,
+      "max_height_m": 5.38,
+      "n_points": 111
+    },
+    "grid_r3_c8": {
+      "mean_height_m": 2.73,
+      "median_height_m": 2.58,
+      "p90_height_m": 4.43,
+      "max_height_m": 6.19,
+      "n_points": 126
+    },
+    "grid_r3_c9": {
+      "mean_height_m": 2.76,
+      "median_height_m": 2.69,
+      "p90_height_m": 4.45,
+      "max_height_m": 6.97,
+      "n_points": 253
+    },
+    "grid_r3_c10": {
+      "mean_height_m": 2.11,
+      "median_height_m": 2.09,
+      "p90_height_m": 3.21,
+      "max_height_m": 4.62,
+      "n_points": 253
+    },
+    "grid_r4_c6": {
+      "mean_height_m": 1.49,
+      "median_height_m": 1.46,
+      "p90_height_m": 2.08,
+      "max_height_m": 3.97,
+      "n_points": 149
+    },
+    "grid_r4_c7": {
+      "mean_height_m": 2.4,
+      "median_height_m": 2.35,
+      "p90_height_m": 3.4,
+      "max_height_m": 5.02,
+      "n_points": 170
+    },
+    "grid_r4_c8": {
+      "mean_height_m": 2.39,
+      "median_height_m": 2.38,
+      "p90_height_m": 3.39,
+      "max_height_m": 4.72,
+      "n_points": 185
+    },
+    "grid_r4_c9": {
+      "mean_height_m": 1.9,
+      "median_height_m": 1.8,
+      "p90_height_m": 3.17,
+      "max_height_m": 4.66,
+      "n_points": 250
+    },
+    "grid_r4_c10": {
+      "mean_height_m": 2.55,
+      "median_height_m": 2.41,
+      "p90_height_m": 3.49,
+      "max_height_m": 3.96,
+      "n_points": 111
+    },
+    "grid_r4_c11": {
+      "mean_height_m": 3.1,
+      "median_height_m": 3.06,
+      "p90_height_m": 4.81,
+      "max_height_m": 7.34,
+      "n_points": 210
+    },
+    "grid_r4_c12": {
+      "mean_height_m": 4.0,
+      "median_height_m": 3.94,
+      "p90_height_m": 6.14,
+      "max_height_m": 8.6,
+      "n_points": 160
+    },
+    "grid_r5_c6": {
+      "mean_height_m": 1.76,
+      "median_height_m": 1.89,
+      "p90_height_m": 2.43,
+      "max_height_m": 3.1,
+      "n_points": 166
+    },
+    "grid_r5_c7": {
+      "mean_height_m": 2.15,
+      "median_height_m": 2.1,
+      "p90_height_m": 3.04,
+      "max_height_m": 5.41,
+      "n_points": 252
+    },
+    "grid_r5_c8": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.58,
+      "p90_height_m": 3.54,
+      "max_height_m": 5.27,
+      "n_points": 216
+    },
+    "grid_r5_c9": {
+      "mean_height_m": 2.12,
+      "median_height_m": 2.11,
+      "p90_height_m": 3.11,
+      "max_height_m": 4.52,
+      "n_points": 265
+    },
+    "grid_r5_c10": {
+      "mean_height_m": 2.41,
+      "median_height_m": 2.25,
+      "p90_height_m": 3.62,
+      "max_height_m": 6.29,
+      "n_points": 293
+    },
+    "grid_r5_c11": {
+      "mean_height_m": 2.84,
+      "median_height_m": 2.66,
+      "p90_height_m": 4.18,
+      "max_height_m": 6.87,
+      "n_points": 313
+    },
+    "grid_r5_c12": {
+      "mean_height_m": 3.22,
+      "median_height_m": 3.1,
+      "p90_height_m": 4.66,
+      "max_height_m": 6.99,
+      "n_points": 376
+    },
+    "grid_r5_c13": {
+      "mean_height_m": 3.09,
+      "median_height_m": 2.98,
+      "p90_height_m": 4.93,
+      "max_height_m": 6.94,
+      "n_points": 286
+    },
+    "grid_r5_c14": {
+      "mean_height_m": 2.62,
+      "median_height_m": 2.64,
+      "p90_height_m": 3.77,
+      "max_height_m": 3.96,
+      "n_points": 23
+    },
+    "grid_r6_c6": {
+      "mean_height_m": 1.33,
+      "median_height_m": 1.35,
+      "p90_height_m": 1.95,
+      "max_height_m": 2.94,
+      "n_points": 92
+    },
+    "grid_r6_c7": {
+      "mean_height_m": 1.59,
+      "median_height_m": 1.51,
+      "p90_height_m": 2.24,
+      "max_height_m": 4.71,
+      "n_points": 140
+    },
+    "grid_r6_c8": {
+      "mean_height_m": 1.66,
+      "median_height_m": 1.57,
+      "p90_height_m": 2.46,
+      "max_height_m": 4.93,
+      "n_points": 240
+    },
+    "grid_r6_c9": {
+      "mean_height_m": 1.83,
+      "median_height_m": 1.73,
+      "p90_height_m": 2.75,
+      "max_height_m": 5.74,
+      "n_points": 293
+    },
+    "grid_r6_c10": {
+      "mean_height_m": 2.74,
+      "median_height_m": 2.64,
+      "p90_height_m": 4.15,
+      "max_height_m": 6.94,
+      "n_points": 317
+    },
+    "grid_r6_c11": {
+      "mean_height_m": 2.75,
+      "median_height_m": 2.62,
+      "p90_height_m": 4.21,
+      "max_height_m": 6.83,
+      "n_points": 340
+    },
+    "grid_r6_c12": {
+      "mean_height_m": 2.54,
+      "median_height_m": 2.52,
+      "p90_height_m": 3.71,
+      "max_height_m": 5.52,
+      "n_points": 462
+    },
+    "grid_r6_c13": {
+      "mean_height_m": 1.86,
+      "median_height_m": 1.74,
+      "p90_height_m": 2.85,
+      "max_height_m": 7.37,
+      "n_points": 1001
+    },
+    "grid_r6_c14": {
+      "mean_height_m": 2.19,
+      "median_height_m": 2.02,
+      "p90_height_m": 3.3,
+      "max_height_m": 5.81,
+      "n_points": 707
+    },
+    "grid_r6_c15": {
+      "mean_height_m": 2.93,
+      "median_height_m": 2.89,
+      "p90_height_m": 4.43,
+      "max_height_m": 7.15,
+      "n_points": 205
+    },
+    "grid_r6_c16": {
+      "mean_height_m": 1.58,
+      "median_height_m": 1.39,
+      "p90_height_m": 2.58,
+      "max_height_m": 5.16,
+      "n_points": 340
+    },
+    "grid_r6_c17": {
+      "mean_height_m": 2.41,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.44,
+      "max_height_m": 4.13,
+      "n_points": 36
+    },
+    "grid_r7_c6": {
+      "mean_height_m": 1.79,
+      "median_height_m": 1.67,
+      "p90_height_m": 2.77,
+      "max_height_m": 4.44,
+      "n_points": 82
+    },
+    "grid_r7_c7": {
+      "mean_height_m": 0.67,
+      "median_height_m": 0.68,
+      "p90_height_m": 1.2,
+      "max_height_m": 1.32,
+      "n_points": 3
+    },
+    "grid_r7_c9": {
+      "mean_height_m": 2.3,
+      "median_height_m": 2.14,
+      "p90_height_m": 3.23,
+      "max_height_m": 5.01,
+      "n_points": 97
+    },
+    "grid_r7_c10": {
+      "mean_height_m": 1.88,
+      "median_height_m": 1.71,
+      "p90_height_m": 2.99,
+      "max_height_m": 6.33,
+      "n_points": 356
+    },
+    "grid_r7_c11": {
+      "mean_height_m": 1.75,
+      "median_height_m": 1.62,
+      "p90_height_m": 2.84,
+      "max_height_m": 4.91,
+      "n_points": 385
+    },
+    "grid_r7_c12": {
+      "mean_height_m": 1.91,
+      "median_height_m": 1.81,
+      "p90_height_m": 3.36,
+      "max_height_m": 7.12,
+      "n_points": 431
+    },
+    "grid_r7_c13": {
+      "mean_height_m": 2.01,
+      "median_height_m": 1.94,
+      "p90_height_m": 3.03,
+      "max_height_m": 5.79,
+      "n_points": 388
+    },
+    "grid_r7_c14": {
+      "mean_height_m": 2.44,
+      "median_height_m": 2.42,
+      "p90_height_m": 3.57,
+      "max_height_m": 5.65,
+      "n_points": 344
+    },
+    "grid_r7_c15": {
+      "mean_height_m": 2.57,
+      "median_height_m": 2.62,
+      "p90_height_m": 3.57,
+      "max_height_m": 5.91,
+      "n_points": 376
+    },
+    "grid_r7_c16": {
+      "mean_height_m": 2.39,
+      "median_height_m": 2.43,
+      "p90_height_m": 3.46,
+      "max_height_m": 6.05,
+      "n_points": 672
+    },
+    "grid_r7_c17": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.55,
+      "p90_height_m": 3.73,
+      "max_height_m": 5.33,
+      "n_points": 305
+    },
+    "grid_r7_c18": {
+      "mean_height_m": 2.24,
+      "median_height_m": 2.34,
+      "p90_height_m": 3.24,
+      "max_height_m": 5.36,
+      "n_points": 294
+    },
+    "grid_r7_c19": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.23,
+      "p90_height_m": 2.92,
+      "max_height_m": 3.84,
+      "n_points": 207
+    },
+    "grid_r7_c20": {
+      "mean_height_m": 1.73,
+      "median_height_m": 1.96,
+      "p90_height_m": 2.67,
+      "max_height_m": 2.67,
+      "n_points": 10
+    },
+    "grid_r8_c6": {
+      "mean_height_m": 2.43,
+      "median_height_m": 2.4,
+      "p90_height_m": 3.4,
+      "max_height_m": 5.56,
+      "n_points": 452
+    },
+    "grid_r8_c7": {
+      "mean_height_m": 2.22,
+      "median_height_m": 2.09,
+      "p90_height_m": 3.34,
+      "max_height_m": 4.64,
+      "n_points": 77
+    },
+    "grid_r8_c8": {
+      "mean_height_m": 0.25,
+      "median_height_m": 0.25,
+      "p90_height_m": 0.44,
+      "max_height_m": 0.48,
+      "n_points": 2
+    },
+    "grid_r8_c9": {
+      "mean_height_m": 0.57,
+      "median_height_m": 0.55,
+      "p90_height_m": 0.77,
+      "max_height_m": 1.17,
+      "n_points": 21
+    },
+    "grid_r8_c10": {
+      "mean_height_m": 1.48,
+      "median_height_m": 1.35,
+      "p90_height_m": 2.51,
+      "max_height_m": 5.0,
+      "n_points": 294
+    },
+    "grid_r8_c11": {
+      "mean_height_m": 1.46,
+      "median_height_m": 1.41,
+      "p90_height_m": 2.28,
+      "max_height_m": 4.34,
+      "n_points": 307
+    },
+    "grid_r8_c12": {
+      "mean_height_m": 1.39,
+      "median_height_m": 1.52,
+      "p90_height_m": 2.45,
+      "max_height_m": 3.21,
+      "n_points": 231
+    },
+    "grid_r8_c13": {
+      "mean_height_m": 2.32,
+      "median_height_m": 2.34,
+      "p90_height_m": 3.12,
+      "max_height_m": 4.6,
+      "n_points": 226
+    },
+    "grid_r8_c14": {
+      "mean_height_m": 2.75,
+      "median_height_m": 2.74,
+      "p90_height_m": 3.73,
+      "max_height_m": 5.01,
+      "n_points": 265
+    },
+    "grid_r8_c15": {
+      "mean_height_m": 2.79,
+      "median_height_m": 2.8,
+      "p90_height_m": 3.92,
+      "max_height_m": 5.49,
+      "n_points": 328
+    },
+    "grid_r8_c16": {
+      "mean_height_m": 3.14,
+      "median_height_m": 3.17,
+      "p90_height_m": 4.25,
+      "max_height_m": 6.48,
+      "n_points": 367
+    },
+    "grid_r8_c17": {
+      "mean_height_m": 2.77,
+      "median_height_m": 2.8,
+      "p90_height_m": 3.7,
+      "max_height_m": 5.16,
+      "n_points": 478
+    },
+    "grid_r8_c18": {
+      "mean_height_m": 2.69,
+      "median_height_m": 2.66,
+      "p90_height_m": 3.6,
+      "max_height_m": 5.42,
+      "n_points": 629
+    },
+    "grid_r8_c19": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.6,
+      "p90_height_m": 3.55,
+      "max_height_m": 6.63,
+      "n_points": 1140
+    },
+    "grid_r8_c20": {
+      "mean_height_m": 2.55,
+      "median_height_m": 2.47,
+      "p90_height_m": 3.62,
+      "max_height_m": 5.46,
+      "n_points": 1217
+    },
+    "grid_r8_c21": {
+      "mean_height_m": 3.04,
+      "median_height_m": 3.03,
+      "p90_height_m": 4.02,
+      "max_height_m": 5.48,
+      "n_points": 611
+    },
+    "grid_r8_c22": {
+      "mean_height_m": 0.53,
+      "median_height_m": 0.18,
+      "p90_height_m": 1.69,
+      "max_height_m": 2.51,
+      "n_points": 49
+    },
+    "grid_r8_c24": {
+      "mean_height_m": 0.83,
+      "median_height_m": 0.91,
+      "p90_height_m": 1.02,
+      "max_height_m": 1.04,
+      "n_points": 4
+    },
+    "grid_r9_c6": {
+      "mean_height_m": 3.41,
+      "median_height_m": 3.37,
+      "p90_height_m": 4.14,
+      "max_height_m": 5.16,
+      "n_points": 425
+    },
+    "grid_r9_c7": {
+      "mean_height_m": 2.58,
+      "median_height_m": 2.49,
+      "p90_height_m": 4.01,
+      "max_height_m": 6.17,
+      "n_points": 395
+    },
+    "grid_r9_c8": {
+      "mean_height_m": 2.06,
+      "median_height_m": 1.92,
+      "p90_height_m": 3.05,
+      "max_height_m": 5.03,
+      "n_points": 661
+    },
+    "grid_r9_c9": {
+      "mean_height_m": 2.11,
+      "median_height_m": 1.95,
+      "p90_height_m": 3.4,
+      "max_height_m": 5.37,
+      "n_points": 224
+    },
+    "grid_r9_c10": {
+      "mean_height_m": 2.48,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.7,
+      "max_height_m": 5.1,
+      "n_points": 262
+    },
+    "grid_r9_c11": {
+      "mean_height_m": 1.75,
+      "median_height_m": 1.69,
+      "p90_height_m": 2.85,
+      "max_height_m": 3.76,
+      "n_points": 310
+    },
+    "grid_r9_c12": {
+      "mean_height_m": 1.58,
+      "median_height_m": 1.58,
+      "p90_height_m": 2.27,
+      "max_height_m": 3.34,
+      "n_points": 203
+    },
+    "grid_r9_c13": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.53,
+      "p90_height_m": 3.59,
+      "max_height_m": 5.43,
+      "n_points": 314
+    },
+    "grid_r9_c14": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.75,
+      "p90_height_m": 3.43,
+      "max_height_m": 4.42,
+      "n_points": 366
+    },
+    "grid_r9_c15": {
+      "mean_height_m": 2.82,
+      "median_height_m": 2.82,
+      "p90_height_m": 3.53,
+      "max_height_m": 5.48,
+      "n_points": 326
+    },
+    "grid_r9_c16": {
+      "mean_height_m": 2.73,
+      "median_height_m": 2.8,
+      "p90_height_m": 3.59,
+      "max_height_m": 4.68,
+      "n_points": 422
+    },
+    "grid_r9_c17": {
+      "mean_height_m": 2.74,
+      "median_height_m": 2.74,
+      "p90_height_m": 3.7,
+      "max_height_m": 5.75,
+      "n_points": 450
+    },
+    "grid_r9_c18": {
+      "mean_height_m": 2.7,
+      "median_height_m": 2.75,
+      "p90_height_m": 3.48,
+      "max_height_m": 4.53,
+      "n_points": 463
+    },
+    "grid_r9_c19": {
+      "mean_height_m": 3.17,
+      "median_height_m": 3.02,
+      "p90_height_m": 4.42,
+      "max_height_m": 11.4,
+      "n_points": 521
+    },
+    "grid_r9_c20": {
+      "mean_height_m": 2.44,
+      "median_height_m": 2.35,
+      "p90_height_m": 3.6,
+      "max_height_m": 6.97,
+      "n_points": 1038
+    },
+    "grid_r9_c21": {
+      "mean_height_m": 2.38,
+      "median_height_m": 2.35,
+      "p90_height_m": 3.27,
+      "max_height_m": 5.37,
+      "n_points": 434
+    },
+    "grid_r9_c22": {
+      "mean_height_m": 2.37,
+      "median_height_m": 2.26,
+      "p90_height_m": 4.05,
+      "max_height_m": 5.93,
+      "n_points": 12
+    },
+    "grid_r9_c24": {
+      "mean_height_m": 0.78,
+      "median_height_m": 0.87,
+      "p90_height_m": 0.96,
+      "max_height_m": 0.99,
+      "n_points": 9
+    },
+    "grid_r9_c25": {
+      "mean_height_m": 0.46,
+      "median_height_m": 0.44,
+      "p90_height_m": 0.73,
+      "max_height_m": 0.77,
+      "n_points": 10
+    },
+    "grid_r9_c26": {
+      "mean_height_m": 0.88,
+      "median_height_m": 0.83,
+      "p90_height_m": 0.96,
+      "max_height_m": 2.19,
+      "n_points": 173
+    },
+    "grid_r9_c27": {
+      "mean_height_m": 0.45,
+      "median_height_m": 0.31,
+      "p90_height_m": 0.88,
+      "max_height_m": 1.06,
+      "n_points": 4
+    },
+    "grid_r10_c6": {
+      "mean_height_m": 3.25,
+      "median_height_m": 3.34,
+      "p90_height_m": 4.42,
+      "max_height_m": 5.82,
+      "n_points": 487
+    },
+    "grid_r10_c7": {
+      "mean_height_m": 2.9,
+      "median_height_m": 2.97,
+      "p90_height_m": 3.99,
+      "max_height_m": 6.02,
+      "n_points": 540
+    },
+    "grid_r10_c8": {
+      "mean_height_m": 2.94,
+      "median_height_m": 2.88,
+      "p90_height_m": 4.32,
+      "max_height_m": 5.98,
+      "n_points": 485
+    },
+    "grid_r10_c9": {
+      "mean_height_m": 2.77,
+      "median_height_m": 2.77,
+      "p90_height_m": 3.78,
+      "max_height_m": 4.87,
+      "n_points": 137
+    },
+    "grid_r10_c10": {
+      "mean_height_m": 2.7,
+      "median_height_m": 2.7,
+      "p90_height_m": 3.77,
+      "max_height_m": 5.43,
+      "n_points": 381
+    },
+    "grid_r10_c11": {
+      "mean_height_m": 2.21,
+      "median_height_m": 2.16,
+      "p90_height_m": 3.03,
+      "max_height_m": 5.31,
+      "n_points": 364
+    },
+    "grid_r10_c12": {
+      "mean_height_m": 2.47,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.17,
+      "max_height_m": 3.74,
+      "n_points": 348
+    },
+    "grid_r10_c13": {
+      "mean_height_m": 3.36,
+      "median_height_m": 3.42,
+      "p90_height_m": 4.16,
+      "max_height_m": 5.06,
+      "n_points": 283
+    },
+    "grid_r10_c14": {
+      "mean_height_m": 2.96,
+      "median_height_m": 3.01,
+      "p90_height_m": 3.78,
+      "max_height_m": 4.69,
+      "n_points": 360
+    },
+    "grid_r10_c15": {
+      "mean_height_m": 2.96,
+      "median_height_m": 2.98,
+      "p90_height_m": 3.61,
+      "max_height_m": 5.25,
+      "n_points": 326
+    },
+    "grid_r10_c16": {
+      "mean_height_m": 2.91,
+      "median_height_m": 2.93,
+      "p90_height_m": 3.66,
+      "max_height_m": 4.81,
+      "n_points": 363
+    },
+    "grid_r10_c17": {
+      "mean_height_m": 2.9,
+      "median_height_m": 3.02,
+      "p90_height_m": 3.75,
+      "max_height_m": 4.94,
+      "n_points": 382
+    },
+    "grid_r10_c18": {
+      "mean_height_m": 2.99,
+      "median_height_m": 3.08,
+      "p90_height_m": 3.75,
+      "max_height_m": 5.59,
+      "n_points": 375
+    },
+    "grid_r10_c19": {
+      "mean_height_m": 3.12,
+      "median_height_m": 3.15,
+      "p90_height_m": 3.87,
+      "max_height_m": 4.7,
+      "n_points": 285
+    },
+    "grid_r10_c20": {
+      "mean_height_m": 2.9,
+      "median_height_m": 2.98,
+      "p90_height_m": 3.78,
+      "max_height_m": 5.03,
+      "n_points": 492
+    },
+    "grid_r10_c21": {
+      "mean_height_m": 3.25,
+      "median_height_m": 3.18,
+      "p90_height_m": 4.29,
+      "max_height_m": 6.49,
+      "n_points": 390
+    },
+    "grid_r10_c22": {
+      "mean_height_m": 3.54,
+      "median_height_m": 3.59,
+      "p90_height_m": 5.14,
+      "max_height_m": 6.5,
+      "n_points": 212
+    },
+    "grid_r10_c29": {
+      "mean_height_m": 1.15,
+      "median_height_m": 1.03,
+      "p90_height_m": 2.25,
+      "max_height_m": 3.9,
+      "n_points": 230
+    },
+    "grid_r10_c30": {
+      "mean_height_m": 1.99,
+      "median_height_m": 1.91,
+      "p90_height_m": 2.99,
+      "max_height_m": 5.4,
+      "n_points": 1328
+    },
+    "grid_r10_c31": {
+      "mean_height_m": 1.03,
+      "median_height_m": 1.05,
+      "p90_height_m": 1.68,
+      "max_height_m": 2.43,
+      "n_points": 687
+    },
+    "grid_r10_c32": {
+      "mean_height_m": 1.0,
+      "median_height_m": 0.96,
+      "p90_height_m": 1.34,
+      "max_height_m": 2.58,
+      "n_points": 316
+    },
+    "grid_r10_c33": {
+      "mean_height_m": 1.6,
+      "median_height_m": 1.55,
+      "p90_height_m": 2.26,
+      "max_height_m": 4.06,
+      "n_points": 377
+    },
+    "grid_r11_c6": {
+      "mean_height_m": 3.2,
+      "median_height_m": 3.16,
+      "p90_height_m": 4.34,
+      "max_height_m": 5.91,
+      "n_points": 387
+    },
+    "grid_r11_c7": {
+      "mean_height_m": 3.2,
+      "median_height_m": 3.2,
+      "p90_height_m": 4.41,
+      "max_height_m": 6.11,
+      "n_points": 468
+    },
+    "grid_r11_c8": {
+      "mean_height_m": 2.83,
+      "median_height_m": 2.78,
+      "p90_height_m": 4.05,
+      "max_height_m": 8.02,
+      "n_points": 446
+    },
+    "grid_r11_c9": {
+      "mean_height_m": 3.18,
+      "median_height_m": 3.22,
+      "p90_height_m": 4.14,
+      "max_height_m": 7.08,
+      "n_points": 263
+    },
+    "grid_r11_c10": {
+      "mean_height_m": 2.41,
+      "median_height_m": 2.46,
+      "p90_height_m": 3.3,
+      "max_height_m": 4.87,
+      "n_points": 269
+    },
+    "grid_r11_c11": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.17,
+      "p90_height_m": 3.22,
+      "max_height_m": 4.42,
+      "n_points": 312
+    },
+    "grid_r11_c12": {
+      "mean_height_m": 2.54,
+      "median_height_m": 2.65,
+      "p90_height_m": 3.38,
+      "max_height_m": 4.48,
+      "n_points": 294
+    },
+    "grid_r11_c13": {
+      "mean_height_m": 2.87,
+      "median_height_m": 2.89,
+      "p90_height_m": 3.71,
+      "max_height_m": 5.65,
+      "n_points": 401
+    },
+    "grid_r11_c14": {
+      "mean_height_m": 2.6,
+      "median_height_m": 2.69,
+      "p90_height_m": 3.35,
+      "max_height_m": 4.91,
+      "n_points": 431
+    },
+    "grid_r11_c15": {
+      "mean_height_m": 2.8,
+      "median_height_m": 2.84,
+      "p90_height_m": 3.56,
+      "max_height_m": 4.55,
+      "n_points": 411
+    },
+    "grid_r11_c16": {
+      "mean_height_m": 2.84,
+      "median_height_m": 2.88,
+      "p90_height_m": 3.83,
+      "max_height_m": 6.28,
+      "n_points": 456
+    },
+    "grid_r11_c17": {
+      "mean_height_m": 2.57,
+      "median_height_m": 2.63,
+      "p90_height_m": 3.33,
+      "max_height_m": 4.56,
+      "n_points": 481
+    },
+    "grid_r11_c18": {
+      "mean_height_m": 2.77,
+      "median_height_m": 2.77,
+      "p90_height_m": 3.71,
+      "max_height_m": 4.97,
+      "n_points": 397
+    },
+    "grid_r11_c19": {
+      "mean_height_m": 2.67,
+      "median_height_m": 2.74,
+      "p90_height_m": 3.36,
+      "max_height_m": 4.84,
+      "n_points": 281
+    },
+    "grid_r11_c20": {
+      "mean_height_m": 2.75,
+      "median_height_m": 2.67,
+      "p90_height_m": 3.57,
+      "max_height_m": 5.7,
+      "n_points": 296
+    },
+    "grid_r11_c21": {
+      "mean_height_m": 3.18,
+      "median_height_m": 2.94,
+      "p90_height_m": 4.65,
+      "max_height_m": 6.92,
+      "n_points": 426
+    },
+    "grid_r11_c22": {
+      "mean_height_m": 3.49,
+      "median_height_m": 3.25,
+      "p90_height_m": 5.43,
+      "max_height_m": 8.06,
+      "n_points": 338
+    },
+    "grid_r11_c23": {
+      "mean_height_m": 1.47,
+      "median_height_m": 1.28,
+      "p90_height_m": 2.0,
+      "max_height_m": 2.41,
+      "n_points": 10
+    },
+    "grid_r11_c27": {
+      "mean_height_m": 1.64,
+      "median_height_m": 1.64,
+      "p90_height_m": 1.64,
+      "max_height_m": 1.64,
+      "n_points": 1
+    },
+    "grid_r11_c28": {
+      "mean_height_m": 0.85,
+      "median_height_m": 0.85,
+      "p90_height_m": 0.87,
+      "max_height_m": 0.87,
+      "n_points": 2
+    },
+    "grid_r11_c29": {
+      "mean_height_m": 0.01,
+      "median_height_m": 0.01,
+      "p90_height_m": 0.01,
+      "max_height_m": 0.01,
+      "n_points": 1
+    },
+    "grid_r11_c30": {
+      "mean_height_m": 0.79,
+      "median_height_m": 0.76,
+      "p90_height_m": 1.35,
+      "max_height_m": 1.45,
+      "n_points": 12
+    },
+    "grid_r11_c31": {
+      "mean_height_m": 0.84,
+      "median_height_m": 0.85,
+      "p90_height_m": 1.38,
+      "max_height_m": 1.87,
+      "n_points": 189
+    },
+    "grid_r11_c32": {
+      "mean_height_m": 1.2,
+      "median_height_m": 1.2,
+      "p90_height_m": 1.5,
+      "max_height_m": 2.2,
+      "n_points": 374
+    },
+    "grid_r11_c33": {
+      "mean_height_m": 1.74,
+      "median_height_m": 1.72,
+      "p90_height_m": 2.13,
+      "max_height_m": 4.63,
+      "n_points": 1595
+    },
+    "grid_r11_c34": {
+      "mean_height_m": 1.69,
+      "median_height_m": 1.64,
+      "p90_height_m": 2.24,
+      "max_height_m": 3.69,
+      "n_points": 1472
+    },
+    "grid_r11_c35": {
+      "mean_height_m": 2.44,
+      "median_height_m": 2.46,
+      "p90_height_m": 3.13,
+      "max_height_m": 6.09,
+      "n_points": 916
+    },
+    "grid_r11_c36": {
+      "mean_height_m": 2.89,
+      "median_height_m": 2.89,
+      "p90_height_m": 3.73,
+      "max_height_m": 4.86,
+      "n_points": 974
+    },
+    "grid_r11_c37": {
+      "mean_height_m": 3.94,
+      "median_height_m": 3.99,
+      "p90_height_m": 4.75,
+      "max_height_m": 5.79,
+      "n_points": 691
+    },
+    "grid_r11_c38": {
+      "mean_height_m": 2.55,
+      "median_height_m": 2.56,
+      "p90_height_m": 3.84,
+      "max_height_m": 4.72,
+      "n_points": 256
+    },
+    "grid_r12_c6": {
+      "mean_height_m": 3.24,
+      "median_height_m": 3.22,
+      "p90_height_m": 4.66,
+      "max_height_m": 6.09,
+      "n_points": 363
+    },
+    "grid_r12_c7": {
+      "mean_height_m": 3.2,
+      "median_height_m": 3.23,
+      "p90_height_m": 4.58,
+      "max_height_m": 6.19,
+      "n_points": 484
+    },
+    "grid_r12_c8": {
+      "mean_height_m": 2.61,
+      "median_height_m": 2.55,
+      "p90_height_m": 3.81,
+      "max_height_m": 5.46,
+      "n_points": 371
+    },
+    "grid_r12_c9": {
+      "mean_height_m": 2.22,
+      "median_height_m": 2.03,
+      "p90_height_m": 3.59,
+      "max_height_m": 5.05,
+      "n_points": 452
+    },
+    "grid_r12_c10": {
+      "mean_height_m": 2.53,
+      "median_height_m": 2.65,
+      "p90_height_m": 3.72,
+      "max_height_m": 4.74,
+      "n_points": 290
+    },
+    "grid_r12_c11": {
+      "mean_height_m": 1.4,
+      "median_height_m": 1.1,
+      "p90_height_m": 2.59,
+      "max_height_m": 3.63,
+      "n_points": 147
+    },
+    "grid_r12_c12": {
+      "mean_height_m": 2.7,
+      "median_height_m": 2.75,
+      "p90_height_m": 3.59,
+      "max_height_m": 4.4,
+      "n_points": 272
+    },
+    "grid_r12_c13": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.63,
+      "p90_height_m": 3.47,
+      "max_height_m": 4.23,
+      "n_points": 403
+    },
+    "grid_r12_c14": {
+      "mean_height_m": 2.49,
+      "median_height_m": 2.57,
+      "p90_height_m": 3.36,
+      "max_height_m": 5.15,
+      "n_points": 447
+    },
+    "grid_r12_c15": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.67,
+      "p90_height_m": 3.49,
+      "max_height_m": 4.76,
+      "n_points": 373
+    },
+    "grid_r12_c16": {
+      "mean_height_m": 2.84,
+      "median_height_m": 2.88,
+      "p90_height_m": 3.73,
+      "max_height_m": 4.68,
+      "n_points": 409
+    },
+    "grid_r12_c17": {
+      "mean_height_m": 1.99,
+      "median_height_m": 1.93,
+      "p90_height_m": 2.96,
+      "max_height_m": 7.35,
+      "n_points": 483
+    },
+    "grid_r12_c18": {
+      "mean_height_m": 2.76,
+      "median_height_m": 2.72,
+      "p90_height_m": 3.72,
+      "max_height_m": 7.46,
+      "n_points": 397
+    },
+    "grid_r12_c19": {
+      "mean_height_m": 2.74,
+      "median_height_m": 2.71,
+      "p90_height_m": 3.56,
+      "max_height_m": 4.9,
+      "n_points": 231
+    },
+    "grid_r12_c20": {
+      "mean_height_m": 2.78,
+      "median_height_m": 2.53,
+      "p90_height_m": 4.23,
+      "max_height_m": 6.97,
+      "n_points": 260
+    },
+    "grid_r12_c21": {
+      "mean_height_m": 2.85,
+      "median_height_m": 2.66,
+      "p90_height_m": 4.27,
+      "max_height_m": 5.94,
+      "n_points": 352
+    },
+    "grid_r12_c22": {
+      "mean_height_m": 4.03,
+      "median_height_m": 3.99,
+      "p90_height_m": 5.16,
+      "max_height_m": 10.33,
+      "n_points": 669
+    },
+    "grid_r12_c23": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.71,
+      "p90_height_m": 3.54,
+      "max_height_m": 4.19,
+      "n_points": 25
+    },
+    "grid_r12_c24": {
+      "mean_height_m": 3.51,
+      "median_height_m": 3.8,
+      "p90_height_m": 4.8,
+      "max_height_m": 5.42,
+      "n_points": 27
+    },
+    "grid_r12_c25": {
+      "mean_height_m": 3.53,
+      "median_height_m": 3.62,
+      "p90_height_m": 5.04,
+      "max_height_m": 6.46,
+      "n_points": 74
+    },
+    "grid_r12_c26": {
+      "mean_height_m": 3.9,
+      "median_height_m": 3.9,
+      "p90_height_m": 4.46,
+      "max_height_m": 4.6,
+      "n_points": 2
+    },
+    "grid_r12_c30": {
+      "mean_height_m": 0.26,
+      "median_height_m": 0.09,
+      "p90_height_m": 0.69,
+      "max_height_m": 1.13,
+      "n_points": 6
+    },
+    "grid_r12_c31": {
+      "mean_height_m": 0.88,
+      "median_height_m": 0.98,
+      "p90_height_m": 1.37,
+      "max_height_m": 1.45,
+      "n_points": 5
+    },
+    "grid_r12_c32": {
+      "mean_height_m": 1.54,
+      "median_height_m": 1.54,
+      "p90_height_m": 1.76,
+      "max_height_m": 2.58,
+      "n_points": 105
+    },
+    "grid_r12_c33": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.11,
+      "p90_height_m": 2.95,
+      "max_height_m": 6.35,
+      "n_points": 855
+    },
+    "grid_r12_c34": {
+      "mean_height_m": 2.25,
+      "median_height_m": 2.22,
+      "p90_height_m": 2.86,
+      "max_height_m": 4.95,
+      "n_points": 1304
+    },
+    "grid_r12_c35": {
+      "mean_height_m": 2.49,
+      "median_height_m": 2.42,
+      "p90_height_m": 3.13,
+      "max_height_m": 7.26,
+      "n_points": 1804
+    },
+    "grid_r12_c36": {
+      "mean_height_m": 2.01,
+      "median_height_m": 1.9,
+      "p90_height_m": 2.74,
+      "max_height_m": 7.71,
+      "n_points": 1683
+    },
+    "grid_r12_c37": {
+      "mean_height_m": 2.01,
+      "median_height_m": 2.11,
+      "p90_height_m": 2.6,
+      "max_height_m": 4.27,
+      "n_points": 1345
+    },
+    "grid_r12_c38": {
+      "mean_height_m": 1.79,
+      "median_height_m": 1.83,
+      "p90_height_m": 2.33,
+      "max_height_m": 5.28,
+      "n_points": 1462
+    },
+    "grid_r12_c39": {
+      "mean_height_m": 2.53,
+      "median_height_m": 2.61,
+      "p90_height_m": 3.12,
+      "max_height_m": 5.04,
+      "n_points": 1625
+    },
+    "grid_r12_c40": {
+      "mean_height_m": 4.2,
+      "median_height_m": 4.19,
+      "p90_height_m": 4.89,
+      "max_height_m": 6.53,
+      "n_points": 1575
+    },
+    "grid_r12_c41": {
+      "mean_height_m": 3.88,
+      "median_height_m": 4.02,
+      "p90_height_m": 4.89,
+      "max_height_m": 7.56,
+      "n_points": 1175
+    },
+    "grid_r12_c42": {
+      "mean_height_m": 3.11,
+      "median_height_m": 3.36,
+      "p90_height_m": 4.59,
+      "max_height_m": 7.94,
+      "n_points": 533
+    },
+    "grid_r12_c43": {
+      "mean_height_m": 3.52,
+      "median_height_m": 3.68,
+      "p90_height_m": 4.84,
+      "max_height_m": 6.41,
+      "n_points": 148
+    },
+    "grid_r13_c6": {
+      "mean_height_m": 2.8,
+      "median_height_m": 2.74,
+      "p90_height_m": 3.99,
+      "max_height_m": 6.27,
+      "n_points": 363
+    },
+    "grid_r13_c7": {
+      "mean_height_m": 3.18,
+      "median_height_m": 3.15,
+      "p90_height_m": 4.18,
+      "max_height_m": 5.75,
+      "n_points": 465
+    },
+    "grid_r13_c8": {
+      "mean_height_m": 3.11,
+      "median_height_m": 3.13,
+      "p90_height_m": 4.37,
+      "max_height_m": 6.13,
+      "n_points": 544
+    },
+    "grid_r13_c9": {
+      "mean_height_m": 3.03,
+      "median_height_m": 3.05,
+      "p90_height_m": 4.01,
+      "max_height_m": 5.66,
+      "n_points": 475
+    },
+    "grid_r13_c10": {
+      "mean_height_m": 2.42,
+      "median_height_m": 2.5,
+      "p90_height_m": 3.32,
+      "max_height_m": 4.9,
+      "n_points": 285
+    },
+    "grid_r13_c11": {
+      "mean_height_m": 2.37,
+      "median_height_m": 2.39,
+      "p90_height_m": 3.39,
+      "max_height_m": 5.36,
+      "n_points": 338
+    },
+    "grid_r13_c12": {
+      "mean_height_m": 2.76,
+      "median_height_m": 2.88,
+      "p90_height_m": 3.83,
+      "max_height_m": 5.42,
+      "n_points": 454
+    },
+    "grid_r13_c13": {
+      "mean_height_m": 2.63,
+      "median_height_m": 2.71,
+      "p90_height_m": 3.51,
+      "max_height_m": 4.54,
+      "n_points": 477
+    },
+    "grid_r13_c14": {
+      "mean_height_m": 2.73,
+      "median_height_m": 2.74,
+      "p90_height_m": 3.9,
+      "max_height_m": 5.75,
+      "n_points": 439
+    },
+    "grid_r13_c15": {
+      "mean_height_m": 2.32,
+      "median_height_m": 2.38,
+      "p90_height_m": 3.32,
+      "max_height_m": 4.4,
+      "n_points": 428
+    },
+    "grid_r13_c16": {
+      "mean_height_m": 2.31,
+      "median_height_m": 2.4,
+      "p90_height_m": 3.11,
+      "max_height_m": 4.07,
+      "n_points": 369
+    },
+    "grid_r13_c17": {
+      "mean_height_m": 1.79,
+      "median_height_m": 1.82,
+      "p90_height_m": 3.05,
+      "max_height_m": 4.91,
+      "n_points": 340
+    },
+    "grid_r13_c18": {
+      "mean_height_m": 3.18,
+      "median_height_m": 3.14,
+      "p90_height_m": 4.63,
+      "max_height_m": 6.08,
+      "n_points": 207
+    },
+    "grid_r13_c19": {
+      "mean_height_m": 3.55,
+      "median_height_m": 3.56,
+      "p90_height_m": 4.8,
+      "max_height_m": 6.33,
+      "n_points": 340
+    },
+    "grid_r13_c20": {
+      "mean_height_m": 4.53,
+      "median_height_m": 4.41,
+      "p90_height_m": 6.09,
+      "max_height_m": 6.9,
+      "n_points": 374
+    },
+    "grid_r13_c21": {
+      "mean_height_m": 3.37,
+      "median_height_m": 3.37,
+      "p90_height_m": 4.87,
+      "max_height_m": 6.97,
+      "n_points": 421
+    },
+    "grid_r13_c22": {
+      "mean_height_m": 3.03,
+      "median_height_m": 3.07,
+      "p90_height_m": 4.34,
+      "max_height_m": 8.61,
+      "n_points": 600
+    },
+    "grid_r13_c23": {
+      "mean_height_m": 3.94,
+      "median_height_m": 3.96,
+      "p90_height_m": 5.05,
+      "max_height_m": 5.69,
+      "n_points": 93
+    },
+    "grid_r13_c24": {
+      "mean_height_m": 3.58,
+      "median_height_m": 3.75,
+      "p90_height_m": 4.59,
+      "max_height_m": 5.8,
+      "n_points": 220
+    },
+    "grid_r13_c25": {
+      "mean_height_m": 4.01,
+      "median_height_m": 3.89,
+      "p90_height_m": 5.45,
+      "max_height_m": 7.27,
+      "n_points": 272
+    },
+    "grid_r13_c26": {
+      "mean_height_m": 2.42,
+      "median_height_m": 2.72,
+      "p90_height_m": 4.07,
+      "max_height_m": 4.92,
+      "n_points": 184
+    },
+    "grid_r13_c27": {
+      "mean_height_m": 0.14,
+      "median_height_m": 0.07,
+      "p90_height_m": 0.34,
+      "max_height_m": 0.59,
+      "n_points": 38
+    },
+    "grid_r13_c28": {
+      "mean_height_m": 0.07,
+      "median_height_m": 0.07,
+      "p90_height_m": 0.07,
+      "max_height_m": 0.07,
+      "n_points": 3
+    },
+    "grid_r13_c30": {
+      "mean_height_m": 0.11,
+      "median_height_m": 0.11,
+      "p90_height_m": 0.19,
+      "max_height_m": 0.21,
+      "n_points": 2
+    },
+    "grid_r13_c31": {
+      "mean_height_m": 1.29,
+      "median_height_m": 1.38,
+      "p90_height_m": 1.48,
+      "max_height_m": 1.51,
+      "n_points": 5
+    },
+    "grid_r13_c32": {
+      "mean_height_m": 0.84,
+      "median_height_m": 1.01,
+      "p90_height_m": 1.26,
+      "max_height_m": 1.33,
+      "n_points": 5
+    },
+    "grid_r13_c33": {
+      "mean_height_m": 2.9,
+      "median_height_m": 2.6,
+      "p90_height_m": 4.65,
+      "max_height_m": 7.62,
+      "n_points": 590
+    },
+    "grid_r13_c34": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.18,
+      "p90_height_m": 3.13,
+      "max_height_m": 6.18,
+      "n_points": 386
+    },
+    "grid_r13_c35": {
+      "mean_height_m": 2.48,
+      "median_height_m": 2.37,
+      "p90_height_m": 3.68,
+      "max_height_m": 7.43,
+      "n_points": 900
+    },
+    "grid_r13_c36": {
+      "mean_height_m": 2.16,
+      "median_height_m": 2.09,
+      "p90_height_m": 3.26,
+      "max_height_m": 6.91,
+      "n_points": 756
+    },
+    "grid_r13_c37": {
+      "mean_height_m": 1.28,
+      "median_height_m": 1.19,
+      "p90_height_m": 2.02,
+      "max_height_m": 5.05,
+      "n_points": 1018
+    },
+    "grid_r13_c38": {
+      "mean_height_m": 1.71,
+      "median_height_m": 1.71,
+      "p90_height_m": 2.29,
+      "max_height_m": 5.39,
+      "n_points": 1218
+    },
+    "grid_r13_c39": {
+      "mean_height_m": 2.05,
+      "median_height_m": 2.02,
+      "p90_height_m": 2.84,
+      "max_height_m": 4.91,
+      "n_points": 1331
+    },
+    "grid_r13_c40": {
+      "mean_height_m": 3.79,
+      "median_height_m": 3.69,
+      "p90_height_m": 5.24,
+      "max_height_m": 8.6,
+      "n_points": 1267
+    },
+    "grid_r13_c41": {
+      "mean_height_m": 4.8,
+      "median_height_m": 4.71,
+      "p90_height_m": 5.96,
+      "max_height_m": 11.38,
+      "n_points": 1238
+    },
+    "grid_r13_c42": {
+      "mean_height_m": 4.07,
+      "median_height_m": 3.95,
+      "p90_height_m": 5.42,
+      "max_height_m": 10.53,
+      "n_points": 1285
+    },
+    "grid_r13_c43": {
+      "mean_height_m": 4.14,
+      "median_height_m": 4.16,
+      "p90_height_m": 5.36,
+      "max_height_m": 8.22,
+      "n_points": 1242
+    },
+    "grid_r13_c44": {
+      "mean_height_m": 4.74,
+      "median_height_m": 4.74,
+      "p90_height_m": 6.21,
+      "max_height_m": 8.25,
+      "n_points": 1173
+    },
+    "grid_r13_c45": {
+      "mean_height_m": 4.88,
+      "median_height_m": 5.04,
+      "p90_height_m": 6.65,
+      "max_height_m": 9.93,
+      "n_points": 329
+    },
+    "grid_r13_c46": {
+      "mean_height_m": 0.23,
+      "median_height_m": 0.05,
+      "p90_height_m": 0.65,
+      "max_height_m": 2.4,
+      "n_points": 215
+    },
+    "grid_r14_c6": {
+      "mean_height_m": 1.81,
+      "median_height_m": 1.63,
+      "p90_height_m": 3.23,
+      "max_height_m": 5.42,
+      "n_points": 490
+    },
+    "grid_r14_c7": {
+      "mean_height_m": 2.83,
+      "median_height_m": 2.92,
+      "p90_height_m": 3.88,
+      "max_height_m": 6.36,
+      "n_points": 518
+    },
+    "grid_r14_c8": {
+      "mean_height_m": 2.95,
+      "median_height_m": 2.97,
+      "p90_height_m": 4.18,
+      "max_height_m": 5.41,
+      "n_points": 543
+    },
+    "grid_r14_c9": {
+      "mean_height_m": 2.71,
+      "median_height_m": 2.66,
+      "p90_height_m": 4.15,
+      "max_height_m": 6.46,
+      "n_points": 461
+    },
+    "grid_r14_c10": {
+      "mean_height_m": 2.79,
+      "median_height_m": 2.71,
+      "p90_height_m": 3.86,
+      "max_height_m": 5.56,
+      "n_points": 327
+    },
+    "grid_r14_c11": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.67,
+      "p90_height_m": 3.6,
+      "max_height_m": 4.59,
+      "n_points": 327
+    },
+    "grid_r14_c12": {
+      "mean_height_m": 2.96,
+      "median_height_m": 3.01,
+      "p90_height_m": 4.06,
+      "max_height_m": 5.59,
+      "n_points": 471
+    },
+    "grid_r14_c13": {
+      "mean_height_m": 3.16,
+      "median_height_m": 3.21,
+      "p90_height_m": 4.16,
+      "max_height_m": 6.03,
+      "n_points": 450
+    },
+    "grid_r14_c14": {
+      "mean_height_m": 2.65,
+      "median_height_m": 2.69,
+      "p90_height_m": 3.54,
+      "max_height_m": 5.4,
+      "n_points": 510
+    },
+    "grid_r14_c15": {
+      "mean_height_m": 2.62,
+      "median_height_m": 2.56,
+      "p90_height_m": 3.61,
+      "max_height_m": 5.41,
+      "n_points": 480
+    },
+    "grid_r14_c16": {
+      "mean_height_m": 2.51,
+      "median_height_m": 2.47,
+      "p90_height_m": 3.37,
+      "max_height_m": 4.63,
+      "n_points": 472
+    },
+    "grid_r14_c17": {
+      "mean_height_m": 2.4,
+      "median_height_m": 2.39,
+      "p90_height_m": 3.64,
+      "max_height_m": 5.6,
+      "n_points": 147
+    },
+    "grid_r14_c18": {
+      "mean_height_m": 1.72,
+      "median_height_m": 1.42,
+      "p90_height_m": 2.8,
+      "max_height_m": 11.63,
+      "n_points": 188
+    },
+    "grid_r14_c19": {
+      "mean_height_m": 2.51,
+      "median_height_m": 2.28,
+      "p90_height_m": 3.71,
+      "max_height_m": 11.44,
+      "n_points": 256
+    },
+    "grid_r14_c20": {
+      "mean_height_m": 2.77,
+      "median_height_m": 2.63,
+      "p90_height_m": 4.14,
+      "max_height_m": 6.13,
+      "n_points": 371
+    },
+    "grid_r14_c21": {
+      "mean_height_m": 2.73,
+      "median_height_m": 2.65,
+      "p90_height_m": 4.15,
+      "max_height_m": 6.12,
+      "n_points": 352
+    },
+    "grid_r14_c22": {
+      "mean_height_m": 2.92,
+      "median_height_m": 2.88,
+      "p90_height_m": 4.85,
+      "max_height_m": 7.14,
+      "n_points": 378
+    },
+    "grid_r14_c23": {
+      "mean_height_m": 3.34,
+      "median_height_m": 3.32,
+      "p90_height_m": 5.07,
+      "max_height_m": 7.89,
+      "n_points": 436
+    },
+    "grid_r14_c24": {
+      "mean_height_m": 2.22,
+      "median_height_m": 1.99,
+      "p90_height_m": 4.03,
+      "max_height_m": 6.65,
+      "n_points": 323
+    },
+    "grid_r14_c25": {
+      "mean_height_m": 2.14,
+      "median_height_m": 2.06,
+      "p90_height_m": 4.13,
+      "max_height_m": 5.15,
+      "n_points": 327
+    },
+    "grid_r14_c26": {
+      "mean_height_m": 0.49,
+      "median_height_m": 0.25,
+      "p90_height_m": 1.34,
+      "max_height_m": 3.55,
+      "n_points": 449
+    },
+    "grid_r14_c27": {
+      "mean_height_m": 0.34,
+      "median_height_m": 0.07,
+      "p90_height_m": 1.05,
+      "max_height_m": 1.9,
+      "n_points": 148
+    },
+    "grid_r14_c28": {
+      "mean_height_m": 0.42,
+      "median_height_m": 0.44,
+      "p90_height_m": 0.74,
+      "max_height_m": 0.92,
+      "n_points": 45
+    },
+    "grid_r14_c31": {
+      "mean_height_m": 0.94,
+      "median_height_m": 0.94,
+      "p90_height_m": 2.03,
+      "max_height_m": 2.9,
+      "n_points": 10
+    },
+    "grid_r14_c33": {
+      "mean_height_m": 2.58,
+      "median_height_m": 2.45,
+      "p90_height_m": 3.54,
+      "max_height_m": 5.05,
+      "n_points": 37
+    },
+    "grid_r14_c34": {
+      "mean_height_m": 2.15,
+      "median_height_m": 2.08,
+      "p90_height_m": 3.37,
+      "max_height_m": 6.06,
+      "n_points": 669
+    },
+    "grid_r14_c35": {
+      "mean_height_m": 1.47,
+      "median_height_m": 1.35,
+      "p90_height_m": 2.49,
+      "max_height_m": 5.31,
+      "n_points": 634
+    },
+    "grid_r14_c36": {
+      "mean_height_m": 1.22,
+      "median_height_m": 1.05,
+      "p90_height_m": 2.36,
+      "max_height_m": 5.45,
+      "n_points": 701
+    },
+    "grid_r14_c37": {
+      "mean_height_m": 1.94,
+      "median_height_m": 1.48,
+      "p90_height_m": 3.64,
+      "max_height_m": 6.12,
+      "n_points": 925
+    },
+    "grid_r14_c38": {
+      "mean_height_m": 3.3,
+      "median_height_m": 3.32,
+      "p90_height_m": 4.24,
+      "max_height_m": 6.03,
+      "n_points": 1042
+    },
+    "grid_r14_c39": {
+      "mean_height_m": 2.02,
+      "median_height_m": 1.89,
+      "p90_height_m": 3.33,
+      "max_height_m": 5.55,
+      "n_points": 1093
+    },
+    "grid_r14_c40": {
+      "mean_height_m": 2.47,
+      "median_height_m": 2.26,
+      "p90_height_m": 3.99,
+      "max_height_m": 7.45,
+      "n_points": 1164
+    },
+    "grid_r14_c41": {
+      "mean_height_m": 3.51,
+      "median_height_m": 3.44,
+      "p90_height_m": 5.12,
+      "max_height_m": 16.38,
+      "n_points": 1105
+    },
+    "grid_r14_c42": {
+      "mean_height_m": 4.44,
+      "median_height_m": 4.3,
+      "p90_height_m": 5.87,
+      "max_height_m": 8.04,
+      "n_points": 776
+    },
+    "grid_r14_c43": {
+      "mean_height_m": 4.79,
+      "median_height_m": 4.9,
+      "p90_height_m": 6.16,
+      "max_height_m": 11.06,
+      "n_points": 900
+    },
+    "grid_r14_c44": {
+      "mean_height_m": 4.78,
+      "median_height_m": 4.73,
+      "p90_height_m": 6.04,
+      "max_height_m": 11.18,
+      "n_points": 1232
+    },
+    "grid_r14_c45": {
+      "mean_height_m": 3.71,
+      "median_height_m": 3.96,
+      "p90_height_m": 5.24,
+      "max_height_m": 7.96,
+      "n_points": 723
+    },
+    "grid_r14_c46": {
+      "mean_height_m": 1.03,
+      "median_height_m": 0.79,
+      "p90_height_m": 2.04,
+      "max_height_m": 4.63,
+      "n_points": 161
+    },
+    "grid_r14_c47": {
+      "mean_height_m": 2.12,
+      "median_height_m": 1.84,
+      "p90_height_m": 3.67,
+      "max_height_m": 9.4,
+      "n_points": 1301
+    },
+    "grid_r14_c48": {
+      "mean_height_m": 1.87,
+      "median_height_m": 1.47,
+      "p90_height_m": 3.61,
+      "max_height_m": 10.22,
+      "n_points": 377
+    },
+    "grid_r15_c6": {
+      "mean_height_m": 1.4,
+      "median_height_m": 1.2,
+      "p90_height_m": 2.5,
+      "max_height_m": 4.7,
+      "n_points": 643
+    },
+    "grid_r15_c7": {
+      "mean_height_m": 2.32,
+      "median_height_m": 2.21,
+      "p90_height_m": 3.65,
+      "max_height_m": 5.58,
+      "n_points": 639
+    },
+    "grid_r15_c8": {
+      "mean_height_m": 2.83,
+      "median_height_m": 2.68,
+      "p90_height_m": 4.54,
+      "max_height_m": 8.63,
+      "n_points": 510
+    },
+    "grid_r15_c9": {
+      "mean_height_m": 3.48,
+      "median_height_m": 3.28,
+      "p90_height_m": 5.66,
+      "max_height_m": 11.18,
+      "n_points": 479
+    },
+    "grid_r15_c10": {
+      "mean_height_m": 2.46,
+      "median_height_m": 2.44,
+      "p90_height_m": 3.56,
+      "max_height_m": 5.04,
+      "n_points": 292
+    },
+    "grid_r15_c11": {
+      "mean_height_m": 2.55,
+      "median_height_m": 2.57,
+      "p90_height_m": 3.59,
+      "max_height_m": 4.35,
+      "n_points": 269
+    },
+    "grid_r15_c12": {
+      "mean_height_m": 2.64,
+      "median_height_m": 2.67,
+      "p90_height_m": 3.73,
+      "max_height_m": 5.96,
+      "n_points": 454
+    },
+    "grid_r15_c13": {
+      "mean_height_m": 3.15,
+      "median_height_m": 3.22,
+      "p90_height_m": 4.03,
+      "max_height_m": 5.59,
+      "n_points": 495
+    },
+    "grid_r15_c14": {
+      "mean_height_m": 2.42,
+      "median_height_m": 2.45,
+      "p90_height_m": 3.61,
+      "max_height_m": 6.27,
+      "n_points": 522
+    },
+    "grid_r15_c15": {
+      "mean_height_m": 1.68,
+      "median_height_m": 1.64,
+      "p90_height_m": 2.75,
+      "max_height_m": 4.87,
+      "n_points": 537
+    },
+    "grid_r15_c16": {
+      "mean_height_m": 1.85,
+      "median_height_m": 1.84,
+      "p90_height_m": 2.67,
+      "max_height_m": 4.62,
+      "n_points": 463
+    },
+    "grid_r15_c17": {
+      "mean_height_m": 1.91,
+      "median_height_m": 1.8,
+      "p90_height_m": 2.89,
+      "max_height_m": 6.25,
+      "n_points": 312
+    },
+    "grid_r15_c18": {
+      "mean_height_m": 2.58,
+      "median_height_m": 1.74,
+      "p90_height_m": 7.4,
+      "max_height_m": 11.22,
+      "n_points": 164
+    },
+    "grid_r15_c19": {
+      "mean_height_m": 2.09,
+      "median_height_m": 1.87,
+      "p90_height_m": 3.3,
+      "max_height_m": 12.84,
+      "n_points": 421
+    },
+    "grid_r15_c20": {
+      "mean_height_m": 1.94,
+      "median_height_m": 1.86,
+      "p90_height_m": 3.0,
+      "max_height_m": 5.41,
+      "n_points": 452
+    },
+    "grid_r15_c21": {
+      "mean_height_m": 2.2,
+      "median_height_m": 2.03,
+      "p90_height_m": 3.53,
+      "max_height_m": 6.71,
+      "n_points": 518
+    },
+    "grid_r15_c22": {
+      "mean_height_m": 2.8,
+      "median_height_m": 2.48,
+      "p90_height_m": 5.29,
+      "max_height_m": 7.63,
+      "n_points": 386
+    },
+    "grid_r15_c23": {
+      "mean_height_m": 3.12,
+      "median_height_m": 2.95,
+      "p90_height_m": 5.13,
+      "max_height_m": 7.28,
+      "n_points": 366
+    },
+    "grid_r15_c24": {
+      "mean_height_m": 2.48,
+      "median_height_m": 2.6,
+      "p90_height_m": 4.35,
+      "max_height_m": 7.06,
+      "n_points": 219
+    },
+    "grid_r15_c25": {
+      "mean_height_m": 1.62,
+      "median_height_m": 1.62,
+      "p90_height_m": 3.14,
+      "max_height_m": 5.61,
+      "n_points": 760
+    },
+    "grid_r15_c26": {
+      "mean_height_m": 0.62,
+      "median_height_m": 0.12,
+      "p90_height_m": 2.12,
+      "max_height_m": 4.1,
+      "n_points": 711
+    },
+    "grid_r15_c27": {
+      "mean_height_m": 0.67,
+      "median_height_m": 0.17,
+      "p90_height_m": 1.67,
+      "max_height_m": 3.95,
+      "n_points": 200
+    },
+    "grid_r15_c28": {
+      "mean_height_m": 0.22,
+      "median_height_m": 0.02,
+      "p90_height_m": 0.71,
+      "max_height_m": 2.66,
+      "n_points": 213
+    },
+    "grid_r15_c29": {
+      "mean_height_m": 0.02,
+      "median_height_m": 0.02,
+      "p90_height_m": 0.03,
+      "max_height_m": 0.04,
+      "n_points": 11
+    },
+    "grid_r15_c30": {
+      "mean_height_m": 0.34,
+      "median_height_m": 0.34,
+      "p90_height_m": 0.34,
+      "max_height_m": 0.34,
+      "n_points": 1
+    },
+    "grid_r15_c34": {
+      "mean_height_m": 2.26,
+      "median_height_m": 1.97,
+      "p90_height_m": 4.03,
+      "max_height_m": 5.79,
+      "n_points": 299
+    },
+    "grid_r15_c35": {
+      "mean_height_m": 1.61,
+      "median_height_m": 1.51,
+      "p90_height_m": 2.71,
+      "max_height_m": 4.06,
+      "n_points": 629
+    },
+    "grid_r15_c36": {
+      "mean_height_m": 1.48,
+      "median_height_m": 1.33,
+      "p90_height_m": 2.54,
+      "max_height_m": 5.44,
+      "n_points": 733
+    },
+    "grid_r15_c37": {
+      "mean_height_m": 2.3,
+      "median_height_m": 2.16,
+      "p90_height_m": 3.88,
+      "max_height_m": 7.84,
+      "n_points": 913
+    },
+    "grid_r15_c38": {
+      "mean_height_m": 3.33,
+      "median_height_m": 3.31,
+      "p90_height_m": 4.38,
+      "max_height_m": 8.31,
+      "n_points": 1092
+    },
+    "grid_r15_c39": {
+      "mean_height_m": 2.18,
+      "median_height_m": 1.88,
+      "p90_height_m": 3.61,
+      "max_height_m": 9.42,
+      "n_points": 1088
+    },
+    "grid_r15_c40": {
+      "mean_height_m": 1.43,
+      "median_height_m": 1.28,
+      "p90_height_m": 2.64,
+      "max_height_m": 6.5,
+      "n_points": 999
+    },
+    "grid_r15_c41": {
+      "mean_height_m": 1.56,
+      "median_height_m": 1.47,
+      "p90_height_m": 2.71,
+      "max_height_m": 8.6,
+      "n_points": 881
+    },
+    "grid_r15_c42": {
+      "mean_height_m": 2.41,
+      "median_height_m": 2.2,
+      "p90_height_m": 3.72,
+      "max_height_m": 9.94,
+      "n_points": 360
+    },
+    "grid_r15_c43": {
+      "mean_height_m": 3.67,
+      "median_height_m": 3.34,
+      "p90_height_m": 6.4,
+      "max_height_m": 14.12,
+      "n_points": 228
+    },
+    "grid_r15_c44": {
+      "mean_height_m": 4.03,
+      "median_height_m": 3.88,
+      "p90_height_m": 6.38,
+      "max_height_m": 12.01,
+      "n_points": 302
+    },
+    "grid_r15_c45": {
+      "mean_height_m": 2.01,
+      "median_height_m": 2.0,
+      "p90_height_m": 3.92,
+      "max_height_m": 6.87,
+      "n_points": 185
+    },
+    "grid_r15_c46": {
+      "mean_height_m": 1.72,
+      "median_height_m": 1.59,
+      "p90_height_m": 2.5,
+      "max_height_m": 5.82,
+      "n_points": 955
+    },
+    "grid_r15_c47": {
+      "mean_height_m": 1.51,
+      "median_height_m": 1.32,
+      "p90_height_m": 2.22,
+      "max_height_m": 7.59,
+      "n_points": 1577
+    },
+    "grid_r15_c48": {
+      "mean_height_m": 1.46,
+      "median_height_m": 1.14,
+      "p90_height_m": 2.3,
+      "max_height_m": 13.18,
+      "n_points": 1477
+    },
+    "grid_r15_c49": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.17,
+      "p90_height_m": 5.09,
+      "max_height_m": 8.68,
+      "n_points": 94
+    },
+    "grid_r16_c6": {
+      "mean_height_m": 2.0,
+      "median_height_m": 1.94,
+      "p90_height_m": 3.03,
+      "max_height_m": 4.8,
+      "n_points": 836
+    },
+    "grid_r16_c7": {
+      "mean_height_m": 2.67,
+      "median_height_m": 2.77,
+      "p90_height_m": 3.47,
+      "max_height_m": 4.67,
+      "n_points": 799
+    },
+    "grid_r16_c8": {
+      "mean_height_m": 2.3,
+      "median_height_m": 2.25,
+      "p90_height_m": 3.81,
+      "max_height_m": 8.74,
+      "n_points": 580
+    },
+    "grid_r16_c9": {
+      "mean_height_m": 2.16,
+      "median_height_m": 2.09,
+      "p90_height_m": 3.31,
+      "max_height_m": 6.79,
+      "n_points": 415
+    },
+    "grid_r16_c10": {
+      "mean_height_m": 1.66,
+      "median_height_m": 1.54,
+      "p90_height_m": 2.9,
+      "max_height_m": 5.47,
+      "n_points": 466
+    },
+    "grid_r16_c11": {
+      "mean_height_m": 2.31,
+      "median_height_m": 2.13,
+      "p90_height_m": 3.38,
+      "max_height_m": 5.79,
+      "n_points": 299
+    },
+    "grid_r16_c12": {
+      "mean_height_m": 2.65,
+      "median_height_m": 2.57,
+      "p90_height_m": 3.65,
+      "max_height_m": 6.66,
+      "n_points": 447
+    },
+    "grid_r16_c13": {
+      "mean_height_m": 2.69,
+      "median_height_m": 2.72,
+      "p90_height_m": 3.67,
+      "max_height_m": 8.05,
+      "n_points": 445
+    },
+    "grid_r16_c14": {
+      "mean_height_m": 2.03,
+      "median_height_m": 2.04,
+      "p90_height_m": 3.14,
+      "max_height_m": 4.66,
+      "n_points": 495
+    },
+    "grid_r16_c15": {
+      "mean_height_m": 1.81,
+      "median_height_m": 1.7,
+      "p90_height_m": 2.93,
+      "max_height_m": 4.8,
+      "n_points": 486
+    },
+    "grid_r16_c16": {
+      "mean_height_m": 2.31,
+      "median_height_m": 2.31,
+      "p90_height_m": 3.14,
+      "max_height_m": 4.93,
+      "n_points": 503
+    },
+    "grid_r16_c17": {
+      "mean_height_m": 1.86,
+      "median_height_m": 1.8,
+      "p90_height_m": 2.68,
+      "max_height_m": 5.16,
+      "n_points": 401
+    },
+    "grid_r16_c18": {
+      "mean_height_m": 2.87,
+      "median_height_m": 2.45,
+      "p90_height_m": 5.78,
+      "max_height_m": 7.24,
+      "n_points": 171
+    },
+    "grid_r16_c19": {
+      "mean_height_m": 1.43,
+      "median_height_m": 1.22,
+      "p90_height_m": 2.51,
+      "max_height_m": 6.16,
+      "n_points": 542
+    },
+    "grid_r16_c20": {
+      "mean_height_m": 1.19,
+      "median_height_m": 0.98,
+      "p90_height_m": 2.24,
+      "max_height_m": 4.15,
+      "n_points": 645
+    },
+    "grid_r16_c21": {
+      "mean_height_m": 2.44,
+      "median_height_m": 2.18,
+      "p90_height_m": 4.18,
+      "max_height_m": 7.34,
+      "n_points": 547
+    },
+    "grid_r16_c22": {
+      "mean_height_m": 2.9,
+      "median_height_m": 2.66,
+      "p90_height_m": 4.96,
+      "max_height_m": 8.87,
+      "n_points": 484
+    },
+    "grid_r16_c23": {
+      "mean_height_m": 3.04,
+      "median_height_m": 2.91,
+      "p90_height_m": 4.67,
+      "max_height_m": 6.74,
+      "n_points": 392
+    },
+    "grid_r16_c24": {
+      "mean_height_m": 3.28,
+      "median_height_m": 3.33,
+      "p90_height_m": 4.82,
+      "max_height_m": 8.08,
+      "n_points": 341
+    },
+    "grid_r16_c25": {
+      "mean_height_m": 2.55,
+      "median_height_m": 2.8,
+      "p90_height_m": 3.65,
+      "max_height_m": 4.38,
+      "n_points": 387
+    },
+    "grid_r16_c26": {
+      "mean_height_m": 2.76,
+      "median_height_m": 2.83,
+      "p90_height_m": 4.34,
+      "max_height_m": 6.59,
+      "n_points": 753
+    },
+    "grid_r16_c27": {
+      "mean_height_m": 3.51,
+      "median_height_m": 3.57,
+      "p90_height_m": 4.68,
+      "max_height_m": 6.58,
+      "n_points": 418
+    },
+    "grid_r16_c28": {
+      "mean_height_m": 2.1,
+      "median_height_m": 2.24,
+      "p90_height_m": 3.76,
+      "max_height_m": 4.91,
+      "n_points": 363
+    },
+    "grid_r16_c29": {
+      "mean_height_m": 0.03,
+      "median_height_m": 0.02,
+      "p90_height_m": 0.06,
+      "max_height_m": 0.06,
+      "n_points": 5
+    },
+    "grid_r16_c32": {
+      "mean_height_m": 0.05,
+      "median_height_m": 0.05,
+      "p90_height_m": 0.05,
+      "max_height_m": 0.05,
+      "n_points": 1
+    },
+    "grid_r16_c33": {
+      "mean_height_m": 1.66,
+      "median_height_m": 1.99,
+      "p90_height_m": 2.11,
+      "max_height_m": 2.14,
+      "n_points": 3
+    },
+    "grid_r16_c34": {
+      "mean_height_m": 1.81,
+      "median_height_m": 1.67,
+      "p90_height_m": 3.0,
+      "max_height_m": 7.15,
+      "n_points": 523
+    },
+    "grid_r16_c35": {
+      "mean_height_m": 1.51,
+      "median_height_m": 1.34,
+      "p90_height_m": 2.53,
+      "max_height_m": 7.3,
+      "n_points": 961
+    },
+    "grid_r16_c36": {
+      "mean_height_m": 1.54,
+      "median_height_m": 1.32,
+      "p90_height_m": 2.65,
+      "max_height_m": 6.24,
+      "n_points": 798
+    },
+    "grid_r16_c37": {
+      "mean_height_m": 1.82,
+      "median_height_m": 1.63,
+      "p90_height_m": 3.13,
+      "max_height_m": 8.83,
+      "n_points": 1081
+    },
+    "grid_r16_c38": {
+      "mean_height_m": 2.57,
+      "median_height_m": 2.46,
+      "p90_height_m": 3.91,
+      "max_height_m": 9.33,
+      "n_points": 1155
+    },
+    "grid_r16_c39": {
+      "mean_height_m": 2.34,
+      "median_height_m": 2.16,
+      "p90_height_m": 3.66,
+      "max_height_m": 7.53,
+      "n_points": 1049
+    },
+    "grid_r16_c40": {
+      "mean_height_m": 1.84,
+      "median_height_m": 1.62,
+      "p90_height_m": 3.17,
+      "max_height_m": 6.31,
+      "n_points": 775
+    },
+    "grid_r16_c41": {
+      "mean_height_m": 2.34,
+      "median_height_m": 2.18,
+      "p90_height_m": 4.09,
+      "max_height_m": 6.98,
+      "n_points": 501
+    },
+    "grid_r16_c42": {
+      "mean_height_m": 2.51,
+      "median_height_m": 2.34,
+      "p90_height_m": 4.08,
+      "max_height_m": 6.87,
+      "n_points": 184
+    },
+    "grid_r16_c43": {
+      "mean_height_m": 3.03,
+      "median_height_m": 2.88,
+      "p90_height_m": 5.24,
+      "max_height_m": 9.44,
+      "n_points": 232
+    },
+    "grid_r16_c44": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.38,
+      "p90_height_m": 4.92,
+      "max_height_m": 6.74,
+      "n_points": 124
+    },
+    "grid_r16_c45": {
+      "mean_height_m": 2.0,
+      "median_height_m": 2.06,
+      "p90_height_m": 2.78,
+      "max_height_m": 5.23,
+      "n_points": 2673
+    },
+    "grid_r16_c46": {
+      "mean_height_m": 1.82,
+      "median_height_m": 1.51,
+      "p90_height_m": 3.12,
+      "max_height_m": 7.91,
+      "n_points": 1493
+    },
+    "grid_r16_c47": {
+      "mean_height_m": 1.6,
+      "median_height_m": 1.3,
+      "p90_height_m": 2.61,
+      "max_height_m": 10.74,
+      "n_points": 1377
+    },
+    "grid_r16_c48": {
+      "mean_height_m": 2.2,
+      "median_height_m": 1.73,
+      "p90_height_m": 3.97,
+      "max_height_m": 11.27,
+      "n_points": 951
+    },
+    "grid_r16_c49": {
+      "mean_height_m": 2.56,
+      "median_height_m": 1.62,
+      "p90_height_m": 6.12,
+      "max_height_m": 16.21,
+      "n_points": 400
+    },
+    "grid_r16_c50": {
+      "mean_height_m": 1.23,
+      "median_height_m": 1.02,
+      "p90_height_m": 2.24,
+      "max_height_m": 8.46,
+      "n_points": 556
+    },
+    "grid_r16_c51": {
+      "mean_height_m": 2.22,
+      "median_height_m": 2.14,
+      "p90_height_m": 3.83,
+      "max_height_m": 5.06,
+      "n_points": 49
+    },
+    "grid_r16_c52": {
+      "mean_height_m": 0.66,
+      "median_height_m": 0.51,
+      "p90_height_m": 1.36,
+      "max_height_m": 1.52,
+      "n_points": 25
+    },
+    "grid_r17_c6": {
+      "mean_height_m": 2.47,
+      "median_height_m": 2.4,
+      "p90_height_m": 3.68,
+      "max_height_m": 6.7,
+      "n_points": 742
+    },
+    "grid_r17_c7": {
+      "mean_height_m": 3.1,
+      "median_height_m": 3.12,
+      "p90_height_m": 3.93,
+      "max_height_m": 5.57,
+      "n_points": 1211
+    },
+    "grid_r17_c8": {
+      "mean_height_m": 2.67,
+      "median_height_m": 2.65,
+      "p90_height_m": 3.89,
+      "max_height_m": 5.49,
+      "n_points": 601
+    },
+    "grid_r17_c9": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.46,
+      "p90_height_m": 3.66,
+      "max_height_m": 6.49,
+      "n_points": 273
+    },
+    "grid_r17_c10": {
+      "mean_height_m": 1.63,
+      "median_height_m": 1.47,
+      "p90_height_m": 2.54,
+      "max_height_m": 5.52,
+      "n_points": 309
+    },
+    "grid_r17_c11": {
+      "mean_height_m": 1.39,
+      "median_height_m": 1.26,
+      "p90_height_m": 2.21,
+      "max_height_m": 5.59,
+      "n_points": 267
+    },
+    "grid_r17_c12": {
+      "mean_height_m": 1.25,
+      "median_height_m": 0.9,
+      "p90_height_m": 2.62,
+      "max_height_m": 7.15,
+      "n_points": 166
+    },
+    "grid_r17_c13": {
+      "mean_height_m": 1.69,
+      "median_height_m": 1.65,
+      "p90_height_m": 2.74,
+      "max_height_m": 3.9,
+      "n_points": 223
+    },
+    "grid_r17_c14": {
+      "mean_height_m": 1.96,
+      "median_height_m": 1.91,
+      "p90_height_m": 3.36,
+      "max_height_m": 5.03,
+      "n_points": 452
+    },
+    "grid_r17_c15": {
+      "mean_height_m": 1.92,
+      "median_height_m": 1.84,
+      "p90_height_m": 3.13,
+      "max_height_m": 5.1,
+      "n_points": 520
+    },
+    "grid_r17_c16": {
+      "mean_height_m": 1.72,
+      "median_height_m": 1.56,
+      "p90_height_m": 2.92,
+      "max_height_m": 4.61,
+      "n_points": 469
+    },
+    "grid_r17_c17": {
+      "mean_height_m": 1.71,
+      "median_height_m": 1.56,
+      "p90_height_m": 2.68,
+      "max_height_m": 5.97,
+      "n_points": 552
+    },
+    "grid_r17_c18": {
+      "mean_height_m": 1.96,
+      "median_height_m": 1.79,
+      "p90_height_m": 3.31,
+      "max_height_m": 6.09,
+      "n_points": 632
+    },
+    "grid_r17_c19": {
+      "mean_height_m": 1.51,
+      "median_height_m": 1.25,
+      "p90_height_m": 2.77,
+      "max_height_m": 5.29,
+      "n_points": 617
+    },
+    "grid_r17_c20": {
+      "mean_height_m": 1.37,
+      "median_height_m": 1.22,
+      "p90_height_m": 2.12,
+      "max_height_m": 6.28,
+      "n_points": 605
+    },
+    "grid_r17_c21": {
+      "mean_height_m": 2.49,
+      "median_height_m": 2.42,
+      "p90_height_m": 3.71,
+      "max_height_m": 6.92,
+      "n_points": 541
+    },
+    "grid_r17_c22": {
+      "mean_height_m": 2.67,
+      "median_height_m": 2.5,
+      "p90_height_m": 4.08,
+      "max_height_m": 7.94,
+      "n_points": 518
+    },
+    "grid_r17_c23": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.28,
+      "p90_height_m": 4.39,
+      "max_height_m": 6.81,
+      "n_points": 468
+    },
+    "grid_r17_c24": {
+      "mean_height_m": 2.94,
+      "median_height_m": 2.89,
+      "p90_height_m": 4.51,
+      "max_height_m": 8.32,
+      "n_points": 480
+    },
+    "grid_r17_c25": {
+      "mean_height_m": 2.86,
+      "median_height_m": 2.93,
+      "p90_height_m": 3.92,
+      "max_height_m": 5.42,
+      "n_points": 376
+    },
+    "grid_r17_c26": {
+      "mean_height_m": 3.13,
+      "median_height_m": 3.13,
+      "p90_height_m": 4.65,
+      "max_height_m": 8.11,
+      "n_points": 563
+    },
+    "grid_r17_c27": {
+      "mean_height_m": 3.67,
+      "median_height_m": 3.68,
+      "p90_height_m": 4.91,
+      "max_height_m": 7.13,
+      "n_points": 449
+    },
+    "grid_r17_c28": {
+      "mean_height_m": 3.49,
+      "median_height_m": 3.48,
+      "p90_height_m": 5.02,
+      "max_height_m": 7.09,
+      "n_points": 165
+    },
+    "grid_r17_c29": {
+      "mean_height_m": 0.38,
+      "median_height_m": 0.08,
+      "p90_height_m": 0.99,
+      "max_height_m": 1.82,
+      "n_points": 6
+    },
+    "grid_r17_c30": {
+      "mean_height_m": 0.04,
+      "median_height_m": 0.04,
+      "p90_height_m": 0.04,
+      "max_height_m": 0.04,
+      "n_points": 1
+    },
+    "grid_r17_c31": {
+      "mean_height_m": 0.82,
+      "median_height_m": 0.83,
+      "p90_height_m": 1.03,
+      "max_height_m": 1.08,
+      "n_points": 3
+    },
+    "grid_r17_c33": {
+      "mean_height_m": 1.61,
+      "median_height_m": 1.61,
+      "p90_height_m": 2.81,
+      "max_height_m": 5.03,
+      "n_points": 268
+    },
+    "grid_r17_c34": {
+      "mean_height_m": 1.74,
+      "median_height_m": 1.58,
+      "p90_height_m": 2.77,
+      "max_height_m": 6.33,
+      "n_points": 1051
+    },
+    "grid_r17_c35": {
+      "mean_height_m": 1.8,
+      "median_height_m": 1.58,
+      "p90_height_m": 3.24,
+      "max_height_m": 7.63,
+      "n_points": 795
+    },
+    "grid_r17_c36": {
+      "mean_height_m": 1.9,
+      "median_height_m": 1.81,
+      "p90_height_m": 3.07,
+      "max_height_m": 7.22,
+      "n_points": 673
+    },
+    "grid_r17_c37": {
+      "mean_height_m": 1.39,
+      "median_height_m": 1.21,
+      "p90_height_m": 2.32,
+      "max_height_m": 7.71,
+      "n_points": 1260
+    },
+    "grid_r17_c38": {
+      "mean_height_m": 1.77,
+      "median_height_m": 1.61,
+      "p90_height_m": 2.79,
+      "max_height_m": 5.78,
+      "n_points": 1538
+    },
+    "grid_r17_c39": {
+      "mean_height_m": 1.67,
+      "median_height_m": 1.48,
+      "p90_height_m": 2.71,
+      "max_height_m": 5.98,
+      "n_points": 1546
+    },
+    "grid_r17_c40": {
+      "mean_height_m": 1.55,
+      "median_height_m": 1.37,
+      "p90_height_m": 2.84,
+      "max_height_m": 6.18,
+      "n_points": 997
+    },
+    "grid_r17_c41": {
+      "mean_height_m": 1.91,
+      "median_height_m": 1.72,
+      "p90_height_m": 3.24,
+      "max_height_m": 6.16,
+      "n_points": 665
+    },
+    "grid_r17_c42": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.03,
+      "p90_height_m": 3.49,
+      "max_height_m": 6.49,
+      "n_points": 717
+    },
+    "grid_r17_c43": {
+      "mean_height_m": 2.29,
+      "median_height_m": 2.09,
+      "p90_height_m": 3.81,
+      "max_height_m": 7.3,
+      "n_points": 609
+    },
+    "grid_r17_c44": {
+      "mean_height_m": 1.75,
+      "median_height_m": 1.57,
+      "p90_height_m": 3.82,
+      "max_height_m": 6.19,
+      "n_points": 107
+    },
+    "grid_r17_c45": {
+      "mean_height_m": 2.39,
+      "median_height_m": 2.39,
+      "p90_height_m": 3.39,
+      "max_height_m": 5.28,
+      "n_points": 2585
+    },
+    "grid_r17_c46": {
+      "mean_height_m": 2.28,
+      "median_height_m": 2.16,
+      "p90_height_m": 3.69,
+      "max_height_m": 9.64,
+      "n_points": 1223
+    },
+    "grid_r17_c47": {
+      "mean_height_m": 1.69,
+      "median_height_m": 1.39,
+      "p90_height_m": 3.0,
+      "max_height_m": 10.24,
+      "n_points": 933
+    },
+    "grid_r17_c48": {
+      "mean_height_m": 3.67,
+      "median_height_m": 3.03,
+      "p90_height_m": 7.04,
+      "max_height_m": 16.13,
+      "n_points": 509
+    },
+    "grid_r17_c49": {
+      "mean_height_m": 2.58,
+      "median_height_m": 2.07,
+      "p90_height_m": 5.19,
+      "max_height_m": 13.97,
+      "n_points": 407
+    },
+    "grid_r17_c50": {
+      "mean_height_m": 2.11,
+      "median_height_m": 1.4,
+      "p90_height_m": 4.55,
+      "max_height_m": 18.26,
+      "n_points": 449
+    },
+    "grid_r17_c51": {
+      "mean_height_m": 2.83,
+      "median_height_m": 2.29,
+      "p90_height_m": 5.34,
+      "max_height_m": 13.93,
+      "n_points": 263
+    },
+    "grid_r17_c52": {
+      "mean_height_m": 2.05,
+      "median_height_m": 2.0,
+      "p90_height_m": 3.48,
+      "max_height_m": 11.18,
+      "n_points": 294
+    },
+    "grid_r17_c53": {
+      "mean_height_m": 2.4,
+      "median_height_m": 2.32,
+      "p90_height_m": 3.43,
+      "max_height_m": 10.44,
+      "n_points": 889
+    },
+    "grid_r17_c54": {
+      "mean_height_m": 3.08,
+      "median_height_m": 3.1,
+      "p90_height_m": 3.97,
+      "max_height_m": 8.47,
+      "n_points": 809
+    },
+    "grid_r17_c55": {
+      "mean_height_m": 2.53,
+      "median_height_m": 2.76,
+      "p90_height_m": 3.9,
+      "max_height_m": 12.78,
+      "n_points": 404
+    },
+    "grid_r18_c6": {
+      "mean_height_m": 3.03,
+      "median_height_m": 3.05,
+      "p90_height_m": 4.01,
+      "max_height_m": 5.6,
+      "n_points": 591
+    },
+    "grid_r18_c7": {
+      "mean_height_m": 3.0,
+      "median_height_m": 3.04,
+      "p90_height_m": 4.16,
+      "max_height_m": 7.46,
+      "n_points": 738
+    },
+    "grid_r18_c8": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.68,
+      "p90_height_m": 4.03,
+      "max_height_m": 4.84,
+      "n_points": 158
+    },
+    "grid_r18_c9": {
+      "mean_height_m": 2.7,
+      "median_height_m": 2.61,
+      "p90_height_m": 3.9,
+      "max_height_m": 5.93,
+      "n_points": 594
+    },
+    "grid_r18_c10": {
+      "mean_height_m": 3.17,
+      "median_height_m": 2.96,
+      "p90_height_m": 4.83,
+      "max_height_m": 6.89,
+      "n_points": 59
+    },
+    "grid_r18_c11": {
+      "mean_height_m": 1.24,
+      "median_height_m": 1.03,
+      "p90_height_m": 1.8,
+      "max_height_m": 2.21,
+      "n_points": 8
+    },
+    "grid_r18_c12": {
+      "mean_height_m": 1.17,
+      "median_height_m": 1.0,
+      "p90_height_m": 2.0,
+      "max_height_m": 2.09,
+      "n_points": 8
+    },
+    "grid_r18_c13": {
+      "mean_height_m": 1.92,
+      "median_height_m": 1.51,
+      "p90_height_m": 3.8,
+      "max_height_m": 6.8,
+      "n_points": 37
+    },
+    "grid_r18_c14": {
+      "mean_height_m": 1.83,
+      "median_height_m": 1.79,
+      "p90_height_m": 2.8,
+      "max_height_m": 5.15,
+      "n_points": 134
+    },
+    "grid_r18_c15": {
+      "mean_height_m": 1.56,
+      "median_height_m": 1.37,
+      "p90_height_m": 2.64,
+      "max_height_m": 4.96,
+      "n_points": 549
+    },
+    "grid_r18_c16": {
+      "mean_height_m": 1.45,
+      "median_height_m": 1.32,
+      "p90_height_m": 2.45,
+      "max_height_m": 4.71,
+      "n_points": 757
+    },
+    "grid_r18_c17": {
+      "mean_height_m": 1.71,
+      "median_height_m": 1.52,
+      "p90_height_m": 2.83,
+      "max_height_m": 5.4,
+      "n_points": 704
+    },
+    "grid_r18_c18": {
+      "mean_height_m": 1.62,
+      "median_height_m": 1.45,
+      "p90_height_m": 2.84,
+      "max_height_m": 4.91,
+      "n_points": 654
+    },
+    "grid_r18_c19": {
+      "mean_height_m": 1.16,
+      "median_height_m": 1.03,
+      "p90_height_m": 2.13,
+      "max_height_m": 4.5,
+      "n_points": 650
+    },
+    "grid_r18_c20": {
+      "mean_height_m": 2.19,
+      "median_height_m": 2.1,
+      "p90_height_m": 3.16,
+      "max_height_m": 5.24,
+      "n_points": 552
+    },
+    "grid_r18_c21": {
+      "mean_height_m": 3.15,
+      "median_height_m": 2.98,
+      "p90_height_m": 4.75,
+      "max_height_m": 6.95,
+      "n_points": 496
+    },
+    "grid_r18_c22": {
+      "mean_height_m": 3.05,
+      "median_height_m": 3.08,
+      "p90_height_m": 4.19,
+      "max_height_m": 6.65,
+      "n_points": 532
+    },
+    "grid_r18_c23": {
+      "mean_height_m": 2.41,
+      "median_height_m": 2.37,
+      "p90_height_m": 3.48,
+      "max_height_m": 4.99,
+      "n_points": 463
+    },
+    "grid_r18_c24": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.0,
+      "p90_height_m": 3.35,
+      "max_height_m": 6.51,
+      "n_points": 472
+    },
+    "grid_r18_c25": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.36,
+      "p90_height_m": 4.4,
+      "max_height_m": 8.23,
+      "n_points": 381
+    },
+    "grid_r18_c26": {
+      "mean_height_m": 2.44,
+      "median_height_m": 2.28,
+      "p90_height_m": 4.36,
+      "max_height_m": 7.71,
+      "n_points": 528
+    },
+    "grid_r18_c27": {
+      "mean_height_m": 2.95,
+      "median_height_m": 2.89,
+      "p90_height_m": 4.77,
+      "max_height_m": 7.63,
+      "n_points": 297
+    },
+    "grid_r18_c28": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.55,
+      "p90_height_m": 4.99,
+      "max_height_m": 7.78,
+      "n_points": 99
+    },
+    "grid_r18_c29": {
+      "mean_height_m": 3.15,
+      "median_height_m": 3.0,
+      "p90_height_m": 4.77,
+      "max_height_m": 8.97,
+      "n_points": 193
+    },
+    "grid_r18_c30": {
+      "mean_height_m": 1.17,
+      "median_height_m": 1.17,
+      "p90_height_m": 1.3,
+      "max_height_m": 1.34,
+      "n_points": 2
+    },
+    "grid_r18_c32": {
+      "mean_height_m": 1.22,
+      "median_height_m": 1.42,
+      "p90_height_m": 1.97,
+      "max_height_m": 2.39,
+      "n_points": 20
+    },
+    "grid_r18_c33": {
+      "mean_height_m": 1.85,
+      "median_height_m": 1.69,
+      "p90_height_m": 3.16,
+      "max_height_m": 4.97,
+      "n_points": 481
+    },
+    "grid_r18_c34": {
+      "mean_height_m": 2.24,
+      "median_height_m": 2.08,
+      "p90_height_m": 3.41,
+      "max_height_m": 7.15,
+      "n_points": 796
+    },
+    "grid_r18_c35": {
+      "mean_height_m": 2.26,
+      "median_height_m": 2.2,
+      "p90_height_m": 3.42,
+      "max_height_m": 6.8,
+      "n_points": 853
+    },
+    "grid_r18_c36": {
+      "mean_height_m": 2.1,
+      "median_height_m": 1.95,
+      "p90_height_m": 3.57,
+      "max_height_m": 5.86,
+      "n_points": 836
+    },
+    "grid_r18_c37": {
+      "mean_height_m": 1.67,
+      "median_height_m": 1.51,
+      "p90_height_m": 2.56,
+      "max_height_m": 5.82,
+      "n_points": 1288
+    },
+    "grid_r18_c38": {
+      "mean_height_m": 2.02,
+      "median_height_m": 1.93,
+      "p90_height_m": 3.01,
+      "max_height_m": 7.01,
+      "n_points": 1571
+    },
+    "grid_r18_c39": {
+      "mean_height_m": 1.78,
+      "median_height_m": 1.67,
+      "p90_height_m": 2.7,
+      "max_height_m": 6.36,
+      "n_points": 1867
+    },
+    "grid_r18_c40": {
+      "mean_height_m": 1.27,
+      "median_height_m": 1.05,
+      "p90_height_m": 2.26,
+      "max_height_m": 5.99,
+      "n_points": 1453
+    },
+    "grid_r18_c41": {
+      "mean_height_m": 1.21,
+      "median_height_m": 0.96,
+      "p90_height_m": 2.22,
+      "max_height_m": 6.51,
+      "n_points": 1386
+    },
+    "grid_r18_c42": {
+      "mean_height_m": 1.78,
+      "median_height_m": 1.64,
+      "p90_height_m": 2.78,
+      "max_height_m": 5.26,
+      "n_points": 1927
+    },
+    "grid_r18_c43": {
+      "mean_height_m": 1.89,
+      "median_height_m": 1.77,
+      "p90_height_m": 2.99,
+      "max_height_m": 5.5,
+      "n_points": 1094
+    },
+    "grid_r18_c44": {
+      "mean_height_m": 2.22,
+      "median_height_m": 2.06,
+      "p90_height_m": 3.51,
+      "max_height_m": 5.89,
+      "n_points": 367
+    },
+    "grid_r18_c45": {
+      "mean_height_m": 2.25,
+      "median_height_m": 2.06,
+      "p90_height_m": 3.69,
+      "max_height_m": 11.22,
+      "n_points": 823
+    },
+    "grid_r18_c46": {
+      "mean_height_m": 2.97,
+      "median_height_m": 3.04,
+      "p90_height_m": 4.26,
+      "max_height_m": 8.85,
+      "n_points": 999
+    },
+    "grid_r18_c47": {
+      "mean_height_m": 2.08,
+      "median_height_m": 1.5,
+      "p90_height_m": 4.49,
+      "max_height_m": 13.45,
+      "n_points": 628
+    },
+    "grid_r18_c48": {
+      "mean_height_m": 3.39,
+      "median_height_m": 3.08,
+      "p90_height_m": 5.63,
+      "max_height_m": 16.08,
+      "n_points": 815
+    },
+    "grid_r18_c49": {
+      "mean_height_m": 4.02,
+      "median_height_m": 3.21,
+      "p90_height_m": 8.11,
+      "max_height_m": 28.75,
+      "n_points": 356
+    },
+    "grid_r18_c50": {
+      "mean_height_m": 4.8,
+      "median_height_m": 3.44,
+      "p90_height_m": 11.07,
+      "max_height_m": 20.36,
+      "n_points": 237
+    },
+    "grid_r18_c51": {
+      "mean_height_m": 4.39,
+      "median_height_m": 3.42,
+      "p90_height_m": 9.16,
+      "max_height_m": 24.78,
+      "n_points": 197
+    },
+    "grid_r18_c52": {
+      "mean_height_m": 3.04,
+      "median_height_m": 2.66,
+      "p90_height_m": 4.69,
+      "max_height_m": 18.06,
+      "n_points": 379
+    },
+    "grid_r18_c53": {
+      "mean_height_m": 2.62,
+      "median_height_m": 2.53,
+      "p90_height_m": 3.64,
+      "max_height_m": 7.54,
+      "n_points": 1370
+    },
+    "grid_r18_c54": {
+      "mean_height_m": 3.37,
+      "median_height_m": 3.35,
+      "p90_height_m": 4.38,
+      "max_height_m": 9.49,
+      "n_points": 1079
+    },
+    "grid_r18_c55": {
+      "mean_height_m": 4.21,
+      "median_height_m": 4.13,
+      "p90_height_m": 5.55,
+      "max_height_m": 9.54,
+      "n_points": 900
+    },
+    "grid_r19_c6": {
+      "mean_height_m": 3.51,
+      "median_height_m": 3.45,
+      "p90_height_m": 4.61,
+      "max_height_m": 6.95,
+      "n_points": 325
+    },
+    "grid_r19_c7": {
+      "mean_height_m": 3.06,
+      "median_height_m": 3.03,
+      "p90_height_m": 4.42,
+      "max_height_m": 5.84,
+      "n_points": 200
+    },
+    "grid_r19_c8": {
+      "mean_height_m": 3.4,
+      "median_height_m": 3.35,
+      "p90_height_m": 4.56,
+      "max_height_m": 7.26,
+      "n_points": 132
+    },
+    "grid_r19_c9": {
+      "mean_height_m": 3.66,
+      "median_height_m": 3.68,
+      "p90_height_m": 5.12,
+      "max_height_m": 5.33,
+      "n_points": 29
+    },
+    "grid_r19_c14": {
+      "mean_height_m": 0.89,
+      "median_height_m": 0.9,
+      "p90_height_m": 1.5,
+      "max_height_m": 1.75,
+      "n_points": 44
+    },
+    "grid_r19_c15": {
+      "mean_height_m": 2.0,
+      "median_height_m": 1.94,
+      "p90_height_m": 3.33,
+      "max_height_m": 5.72,
+      "n_points": 446
+    },
+    "grid_r19_c16": {
+      "mean_height_m": 2.66,
+      "median_height_m": 2.61,
+      "p90_height_m": 3.94,
+      "max_height_m": 5.89,
+      "n_points": 514
+    },
+    "grid_r19_c17": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.67,
+      "p90_height_m": 4.18,
+      "max_height_m": 6.15,
+      "n_points": 518
+    },
+    "grid_r19_c18": {
+      "mean_height_m": 2.0,
+      "median_height_m": 1.93,
+      "p90_height_m": 3.19,
+      "max_height_m": 5.38,
+      "n_points": 498
+    },
+    "grid_r19_c19": {
+      "mean_height_m": 1.83,
+      "median_height_m": 1.7,
+      "p90_height_m": 3.37,
+      "max_height_m": 5.67,
+      "n_points": 598
+    },
+    "grid_r19_c20": {
+      "mean_height_m": 1.97,
+      "median_height_m": 1.85,
+      "p90_height_m": 3.28,
+      "max_height_m": 5.19,
+      "n_points": 656
+    },
+    "grid_r19_c21": {
+      "mean_height_m": 3.03,
+      "median_height_m": 3.16,
+      "p90_height_m": 3.78,
+      "max_height_m": 5.23,
+      "n_points": 504
+    },
+    "grid_r19_c22": {
+      "mean_height_m": 2.07,
+      "median_height_m": 1.97,
+      "p90_height_m": 3.59,
+      "max_height_m": 5.22,
+      "n_points": 525
+    },
+    "grid_r19_c23": {
+      "mean_height_m": 2.51,
+      "median_height_m": 1.8,
+      "p90_height_m": 5.1,
+      "max_height_m": 7.36,
+      "n_points": 526
+    },
+    "grid_r19_c24": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.33,
+      "p90_height_m": 4.31,
+      "max_height_m": 6.64,
+      "n_points": 517
+    },
+    "grid_r19_c25": {
+      "mean_height_m": 2.61,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.89,
+      "max_height_m": 6.04,
+      "n_points": 647
+    },
+    "grid_r19_c26": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.49,
+      "p90_height_m": 4.08,
+      "max_height_m": 7.78,
+      "n_points": 668
+    },
+    "grid_r19_c27": {
+      "mean_height_m": 2.21,
+      "median_height_m": 1.9,
+      "p90_height_m": 4.07,
+      "max_height_m": 7.17,
+      "n_points": 492
+    },
+    "grid_r19_c28": {
+      "mean_height_m": 2.27,
+      "median_height_m": 1.98,
+      "p90_height_m": 4.29,
+      "max_height_m": 7.15,
+      "n_points": 366
+    },
+    "grid_r19_c29": {
+      "mean_height_m": 2.63,
+      "median_height_m": 2.34,
+      "p90_height_m": 4.61,
+      "max_height_m": 7.87,
+      "n_points": 396
+    },
+    "grid_r19_c30": {
+      "mean_height_m": 2.67,
+      "median_height_m": 2.77,
+      "p90_height_m": 3.76,
+      "max_height_m": 6.12,
+      "n_points": 130
+    },
+    "grid_r19_c31": {
+      "mean_height_m": 0.62,
+      "median_height_m": 0.62,
+      "p90_height_m": 0.69,
+      "max_height_m": 0.7,
+      "n_points": 3
+    },
+    "grid_r19_c32": {
+      "mean_height_m": 0.34,
+      "median_height_m": 0.14,
+      "p90_height_m": 0.81,
+      "max_height_m": 2.45,
+      "n_points": 26
+    },
+    "grid_r19_c33": {
+      "mean_height_m": 1.64,
+      "median_height_m": 1.5,
+      "p90_height_m": 2.75,
+      "max_height_m": 6.37,
+      "n_points": 439
+    },
+    "grid_r19_c34": {
+      "mean_height_m": 2.42,
+      "median_height_m": 2.2,
+      "p90_height_m": 3.98,
+      "max_height_m": 8.53,
+      "n_points": 345
+    },
+    "grid_r19_c35": {
+      "mean_height_m": 2.29,
+      "median_height_m": 2.2,
+      "p90_height_m": 3.56,
+      "max_height_m": 8.12,
+      "n_points": 604
+    },
+    "grid_r19_c36": {
+      "mean_height_m": 1.6,
+      "median_height_m": 1.48,
+      "p90_height_m": 2.77,
+      "max_height_m": 5.1,
+      "n_points": 855
+    },
+    "grid_r19_c37": {
+      "mean_height_m": 1.53,
+      "median_height_m": 1.32,
+      "p90_height_m": 2.64,
+      "max_height_m": 6.68,
+      "n_points": 1098
+    },
+    "grid_r19_c38": {
+      "mean_height_m": 1.9,
+      "median_height_m": 1.75,
+      "p90_height_m": 3.01,
+      "max_height_m": 5.87,
+      "n_points": 1348
+    },
+    "grid_r19_c39": {
+      "mean_height_m": 2.27,
+      "median_height_m": 2.16,
+      "p90_height_m": 3.28,
+      "max_height_m": 6.9,
+      "n_points": 1540
+    },
+    "grid_r19_c40": {
+      "mean_height_m": 1.63,
+      "median_height_m": 1.43,
+      "p90_height_m": 2.91,
+      "max_height_m": 6.82,
+      "n_points": 1363
+    },
+    "grid_r19_c41": {
+      "mean_height_m": 1.46,
+      "median_height_m": 1.25,
+      "p90_height_m": 2.66,
+      "max_height_m": 6.1,
+      "n_points": 1254
+    },
+    "grid_r19_c42": {
+      "mean_height_m": 1.72,
+      "median_height_m": 1.54,
+      "p90_height_m": 2.94,
+      "max_height_m": 8.67,
+      "n_points": 1702
+    },
+    "grid_r19_c43": {
+      "mean_height_m": 2.73,
+      "median_height_m": 2.25,
+      "p90_height_m": 4.92,
+      "max_height_m": 9.42,
+      "n_points": 852
+    },
+    "grid_r19_c44": {
+      "mean_height_m": 4.41,
+      "median_height_m": 3.98,
+      "p90_height_m": 8.23,
+      "max_height_m": 13.39,
+      "n_points": 350
+    },
+    "grid_r19_c45": {
+      "mean_height_m": 4.09,
+      "median_height_m": 3.67,
+      "p90_height_m": 7.62,
+      "max_height_m": 14.21,
+      "n_points": 225
+    },
+    "grid_r19_c46": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.43,
+      "p90_height_m": 3.95,
+      "max_height_m": 6.54,
+      "n_points": 808
+    },
+    "grid_r19_c47": {
+      "mean_height_m": 2.85,
+      "median_height_m": 2.55,
+      "p90_height_m": 4.55,
+      "max_height_m": 13.51,
+      "n_points": 1045
+    },
+    "grid_r19_c48": {
+      "mean_height_m": 3.58,
+      "median_height_m": 3.21,
+      "p90_height_m": 6.3,
+      "max_height_m": 12.07,
+      "n_points": 627
+    },
+    "grid_r19_c49": {
+      "mean_height_m": 4.53,
+      "median_height_m": 4.16,
+      "p90_height_m": 7.48,
+      "max_height_m": 13.45,
+      "n_points": 262
+    },
+    "grid_r19_c50": {
+      "mean_height_m": 7.21,
+      "median_height_m": 4.89,
+      "p90_height_m": 14.83,
+      "max_height_m": 36.96,
+      "n_points": 171
+    },
+    "grid_r19_c51": {
+      "mean_height_m": 5.27,
+      "median_height_m": 4.95,
+      "p90_height_m": 8.4,
+      "max_height_m": 14.46,
+      "n_points": 217
+    },
+    "grid_r19_c52": {
+      "mean_height_m": 3.35,
+      "median_height_m": 2.84,
+      "p90_height_m": 6.57,
+      "max_height_m": 10.97,
+      "n_points": 189
+    },
+    "grid_r19_c53": {
+      "mean_height_m": 2.28,
+      "median_height_m": 2.15,
+      "p90_height_m": 3.62,
+      "max_height_m": 6.9,
+      "n_points": 771
+    },
+    "grid_r19_c54": {
+      "mean_height_m": 2.26,
+      "median_height_m": 2.14,
+      "p90_height_m": 3.63,
+      "max_height_m": 7.14,
+      "n_points": 1011
+    },
+    "grid_r19_c55": {
+      "mean_height_m": 3.3,
+      "median_height_m": 3.19,
+      "p90_height_m": 4.78,
+      "max_height_m": 7.43,
+      "n_points": 1167
+    },
+    "grid_r20_c6": {
+      "mean_height_m": 3.21,
+      "median_height_m": 3.42,
+      "p90_height_m": 4.53,
+      "max_height_m": 5.56,
+      "n_points": 145
+    },
+    "grid_r20_c7": {
+      "mean_height_m": 0.97,
+      "median_height_m": 1.13,
+      "p90_height_m": 1.13,
+      "max_height_m": 1.13,
+      "n_points": 3
+    },
+    "grid_r20_c9": {
+      "mean_height_m": 0.63,
+      "median_height_m": 0.52,
+      "p90_height_m": 1.29,
+      "max_height_m": 1.83,
+      "n_points": 7
+    },
+    "grid_r20_c15": {
+      "mean_height_m": 1.46,
+      "median_height_m": 1.34,
+      "p90_height_m": 2.49,
+      "max_height_m": 4.47,
+      "n_points": 153
+    },
+    "grid_r20_c16": {
+      "mean_height_m": 1.7,
+      "median_height_m": 1.64,
+      "p90_height_m": 2.98,
+      "max_height_m": 4.61,
+      "n_points": 368
+    },
+    "grid_r20_c17": {
+      "mean_height_m": 2.87,
+      "median_height_m": 2.76,
+      "p90_height_m": 4.21,
+      "max_height_m": 5.96,
+      "n_points": 403
+    },
+    "grid_r20_c18": {
+      "mean_height_m": 2.49,
+      "median_height_m": 2.52,
+      "p90_height_m": 3.89,
+      "max_height_m": 6.86,
+      "n_points": 547
+    },
+    "grid_r20_c19": {
+      "mean_height_m": 2.39,
+      "median_height_m": 2.33,
+      "p90_height_m": 3.6,
+      "max_height_m": 5.02,
+      "n_points": 404
+    },
+    "grid_r20_c20": {
+      "mean_height_m": 2.33,
+      "median_height_m": 2.26,
+      "p90_height_m": 3.76,
+      "max_height_m": 6.02,
+      "n_points": 639
+    },
+    "grid_r20_c21": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.65,
+      "p90_height_m": 3.89,
+      "max_height_m": 6.02,
+      "n_points": 540
+    },
+    "grid_r20_c22": {
+      "mean_height_m": 2.08,
+      "median_height_m": 2.11,
+      "p90_height_m": 2.88,
+      "max_height_m": 6.22,
+      "n_points": 503
+    },
+    "grid_r20_c23": {
+      "mean_height_m": 3.01,
+      "median_height_m": 2.86,
+      "p90_height_m": 4.84,
+      "max_height_m": 6.62,
+      "n_points": 572
+    },
+    "grid_r20_c24": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.7,
+      "p90_height_m": 4.01,
+      "max_height_m": 6.02,
+      "n_points": 381
+    },
+    "grid_r20_c25": {
+      "mean_height_m": 3.09,
+      "median_height_m": 3.1,
+      "p90_height_m": 4.06,
+      "max_height_m": 6.43,
+      "n_points": 1067
+    },
+    "grid_r20_c26": {
+      "mean_height_m": 2.48,
+      "median_height_m": 2.46,
+      "p90_height_m": 3.71,
+      "max_height_m": 5.88,
+      "n_points": 826
+    },
+    "grid_r20_c27": {
+      "mean_height_m": 2.44,
+      "median_height_m": 2.4,
+      "p90_height_m": 3.77,
+      "max_height_m": 6.42,
+      "n_points": 378
+    },
+    "grid_r20_c28": {
+      "mean_height_m": 2.27,
+      "median_height_m": 1.83,
+      "p90_height_m": 4.27,
+      "max_height_m": 8.89,
+      "n_points": 339
+    },
+    "grid_r20_c29": {
+      "mean_height_m": 3.18,
+      "median_height_m": 2.96,
+      "p90_height_m": 5.46,
+      "max_height_m": 7.63,
+      "n_points": 498
+    },
+    "grid_r20_c30": {
+      "mean_height_m": 2.62,
+      "median_height_m": 2.56,
+      "p90_height_m": 4.12,
+      "max_height_m": 9.22,
+      "n_points": 550
+    },
+    "grid_r20_c31": {
+      "mean_height_m": 2.22,
+      "median_height_m": 2.04,
+      "p90_height_m": 4.03,
+      "max_height_m": 6.21,
+      "n_points": 167
+    },
+    "grid_r20_c32": {
+      "mean_height_m": 1.5,
+      "median_height_m": 1.29,
+      "p90_height_m": 3.13,
+      "max_height_m": 3.64,
+      "n_points": 7
+    },
+    "grid_r20_c33": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.38,
+      "p90_height_m": 3.88,
+      "max_height_m": 7.85,
+      "n_points": 575
+    },
+    "grid_r20_c34": {
+      "mean_height_m": 2.81,
+      "median_height_m": 2.51,
+      "p90_height_m": 4.84,
+      "max_height_m": 8.39,
+      "n_points": 415
+    },
+    "grid_r20_c35": {
+      "mean_height_m": 2.32,
+      "median_height_m": 2.09,
+      "p90_height_m": 3.79,
+      "max_height_m": 8.79,
+      "n_points": 645
+    },
+    "grid_r20_c36": {
+      "mean_height_m": 1.64,
+      "median_height_m": 1.36,
+      "p90_height_m": 3.01,
+      "max_height_m": 6.83,
+      "n_points": 600
+    },
+    "grid_r20_c37": {
+      "mean_height_m": 1.57,
+      "median_height_m": 1.42,
+      "p90_height_m": 2.69,
+      "max_height_m": 7.64,
+      "n_points": 1008
+    },
+    "grid_r20_c38": {
+      "mean_height_m": 2.26,
+      "median_height_m": 2.17,
+      "p90_height_m": 3.29,
+      "max_height_m": 7.08,
+      "n_points": 1458
+    },
+    "grid_r20_c39": {
+      "mean_height_m": 2.92,
+      "median_height_m": 2.67,
+      "p90_height_m": 4.66,
+      "max_height_m": 11.06,
+      "n_points": 1069
+    },
+    "grid_r20_c40": {
+      "mean_height_m": 2.85,
+      "median_height_m": 2.76,
+      "p90_height_m": 4.35,
+      "max_height_m": 8.79,
+      "n_points": 807
+    },
+    "grid_r20_c41": {
+      "mean_height_m": 2.45,
+      "median_height_m": 2.36,
+      "p90_height_m": 3.86,
+      "max_height_m": 6.83,
+      "n_points": 978
+    },
+    "grid_r20_c42": {
+      "mean_height_m": 2.95,
+      "median_height_m": 2.81,
+      "p90_height_m": 4.37,
+      "max_height_m": 8.52,
+      "n_points": 1264
+    },
+    "grid_r20_c43": {
+      "mean_height_m": 3.37,
+      "median_height_m": 3.07,
+      "p90_height_m": 5.44,
+      "max_height_m": 10.41,
+      "n_points": 753
+    },
+    "grid_r20_c44": {
+      "mean_height_m": 3.6,
+      "median_height_m": 3.42,
+      "p90_height_m": 6.28,
+      "max_height_m": 10.07,
+      "n_points": 278
+    },
+    "grid_r20_c45": {
+      "mean_height_m": 3.58,
+      "median_height_m": 2.9,
+      "p90_height_m": 7.06,
+      "max_height_m": 13.64,
+      "n_points": 304
+    },
+    "grid_r20_c46": {
+      "mean_height_m": 1.59,
+      "median_height_m": 1.38,
+      "p90_height_m": 2.86,
+      "max_height_m": 8.9,
+      "n_points": 829
+    },
+    "grid_r20_c47": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.37,
+      "p90_height_m": 4.18,
+      "max_height_m": 12.43,
+      "n_points": 1214
+    },
+    "grid_r20_c48": {
+      "mean_height_m": 3.65,
+      "median_height_m": 3.41,
+      "p90_height_m": 5.65,
+      "max_height_m": 10.23,
+      "n_points": 826
+    },
+    "grid_r20_c49": {
+      "mean_height_m": 4.06,
+      "median_height_m": 3.77,
+      "p90_height_m": 6.87,
+      "max_height_m": 13.58,
+      "n_points": 325
+    },
+    "grid_r20_c50": {
+      "mean_height_m": 5.01,
+      "median_height_m": 4.72,
+      "p90_height_m": 8.77,
+      "max_height_m": 20.8,
+      "n_points": 212
+    },
+    "grid_r20_c51": {
+      "mean_height_m": 4.89,
+      "median_height_m": 5.01,
+      "p90_height_m": 7.54,
+      "max_height_m": 16.2,
+      "n_points": 225
+    },
+    "grid_r20_c52": {
+      "mean_height_m": 4.31,
+      "median_height_m": 4.05,
+      "p90_height_m": 7.0,
+      "max_height_m": 11.93,
+      "n_points": 382
+    },
+    "grid_r20_c53": {
+      "mean_height_m": 2.71,
+      "median_height_m": 2.43,
+      "p90_height_m": 4.67,
+      "max_height_m": 22.16,
+      "n_points": 648
+    },
+    "grid_r20_c54": {
+      "mean_height_m": 2.17,
+      "median_height_m": 1.94,
+      "p90_height_m": 3.68,
+      "max_height_m": 6.59,
+      "n_points": 954
+    },
+    "grid_r20_c55": {
+      "mean_height_m": 2.34,
+      "median_height_m": 2.19,
+      "p90_height_m": 3.72,
+      "max_height_m": 6.61,
+      "n_points": 906
+    },
+    "grid_r21_c6": {
+      "mean_height_m": 1.07,
+      "median_height_m": 0.92,
+      "p90_height_m": 1.74,
+      "max_height_m": 3.56,
+      "n_points": 173
+    },
+    "grid_r21_c7": {
+      "mean_height_m": 1.56,
+      "median_height_m": 1.46,
+      "p90_height_m": 2.42,
+      "max_height_m": 3.43,
+      "n_points": 111
+    },
+    "grid_r21_c8": {
+      "mean_height_m": 1.24,
+      "median_height_m": 1.16,
+      "p90_height_m": 1.63,
+      "max_height_m": 4.07,
+      "n_points": 87
+    },
+    "grid_r21_c9": {
+      "mean_height_m": 0.91,
+      "median_height_m": 0.97,
+      "p90_height_m": 1.65,
+      "max_height_m": 2.47,
+      "n_points": 34
+    },
+    "grid_r21_c15": {
+      "mean_height_m": 0.31,
+      "median_height_m": 0.31,
+      "p90_height_m": 0.31,
+      "max_height_m": 0.31,
+      "n_points": 1
+    },
+    "grid_r21_c16": {
+      "mean_height_m": 1.25,
+      "median_height_m": 1.07,
+      "p90_height_m": 2.24,
+      "max_height_m": 4.28,
+      "n_points": 148
+    },
+    "grid_r21_c17": {
+      "mean_height_m": 2.14,
+      "median_height_m": 1.92,
+      "p90_height_m": 3.7,
+      "max_height_m": 6.64,
+      "n_points": 343
+    },
+    "grid_r21_c18": {
+      "mean_height_m": 2.3,
+      "median_height_m": 2.21,
+      "p90_height_m": 3.74,
+      "max_height_m": 5.84,
+      "n_points": 415
+    },
+    "grid_r21_c19": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.54,
+      "p90_height_m": 3.33,
+      "max_height_m": 4.69,
+      "n_points": 170
+    },
+    "grid_r21_c20": {
+      "mean_height_m": 2.85,
+      "median_height_m": 2.78,
+      "p90_height_m": 3.96,
+      "max_height_m": 6.05,
+      "n_points": 512
+    },
+    "grid_r21_c21": {
+      "mean_height_m": 3.93,
+      "median_height_m": 3.85,
+      "p90_height_m": 5.16,
+      "max_height_m": 8.31,
+      "n_points": 451
+    },
+    "grid_r21_c22": {
+      "mean_height_m": 3.59,
+      "median_height_m": 3.53,
+      "p90_height_m": 5.02,
+      "max_height_m": 6.98,
+      "n_points": 619
+    },
+    "grid_r21_c23": {
+      "mean_height_m": 3.59,
+      "median_height_m": 3.52,
+      "p90_height_m": 4.86,
+      "max_height_m": 7.2,
+      "n_points": 415
+    },
+    "grid_r21_c24": {
+      "mean_height_m": 3.7,
+      "median_height_m": 3.63,
+      "p90_height_m": 4.94,
+      "max_height_m": 9.85,
+      "n_points": 608
+    },
+    "grid_r21_c25": {
+      "mean_height_m": 3.35,
+      "median_height_m": 3.26,
+      "p90_height_m": 4.91,
+      "max_height_m": 7.55,
+      "n_points": 668
+    },
+    "grid_r21_c26": {
+      "mean_height_m": 2.91,
+      "median_height_m": 2.93,
+      "p90_height_m": 4.14,
+      "max_height_m": 6.98,
+      "n_points": 610
+    },
+    "grid_r21_c27": {
+      "mean_height_m": 3.21,
+      "median_height_m": 3.27,
+      "p90_height_m": 5.13,
+      "max_height_m": 6.09,
+      "n_points": 510
+    },
+    "grid_r21_c28": {
+      "mean_height_m": 1.93,
+      "median_height_m": 1.74,
+      "p90_height_m": 3.27,
+      "max_height_m": 5.74,
+      "n_points": 558
+    },
+    "grid_r21_c29": {
+      "mean_height_m": 1.99,
+      "median_height_m": 1.54,
+      "p90_height_m": 3.85,
+      "max_height_m": 7.42,
+      "n_points": 372
+    },
+    "grid_r21_c30": {
+      "mean_height_m": 2.21,
+      "median_height_m": 1.9,
+      "p90_height_m": 4.33,
+      "max_height_m": 7.27,
+      "n_points": 383
+    },
+    "grid_r21_c31": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.15,
+      "p90_height_m": 4.94,
+      "max_height_m": 12.89,
+      "n_points": 379
+    },
+    "grid_r21_c32": {
+      "mean_height_m": 3.29,
+      "median_height_m": 1.89,
+      "p90_height_m": 7.52,
+      "max_height_m": 13.68,
+      "n_points": 30
+    },
+    "grid_r21_c33": {
+      "mean_height_m": 2.93,
+      "median_height_m": 2.76,
+      "p90_height_m": 4.25,
+      "max_height_m": 7.76,
+      "n_points": 271
+    },
+    "grid_r21_c34": {
+      "mean_height_m": 2.97,
+      "median_height_m": 2.69,
+      "p90_height_m": 4.69,
+      "max_height_m": 10.47,
+      "n_points": 725
+    },
+    "grid_r21_c35": {
+      "mean_height_m": 2.47,
+      "median_height_m": 2.26,
+      "p90_height_m": 4.05,
+      "max_height_m": 6.04,
+      "n_points": 565
+    },
+    "grid_r21_c36": {
+      "mean_height_m": 2.53,
+      "median_height_m": 2.33,
+      "p90_height_m": 4.02,
+      "max_height_m": 7.39,
+      "n_points": 416
+    },
+    "grid_r21_c37": {
+      "mean_height_m": 2.39,
+      "median_height_m": 2.19,
+      "p90_height_m": 4.04,
+      "max_height_m": 7.31,
+      "n_points": 676
+    },
+    "grid_r21_c38": {
+      "mean_height_m": 3.01,
+      "median_height_m": 2.85,
+      "p90_height_m": 4.34,
+      "max_height_m": 7.54,
+      "n_points": 1076
+    },
+    "grid_r21_c39": {
+      "mean_height_m": 2.97,
+      "median_height_m": 2.92,
+      "p90_height_m": 4.53,
+      "max_height_m": 6.99,
+      "n_points": 830
+    },
+    "grid_r21_c40": {
+      "mean_height_m": 2.8,
+      "median_height_m": 2.7,
+      "p90_height_m": 4.4,
+      "max_height_m": 6.19,
+      "n_points": 908
+    },
+    "grid_r21_c41": {
+      "mean_height_m": 2.8,
+      "median_height_m": 2.52,
+      "p90_height_m": 4.27,
+      "max_height_m": 9.24,
+      "n_points": 873
+    },
+    "grid_r21_c42": {
+      "mean_height_m": 2.81,
+      "median_height_m": 2.64,
+      "p90_height_m": 4.11,
+      "max_height_m": 9.37,
+      "n_points": 990
+    },
+    "grid_r21_c43": {
+      "mean_height_m": 2.61,
+      "median_height_m": 2.53,
+      "p90_height_m": 3.6,
+      "max_height_m": 9.92,
+      "n_points": 932
+    },
+    "grid_r21_c44": {
+      "mean_height_m": 3.0,
+      "median_height_m": 2.98,
+      "p90_height_m": 3.98,
+      "max_height_m": 6.9,
+      "n_points": 146
+    },
+    "grid_r21_c45": {
+      "mean_height_m": 2.6,
+      "median_height_m": 1.99,
+      "p90_height_m": 6.11,
+      "max_height_m": 10.27,
+      "n_points": 192
+    },
+    "grid_r21_c46": {
+      "mean_height_m": 1.94,
+      "median_height_m": 1.8,
+      "p90_height_m": 3.36,
+      "max_height_m": 9.35,
+      "n_points": 578
+    },
+    "grid_r21_c47": {
+      "mean_height_m": 2.63,
+      "median_height_m": 2.21,
+      "p90_height_m": 4.81,
+      "max_height_m": 9.12,
+      "n_points": 960
+    },
+    "grid_r21_c48": {
+      "mean_height_m": 2.6,
+      "median_height_m": 2.29,
+      "p90_height_m": 4.67,
+      "max_height_m": 8.17,
+      "n_points": 907
+    },
+    "grid_r21_c49": {
+      "mean_height_m": 3.0,
+      "median_height_m": 2.74,
+      "p90_height_m": 4.86,
+      "max_height_m": 9.05,
+      "n_points": 755
+    },
+    "grid_r21_c50": {
+      "mean_height_m": 4.08,
+      "median_height_m": 3.91,
+      "p90_height_m": 6.6,
+      "max_height_m": 9.87,
+      "n_points": 293
+    },
+    "grid_r21_c51": {
+      "mean_height_m": 4.86,
+      "median_height_m": 4.5,
+      "p90_height_m": 7.48,
+      "max_height_m": 11.33,
+      "n_points": 270
+    },
+    "grid_r21_c52": {
+      "mean_height_m": 4.79,
+      "median_height_m": 4.69,
+      "p90_height_m": 7.09,
+      "max_height_m": 9.74,
+      "n_points": 241
+    },
+    "grid_r21_c53": {
+      "mean_height_m": 3.33,
+      "median_height_m": 3.2,
+      "p90_height_m": 5.18,
+      "max_height_m": 8.48,
+      "n_points": 603
+    },
+    "grid_r21_c54": {
+      "mean_height_m": 2.69,
+      "median_height_m": 2.31,
+      "p90_height_m": 4.83,
+      "max_height_m": 14.74,
+      "n_points": 541
+    },
+    "grid_r22_c6": {
+      "mean_height_m": 2.25,
+      "median_height_m": 2.11,
+      "p90_height_m": 3.76,
+      "max_height_m": 5.08,
+      "n_points": 239
+    },
+    "grid_r22_c7": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.69,
+      "p90_height_m": 3.72,
+      "max_height_m": 5.7,
+      "n_points": 227
+    },
+    "grid_r22_c8": {
+      "mean_height_m": 3.12,
+      "median_height_m": 3.13,
+      "p90_height_m": 4.41,
+      "max_height_m": 6.87,
+      "n_points": 209
+    },
+    "grid_r22_c9": {
+      "mean_height_m": 3.05,
+      "median_height_m": 3.04,
+      "p90_height_m": 5.16,
+      "max_height_m": 7.3,
+      "n_points": 144
+    },
+    "grid_r22_c10": {
+      "mean_height_m": 1.8,
+      "median_height_m": 1.58,
+      "p90_height_m": 3.14,
+      "max_height_m": 4.79,
+      "n_points": 144
+    },
+    "grid_r22_c11": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.25,
+      "p90_height_m": 4.23,
+      "max_height_m": 7.2,
+      "n_points": 426
+    },
+    "grid_r22_c17": {
+      "mean_height_m": 1.62,
+      "median_height_m": 1.6,
+      "p90_height_m": 2.25,
+      "max_height_m": 4.36,
+      "n_points": 59
+    },
+    "grid_r22_c18": {
+      "mean_height_m": 2.37,
+      "median_height_m": 2.34,
+      "p90_height_m": 3.5,
+      "max_height_m": 3.88,
+      "n_points": 37
+    },
+    "grid_r22_c19": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.14,
+      "p90_height_m": 3.38,
+      "max_height_m": 7.17,
+      "n_points": 661
+    },
+    "grid_r22_c20": {
+      "mean_height_m": 2.49,
+      "median_height_m": 2.35,
+      "p90_height_m": 3.61,
+      "max_height_m": 7.86,
+      "n_points": 1099
+    },
+    "grid_r22_c21": {
+      "mean_height_m": 2.86,
+      "median_height_m": 2.73,
+      "p90_height_m": 4.43,
+      "max_height_m": 9.53,
+      "n_points": 670
+    },
+    "grid_r22_c22": {
+      "mean_height_m": 2.98,
+      "median_height_m": 2.9,
+      "p90_height_m": 4.53,
+      "max_height_m": 7.72,
+      "n_points": 885
+    },
+    "grid_r22_c23": {
+      "mean_height_m": 3.02,
+      "median_height_m": 3.02,
+      "p90_height_m": 3.98,
+      "max_height_m": 7.63,
+      "n_points": 648
+    },
+    "grid_r22_c24": {
+      "mean_height_m": 3.21,
+      "median_height_m": 3.02,
+      "p90_height_m": 4.96,
+      "max_height_m": 7.59,
+      "n_points": 567
+    },
+    "grid_r22_c25": {
+      "mean_height_m": 2.55,
+      "median_height_m": 2.44,
+      "p90_height_m": 3.97,
+      "max_height_m": 7.81,
+      "n_points": 670
+    },
+    "grid_r22_c26": {
+      "mean_height_m": 3.06,
+      "median_height_m": 3.11,
+      "p90_height_m": 4.15,
+      "max_height_m": 5.43,
+      "n_points": 603
+    },
+    "grid_r22_c27": {
+      "mean_height_m": 1.41,
+      "median_height_m": 1.42,
+      "p90_height_m": 2.19,
+      "max_height_m": 4.02,
+      "n_points": 529
+    },
+    "grid_r22_c28": {
+      "mean_height_m": 2.26,
+      "median_height_m": 2.2,
+      "p90_height_m": 3.18,
+      "max_height_m": 4.38,
+      "n_points": 608
+    },
+    "grid_r22_c29": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.07,
+      "p90_height_m": 3.33,
+      "max_height_m": 7.34,
+      "n_points": 979
+    },
+    "grid_r22_c30": {
+      "mean_height_m": 1.79,
+      "median_height_m": 1.52,
+      "p90_height_m": 2.99,
+      "max_height_m": 9.02,
+      "n_points": 999
+    },
+    "grid_r22_c31": {
+      "mean_height_m": 1.71,
+      "median_height_m": 1.57,
+      "p90_height_m": 2.75,
+      "max_height_m": 7.75,
+      "n_points": 1052
+    },
+    "grid_r22_c32": {
+      "mean_height_m": 1.25,
+      "median_height_m": 1.23,
+      "p90_height_m": 2.17,
+      "max_height_m": 5.74,
+      "n_points": 471
+    },
+    "grid_r22_c33": {
+      "mean_height_m": 2.14,
+      "median_height_m": 1.78,
+      "p90_height_m": 4.06,
+      "max_height_m": 7.76,
+      "n_points": 550
+    },
+    "grid_r22_c34": {
+      "mean_height_m": 2.37,
+      "median_height_m": 2.16,
+      "p90_height_m": 3.81,
+      "max_height_m": 8.56,
+      "n_points": 673
+    },
+    "grid_r22_c35": {
+      "mean_height_m": 2.04,
+      "median_height_m": 1.77,
+      "p90_height_m": 3.56,
+      "max_height_m": 7.13,
+      "n_points": 756
+    },
+    "grid_r22_c36": {
+      "mean_height_m": 2.1,
+      "median_height_m": 1.82,
+      "p90_height_m": 3.8,
+      "max_height_m": 8.2,
+      "n_points": 315
+    },
+    "grid_r22_c37": {
+      "mean_height_m": 2.14,
+      "median_height_m": 1.97,
+      "p90_height_m": 3.31,
+      "max_height_m": 6.13,
+      "n_points": 1026
+    },
+    "grid_r22_c38": {
+      "mean_height_m": 2.99,
+      "median_height_m": 2.78,
+      "p90_height_m": 5.06,
+      "max_height_m": 8.15,
+      "n_points": 778
+    },
+    "grid_r22_c39": {
+      "mean_height_m": 2.81,
+      "median_height_m": 2.63,
+      "p90_height_m": 4.63,
+      "max_height_m": 7.62,
+      "n_points": 667
+    },
+    "grid_r22_c40": {
+      "mean_height_m": 2.6,
+      "median_height_m": 2.22,
+      "p90_height_m": 4.98,
+      "max_height_m": 7.87,
+      "n_points": 293
+    },
+    "grid_r22_c41": {
+      "mean_height_m": 2.41,
+      "median_height_m": 2.16,
+      "p90_height_m": 3.79,
+      "max_height_m": 7.92,
+      "n_points": 757
+    },
+    "grid_r22_c42": {
+      "mean_height_m": 3.1,
+      "median_height_m": 3.07,
+      "p90_height_m": 4.6,
+      "max_height_m": 7.74,
+      "n_points": 1018
+    },
+    "grid_r22_c43": {
+      "mean_height_m": 3.51,
+      "median_height_m": 3.51,
+      "p90_height_m": 4.44,
+      "max_height_m": 5.94,
+      "n_points": 902
+    },
+    "grid_r22_c44": {
+      "mean_height_m": 3.1,
+      "median_height_m": 3.11,
+      "p90_height_m": 4.14,
+      "max_height_m": 6.26,
+      "n_points": 829
+    },
+    "grid_r22_c45": {
+      "mean_height_m": 2.69,
+      "median_height_m": 2.27,
+      "p90_height_m": 5.28,
+      "max_height_m": 11.48,
+      "n_points": 350
+    },
+    "grid_r22_c46": {
+      "mean_height_m": 2.61,
+      "median_height_m": 2.24,
+      "p90_height_m": 4.7,
+      "max_height_m": 15.23,
+      "n_points": 531
+    },
+    "grid_r22_c47": {
+      "mean_height_m": 2.34,
+      "median_height_m": 2.14,
+      "p90_height_m": 3.95,
+      "max_height_m": 11.36,
+      "n_points": 804
+    },
+    "grid_r22_c48": {
+      "mean_height_m": 2.16,
+      "median_height_m": 1.81,
+      "p90_height_m": 3.8,
+      "max_height_m": 6.99,
+      "n_points": 723
+    },
+    "grid_r22_c49": {
+      "mean_height_m": 2.75,
+      "median_height_m": 2.64,
+      "p90_height_m": 3.99,
+      "max_height_m": 7.52,
+      "n_points": 781
+    },
+    "grid_r22_c50": {
+      "mean_height_m": 3.69,
+      "median_height_m": 3.6,
+      "p90_height_m": 5.67,
+      "max_height_m": 8.03,
+      "n_points": 578
+    },
+    "grid_r22_c51": {
+      "mean_height_m": 3.91,
+      "median_height_m": 3.72,
+      "p90_height_m": 5.63,
+      "max_height_m": 9.42,
+      "n_points": 342
+    },
+    "grid_r22_c52": {
+      "mean_height_m": 4.32,
+      "median_height_m": 4.26,
+      "p90_height_m": 6.46,
+      "max_height_m": 9.6,
+      "n_points": 244
+    },
+    "grid_r22_c53": {
+      "mean_height_m": 3.65,
+      "median_height_m": 3.56,
+      "p90_height_m": 5.63,
+      "max_height_m": 9.19,
+      "n_points": 340
+    },
+    "grid_r23_c6": {
+      "mean_height_m": 2.46,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.27,
+      "max_height_m": 4.61,
+      "n_points": 341
+    },
+    "grid_r23_c7": {
+      "mean_height_m": 2.69,
+      "median_height_m": 2.62,
+      "p90_height_m": 3.81,
+      "max_height_m": 5.14,
+      "n_points": 272
+    },
+    "grid_r23_c8": {
+      "mean_height_m": 2.92,
+      "median_height_m": 2.9,
+      "p90_height_m": 3.76,
+      "max_height_m": 6.45,
+      "n_points": 318
+    },
+    "grid_r23_c9": {
+      "mean_height_m": 2.35,
+      "median_height_m": 2.33,
+      "p90_height_m": 3.76,
+      "max_height_m": 4.97,
+      "n_points": 198
+    },
+    "grid_r23_c10": {
+      "mean_height_m": 1.75,
+      "median_height_m": 1.66,
+      "p90_height_m": 2.75,
+      "max_height_m": 5.18,
+      "n_points": 286
+    },
+    "grid_r23_c11": {
+      "mean_height_m": 2.47,
+      "median_height_m": 2.42,
+      "p90_height_m": 3.91,
+      "max_height_m": 5.07,
+      "n_points": 244
+    },
+    "grid_r23_c18": {
+      "mean_height_m": 1.85,
+      "median_height_m": 1.72,
+      "p90_height_m": 2.53,
+      "max_height_m": 2.7,
+      "n_points": 17
+    },
+    "grid_r23_c19": {
+      "mean_height_m": 2.21,
+      "median_height_m": 2.25,
+      "p90_height_m": 3.45,
+      "max_height_m": 5.01,
+      "n_points": 403
+    },
+    "grid_r23_c20": {
+      "mean_height_m": 2.95,
+      "median_height_m": 2.9,
+      "p90_height_m": 4.1,
+      "max_height_m": 6.62,
+      "n_points": 676
+    },
+    "grid_r23_c21": {
+      "mean_height_m": 2.8,
+      "median_height_m": 2.66,
+      "p90_height_m": 4.48,
+      "max_height_m": 7.78,
+      "n_points": 735
+    },
+    "grid_r23_c22": {
+      "mean_height_m": 2.4,
+      "median_height_m": 2.27,
+      "p90_height_m": 3.87,
+      "max_height_m": 6.84,
+      "n_points": 556
+    },
+    "grid_r23_c23": {
+      "mean_height_m": 2.64,
+      "median_height_m": 2.53,
+      "p90_height_m": 4.09,
+      "max_height_m": 5.62,
+      "n_points": 572
+    },
+    "grid_r23_c24": {
+      "mean_height_m": 2.73,
+      "median_height_m": 2.61,
+      "p90_height_m": 4.09,
+      "max_height_m": 7.76,
+      "n_points": 576
+    },
+    "grid_r23_c25": {
+      "mean_height_m": 1.93,
+      "median_height_m": 1.81,
+      "p90_height_m": 2.97,
+      "max_height_m": 6.41,
+      "n_points": 921
+    },
+    "grid_r23_c26": {
+      "mean_height_m": 3.35,
+      "median_height_m": 3.5,
+      "p90_height_m": 4.49,
+      "max_height_m": 7.01,
+      "n_points": 1002
+    },
+    "grid_r23_c27": {
+      "mean_height_m": 2.33,
+      "median_height_m": 2.33,
+      "p90_height_m": 3.43,
+      "max_height_m": 4.73,
+      "n_points": 605
+    },
+    "grid_r23_c28": {
+      "mean_height_m": 2.34,
+      "median_height_m": 2.21,
+      "p90_height_m": 3.38,
+      "max_height_m": 5.28,
+      "n_points": 641
+    },
+    "grid_r23_c29": {
+      "mean_height_m": 2.25,
+      "median_height_m": 2.21,
+      "p90_height_m": 3.04,
+      "max_height_m": 5.63,
+      "n_points": 891
+    },
+    "grid_r23_c30": {
+      "mean_height_m": 1.63,
+      "median_height_m": 1.46,
+      "p90_height_m": 2.56,
+      "max_height_m": 5.77,
+      "n_points": 1171
+    },
+    "grid_r23_c31": {
+      "mean_height_m": 1.85,
+      "median_height_m": 1.8,
+      "p90_height_m": 2.67,
+      "max_height_m": 5.53,
+      "n_points": 1374
+    },
+    "grid_r23_c32": {
+      "mean_height_m": 1.91,
+      "median_height_m": 1.82,
+      "p90_height_m": 2.88,
+      "max_height_m": 5.1,
+      "n_points": 552
+    },
+    "grid_r23_c33": {
+      "mean_height_m": 2.07,
+      "median_height_m": 1.91,
+      "p90_height_m": 3.29,
+      "max_height_m": 6.68,
+      "n_points": 593
+    },
+    "grid_r23_c34": {
+      "mean_height_m": 2.11,
+      "median_height_m": 1.93,
+      "p90_height_m": 3.06,
+      "max_height_m": 7.6,
+      "n_points": 702
+    },
+    "grid_r23_c35": {
+      "mean_height_m": 1.91,
+      "median_height_m": 1.72,
+      "p90_height_m": 3.08,
+      "max_height_m": 5.86,
+      "n_points": 847
+    },
+    "grid_r23_c36": {
+      "mean_height_m": 1.62,
+      "median_height_m": 1.38,
+      "p90_height_m": 2.58,
+      "max_height_m": 9.41,
+      "n_points": 1356
+    },
+    "grid_r23_c37": {
+      "mean_height_m": 1.89,
+      "median_height_m": 1.62,
+      "p90_height_m": 3.22,
+      "max_height_m": 8.67,
+      "n_points": 1309
+    },
+    "grid_r23_c38": {
+      "mean_height_m": 2.79,
+      "median_height_m": 2.54,
+      "p90_height_m": 4.53,
+      "max_height_m": 8.92,
+      "n_points": 814
+    },
+    "grid_r23_c39": {
+      "mean_height_m": 3.1,
+      "median_height_m": 3.0,
+      "p90_height_m": 4.58,
+      "max_height_m": 7.15,
+      "n_points": 1035
+    },
+    "grid_r23_c40": {
+      "mean_height_m": 2.87,
+      "median_height_m": 2.76,
+      "p90_height_m": 4.11,
+      "max_height_m": 6.79,
+      "n_points": 1342
+    },
+    "grid_r23_c41": {
+      "mean_height_m": 2.67,
+      "median_height_m": 2.61,
+      "p90_height_m": 3.71,
+      "max_height_m": 5.86,
+      "n_points": 1357
+    },
+    "grid_r23_c42": {
+      "mean_height_m": 3.45,
+      "median_height_m": 3.48,
+      "p90_height_m": 5.01,
+      "max_height_m": 6.84,
+      "n_points": 867
+    },
+    "grid_r23_c43": {
+      "mean_height_m": 3.29,
+      "median_height_m": 3.2,
+      "p90_height_m": 5.1,
+      "max_height_m": 5.91,
+      "n_points": 807
+    },
+    "grid_r23_c44": {
+      "mean_height_m": 2.36,
+      "median_height_m": 2.29,
+      "p90_height_m": 3.63,
+      "max_height_m": 6.48,
+      "n_points": 677
+    },
+    "grid_r23_c45": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.17,
+      "p90_height_m": 5.32,
+      "max_height_m": 9.12,
+      "n_points": 381
+    },
+    "grid_r23_c46": {
+      "mean_height_m": 1.69,
+      "median_height_m": 1.45,
+      "p90_height_m": 3.06,
+      "max_height_m": 7.82,
+      "n_points": 936
+    },
+    "grid_r23_c47": {
+      "mean_height_m": 2.7,
+      "median_height_m": 2.52,
+      "p90_height_m": 4.21,
+      "max_height_m": 11.36,
+      "n_points": 1206
+    },
+    "grid_r23_c48": {
+      "mean_height_m": 3.0,
+      "median_height_m": 3.01,
+      "p90_height_m": 3.93,
+      "max_height_m": 6.4,
+      "n_points": 742
+    },
+    "grid_r23_c49": {
+      "mean_height_m": 3.38,
+      "median_height_m": 3.35,
+      "p90_height_m": 4.42,
+      "max_height_m": 7.25,
+      "n_points": 946
+    },
+    "grid_r23_c50": {
+      "mean_height_m": 3.73,
+      "median_height_m": 3.66,
+      "p90_height_m": 5.36,
+      "max_height_m": 8.37,
+      "n_points": 571
+    },
+    "grid_r23_c51": {
+      "mean_height_m": 2.95,
+      "median_height_m": 2.82,
+      "p90_height_m": 4.16,
+      "max_height_m": 6.96,
+      "n_points": 423
+    },
+    "grid_r24_c6": {
+      "mean_height_m": 1.86,
+      "median_height_m": 1.82,
+      "p90_height_m": 2.9,
+      "max_height_m": 4.44,
+      "n_points": 322
+    },
+    "grid_r24_c7": {
+      "mean_height_m": 2.08,
+      "median_height_m": 2.09,
+      "p90_height_m": 3.13,
+      "max_height_m": 4.63,
+      "n_points": 410
+    },
+    "grid_r24_c8": {
+      "mean_height_m": 2.08,
+      "median_height_m": 2.0,
+      "p90_height_m": 3.34,
+      "max_height_m": 4.2,
+      "n_points": 229
+    },
+    "grid_r24_c9": {
+      "mean_height_m": 1.61,
+      "median_height_m": 1.51,
+      "p90_height_m": 2.81,
+      "max_height_m": 4.33,
+      "n_points": 159
+    },
+    "grid_r24_c10": {
+      "mean_height_m": 1.97,
+      "median_height_m": 1.78,
+      "p90_height_m": 2.96,
+      "max_height_m": 7.08,
+      "n_points": 145
+    },
+    "grid_r24_c11": {
+      "mean_height_m": 2.52,
+      "median_height_m": 2.28,
+      "p90_height_m": 3.42,
+      "max_height_m": 4.3,
+      "n_points": 33
+    },
+    "grid_r24_c19": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.35,
+      "p90_height_m": 3.71,
+      "max_height_m": 5.17,
+      "n_points": 60
+    },
+    "grid_r24_c20": {
+      "mean_height_m": 2.9,
+      "median_height_m": 2.96,
+      "p90_height_m": 4.19,
+      "max_height_m": 6.78,
+      "n_points": 239
+    },
+    "grid_r24_c21": {
+      "mean_height_m": 2.75,
+      "median_height_m": 2.67,
+      "p90_height_m": 4.09,
+      "max_height_m": 7.13,
+      "n_points": 577
+    },
+    "grid_r24_c22": {
+      "mean_height_m": 2.63,
+      "median_height_m": 2.52,
+      "p90_height_m": 3.86,
+      "max_height_m": 6.13,
+      "n_points": 431
+    },
+    "grid_r24_c23": {
+      "mean_height_m": 2.47,
+      "median_height_m": 2.39,
+      "p90_height_m": 3.82,
+      "max_height_m": 5.65,
+      "n_points": 419
+    },
+    "grid_r24_c24": {
+      "mean_height_m": 2.07,
+      "median_height_m": 1.93,
+      "p90_height_m": 3.25,
+      "max_height_m": 5.59,
+      "n_points": 594
+    },
+    "grid_r24_c25": {
+      "mean_height_m": 2.15,
+      "median_height_m": 2.08,
+      "p90_height_m": 3.53,
+      "max_height_m": 6.02,
+      "n_points": 666
+    },
+    "grid_r24_c26": {
+      "mean_height_m": 3.44,
+      "median_height_m": 3.66,
+      "p90_height_m": 4.85,
+      "max_height_m": 8.21,
+      "n_points": 659
+    },
+    "grid_r24_c27": {
+      "mean_height_m": 4.02,
+      "median_height_m": 3.79,
+      "p90_height_m": 6.14,
+      "max_height_m": 8.36,
+      "n_points": 621
+    },
+    "grid_r24_c28": {
+      "mean_height_m": 3.31,
+      "median_height_m": 3.1,
+      "p90_height_m": 4.84,
+      "max_height_m": 6.97,
+      "n_points": 594
+    },
+    "grid_r24_c29": {
+      "mean_height_m": 2.2,
+      "median_height_m": 2.1,
+      "p90_height_m": 3.39,
+      "max_height_m": 5.94,
+      "n_points": 754
+    },
+    "grid_r24_c30": {
+      "mean_height_m": 2.12,
+      "median_height_m": 1.98,
+      "p90_height_m": 3.43,
+      "max_height_m": 5.36,
+      "n_points": 808
+    },
+    "grid_r24_c31": {
+      "mean_height_m": 2.87,
+      "median_height_m": 2.86,
+      "p90_height_m": 3.84,
+      "max_height_m": 8.75,
+      "n_points": 762
+    },
+    "grid_r24_c32": {
+      "mean_height_m": 2.46,
+      "median_height_m": 2.46,
+      "p90_height_m": 3.1,
+      "max_height_m": 6.1,
+      "n_points": 631
+    },
+    "grid_r24_c33": {
+      "mean_height_m": 2.98,
+      "median_height_m": 2.97,
+      "p90_height_m": 4.51,
+      "max_height_m": 6.32,
+      "n_points": 706
+    },
+    "grid_r24_c34": {
+      "mean_height_m": 2.05,
+      "median_height_m": 1.92,
+      "p90_height_m": 3.01,
+      "max_height_m": 7.05,
+      "n_points": 791
+    },
+    "grid_r24_c35": {
+      "mean_height_m": 2.09,
+      "median_height_m": 1.9,
+      "p90_height_m": 3.29,
+      "max_height_m": 7.11,
+      "n_points": 905
+    },
+    "grid_r24_c36": {
+      "mean_height_m": 1.97,
+      "median_height_m": 1.89,
+      "p90_height_m": 2.98,
+      "max_height_m": 6.06,
+      "n_points": 1604
+    },
+    "grid_r24_c37": {
+      "mean_height_m": 2.27,
+      "median_height_m": 2.01,
+      "p90_height_m": 3.71,
+      "max_height_m": 12.42,
+      "n_points": 1053
+    },
+    "grid_r24_c38": {
+      "mean_height_m": 2.87,
+      "median_height_m": 2.75,
+      "p90_height_m": 4.24,
+      "max_height_m": 8.56,
+      "n_points": 874
+    },
+    "grid_r24_c39": {
+      "mean_height_m": 2.3,
+      "median_height_m": 2.1,
+      "p90_height_m": 3.55,
+      "max_height_m": 8.02,
+      "n_points": 1263
+    },
+    "grid_r24_c40": {
+      "mean_height_m": 2.03,
+      "median_height_m": 1.87,
+      "p90_height_m": 3.12,
+      "max_height_m": 5.98,
+      "n_points": 1229
+    },
+    "grid_r24_c41": {
+      "mean_height_m": 2.66,
+      "median_height_m": 2.51,
+      "p90_height_m": 3.81,
+      "max_height_m": 5.19,
+      "n_points": 1391
+    },
+    "grid_r24_c42": {
+      "mean_height_m": 3.61,
+      "median_height_m": 3.54,
+      "p90_height_m": 4.7,
+      "max_height_m": 6.64,
+      "n_points": 1120
+    },
+    "grid_r24_c43": {
+      "mean_height_m": 4.76,
+      "median_height_m": 4.27,
+      "p90_height_m": 7.37,
+      "max_height_m": 8.47,
+      "n_points": 1079
+    },
+    "grid_r24_c44": {
+      "mean_height_m": 2.64,
+      "median_height_m": 2.64,
+      "p90_height_m": 3.69,
+      "max_height_m": 6.07,
+      "n_points": 934
+    },
+    "grid_r24_c45": {
+      "mean_height_m": 2.69,
+      "median_height_m": 2.17,
+      "p90_height_m": 5.35,
+      "max_height_m": 9.33,
+      "n_points": 415
+    },
+    "grid_r24_c46": {
+      "mean_height_m": 1.92,
+      "median_height_m": 1.71,
+      "p90_height_m": 3.16,
+      "max_height_m": 7.01,
+      "n_points": 1023
+    },
+    "grid_r24_c47": {
+      "mean_height_m": 2.15,
+      "median_height_m": 1.99,
+      "p90_height_m": 3.36,
+      "max_height_m": 7.01,
+      "n_points": 1099
+    },
+    "grid_r24_c48": {
+      "mean_height_m": 2.61,
+      "median_height_m": 2.57,
+      "p90_height_m": 3.75,
+      "max_height_m": 6.78,
+      "n_points": 1276
+    },
+    "grid_r24_c49": {
+      "mean_height_m": 2.19,
+      "median_height_m": 1.99,
+      "p90_height_m": 3.5,
+      "max_height_m": 6.22,
+      "n_points": 1527
+    },
+    "grid_r24_c50": {
+      "mean_height_m": 2.77,
+      "median_height_m": 2.67,
+      "p90_height_m": 4.02,
+      "max_height_m": 6.03,
+      "n_points": 1533
+    },
+    "grid_r25_c6": {
+      "mean_height_m": 2.17,
+      "median_height_m": 2.12,
+      "p90_height_m": 3.13,
+      "max_height_m": 5.41,
+      "n_points": 297
+    },
+    "grid_r25_c7": {
+      "mean_height_m": 2.91,
+      "median_height_m": 2.92,
+      "p90_height_m": 3.85,
+      "max_height_m": 5.43,
+      "n_points": 366
+    },
+    "grid_r25_c8": {
+      "mean_height_m": 2.43,
+      "median_height_m": 2.44,
+      "p90_height_m": 3.83,
+      "max_height_m": 5.14,
+      "n_points": 279
+    },
+    "grid_r25_c9": {
+      "mean_height_m": 2.06,
+      "median_height_m": 2.05,
+      "p90_height_m": 2.69,
+      "max_height_m": 3.99,
+      "n_points": 150
+    },
+    "grid_r25_c10": {
+      "mean_height_m": 2.02,
+      "median_height_m": 2.02,
+      "p90_height_m": 3.28,
+      "max_height_m": 4.39,
+      "n_points": 94
+    },
+    "grid_r25_c19": {
+      "mean_height_m": 3.36,
+      "median_height_m": 3.36,
+      "p90_height_m": 3.38,
+      "max_height_m": 3.38,
+      "n_points": 4
+    },
+    "grid_r25_c20": {
+      "mean_height_m": 2.04,
+      "median_height_m": 1.89,
+      "p90_height_m": 3.48,
+      "max_height_m": 3.7,
+      "n_points": 44
+    },
+    "grid_r25_c21": {
+      "mean_height_m": 2.42,
+      "median_height_m": 2.32,
+      "p90_height_m": 3.75,
+      "max_height_m": 6.01,
+      "n_points": 449
+    },
+    "grid_r25_c22": {
+      "mean_height_m": 2.43,
+      "median_height_m": 2.26,
+      "p90_height_m": 3.93,
+      "max_height_m": 7.9,
+      "n_points": 489
+    },
+    "grid_r25_c23": {
+      "mean_height_m": 2.71,
+      "median_height_m": 2.57,
+      "p90_height_m": 4.24,
+      "max_height_m": 7.28,
+      "n_points": 505
+    },
+    "grid_r25_c24": {
+      "mean_height_m": 2.43,
+      "median_height_m": 2.41,
+      "p90_height_m": 3.57,
+      "max_height_m": 4.85,
+      "n_points": 490
+    },
+    "grid_r25_c25": {
+      "mean_height_m": 2.46,
+      "median_height_m": 2.38,
+      "p90_height_m": 3.77,
+      "max_height_m": 6.0,
+      "n_points": 372
+    },
+    "grid_r25_c26": {
+      "mean_height_m": 2.94,
+      "median_height_m": 2.92,
+      "p90_height_m": 4.49,
+      "max_height_m": 6.05,
+      "n_points": 550
+    },
+    "grid_r25_c27": {
+      "mean_height_m": 3.16,
+      "median_height_m": 3.14,
+      "p90_height_m": 4.92,
+      "max_height_m": 7.18,
+      "n_points": 553
+    },
+    "grid_r25_c28": {
+      "mean_height_m": 2.93,
+      "median_height_m": 2.92,
+      "p90_height_m": 4.26,
+      "max_height_m": 6.53,
+      "n_points": 535
+    },
+    "grid_r25_c29": {
+      "mean_height_m": 2.25,
+      "median_height_m": 2.08,
+      "p90_height_m": 3.77,
+      "max_height_m": 5.48,
+      "n_points": 623
+    },
+    "grid_r25_c30": {
+      "mean_height_m": 2.74,
+      "median_height_m": 2.61,
+      "p90_height_m": 4.23,
+      "max_height_m": 6.77,
+      "n_points": 646
+    },
+    "grid_r25_c31": {
+      "mean_height_m": 4.5,
+      "median_height_m": 4.39,
+      "p90_height_m": 6.14,
+      "max_height_m": 7.76,
+      "n_points": 738
+    },
+    "grid_r25_c32": {
+      "mean_height_m": 3.87,
+      "median_height_m": 3.89,
+      "p90_height_m": 5.23,
+      "max_height_m": 8.0,
+      "n_points": 1420
+    },
+    "grid_r25_c33": {
+      "mean_height_m": 3.65,
+      "median_height_m": 3.58,
+      "p90_height_m": 5.22,
+      "max_height_m": 10.54,
+      "n_points": 1256
+    },
+    "grid_r25_c34": {
+      "mean_height_m": 2.83,
+      "median_height_m": 2.59,
+      "p90_height_m": 4.41,
+      "max_height_m": 7.81,
+      "n_points": 694
+    },
+    "grid_r25_c35": {
+      "mean_height_m": 3.09,
+      "median_height_m": 3.18,
+      "p90_height_m": 4.2,
+      "max_height_m": 5.71,
+      "n_points": 1018
+    },
+    "grid_r25_c36": {
+      "mean_height_m": 2.33,
+      "median_height_m": 2.28,
+      "p90_height_m": 3.5,
+      "max_height_m": 5.23,
+      "n_points": 1152
+    },
+    "grid_r25_c37": {
+      "mean_height_m": 2.12,
+      "median_height_m": 1.93,
+      "p90_height_m": 3.37,
+      "max_height_m": 8.62,
+      "n_points": 1081
+    },
+    "grid_r25_c38": {
+      "mean_height_m": 2.57,
+      "median_height_m": 2.38,
+      "p90_height_m": 3.82,
+      "max_height_m": 8.85,
+      "n_points": 1250
+    },
+    "grid_r25_c39": {
+      "mean_height_m": 2.01,
+      "median_height_m": 1.82,
+      "p90_height_m": 3.12,
+      "max_height_m": 6.15,
+      "n_points": 829
+    },
+    "grid_r25_c40": {
+      "mean_height_m": 2.1,
+      "median_height_m": 1.86,
+      "p90_height_m": 3.48,
+      "max_height_m": 9.94,
+      "n_points": 693
+    },
+    "grid_r25_c41": {
+      "mean_height_m": 3.12,
+      "median_height_m": 3.17,
+      "p90_height_m": 4.44,
+      "max_height_m": 7.16,
+      "n_points": 1171
+    },
+    "grid_r25_c42": {
+      "mean_height_m": 3.55,
+      "median_height_m": 3.37,
+      "p90_height_m": 4.93,
+      "max_height_m": 7.53,
+      "n_points": 1109
+    },
+    "grid_r25_c43": {
+      "mean_height_m": 3.59,
+      "median_height_m": 3.63,
+      "p90_height_m": 4.68,
+      "max_height_m": 7.15,
+      "n_points": 980
+    },
+    "grid_r25_c44": {
+      "mean_height_m": 3.13,
+      "median_height_m": 2.82,
+      "p90_height_m": 5.05,
+      "max_height_m": 10.59,
+      "n_points": 670
+    },
+    "grid_r25_c45": {
+      "mean_height_m": 3.09,
+      "median_height_m": 2.58,
+      "p90_height_m": 6.02,
+      "max_height_m": 11.38,
+      "n_points": 353
+    },
+    "grid_r25_c46": {
+      "mean_height_m": 2.12,
+      "median_height_m": 1.95,
+      "p90_height_m": 3.34,
+      "max_height_m": 6.39,
+      "n_points": 769
+    },
+    "grid_r25_c47": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.02,
+      "p90_height_m": 3.28,
+      "max_height_m": 7.38,
+      "n_points": 1167
+    },
+    "grid_r25_c49": {
+      "mean_height_m": 2.01,
+      "median_height_m": 1.8,
+      "p90_height_m": 3.33,
+      "max_height_m": 8.33,
+      "n_points": 1757
+    },
+    "grid_r25_c50": {
+      "mean_height_m": 2.32,
+      "median_height_m": 2.15,
+      "p90_height_m": 3.51,
+      "max_height_m": 6.79,
+      "n_points": 1945
+    },
+    "grid_r26_c6": {
+      "mean_height_m": 3.3,
+      "median_height_m": 3.38,
+      "p90_height_m": 4.49,
+      "max_height_m": 5.47,
+      "n_points": 290
+    },
+    "grid_r26_c7": {
+      "mean_height_m": 2.09,
+      "median_height_m": 2.11,
+      "p90_height_m": 3.02,
+      "max_height_m": 4.64,
+      "n_points": 253
+    },
+    "grid_r26_c8": {
+      "mean_height_m": 1.53,
+      "median_height_m": 1.5,
+      "p90_height_m": 2.47,
+      "max_height_m": 4.05,
+      "n_points": 306
+    },
+    "grid_r26_c9": {
+      "mean_height_m": 1.47,
+      "median_height_m": 1.48,
+      "p90_height_m": 2.24,
+      "max_height_m": 2.96,
+      "n_points": 188
+    },
+    "grid_r26_c10": {
+      "mean_height_m": 1.44,
+      "median_height_m": 1.33,
+      "p90_height_m": 2.22,
+      "max_height_m": 3.82,
+      "n_points": 139
+    },
+    "grid_r26_c11": {
+      "mean_height_m": 1.28,
+      "median_height_m": 1.47,
+      "p90_height_m": 1.89,
+      "max_height_m": 3.41,
+      "n_points": 41
+    },
+    "grid_r26_c19": {
+      "mean_height_m": 2.6,
+      "median_height_m": 2.5,
+      "p90_height_m": 3.86,
+      "max_height_m": 4.89,
+      "n_points": 14
+    },
+    "grid_r26_c20": {
+      "mean_height_m": 1.68,
+      "median_height_m": 1.71,
+      "p90_height_m": 2.34,
+      "max_height_m": 3.47,
+      "n_points": 77
+    },
+    "grid_r26_c21": {
+      "mean_height_m": 2.58,
+      "median_height_m": 2.55,
+      "p90_height_m": 4.0,
+      "max_height_m": 6.07,
+      "n_points": 384
+    },
+    "grid_r26_c22": {
+      "mean_height_m": 3.03,
+      "median_height_m": 3.0,
+      "p90_height_m": 4.41,
+      "max_height_m": 6.61,
+      "n_points": 380
+    },
+    "grid_r26_c23": {
+      "mean_height_m": 2.84,
+      "median_height_m": 2.61,
+      "p90_height_m": 4.48,
+      "max_height_m": 6.67,
+      "n_points": 421
+    },
+    "grid_r26_c24": {
+      "mean_height_m": 2.38,
+      "median_height_m": 2.35,
+      "p90_height_m": 3.63,
+      "max_height_m": 5.49,
+      "n_points": 525
+    },
+    "grid_r26_c25": {
+      "mean_height_m": 2.09,
+      "median_height_m": 1.92,
+      "p90_height_m": 3.52,
+      "max_height_m": 5.61,
+      "n_points": 474
+    },
+    "grid_r26_c26": {
+      "mean_height_m": 2.34,
+      "median_height_m": 2.26,
+      "p90_height_m": 3.73,
+      "max_height_m": 5.43,
+      "n_points": 508
+    },
+    "grid_r26_c27": {
+      "mean_height_m": 2.41,
+      "median_height_m": 2.33,
+      "p90_height_m": 4.01,
+      "max_height_m": 6.14,
+      "n_points": 519
+    },
+    "grid_r26_c28": {
+      "mean_height_m": 1.96,
+      "median_height_m": 1.88,
+      "p90_height_m": 3.36,
+      "max_height_m": 6.56,
+      "n_points": 626
+    },
+    "grid_r26_c32": {
+      "mean_height_m": 3.69,
+      "median_height_m": 3.77,
+      "p90_height_m": 5.73,
+      "max_height_m": 8.03,
+      "n_points": 711
+    },
+    "grid_r26_c33": {
+      "mean_height_m": 3.66,
+      "median_height_m": 3.62,
+      "p90_height_m": 4.87,
+      "max_height_m": 8.22,
+      "n_points": 963
+    },
+    "grid_r26_c34": {
+      "mean_height_m": 3.29,
+      "median_height_m": 3.27,
+      "p90_height_m": 4.75,
+      "max_height_m": 6.58,
+      "n_points": 825
+    },
+    "grid_r26_c35": {
+      "mean_height_m": 3.12,
+      "median_height_m": 3.03,
+      "p90_height_m": 4.56,
+      "max_height_m": 7.48,
+      "n_points": 1152
+    },
+    "grid_r26_c36": {
+      "mean_height_m": 2.12,
+      "median_height_m": 2.02,
+      "p90_height_m": 3.18,
+      "max_height_m": 6.96,
+      "n_points": 1317
+    },
+    "grid_r26_c37": {
+      "mean_height_m": 2.36,
+      "median_height_m": 2.29,
+      "p90_height_m": 3.39,
+      "max_height_m": 6.08,
+      "n_points": 1119
+    },
+    "grid_r26_c38": {
+      "mean_height_m": 2.69,
+      "median_height_m": 2.61,
+      "p90_height_m": 3.82,
+      "max_height_m": 7.48,
+      "n_points": 1478
+    },
+    "grid_r26_c39": {
+      "mean_height_m": 2.47,
+      "median_height_m": 2.47,
+      "p90_height_m": 3.19,
+      "max_height_m": 6.4,
+      "n_points": 1431
+    },
+    "grid_r26_c40": {
+      "mean_height_m": 2.92,
+      "median_height_m": 2.87,
+      "p90_height_m": 4.31,
+      "max_height_m": 7.56,
+      "n_points": 1073
+    },
+    "grid_r26_c41": {
+      "mean_height_m": 4.38,
+      "median_height_m": 4.33,
+      "p90_height_m": 6.01,
+      "max_height_m": 8.11,
+      "n_points": 884
+    },
+    "grid_r26_c42": {
+      "mean_height_m": 2.9,
+      "median_height_m": 2.82,
+      "p90_height_m": 4.19,
+      "max_height_m": 6.1,
+      "n_points": 687
+    },
+    "grid_r26_c43": {
+      "mean_height_m": 2.58,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.86,
+      "max_height_m": 14.95,
+      "n_points": 517
+    },
+    "grid_r26_c44": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.3,
+      "p90_height_m": 4.47,
+      "max_height_m": 11.19,
+      "n_points": 301
+    },
+    "grid_r26_c45": {
+      "mean_height_m": 2.08,
+      "median_height_m": 1.83,
+      "p90_height_m": 4.17,
+      "max_height_m": 7.83,
+      "n_points": 299
+    },
+    "grid_r26_c46": {
+      "mean_height_m": 2.35,
+      "median_height_m": 2.32,
+      "p90_height_m": 3.17,
+      "max_height_m": 5.6,
+      "n_points": 612
+    },
+    "grid_r26_c47": {
+      "mean_height_m": 2.21,
+      "median_height_m": 2.15,
+      "p90_height_m": 2.9,
+      "max_height_m": 6.2,
+      "n_points": 1516
+    },
+    "grid_r27_c6": {
+      "mean_height_m": 3.12,
+      "median_height_m": 3.08,
+      "p90_height_m": 4.16,
+      "max_height_m": 6.2,
+      "n_points": 180
+    },
+    "grid_r27_c7": {
+      "mean_height_m": 2.33,
+      "median_height_m": 2.39,
+      "p90_height_m": 3.0,
+      "max_height_m": 5.54,
+      "n_points": 251
+    },
+    "grid_r27_c8": {
+      "mean_height_m": 1.28,
+      "median_height_m": 1.06,
+      "p90_height_m": 2.66,
+      "max_height_m": 3.92,
+      "n_points": 165
+    },
+    "grid_r27_c9": {
+      "mean_height_m": 1.16,
+      "median_height_m": 1.16,
+      "p90_height_m": 1.92,
+      "max_height_m": 2.47,
+      "n_points": 114
+    },
+    "grid_r27_c10": {
+      "mean_height_m": 1.64,
+      "median_height_m": 1.72,
+      "p90_height_m": 2.12,
+      "max_height_m": 2.88,
+      "n_points": 47
+    },
+    "grid_r27_c11": {
+      "mean_height_m": 0.84,
+      "median_height_m": 0.88,
+      "p90_height_m": 1.17,
+      "max_height_m": 1.67,
+      "n_points": 10
+    },
+    "grid_r27_c13": {
+      "mean_height_m": 0.11,
+      "median_height_m": 0.11,
+      "p90_height_m": 0.11,
+      "max_height_m": 0.11,
+      "n_points": 1
+    },
+    "grid_r27_c14": {
+      "mean_height_m": 4.92,
+      "median_height_m": 4.92,
+      "p90_height_m": 4.92,
+      "max_height_m": 4.92,
+      "n_points": 1
+    },
+    "grid_r27_c15": {
+      "mean_height_m": 4.09,
+      "median_height_m": 4.32,
+      "p90_height_m": 5.26,
+      "max_height_m": 6.31,
+      "n_points": 12
+    },
+    "grid_r27_c20": {
+      "mean_height_m": 1.47,
+      "median_height_m": 1.41,
+      "p90_height_m": 2.83,
+      "max_height_m": 3.54,
+      "n_points": 168
+    },
+    "grid_r27_c21": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.73,
+      "p90_height_m": 3.78,
+      "max_height_m": 5.81,
+      "n_points": 246
+    },
+    "grid_r27_c22": {
+      "mean_height_m": 2.82,
+      "median_height_m": 2.82,
+      "p90_height_m": 4.21,
+      "max_height_m": 6.39,
+      "n_points": 329
+    },
+    "grid_r27_c23": {
+      "mean_height_m": 2.62,
+      "median_height_m": 2.51,
+      "p90_height_m": 4.19,
+      "max_height_m": 5.78,
+      "n_points": 372
+    },
+    "grid_r27_c24": {
+      "mean_height_m": 2.46,
+      "median_height_m": 2.29,
+      "p90_height_m": 4.16,
+      "max_height_m": 6.3,
+      "n_points": 438
+    },
+    "grid_r27_c25": {
+      "mean_height_m": 1.78,
+      "median_height_m": 1.6,
+      "p90_height_m": 3.18,
+      "max_height_m": 4.65,
+      "n_points": 536
+    },
+    "grid_r27_c26": {
+      "mean_height_m": 2.53,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.86,
+      "max_height_m": 5.73,
+      "n_points": 417
+    },
+    "grid_r27_c27": {
+      "mean_height_m": 2.56,
+      "median_height_m": 2.42,
+      "p90_height_m": 4.13,
+      "max_height_m": 7.2,
+      "n_points": 587
+    },
+    "grid_r27_c34": {
+      "mean_height_m": 3.59,
+      "median_height_m": 3.26,
+      "p90_height_m": 5.56,
+      "max_height_m": 10.9,
+      "n_points": 948
+    },
+    "grid_r27_c35": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.34,
+      "p90_height_m": 4.42,
+      "max_height_m": 7.44,
+      "n_points": 902
+    },
+    "grid_r27_c36": {
+      "mean_height_m": 3.03,
+      "median_height_m": 2.88,
+      "p90_height_m": 4.35,
+      "max_height_m": 7.63,
+      "n_points": 1171
+    },
+    "grid_r27_c37": {
+      "mean_height_m": 3.02,
+      "median_height_m": 2.8,
+      "p90_height_m": 4.62,
+      "max_height_m": 7.08,
+      "n_points": 1100
+    },
+    "grid_r27_c38": {
+      "mean_height_m": 3.23,
+      "median_height_m": 3.17,
+      "p90_height_m": 5.36,
+      "max_height_m": 8.67,
+      "n_points": 1054
+    },
+    "grid_r27_c39": {
+      "mean_height_m": 3.12,
+      "median_height_m": 2.99,
+      "p90_height_m": 4.55,
+      "max_height_m": 7.01,
+      "n_points": 1415
+    },
+    "grid_r27_c40": {
+      "mean_height_m": 2.73,
+      "median_height_m": 2.65,
+      "p90_height_m": 3.98,
+      "max_height_m": 7.61,
+      "n_points": 1039
+    },
+    "grid_r27_c41": {
+      "mean_height_m": 3.9,
+      "median_height_m": 3.77,
+      "p90_height_m": 5.48,
+      "max_height_m": 7.11,
+      "n_points": 993
+    },
+    "grid_r27_c42": {
+      "mean_height_m": 3.6,
+      "median_height_m": 3.56,
+      "p90_height_m": 5.04,
+      "max_height_m": 7.29,
+      "n_points": 695
+    },
+    "grid_r27_c43": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.58,
+      "p90_height_m": 3.81,
+      "max_height_m": 5.64,
+      "n_points": 694
+    },
+    "grid_r27_c44": {
+      "mean_height_m": 2.35,
+      "median_height_m": 2.39,
+      "p90_height_m": 3.44,
+      "max_height_m": 5.37,
+      "n_points": 403
+    },
+    "grid_r27_c45": {
+      "mean_height_m": 2.19,
+      "median_height_m": 2.0,
+      "p90_height_m": 3.83,
+      "max_height_m": 5.4,
+      "n_points": 249
+    },
+    "grid_r27_c46": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.64,
+      "p90_height_m": 3.65,
+      "max_height_m": 6.34,
+      "n_points": 1132
+    },
+    "grid_r27_c47": {
+      "mean_height_m": 2.21,
+      "median_height_m": 2.12,
+      "p90_height_m": 3.17,
+      "max_height_m": 4.6,
+      "n_points": 1784
+    },
+    "grid_r28_c6": {
+      "mean_height_m": 2.42,
+      "median_height_m": 2.36,
+      "p90_height_m": 3.28,
+      "max_height_m": 5.8,
+      "n_points": 202
+    },
+    "grid_r28_c7": {
+      "mean_height_m": 2.29,
+      "median_height_m": 2.34,
+      "p90_height_m": 3.02,
+      "max_height_m": 4.32,
+      "n_points": 192
+    },
+    "grid_r28_c8": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.22,
+      "p90_height_m": 2.85,
+      "max_height_m": 5.01,
+      "n_points": 108
+    },
+    "grid_r28_c10": {
+      "mean_height_m": 4.24,
+      "median_height_m": 4.24,
+      "p90_height_m": 4.24,
+      "max_height_m": 4.24,
+      "n_points": 1
+    },
+    "grid_r28_c19": {
+      "mean_height_m": 2.59,
+      "median_height_m": 2.6,
+      "p90_height_m": 2.97,
+      "max_height_m": 3.02,
+      "n_points": 4
+    },
+    "grid_r28_c20": {
+      "mean_height_m": 1.39,
+      "median_height_m": 1.42,
+      "p90_height_m": 2.26,
+      "max_height_m": 3.06,
+      "n_points": 101
+    },
+    "grid_r28_c21": {
+      "mean_height_m": 2.06,
+      "median_height_m": 1.92,
+      "p90_height_m": 3.28,
+      "max_height_m": 5.36,
+      "n_points": 549
+    },
+    "grid_r28_c22": {
+      "mean_height_m": 2.83,
+      "median_height_m": 2.83,
+      "p90_height_m": 4.4,
+      "max_height_m": 6.39,
+      "n_points": 239
+    },
+    "grid_r28_c23": {
+      "mean_height_m": 2.68,
+      "median_height_m": 2.7,
+      "p90_height_m": 4.01,
+      "max_height_m": 5.89,
+      "n_points": 318
+    },
+    "grid_r28_c24": {
+      "mean_height_m": 2.91,
+      "median_height_m": 2.78,
+      "p90_height_m": 4.65,
+      "max_height_m": 7.21,
+      "n_points": 353
+    },
+    "grid_r28_c25": {
+      "mean_height_m": 2.14,
+      "median_height_m": 1.99,
+      "p90_height_m": 3.63,
+      "max_height_m": 6.48,
+      "n_points": 365
+    },
+    "grid_r28_c26": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.31,
+      "p90_height_m": 3.87,
+      "max_height_m": 11.11,
+      "n_points": 540
+    },
+    "grid_r28_c27": {
+      "mean_height_m": 2.36,
+      "median_height_m": 2.22,
+      "p90_height_m": 3.68,
+      "max_height_m": 6.21,
+      "n_points": 813
+    },
+    "grid_r28_c34": {
+      "mean_height_m": 4.8,
+      "median_height_m": 4.59,
+      "p90_height_m": 8.23,
+      "max_height_m": 11.12,
+      "n_points": 868
+    },
+    "grid_r28_c35": {
+      "mean_height_m": 2.6,
+      "median_height_m": 2.51,
+      "p90_height_m": 4.37,
+      "max_height_m": 7.27,
+      "n_points": 917
+    },
+    "grid_r28_c36": {
+      "mean_height_m": 2.82,
+      "median_height_m": 2.68,
+      "p90_height_m": 4.61,
+      "max_height_m": 12.49,
+      "n_points": 983
+    },
+    "grid_r28_c37": {
+      "mean_height_m": 3.1,
+      "median_height_m": 2.98,
+      "p90_height_m": 4.93,
+      "max_height_m": 7.74,
+      "n_points": 927
+    },
+    "grid_r28_c38": {
+      "mean_height_m": 3.51,
+      "median_height_m": 3.47,
+      "p90_height_m": 5.09,
+      "max_height_m": 8.85,
+      "n_points": 1173
+    },
+    "grid_r28_c39": {
+      "mean_height_m": 2.98,
+      "median_height_m": 2.91,
+      "p90_height_m": 4.63,
+      "max_height_m": 9.93,
+      "n_points": 1567
+    },
+    "grid_r28_c40": {
+      "mean_height_m": 2.71,
+      "median_height_m": 2.71,
+      "p90_height_m": 3.99,
+      "max_height_m": 7.08,
+      "n_points": 1365
+    },
+    "grid_r28_c44": {
+      "mean_height_m": 2.46,
+      "median_height_m": 2.38,
+      "p90_height_m": 3.55,
+      "max_height_m": 6.32,
+      "n_points": 555
+    },
+    "grid_r28_c45": {
+      "mean_height_m": 2.06,
+      "median_height_m": 1.81,
+      "p90_height_m": 3.66,
+      "max_height_m": 9.2,
+      "n_points": 831
+    },
+    "grid_r28_c46": {
+      "mean_height_m": 2.98,
+      "median_height_m": 2.87,
+      "p90_height_m": 4.61,
+      "max_height_m": 7.88,
+      "n_points": 1146
+    },
+    "grid_r29_c6": {
+      "mean_height_m": 2.43,
+      "median_height_m": 2.46,
+      "p90_height_m": 3.24,
+      "max_height_m": 4.63,
+      "n_points": 226
+    },
+    "grid_r29_c7": {
+      "mean_height_m": 2.72,
+      "median_height_m": 2.71,
+      "p90_height_m": 3.62,
+      "max_height_m": 6.06,
+      "n_points": 226
+    },
+    "grid_r29_c8": {
+      "mean_height_m": 2.6,
+      "median_height_m": 2.68,
+      "p90_height_m": 3.39,
+      "max_height_m": 4.82,
+      "n_points": 125
+    },
+    "grid_r29_c9": {
+      "mean_height_m": 2.91,
+      "median_height_m": 3.11,
+      "p90_height_m": 3.98,
+      "max_height_m": 5.07,
+      "n_points": 77
+    },
+    "grid_r29_c10": {
+      "mean_height_m": 1.98,
+      "median_height_m": 1.89,
+      "p90_height_m": 3.4,
+      "max_height_m": 4.3,
+      "n_points": 71
+    },
+    "grid_r29_c11": {
+      "mean_height_m": 2.83,
+      "median_height_m": 2.59,
+      "p90_height_m": 3.52,
+      "max_height_m": 3.56,
+      "n_points": 5
+    },
+    "grid_r29_c20": {
+      "mean_height_m": 2.5,
+      "median_height_m": 2.62,
+      "p90_height_m": 3.2,
+      "max_height_m": 4.47,
+      "n_points": 45
+    },
+    "grid_r29_c24": {
+      "mean_height_m": 3.49,
+      "median_height_m": 3.47,
+      "p90_height_m": 5.06,
+      "max_height_m": 8.21,
+      "n_points": 466
+    },
+    "grid_r29_c25": {
+      "mean_height_m": 3.19,
+      "median_height_m": 3.14,
+      "p90_height_m": 4.31,
+      "max_height_m": 8.19,
+      "n_points": 341
+    },
+    "grid_r29_c26": {
+      "mean_height_m": 3.25,
+      "median_height_m": 3.26,
+      "p90_height_m": 4.52,
+      "max_height_m": 7.8,
+      "n_points": 533
+    },
+    "grid_r29_c35": {
+      "mean_height_m": 3.15,
+      "median_height_m": 3.13,
+      "p90_height_m": 4.44,
+      "max_height_m": 7.71,
+      "n_points": 929
+    },
+    "grid_r29_c36": {
+      "mean_height_m": 3.34,
+      "median_height_m": 3.25,
+      "p90_height_m": 4.67,
+      "max_height_m": 11.21,
+      "n_points": 669
+    },
+    "grid_r29_c37": {
+      "mean_height_m": 3.19,
+      "median_height_m": 3.17,
+      "p90_height_m": 4.92,
+      "max_height_m": 7.87,
+      "n_points": 685
+    },
+    "grid_r29_c39": {
+      "mean_height_m": 2.99,
+      "median_height_m": 2.83,
+      "p90_height_m": 4.2,
+      "max_height_m": 9.32,
+      "n_points": 1233
+    },
+    "grid_r29_c45": {
+      "mean_height_m": 3.59,
+      "median_height_m": 3.57,
+      "p90_height_m": 4.93,
+      "max_height_m": 7.81,
+      "n_points": 1077
+    },
+    "grid_r29_c46": {
+      "mean_height_m": 3.96,
+      "median_height_m": 3.89,
+      "p90_height_m": 5.54,
+      "max_height_m": 8.14,
+      "n_points": 964
+    },
+    "grid_r30_c6": {
+      "mean_height_m": 2.61,
+      "median_height_m": 2.65,
+      "p90_height_m": 3.39,
+      "max_height_m": 4.42,
+      "n_points": 221
+    },
+    "grid_r30_c7": {
+      "mean_height_m": 2.64,
+      "median_height_m": 2.62,
+      "p90_height_m": 3.36,
+      "max_height_m": 4.83,
+      "n_points": 195
+    },
+    "grid_r30_c8": {
+      "mean_height_m": 2.29,
+      "median_height_m": 2.32,
+      "p90_height_m": 3.13,
+      "max_height_m": 3.96,
+      "n_points": 111
+    },
+    "grid_r30_c9": {
+      "mean_height_m": 2.21,
+      "median_height_m": 2.08,
+      "p90_height_m": 3.25,
+      "max_height_m": 5.15,
+      "n_points": 160
+    },
+    "grid_r30_c10": {
+      "mean_height_m": 1.62,
+      "median_height_m": 1.5,
+      "p90_height_m": 2.72,
+      "max_height_m": 4.93,
+      "n_points": 170
+    },
+    "grid_r30_c11": {
+      "mean_height_m": 1.88,
+      "median_height_m": 1.85,
+      "p90_height_m": 2.07,
+      "max_height_m": 2.12,
+      "n_points": 3
+    },
+    "grid_r30_c35": {
+      "mean_height_m": 3.98,
+      "median_height_m": 3.95,
+      "p90_height_m": 5.81,
+      "max_height_m": 9.4,
+      "n_points": 751
+    },
+    "grid_r30_c36": {
+      "mean_height_m": 3.53,
+      "median_height_m": 3.46,
+      "p90_height_m": 4.93,
+      "max_height_m": 8.14,
+      "n_points": 755
+    },
+    "grid_r30_c37": {
+      "mean_height_m": 3.35,
+      "median_height_m": 3.28,
+      "p90_height_m": 4.7,
+      "max_height_m": 9.01,
+      "n_points": 956
+    },
+    "grid_r31_c6": {
+      "mean_height_m": 2.45,
+      "median_height_m": 2.48,
+      "p90_height_m": 3.38,
+      "max_height_m": 5.23,
+      "n_points": 274
+    },
+    "grid_r31_c7": {
+      "mean_height_m": 2.18,
+      "median_height_m": 2.23,
+      "p90_height_m": 2.88,
+      "max_height_m": 4.67,
+      "n_points": 177
+    }
+  }
+}
