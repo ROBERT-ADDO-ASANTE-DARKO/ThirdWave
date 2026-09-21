@@ -30,16 +30,8 @@ OUT_DIR = HERE / "data" / "amsterdam_swmm"
 
 
 def _bgt_background(ax, bgt):
-    x0, y0 = bm.CENTER
-    for layer, color, alpha in (("waterdeel", "#bcd6ea", 1.0), ("pand", "#d9d4cb", 1.0)):
-        for f in bgt[layer]:
-            try:
-                g = shape(f["geometry"])
-            except Exception:
-                continue
-            for poly in getattr(g, "geoms", [g]):
-                xs, ys = poly.exterior.xy
-                ax.fill(np.array(xs) - x0, np.array(ys) - y0, color=color, alpha=alpha, lw=0, zorder=1)
+    from bgt_draw import draw_bgt
+    draw_bgt(ax, bgt, offset=bm.CENTER)
 
 
 def _map(ax, storm, res, net, bgt):

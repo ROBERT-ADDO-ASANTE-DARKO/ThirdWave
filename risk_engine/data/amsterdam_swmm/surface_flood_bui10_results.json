@@ -1,0 +1,446 @@
+{
+ "storm": "bui10",
+ "terrain_vs_sewer_ground_check": {
+  "n": 2811,
+  "median_m": 0.019,
+  "mean_m": 0.021,
+  "p05_m": -0.057,
+  "p95_m": 0.092,
+  "pct_within_10cm": 93.3,
+  "pct_within_25cm": 98.3,
+  "note": "sewer maaiveldniveau minus AHN DTM at the same manhole; independent surveys"
+ },
+ "grid": {
+  "n_cells": 2890000,
+  "walls_pct": 43.6,
+  "canals_pct": 14.7,
+  "dtm_holes_filled": 198808
+ },
+ "baseline": {
+  "manning_n": 0.03,
+  "dx_m": 1.0,
+  "n_clusters": 13,
+  "totals_m3": {
+   "injected_m3": 1100.0,
+   "swmm_reported_m3": 1099.0,
+   "stored_m3": 523.7,
+   "to_canals_m3": 576.3,
+   "to_window_edge_m3": 0.0
+  },
+  "max_closure_err": 3.149986710803899e-15,
+  "max_clipped_m3": 6.518833324704876e-15,
+  "windows_with_pit": 1,
+  "stats": {
+   "area_ge_5cm_m2": 3631.0,
+   "area_ge_10cm_m2": 1685.0,
+   "area_ge_30cm_m2": 471.0,
+   "area_ge_50cm_m2": 51.0,
+   "max_depth_m": 0.681,
+   "p99_depth_wet_m": 0.523
+  },
+  "clusters": [
+   {
+    "window": [
+     880,
+     1172,
+     994,
+     1308
+    ],
+    "n_nodes": 2,
+    "nodes": [
+     "N3461",
+     "N4286"
+    ],
+    "injected_m3": 270.12,
+    "swmm_reported_m3": 270.0,
+    "hydrograph_m3": 270.2,
+    "stored_m3": 270.12,
+    "to_canals_m3": 0.0,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 1.4730441573795774e-15,
+    "clipped_m3": 3.61039323437673e-16,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 13102,
+    "runtime_s": 180.4
+   },
+   {
+    "window": [
+     1038,
+     1394,
+     1251,
+     1617
+    ],
+    "n_nodes": 3,
+    "nodes": [
+     "N44",
+     "N2143",
+     "N4096"
+    ],
+    "injected_m3": 223.81,
+    "swmm_reported_m3": 222.0,
+    "hydrograph_m3": 223.9,
+    "stored_m3": 0.15,
+    "to_canals_m3": 223.67,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 2.53975920214754e-15,
+    "clipped_m3": 6.518833324704876e-15,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 4159,
+    "runtime_s": 79.5
+   },
+   {
+    "window": [
+     497,
+     814,
+     169,
+     566
+    ],
+    "n_nodes": 4,
+    "nodes": [
+     "N2949",
+     "N3133",
+     "N1827",
+     "N984"
+    ],
+    "injected_m3": 186.46,
+    "swmm_reported_m3": 186.0,
+    "hydrograph_m3": 186.5,
+    "stored_m3": 0.32,
+    "to_canals_m3": 186.14,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 1.6766919578438904e-15,
+    "clipped_m3": 5.411551198472586e-15,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 4803,
+    "runtime_s": 89.2
+   },
+   {
+    "window": [
+     857,
+     1145,
+     735,
+     1059
+    ],
+    "n_nodes": 4,
+    "nodes": [
+     "N1329",
+     "N112",
+     "N1911",
+     "N2514"
+    ],
+    "injected_m3": 111.22,
+    "swmm_reported_m3": 112.0,
+    "hydrograph_m3": 111.2,
+    "stored_m3": 18.74,
+    "to_canals_m3": 92.49,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 5.110800318006317e-16,
+    "clipped_m3": 2.0464316005663896e-18,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 9817,
+    "runtime_s": 134.4
+   },
+   {
+    "window": [
+     968,
+     1307,
+     309,
+     640
+    ],
+    "n_nodes": 5,
+    "nodes": [
+     "N1158",
+     "N3382",
+     "N2950",
+     "N3916",
+     "N4284"
+    ],
+    "injected_m3": 89.32,
+    "swmm_reported_m3": 91.0,
+    "hydrograph_m3": 89.4,
+    "stored_m3": 79.37,
+    "to_canals_m3": 9.95,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 2.9831402478515864e-16,
+    "clipped_m3": 2.4801124695605914e-18,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 8345,
+    "runtime_s": 139.8
+   },
+   {
+    "window": [
+     804,
+     1189,
+     1269,
+     1582
+    ],
+    "n_nodes": 7,
+    "nodes": [
+     "N1380",
+     "N1830",
+     "N2492",
+     "N2460",
+     "N4325",
+     "N1834",
+     "N3263"
+    ],
+    "injected_m3": 67.3,
+    "swmm_reported_m3": 66.0,
+    "hydrograph_m3": 67.4,
+    "stored_m3": 67.3,
+    "to_canals_m3": 0.0,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 2.111422038602752e-16,
+    "clipped_m3": 7.806255641895632e-18,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": true,
+    "steps": 9776,
+    "runtime_s": 177.3
+   },
+   {
+    "window": [
+     763,
+     1073,
+     154,
+     450
+    ],
+    "n_nodes": 2,
+    "nodes": [
+     "N2770",
+     "N2712"
+    ],
+    "injected_m3": 54.61,
+    "swmm_reported_m3": 55.0,
+    "hydrograph_m3": 54.7,
+    "stored_m3": 37.0,
+    "to_canals_m3": 17.62,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 1.4311098840577714e-15,
+    "clipped_m3": 9.215718466126788e-18,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 13798,
+    "runtime_s": 184.6
+   },
+   {
+    "window": [
+     769,
+     1062,
+     291,
+     613
+    ],
+    "n_nodes": 3,
+    "nodes": [
+     "N1029",
+     "N2742",
+     "N2825"
+    ],
+    "injected_m3": 38.35,
+    "swmm_reported_m3": 40.0,
+    "hydrograph_m3": 38.3,
+    "stored_m3": 0.23,
+    "to_canals_m3": 38.12,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 3.149986710803899e-15,
+    "clipped_m3": 2.7511630126819675e-18,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 3727,
+    "runtime_s": 52.4
+   },
+   {
+    "window": [
+     313,
+     573,
+     685,
+     945
+    ],
+    "n_nodes": 1,
+    "nodes": [
+     "N1136"
+    ],
+    "injected_m3": 24.74,
+    "swmm_reported_m3": 25.0,
+    "hydrograph_m3": 24.8,
+    "stored_m3": 24.74,
+    "to_canals_m3": 0.0,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 1.866517340143102e-15,
+    "clipped_m3": 0.0,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 7486,
+    "runtime_s": 73.3
+   },
+   {
+    "window": [
+     919,
+     1181,
+     899,
+     1164
+    ],
+    "n_nodes": 2,
+    "nodes": [
+     "N2240",
+     "N3820"
+    ],
+    "injected_m3": 19.53,
+    "swmm_reported_m3": 19.0,
+    "hydrograph_m3": 19.6,
+    "stored_m3": 19.53,
+    "to_canals_m3": 0.0,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 1.2734072622514865e-15,
+    "clipped_m3": 3.469446951953614e-18,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 8453,
+    "runtime_s": 84.2
+   },
+   {
+    "window": [
+     114,
+     374,
+     423,
+     683
+    ],
+    "n_nodes": 1,
+    "nodes": [
+     "N4100"
+    ],
+    "injected_m3": 6.05,
+    "swmm_reported_m3": 6.0,
+    "hydrograph_m3": 6.1,
+    "stored_m3": 6.05,
+    "to_canals_m3": 0.0,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 8.807964505486938e-16,
+    "clipped_m3": 3.9302328752599536e-18,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 6521,
+    "runtime_s": 61.8
+   },
+   {
+    "window": [
+     999,
+     1276,
+     466,
+     754
+    ],
+    "n_nodes": 2,
+    "nodes": [
+     "N4104",
+     "N3432"
+    ],
+    "injected_m3": 4.17,
+    "swmm_reported_m3": 5.0,
+    "hydrograph_m3": 4.2,
+    "stored_m3": 0.11,
+    "to_canals_m3": 4.06,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 1.4900413897670833e-15,
+    "clipped_m3": 1.179069862577986e-18,
+    "relocated_nodes_m": [
+     2.2
+    ],
+    "window_has_pit_lt_-1m": false,
+    "steps": 3202,
+    "runtime_s": 33.7
+   },
+   {
+    "window": [
+     1170,
+     1430,
+     1064,
+     1324
+    ],
+    "n_nodes": 1,
+    "nodes": [
+     "N209"
+    ],
+    "injected_m3": 4.29,
+    "swmm_reported_m3": 2.0,
+    "hydrograph_m3": 4.3,
+    "stored_m3": 0.02,
+    "to_canals_m3": 4.27,
+    "to_window_edge_m3": 0.0,
+    "closure_err": 1.0358033250425975e-15,
+    "clipped_m3": 1.911177379548823e-16,
+    "relocated_nodes_m": [],
+    "window_has_pit_lt_-1m": false,
+    "steps": 2748,
+    "runtime_s": 18.3
+   }
+  ],
+  "exposure": {
+   "n_buildings": 8577,
+   "n_adjacent_ge_10cm": 84,
+   "n_adjacent_ge_30cm": 43,
+   "max_adjacent_depth_m": 0.68
+  },
+  "duration_area_ge10cm_over_30min_m2": 1518.0,
+  "duration_area_ge10cm_over_60min_m2": 763.0
+ },
+ "sensitivity": {
+  "manning_0.02": {
+   "stats": {
+    "area_ge_5cm_m2": 3545.0,
+    "area_ge_10cm_m2": 1636.0,
+    "area_ge_30cm_m2": 460.0,
+    "area_ge_50cm_m2": 50.0,
+    "max_depth_m": 0.675,
+    "p99_depth_wet_m": 0.524
+   },
+   "max_closure_err": 5.334978445665463e-15,
+   "totals_m3": {
+    "injected_m3": 1100.0,
+    "swmm_reported_m3": 1099.0,
+    "stored_m3": 522.3,
+    "to_canals_m3": 577.3,
+    "to_window_edge_m3": 0.3
+   }
+  },
+  "manning_0.05": {
+   "stats": {
+    "area_ge_5cm_m2": 3749.0,
+    "area_ge_10cm_m2": 1783.0,
+    "area_ge_30cm_m2": 486.0,
+    "area_ge_50cm_m2": 53.0,
+    "max_depth_m": 0.69,
+    "p99_depth_wet_m": 0.527
+   },
+   "max_closure_err": 5.841510007792668e-15,
+   "totals_m3": {
+    "injected_m3": 1100.0,
+    "swmm_reported_m3": 1099.0,
+    "stored_m3": 526.0,
+    "to_canals_m3": 574.0,
+    "to_window_edge_m3": 0.0
+   }
+  },
+  "grid_2m": {
+   "stats": {
+    "area_ge_5cm_m2": 3556.0,
+    "area_ge_10cm_m2": 1548.0,
+    "area_ge_30cm_m2": 516.0,
+    "area_ge_50cm_m2": 104.0,
+    "max_depth_m": 1.389,
+    "p99_depth_wet_m": 1.213
+   },
+   "max_closure_err": 6.8572814589310026e-15,
+   "totals_m3": {
+    "injected_m3": 1099.8,
+    "swmm_reported_m3": 1099.0,
+    "stored_m3": 589.6,
+    "to_canals_m3": 510.2,
+    "to_window_edge_m3": 0.0
+   }
+  }
+ }
+}

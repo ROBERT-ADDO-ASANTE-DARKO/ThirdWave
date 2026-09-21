@@ -74,6 +74,8 @@ In the meantime, `risk_engine/prototype_drain_capacity_integration.py` rehearses
 
 **Optical cross-check (Akosombo only).** `risk_engine/dam_spillage_s2_mndwi.py` maps the same Akosombo flood with Sentinel-2 MNDWI. It only works for Akosombo — the 2026 Weija event was too short and too cloudy (its peak date is 92% cloud), which is exactly why the pilot uses radar. Even for Akosombo there is no usable rainy-season pre-flood scene, so the baseline is a near-cloud-free dry-season reference (Dec 2022). Two independent sensors and methods agree on the headline: **+7.9 km² new flood (Sentinel-2)** vs **+8.0 km² (Sentinel-1)** at peak. The optical margins are cleaner; the caveat is that ~10% of the peak scene is cloud-masked, so the optical figure is a lower bound.
 
+**Hydrological-modelling rehearsal (Amsterdam — not Accra).** Accra has no open drain-network or high-resolution terrain data, so `risk_engine/build_amsterdam_swmm.py` and `surface_flood_amsterdam.py` rehearse what a real pipe-network + surface-flood model looks like in a city that *does* publish both, built entirely from open data: Waternet's sewer network (5,434 pipes, 4,368 nodes), BGT land cover, AHN 0.5 m LiDAR, the Dutch standard design storms (Bui08 / Bui10) and EPA SWMM. Phase 1 (pipes): no flooding at Bui08 (T=2 yr), ~1,100 m³ at Bui10 (T=10 yr, 1.9% of sewer inflow) — consistent with the Dutch design standard, but **not calibrated or validated against any observed flooding**. Phase 2 spreads that overflow over the real streets with a local-inertial 2D solver (`inertial2d.py`, tested against known solutions in `test_inertial2d.py`): ~1,700 m² of street ≥10 cm deep (extent robust to ±8% across roughness and grid resolution; the ≥50 cm tail is *not* — it doubles on a 2 m grid). It is one-way coupled (no sewer re-entry, no direct street rainfall), several assumptions are optimistic and one pessimistic (net direction unknown), and SWMM's routing does not fully converge on this flat network (34–53% of steps) — see `data/amsterdam_swmm/*.png` and each script's docstring for the full list. Data defects found along the way (unusable node-ID links, missing inverts, retired BGT objects, dead-end sinks) and how each was handled are documented in the commit history. Sewer-data licence is ambiguous (CC BY per the API spec, "unknown" per the catalogue) — attribute Gemeente Amsterdam / Waternet.
+
 ## Getting started
 
 ```bash
@@ -107,7 +109,8 @@ pull from Microsoft Planetary Computer (Sentinel-1, Copernicus DEM, ESA
 WorldCover) and OpenStreetMap/Overpass. They're not needed to run the app,
 only to recompute it. They need a few extra packages not in
 `requirements.txt`: `pystac-client`, `planetary-computer`, `torch` (for the
-SAR2SAR despeckling step), and `matplotlib` (diagnostics). Entry points:
+SAR2SAR despeckling step), `matplotlib` (diagnostics), and for the Amsterdam rehearsal
+`pyswmm`, `swmm-toolkit`, `pyproj`, `scipy`. Entry points:
 `geospatial_vulnerability.py` (assembly-level scoring), `risk_grid.py`
 (fine 500m grid), `build_road_network.py` (routing graph),
 `precompute_inundation_inputs.py` (pluvial simulator inputs),
