@@ -17,3 +17,7 @@ risk_engine/cache/
 
 # OS/editor cruft
 .DS_Store
+
+# SWMM run artifacts -- regenerable from the .inp by run_amsterdam_swmm.py
+risk_engine/data/amsterdam_swmm/*.rpt
+risk_engine/data/amsterdam_swmm/*.out

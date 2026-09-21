@@ -1,0 +1,101 @@
+{
+  "aoi": {
+    "center_rd": [
+      121205.0,
+      486795.0
+    ],
+    "radius_m": 800.0
+  },
+  "sources": {
+    "sewer": "Gemeente Amsterdam / Waternet, Kabels en leidingen ondergrond (rioolnetwerk)",
+    "land_cover": "BGT, Kadaster / PDOK (CC0)"
+  },
+  "network_stats": {
+    "pipes_raw": 5434,
+    "pipes_trunk_types": 3322,
+    "invert_imputed_from_geometry_z": 5,
+    "conduits": 3322,
+    "synthetic_nodes": 96,
+    "real_nodes_used": 3337,
+    "suspect_cover_nodes": 16,
+    "terminal_sinks_made_free_drain": 98,
+    "components": 297,
+    "components_needing_forced_outfall": 4,
+    "outfalls_fixed_canal": 280,
+    "outfalls_free": 197,
+    "subcatchments": 2324,
+    "catchment_area_ha": 170.62,
+    "catchment_mean_imperv_pct": 88.1,
+    "outfalls_direct": 322,
+    "outfalls_via_dummy_conduit": 155
+  },
+  "design_storms": {
+    "bui08": {
+      "T_years": 2,
+      "total_mm": 19.8,
+      "duration_min": 60,
+      "peak_mm_h": 39.6
+    },
+    "bui10": {
+      "T_years": 10,
+      "total_mm": 35.7,
+      "duration_min": 45,
+      "peak_mm_h": 75.6
+    }
+  },
+  "imperviousness_factors": {
+    "pand": {
+      "null": 1.0
+    },
+    "wegdeel": {
+      "gesloten verharding": 1.0,
+      "open verharding": 0.85,
+      "half verhard": 0.5,
+      "onverhard": 0.0,
+      "_default": 0.85
+    },
+    "ondersteunendwegdeel": {
+      "gesloten verharding": 1.0,
+      "open verharding": 0.85,
+      "half verhard": 0.5,
+      "onverhard": 0.0,
+      "groenvoorziening": 0.0,
+      "_default": 0.5
+    },
+    "onbegroeidterreindeel": {
+      "gesloten verharding": 1.0,
+      "open verharding": 0.85,
+      "erf": 0.5,
+      "half verhard": 0.5,
+      "zand": 0.0,
+      "onverhard": 0.0,
+      "_default": 0.5
+    },
+    "begroeidterreindeel": {
+      "_default": 0.0
+    },
+    "overbruggingsdeel": {
+      "null": 1.0,
+      "_default": 1.0
+    }
+  },
+  "manning_n": {
+    "PVC": 0.01,
+    "PE": 0.01,
+    "GVK": 0.011,
+    "AC": 0.011,
+    "GY": 0.012,
+    "Beton": 0.013,
+    "Metselwerk": 0.016
+  },
+  "manning_default": 0.013,
+  "canal_level_nap_m": -0.4,
+  "elev_offset_m": 10.0,
+  "assumptions": [
+    "design-storm shape approximated",
+    "no dry-weather flow",
+    "cut-boundary drains freely, pumps not modelled",
+    "nearest-manhole runoff assignment, all roofs connected",
+    "empty sewer at start"
+  ]
+}
