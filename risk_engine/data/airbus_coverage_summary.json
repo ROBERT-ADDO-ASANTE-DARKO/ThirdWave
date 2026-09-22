@@ -1,0 +1,208 @@
+{
+  "source": "Airbus OneAtlas coverage-availability export (Ghana_GHA_Country_Coverage_2026.zip), NOT a data order -- catalog index only, no pixels. Footprint geometries are proprietary and not included here, only derived facts.",
+  "total_strips": 901,
+  "date_range": [
+    "2022-07-22",
+    "2026-05-24"
+  ],
+  "event_cross_reference": [
+    {
+      "event": "Kwame Nkrumah Circle flood and fuel station explosion",
+      "date": "2015-06-03",
+      "location": "Kwame Nkrumah Circle (Odawna), Accra",
+      "coverage": "match",
+      "n_strips_covering_point": 17,
+      "nearest_strip": {
+        "sensor": "PleiadesNeo_30cm",
+        "acq_date": "2023-01-12",
+        "cloud_pct": 0.0,
+        "incidence_angle_deg": 19.7,
+        "proc_level": "SENSOR",
+        "objectid": 501793,
+        "acq_id": "ACQ_PNEO3_02500105520127",
+        "delta_days": 2780,
+        "near_event_match": false
+      }
+    },
+    {
+      "event": "March 2023 Accra flood",
+      "date": "2023-03-07",
+      "location": "Kwame Nkrumah Circle, Accra",
+      "coverage": "match",
+      "n_strips_covering_point": 17,
+      "nearest_strip": {
+        "sensor": "PleiadesNeo_30cm",
+        "acq_date": "2023-03-08",
+        "cloud_pct": 2.9,
+        "incidence_angle_deg": 6.2,
+        "proc_level": "ALBUM",
+        "objectid": 567021,
+        "acq_id": "ACQ_PNEO4_02623806199480",
+        "delta_days": 1,
+        "near_event_match": true
+      }
+    },
+    {
+      "event": "Ashaiman flood",
+      "date": "2010-06-20",
+      "location": "Ashaiman, Greater Accra",
+      "coverage": "match",
+      "n_strips_covering_point": 11,
+      "nearest_strip": {
+        "sensor": "Pleiades_50cm",
+        "acq_date": "2023-02-01",
+        "cloud_pct": 0.0,
+        "incidence_angle_deg": 9.4,
+        "proc_level": "ALBUM",
+        "objectid": 3244753,
+        "acq_id": NaN,
+        "delta_days": 4609,
+        "near_event_match": false
+      }
+    },
+    {
+      "event": "Weija Dam spillage flood",
+      "date": "2022-10-04",
+      "location": "Weija, Greater Accra (also affected: Ashalaja, Oblogo, Tetegu)",
+      "coverage": "match",
+      "n_strips_covering_point": 2,
+      "nearest_strip": {
+        "sensor": "PleiadesNeo_30cm",
+        "acq_date": "2023-02-02",
+        "cloud_pct": 8.0,
+        "incidence_angle_deg": 19.5,
+        "proc_level": "ALBUM",
+        "objectid": 525158,
+        "acq_id": "ACQ_PNEO3_02531205768878",
+        "delta_days": 121,
+        "near_event_match": false
+      }
+    },
+    {
+      "event": "May 2025 Accra storm flood",
+      "date": "2025-05-22",
+      "location": "Weija, Greater Accra (also affected region-wide: Ofankor Barrier, Kaneshie, Labadi, Adentan-Dodowa, parts of Tema)",
+      "coverage": "match",
+      "n_strips_covering_point": 2,
+      "nearest_strip": {
+        "sensor": "Pleiades_50cm",
+        "acq_date": "2026-01-09",
+        "cloud_pct": 2.8,
+        "incidence_angle_deg": 14.9,
+        "proc_level": "SENSOR",
+        "objectid": 5050626,
+        "acq_id": NaN,
+        "delta_days": 232,
+        "near_event_match": false
+      }
+    },
+    {
+      "event": "May 2026 Kaneshie flood",
+      "date": "2026-05-22",
+      "location": "Kaneshie (First Light / Pamprom Junction), Accra",
+      "coverage": "match",
+      "n_strips_covering_point": 18,
+      "nearest_strip": {
+        "sensor": "Pleiades_50cm",
+        "acq_date": "2026-04-15",
+        "cloud_pct": 3.0,
+        "incidence_angle_deg": 19.0,
+        "proc_level": "SENSOR",
+        "objectid": 5214682,
+        "acq_id": NaN,
+        "delta_days": -37,
+        "near_event_match": true
+      }
+    },
+    {
+      "event": "June 2026 Accra floods",
+      "date": "2026-06-29",
+      "location": "Kwame Nkrumah Circle, Accra (regional event -- also affected Alajo, Adabraka, Kaneshie, Weija, Tse Addo, Ofankor, Pantang, Ashongman Estates, parts of Tema)",
+      "coverage": "match",
+      "n_strips_covering_point": 17,
+      "nearest_strip": {
+        "sensor": "Pleiades_50cm",
+        "acq_date": "2026-04-15",
+        "cloud_pct": 3.0,
+        "incidence_angle_deg": 19.0,
+        "proc_level": "SENSOR",
+        "objectid": 5214682,
+        "acq_id": NaN,
+        "delta_days": -75,
+        "near_event_match": true
+      }
+    },
+    {
+      "event": "Alajo electrocution deaths (June 2026 Accra floods)",
+      "date": "2026-06-29",
+      "location": "Alajo, Accra",
+      "coverage": "match",
+      "n_strips_covering_point": 17,
+      "nearest_strip": {
+        "sensor": "Pleiades_50cm",
+        "acq_date": "2026-04-15",
+        "cloud_pct": 3.0,
+        "incidence_angle_deg": 19.0,
+        "proc_level": "SENSOR",
+        "objectid": 5214682,
+        "acq_id": NaN,
+        "delta_days": -75,
+        "near_event_match": true
+      }
+    },
+    {
+      "event": "2023 Akosombo/Kpong Dam spillage",
+      "date": "2023-09-15",
+      "location": "Mepe, North Tongu District, Volta Region (also affected: Central/South Tongu, Asuogyaman District (Eastern Region), Tefle, Wume, Sokpoe; Alikekope, Agorme, Agbave reported as having 'completely disappeared')",
+      "coverage": "match",
+      "n_strips_covering_point": 3,
+      "nearest_strip": {
+        "sensor": "PleiadesNeo_30cm",
+        "acq_date": "2024-01-19",
+        "cloud_pct": 0.0,
+        "incidence_angle_deg": 5.4,
+        "proc_level": "ALBUM",
+        "objectid": 1000285,
+        "acq_id": "ACQ_PNEO4_03831210232070",
+        "delta_days": 126,
+        "near_event_match": false
+      }
+    },
+    {
+      "event": "May 2026 Weija Dam spillage flood",
+      "date": "2026-05-27",
+      "location": "Tetegu, Weija Gbawe Municipal (also affected: Ashbread, Kinshasha, White Cross, Oblogo, Tatop)",
+      "coverage": "match",
+      "n_strips_covering_point": 10,
+      "nearest_strip": {
+        "sensor": "Pleiades_50cm",
+        "acq_date": "2026-02-10",
+        "cloud_pct": 6.1,
+        "incidence_angle_deg": 6.7,
+        "proc_level": "SENSOR",
+        "objectid": 5088210,
+        "acq_id": NaN,
+        "delta_days": -106,
+        "near_event_match": false
+      }
+    }
+  ],
+  "grid_coverage": {
+    "pilot": {
+      "grid": "pilot_risk_grid.geojson",
+      "n_cells_total": 1013,
+      "n_cells_with_any_coverage": 1013,
+      "pct_cells_covered": 100.0,
+      "median_best_cloud_pct": 0.2,
+      "n_strips_in_bbox": 46
+    },
+    "lower_volta": {
+      "grid": "lower_volta_risk_grid.geojson",
+      "n_cells_total": 16941,
+      "n_cells_with_any_coverage": 16941,
+      "pct_cells_covered": 100.0,
+      "median_best_cloud_pct": 0.0,
+      "n_strips_in_bbox": 78
+    }
+  }
+}
