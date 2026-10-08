@@ -11,6 +11,9 @@ risk_engine/data/hq720 (1).jpg
 risk_engine/data/ablekuma_z18_stitched.jpg
 risk_engine/data/circle_z18_stitched.jpg
 risk_engine/data/Accra, Ghana - very high-resolution satellite image.jpg
+# Airbus OneAtlas coverage/catalog export (proprietary footprints, not pixel data) -- same
+# non-redistribution treatment as the other Airbus-branded assets above.
+risk_engine/data/Ghana_GHA_Country_Coverage_2026.zip
 
 # Ephemeral API/data caches -- regenerable, not source
 risk_engine/cache/

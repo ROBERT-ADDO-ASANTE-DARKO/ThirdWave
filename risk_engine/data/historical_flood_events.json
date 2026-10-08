@@ -173,6 +173,23 @@
       "source": "https://www.citinewsroom.com/2026/05/flooding-in-weija-due-to-illegal-structures-not-dam-spillage-gwl/",
       "district": "Weija Gbawe Municipal",
       "note": "Third documented Weija dam-release flood in this file (see WEIJA-DAM-FLOOD-2022-10-04, WEIJA-FLOOD-2025-05) -- a genuinely recurring hazard, not a one-off. This is the only event in this file where an official source explicitly names encroachment/illegal structures as a contributing cause rather than just 'heavy rain'."
+    },
+    {
+      "event_id": "WEIJA-DAM-FLOOD-2026-09-09",
+      "date": "2026-09-09",
+      "name": "September 2026 Weija Dam spillage flood",
+      "location_name": "Tetegu, Oblogo, Weija (also affected: Pambros Salt, Lower McCarthy Hill, Lower Weija, Bojo Beach, Ada Kopey)",
+      "lon": -0.3061774,
+      "lat": 5.5483218,
+      "geocode_source": "OpenStreetMap Nominatim (reused Tetegu coordinate from WEIJA-DAM-FLOOD-2026-05-27 -- same community)",
+      "geocode_confidence": "high for Tetegu; other named communities not individually geocoded",
+      "hazard_type": "dam_release_flood",
+      "deaths": null,
+      "displaced": "homes and roads submerged by the Densu overflowing its banks; residents fled, some using canoes to move belongings",
+      "cause": "Ghana Water Limited resumed controlled spillage 2026-09-09 after the dam water level rose to 45.2ft (near the 46ft threshold) following heavy rain upstream in the Densu River catchment. GWL warned 8 communities to evacuate ahead of the spillage (statement dated 2026-09-07).",
+      "source": "https://www.pulse.com.gh/story/weija-dam-spillage-gwl-evacuation-warning-2026090712033610938 ; https://www.graphic.com.gh/news/general-news/weija-dam-spillage-floods-communities.html",
+      "district": "Weija Gbawe Municipal",
+      "note": "Fourth documented Weija dam-release flood in this file (see WEIJA-DAM-FLOOD-2022-10-04, WEIJA-FLOOD-2025-05, WEIJA-DAM-FLOOD-2026-05-27) -- confirms this is a recurring, near-annual hazard, now twice in the same year (May and September 2026). In response, a $350m flood-control project (levee canal from the dam to the Atlantic, with a permanent estuary) was announced to begin December 2026 (citinewsroom.com/2026/09/weija-dam-spillage-350m-flood-control-project-to-begin-by-december)."
     }
   ]
 }

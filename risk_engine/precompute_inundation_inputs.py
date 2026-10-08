@@ -10,6 +10,17 @@ the inundation approximation only needs terrain (DEM) and surface type
 (WorldCover, for a runoff coefficient), so this calls the DEM/WorldCover
 readers directly and skips the slow SAR fetch entirely.
 
+Also applies odaw_channel_burn.py's hydro-enforcement step: the raw 30m
+Copernicus DEM is too coarse/smooth to show the Odaw and other mapped
+drains as a channel, so the CA proxy spreads rain as uniform sheet flow
+instead of collecting it along the real drainage network. Burning OSM
+waterway geometry into the DEM (lower by BURN_DEPTH_M) fixes that at this
+grid's ~100m resolution -- a coarse correction to the existing proxy, not
+a claim of survey-grade channel geometry. The saved "dem" key is the
+BURNED version (every consumer gets the improved routing automatically);
+"dem_unburned" and "channel_mask" are kept alongside for diagnostics/
+comparison.
+
 Usage
 ─────
     python3 precompute_inundation_inputs.py
@@ -28,8 +39,9 @@ import pystac_client
 import planetary_computer
 
 from geospatial_vulnerability import (
-    PILOT_BOUNDARY, PIXEL_DEG, _grid_shape, _read_dem_window, _read_worldcover,
+    PILOT_BOUNDARY, PIXEL_DEG, _grid_shape, _make_transform, _read_dem_window, _read_worldcover,
 )
+from odaw_channel_burn import burn_channel
 
 warnings.filterwarnings("ignore")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s", datefmt="%H:%M:%S")
@@ -60,10 +72,16 @@ def run():
     worldcover = _read_worldcover(catalog, bbox, shape)
     wc_int = worldcover.astype(np.uint8)
 
+    log.info("Burning Odaw/drainage channel network into the DEM ...")
+    transform = _make_transform(bbox, shape)
+    dem_burned, mask = burn_channel(elev, bbox, transform)
+
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(
         OUTPUT,
-        dem=elev.astype(np.float32),
+        dem=dem_burned.astype(np.float32),
+        dem_unburned=elev.astype(np.float32),
+        channel_mask=mask,
         worldcover=wc_int,
         bbox=np.array(bbox, dtype=np.float64),
     )
