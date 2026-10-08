@@ -1,0 +1,14 @@
+# Runtime dependencies for the FastAPI backend (backend/).
+# Independent of streamlit_app/requirements.txt by design -- this service
+# must stay runnable without a Streamlit dependency (see clustering.py and
+# news_corroboration.py module docstrings).
+
+fastapi
+uvicorn[standard]
+sqlmodel
+python-multipart
+requests
+geopandas
+shapely
+scipy
+numpy
