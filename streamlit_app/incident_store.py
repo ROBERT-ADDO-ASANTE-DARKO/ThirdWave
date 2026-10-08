@@ -28,7 +28,10 @@ from __future__ import annotations
 import uuid
 from datetime import datetime, timezone
 
+import numpy as np
 import streamlit as st
+from scipy.cluster.hierarchy import fcluster, linkage
+from scipy.spatial.distance import squareform
 from shapely.geometry import Point
 
 from shapely.geometry import shape
@@ -266,6 +269,85 @@ def nearby_active_incidents(lon: float, lat: float, radius_km: float = 1.5) -> l
         if d <= radius_km:
             out.append({**inc, "distance_km": d})
     return sorted(out, key=lambda i: i["distance_km"])
+
+
+# ── Clustering (district officer triage) ────────────────────────────────
+#
+# A storm can produce dozens of pending reports clustered around the same
+# few flooded streets -- making an officer click Verify/Reject on each one
+# individually doesn't scale (see project chat history, the "tedious to
+# verify numerous reports" discussion). cluster_pending() groups reports
+# that are probably the SAME flood event so they can be triaged together.
+#
+# Same pattern as risk_engine/surface_flood_amsterdam.py's make_clusters(),
+# applied to a different domain: complete-linkage hierarchical clustering
+# cut at a fixed distance threshold, so every pair of reports inside a
+# cluster is guaranteed to be within CLUSTER_RADIUS_KM of every OTHER
+# member too (not just chained through intermediate points, which single
+# linkage would allow). That file clusters flooded manholes at a 150m
+# threshold for simulation windows; this clusters citizen reports at 300m
+# -- looser, because GPS/geocoding noise on a phone report is coarser than
+# a surveyed manhole coordinate.
+
+CLUSTER_RADIUS_KM = 0.3
+
+_HAZARD_SEVERITY = {"river_flood": 1.0, "flash_flood": 0.7, "urban_flood": 0.3}
+
+
+def _severity_rank(report: dict) -> float:
+    """Sort key for severity: the upper bound of an estimated depth range
+    when there is one (most reports), else a hazard-type fallback (dam-
+    release reports from generate_dam_release_report always carry a depth
+    range too, so this fallback mainly covers hand-authored edge cases)."""
+    if report.get("depth_estimate_m"):
+        return report["depth_estimate_m"][1]
+    return _HAZARD_SEVERITY.get(report["hazard_type"], 0.0)
+
+
+def cluster_pending(district: str | None = None) -> list[dict]:
+    """Pending reports grouped into spatial clusters, worst-first, so an
+    officer reviews "23 reports at one flooded junction" as one unit instead
+    of 23 separate decisions. Each cluster dict has: reports (newest first),
+    n_reports, centroid, district, max_severity, hazard_types, any_synthetic.
+
+    A cluster of size 1 is just a lone report -- not every pending report
+    has corroboration, and it still needs to reach the officer."""
+    reports = list_pending(district)
+    if not reports:
+        return []
+    if len(reports) == 1:
+        labels = [1]
+    else:
+        n = len(reports)
+        dist = np.zeros((n, n))
+        for i in range(n):
+            for j in range(i + 1, n):
+                d = _haversine_km(
+                    reports[i]["gps_point"]["lon"], reports[i]["gps_point"]["lat"],
+                    reports[j]["gps_point"]["lon"], reports[j]["gps_point"]["lat"],
+                )
+                dist[i, j] = dist[j, i] = d
+        labels = fcluster(linkage(squareform(dist, checks=False), method="complete"),
+                           t=CLUSTER_RADIUS_KM, criterion="distance")
+
+    groups: dict[int, list[dict]] = {}
+    for r, lab in zip(reports, labels):
+        groups.setdefault(int(lab), []).append(r)
+
+    clusters = []
+    for members in groups.values():
+        lons = [m["gps_point"]["lon"] for m in members]
+        lats = [m["gps_point"]["lat"] for m in members]
+        clusters.append({
+            "reports": sorted(members, key=lambda r: r["submitted_at"], reverse=True),
+            "n_reports": len(members),
+            "centroid": {"lon": sum(lons) / len(lons), "lat": sum(lats) / len(lats)},
+            "district": members[0]["district"],
+            "max_severity": max(_severity_rank(m) for m in members),
+            "hazard_types": sorted({m["hazard_type"] for m in members}),
+            "any_synthetic": any(m.get("synthetic") for m in members),
+        })
+    return sorted(clusters, key=lambda c: (-c["n_reports"], -c["max_severity"]))
 
 
 # ── Synthetic scenario generation ───────────────────────────────────────

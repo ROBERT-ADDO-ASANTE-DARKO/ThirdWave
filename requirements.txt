@@ -9,6 +9,7 @@ pandas
 numpy
 geopandas
 shapely
+scipy
 rasterio
 folium
 streamlit-folium

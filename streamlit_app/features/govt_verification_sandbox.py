@@ -33,6 +33,7 @@ import streamlit as st
 from data_loader import DATA_DIR, LEVEL_COLOR
 from inundation_model import simulate_ponding
 import incident_store as store
+import news_corroboration as news
 
 INPUTS_PATH = DATA_DIR / "inundation_inputs.npz"
 SCREENSHOTS_DIR = Path(__file__).parent.parent / "demo_screenshots" / "incident_pipeline"
@@ -94,6 +95,56 @@ def _depth_at_point(dem, wc_int, bbox, rainfall_mm, lon, lat):
     r0, r1 = max(row - 1, 0), min(row + 2, rows)
     c0, c1 = max(col - 1, 0), min(col + 2, cols)
     return float(np.median(depth[r0:r1, c0:c1]))
+
+
+def _render_report_card(r: dict) -> None:
+    badge = " 🧪 SYNTHETIC" if r.get("synthetic") else ""
+    district = r["district"] or "outside pilot district"
+    zone = store.zone_for_point(r["gps_point"]["lon"], r["gps_point"]["lat"])
+    c_img, c1, c2 = st.columns([1.4, 3.1, 1])
+    with c_img:
+        image_bytes = r.get("annotated_image_bytes") or r.get("photo_bytes")
+        if image_bytes:
+            st.image(image_bytes, use_container_width=True,
+                     caption="AI-annotated" if r.get("annotated_image_bytes") else "Submitted photo")
+        elif r.get("has_photo"):
+            st.caption("Photo submitted, but no confident AI annotation was produced.")
+        else:
+            st.caption("No photo submitted with this report.")
+    with c1:
+        st.markdown(f"`{r['id']}`{badge} — **{r['hazard_type'].replace('_', ' ').title()}** — {district}")
+        st.caption(r["location_label"] or f"{r['gps_point']['lat']:.4f}, {r['gps_point']['lon']:.4f}")
+        st.write(r["description"])
+        if r.get("depth_estimate_m"):
+            lo, hi = r["depth_estimate_m"]
+            st.caption(f"Estimated depth: {lo:.1f}-{hi:.1f}m")
+        if zone:
+            color = LEVEL_COLOR.get(zone["level"], "#999")
+            ext_tag = " (Lower Volta ext. grid)" if zone.get("extended") else ""
+            st.markdown(
+                f"<span style='background:{color}22;border:1px solid {color};color:{color};"
+                f"border-radius:3px;padding:1px 7px;font-size:0.82rem;'>"
+                f"📍 Verification context: this zone's existing static score is "
+                f"<b>{zone['score']:.1f} ({zone['level']})</b> -- {zone['id'].replace('RZ-', '')}{ext_tag}"
+                f"</span>",
+                unsafe_allow_html=True,
+            )
+            if zone.get("extended"):
+                st.caption(
+                    "This is the Lower Volta extended-coverage grid, not the MVP pilot -- same "
+                    "statistical SAR/DEM/land-cover formula, which structurally can't see a "
+                    "one-off dam-release flood. Don't read a Low/Moderate score here as clearing "
+                    "a dam-release report."
+                )
+        else:
+            st.caption("📍 This location falls outside all scored coverage (pilot or extended) -- no pre-existing static score to cross-check against.")
+    with c2:
+        if st.button("✅ Verify", key=f"verify_{r['id']}", type="primary"):
+            store.verify_report(r["id"], approve=True)
+            st.rerun()
+        if st.button("❌ Reject", key=f"reject_{r['id']}"):
+            store.verify_report(r["id"], approve=False)
+            st.rerun()
 
 
 def render():
@@ -205,64 +256,59 @@ def render():
 
     pending = store.list_pending()
     active = store.list_active_incidents()
+    clusters = store.cluster_pending()
+    recent_flood_news = news.fetch_flood_news()
 
     k1, k2, k3 = st.columns(3)
-    k1.metric("Pending reports", len(pending))
+    k1.metric("Pending reports", len(pending), help=f"{len(clusters)} cluster(s) to review" if clusters else None)
     k2.metric("Active incidents", len(active))
     k3.metric("Synthetic in queue", sum(1 for r in pending if r.get("synthetic")))
 
     st.markdown("**Pending reports -- verify before they become active incidents**")
+    st.caption(
+        "Reports within ~300m of each other are grouped as one likely flood event, worst (most "
+        "reports, most severe) first -- review and act on a cluster at once instead of report by report."
+    )
     if not pending:
         st.info("No pending reports. Seed a scenario above, or submit one via the Citizen 'Crowdsourced Flood Reporting' page.")
-    for r in pending:
-        badge = " 🧪 SYNTHETIC" if r.get("synthetic") else ""
-        district = r["district"] or "outside pilot district"
-        zone = store.zone_for_point(r["gps_point"]["lon"], r["gps_point"]["lat"])
+    for cluster in clusters:
+        reports = cluster["reports"]
+        n = cluster["n_reports"]
         with st.container(border=True):
-            c_img, c1, c2 = st.columns([1.4, 3.1, 1])
-            with c_img:
-                image_bytes = r.get("annotated_image_bytes") or r.get("photo_bytes")
-                if image_bytes:
-                    st.image(image_bytes, use_container_width=True,
-                             caption="AI-annotated" if r.get("annotated_image_bytes") else "Submitted photo")
-                elif r.get("has_photo"):
-                    st.caption("Photo submitted, but no confident AI annotation was produced.")
-                else:
-                    st.caption("No photo submitted with this report.")
-            with c1:
-                st.markdown(f"`{r['id']}`{badge} — **{r['hazard_type'].replace('_', ' ').title()}** — {district}")
-                st.caption(r["location_label"] or f"{r['gps_point']['lat']:.4f}, {r['gps_point']['lon']:.4f}")
-                st.write(r["description"])
-                if r.get("depth_estimate_m"):
-                    lo, hi = r["depth_estimate_m"]
-                    st.caption(f"Estimated depth: {lo:.1f}-{hi:.1f}m")
-                if zone:
-                    color = LEVEL_COLOR.get(zone["level"], "#999")
-                    ext_tag = " (Lower Volta ext. grid)" if zone.get("extended") else ""
-                    st.markdown(
-                        f"<span style='background:{color}22;border:1px solid {color};color:{color};"
-                        f"border-radius:3px;padding:1px 7px;font-size:0.82rem;'>"
-                        f"📍 Verification context: this zone's existing static score is "
-                        f"<b>{zone['score']:.1f} ({zone['level']})</b> -- {zone['id'].replace('RZ-', '')}{ext_tag}"
-                        f"</span>",
-                        unsafe_allow_html=True,
+            if n > 1:
+                hz = ", ".join(h.replace("_", " ").title() for h in cluster["hazard_types"])
+                syn = " · includes synthetic" if cluster["any_synthetic"] else ""
+                c_hdr, c_v, c_r = st.columns([4, 1, 1])
+                with c_hdr:
+                    st.markdown(f"**🗂️ Incident cluster — {n} reports** — {hz} — {cluster['district'] or 'outside pilot district'}{syn}")
+                with c_v:
+                    if st.button(f"✅ Verify all {n}", key=f"verify_cluster_{reports[0]['id']}", type="primary"):
+                        for r in reports:
+                            store.verify_report(r["id"], approve=True)
+                        st.rerun()
+                with c_r:
+                    if st.button(f"❌ Reject all {n}", key=f"reject_cluster_{reports[0]['id']}"):
+                        for r in reports:
+                            store.verify_report(r["id"], approve=False)
+                        st.rerun()
+                st.markdown("---")
+
+            hits = news.corroborating_news(
+                recent_flood_news, cluster["district"], *[r["location_label"] for r in reports],
+            )
+            if hits:
+                with st.expander(f"📰 {len(hits)} possibly-related news report(s) (last 72h, unverified match)", expanded=False):
+                    st.caption(
+                        "Place-name text match on live MyJoyOnline/3News RSS feeds, not a confirmed link to "
+                        "these reports -- context for your own judgment, not a substitute for it."
                     )
-                    if zone.get("extended"):
-                        st.caption(
-                            "This is the Lower Volta extended-coverage grid, not the MVP pilot -- same "
-                            "statistical SAR/DEM/land-cover formula, which structurally can't see a "
-                            "one-off dam-release flood. Don't read a Low/Moderate score here as clearing "
-                            "a dam-release report."
-                        )
-                else:
-                    st.caption("📍 This location falls outside all scored coverage (pilot or extended) -- no pre-existing static score to cross-check against.")
-            with c2:
-                if st.button("✅ Verify", key=f"verify_{r['id']}", type="primary"):
-                    store.verify_report(r["id"], approve=True)
-                    st.rerun()
-                if st.button("❌ Reject", key=f"reject_{r['id']}"):
-                    store.verify_report(r["id"], approve=False)
-                    st.rerun()
+                    for h in hits:
+                        st.markdown(f"- [{h['title']}]({h['link']}) — *{h['source']}*, {h['published'].strftime('%Y-%m-%d %H:%M UTC')}")
+
+            for i, r in enumerate(reports):
+                if i > 0:
+                    st.markdown("<hr style='margin:4px 0;opacity:0.25'>", unsafe_allow_html=True)
+                _render_report_card(r)
 
     st.divider()
     st.markdown("**Active incidents -- currently routed around by Safer Routing**")
