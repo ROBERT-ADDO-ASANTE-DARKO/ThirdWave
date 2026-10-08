@@ -1,10 +1,11 @@
 """
 dam_spillage_sar_comparison.py — before / during / after Sentinel-1 SAR
-water-extent comparison for the two dam-spillage flood events now in
+water-extent comparison for the dam-spillage flood events now in
 historical_flood_events.json:
 
   AKOSOMBO-DAM-SPILLAGE-2023-09-15  (Lower Volta -- Mepe area)
   WEIJA-DAM-FLOOD-2026-05-27        (Weija Gbawe -- Tetegu area)
+  WEIJA-DAM-FLOOD-2026-09-09        (Weija Gbawe -- second 2026 spillage, same area)
 
 Neither location is scored by the composite pipeline (Akosombo is outside
 coverage entirely; Weija Gbawe's dam-release risk is a hazard the
@@ -92,6 +93,24 @@ EVENTS = [
         "baseline": "2026-05-21",   # 6 days before the gates opened
         "peak": "2026-05-28",       # day after all spill gates opened (2026-05-27)
         "recession": "2026-06-09",  # ~2 weeks later
+    },
+    {
+        "event_id": "WEIJA-DAM-FLOOD-2026-09-09",
+        "name": "Weija Dam spillage #2 (Tetegu / Weija Gbawe, Sept 2026)",
+        "bbox": (-0.325, 5.518, -0.283, 5.560),  # same downstream floodplain as the May event
+        "baseline": "2026-09-07",   # 2 days before spillage resumed (nearest ascending-orbit scene; no scene 09-08/09)
+        "peak": "2026-09-13",       # nearest ascending scene after spillage resumed 2026-09-09 (4 days later -- no scene 09-10/11/12)
+        "recession": "2026-09-25",  # ~2 weeks after peak, same ascending orbit
+        "known_limitation": "Detected 0.0 km2 -- almost certainly a FALSE NEGATIVE, not evidence against the "
+            "news-confirmed flooding (submerged homes/roads in Tetegu/Oblogo/Weija, residents evacuating by "
+            "canoe). The same-orbit revisit gap left a 4-day hole after the spillage (2026-09-09): no ascending "
+            "pass exists on 09-10/11/12, unlike the May event where the peak scene landed the very next day. The "
+            "May event itself showed this flooding recedes fast (5.0 km2 new flood -> 1.3 km2 still flooded "
+            "within 12 days), so a flashy flood here plausibly receded before the first available same-orbit "
+            "pass. A diagnostic orbit-mismatched comparison (ascending baseline vs. the 09-14 descending scene) "
+            "found 0.35 km2, but a ~1.5 dB systematic shift between the two orbits' medians makes that number "
+            "unreliable, not a confirmed smaller re-measurement. Net: this is a satellite-revisit coverage gap, "
+            "not a sign the flood didn't happen or was smaller than May's.",
     },
 ]
 
@@ -197,6 +216,8 @@ def run_event(catalog, ev: dict) -> dict:
                   f"the baseline's {PERM_WATER_PCTL}th percentile), blobs <{MIN_BLOB_PX}px removed. "
                   "Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line.",
     }
+    if "known_limitation" in ev:
+        summary["known_limitation"] = ev["known_limitation"]
 
     fig, axes = plt.subplots(2, 3, figsize=(15, 9))
     for ax, phase in zip(axes[0], ("baseline", "peak", "recession")):

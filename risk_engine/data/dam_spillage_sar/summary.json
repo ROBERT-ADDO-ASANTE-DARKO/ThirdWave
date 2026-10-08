@@ -39,6 +39,27 @@
       "receded_by_recession_km2": 3.66,
       "still_flooded_at_recession_km2": 1.3,
       "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line."
+    },
+    {
+      "event_id": "WEIJA-DAM-FLOOD-2026-09-09",
+      "name": "Weija Dam spillage #2 (Tetegu / Weija Gbawe, Sept 2026)",
+      "bbox": [
+        -0.325,
+        5.518,
+        -0.283,
+        5.56
+      ],
+      "scene_dates": {
+        "baseline": "2026-09-07",
+        "peak": "2026-09-13",
+        "recession": "2026-09-25"
+      },
+      "baseline_open_water_km2": 1.77,
+      "new_flood_at_peak_km2": 0.0,
+      "receded_by_recession_km2": 0.0,
+      "still_flooded_at_recession_km2": 0.0,
+      "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line.",
+      "known_limitation": "Detected 0.0 km2 -- almost certainly a FALSE NEGATIVE, not evidence against the news-confirmed flooding (submerged homes/roads in Tetegu/Oblogo/Weija, residents evacuating by canoe). The same-orbit revisit gap left a 4-day hole after the spillage (2026-09-09): no ascending pass exists on 09-10/11/12, unlike the May event where the peak scene landed the very next day. The May event itself showed this flooding recedes fast (5.0 km2 new flood -> 1.3 km2 still flooded within 12 days), so a flashy flood here plausibly receded before the first available same-orbit pass. A diagnostic orbit-mismatched comparison (ascending baseline vs. the 09-14 descending scene) found 0.35 km2, but a ~1.5 dB systematic shift between the two orbits' medians makes that number unreliable, not a confirmed smaller re-measurement. Net: this is a satellite-revisit coverage gap, not a sign the flood didn't happen or was smaller than May's."
     }
   ]
 }
