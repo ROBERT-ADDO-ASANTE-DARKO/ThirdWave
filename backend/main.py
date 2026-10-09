@@ -11,6 +11,7 @@ to exercise POST /reports, verify a report, and watch it appear under
 skeleton: Flutter and push notifications are later phases, not this file.
 """
 
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI
@@ -18,9 +19,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from db import init_db
-from routers import incidents, reports
+from routers import devices, incidents, reports
 
-app = FastAPI(title="ThirdWave API", version="0.1.0")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
+
+app = FastAPI(title="ThirdWave API", version="0.1.0", lifespan=lifespan)
 
 # Permissive for local development only (a phone on the same network, or
 # Streamlit, calling this). Tighten the origin list before this backend is
@@ -35,11 +43,7 @@ app.mount("/uploads", StaticFiles(directory=UPLOADS_DIR), name="uploads")
 
 app.include_router(reports.router)
 app.include_router(incidents.router)
-
-
-@app.on_event("startup")
-def on_startup() -> None:
-    init_db()
+app.include_router(devices.router)
 
 
 @app.get("/health")

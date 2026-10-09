@@ -19,6 +19,7 @@ from sqlmodel import Session, select
 import clustering
 import geo_data
 import news_corroboration as news
+import push
 from db import get_session
 from models import Report
 from schemas import BulkVerifyBody, VerifyBody
@@ -105,6 +106,18 @@ def list_clusters(district: Optional[str] = None, session: Session = Depends(get
     return out
 
 
+def _notify(session: Session, lon: float, lat: float, hazard_types: list[str], location_label: str | None) -> dict:
+    """Push is a side effect of verification, never a precondition for
+    it -- a missing/misconfigured Firebase credential or an FCM outage
+    must not turn a successful verify into a failed request."""
+    hz = ", ".join(h.replace("_", " ") for h in hazard_types)
+    body = f"Verified {hz} report near {location_label}" if location_label else f"Verified {hz} report nearby"
+    try:
+        return push.notify_nearby_devices(session, lon, lat, title="Flood incident verified", body=body)
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
 @router.post("/{report_id}/verify")
 def verify_report(report_id: str, body: VerifyBody, session: Session = Depends(get_session)):
     report = session.get(Report, report_id)
@@ -118,7 +131,11 @@ def verify_report(report_id: str, body: VerifyBody, session: Session = Depends(g
     session.add(report)
     session.commit()
     session.refresh(report)
-    return serialize_report(report)
+
+    push_result = None
+    if body.approve:
+        push_result = _notify(session, report.lon, report.lat, [report.hazard_type], report.location_label)
+    return {**serialize_report(report), "push": push_result}
 
 
 @router.post("/verify-bulk")
@@ -136,4 +153,17 @@ def verify_bulk(body: BulkVerifyBody, session: Session = Depends(get_session)):
         session.add(report)
         out.append(report)
     session.commit()
-    return [serialize_report(r) for r in out]
+    for r in out:
+        session.refresh(r)
+
+    # One push for the whole bulk action, not one per report (see
+    # push.py's module docstring) -- centroid of whichever reports were
+    # actually approved.
+    push_result = None
+    if body.approve and out:
+        lons = [r.lon for r in out]; lats = [r.lat for r in out]
+        cx, cy = sum(lons) / len(lons), sum(lats) / len(lats)
+        hazard_types = sorted({r.hazard_type for r in out})
+        label = out[0].location_label
+        push_result = _notify(session, cx, cy, hazard_types, label)
+    return {"reports": [serialize_report(r) for r in out], "push": push_result}

@@ -20,3 +20,10 @@ class BulkVerifyBody(BaseModel):
 class AssignResponderBody(BaseModel):
     responder_name: str
     eta_minutes: int
+
+
+class DeviceRegisterBody(BaseModel):
+    fcm_token: str
+    platform: str  # "android" | "ios"
+    lat: float | None = None
+    lon: float | None = None

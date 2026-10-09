@@ -12,3 +12,5 @@ geopandas
 shapely
 scipy
 numpy
+firebase-admin
+python-dotenv
