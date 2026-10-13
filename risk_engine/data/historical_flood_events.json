@@ -113,7 +113,7 @@
       "event_id": "ACCRA-FLOOD-2026-06-29",
       "date": "2026-06-29",
       "name": "June 2026 Accra floods",
-      "location_name": "Kwame Nkrumah Circle, Accra (regional event -- also affected Alajo, Adabraka, Kaneshie, Weija, Tse Addo, Ofankor, Pantang, Ashongman Estates, parts of Tema)",
+      "location_name": "Kwame Nkrumah Circle, Accra (regional event -- also affected Alajo, Adabraka, Kaneshie, Weija, Tse Addo, Ofankor, Pantang, Ashongman Estates, parts of Tema, parts of Adenta, Madina, Achimota, East Legon, and East Legon Hills)",
       "lon": -0.215275,
       "lat": 5.569222,
       "geocode_source": "OpenStreetMap Nominatim (Circle used as anchor; other named areas not individually geocoded -- multi-site regional event, see ALAJO-FLOOD-2026-06-29 for one that is)",
@@ -124,7 +124,12 @@
       "displaced": "7,761 households (3,882 people) per Ghana News Agency; other contemporary reports cited up to 48,000 displaced",
       "cause": "Torrential rainfall described by officials as one of the heaviest to hit Accra in recent years",
       "source": "https://gna.org.gh/2026/06/june-29-floods-12-dead-seven-missing-7761-households-displaced/",
-      "note": "GNFS reported 150+ people rescued. Lectures/exams suspended at some tertiary institutions; GRIDCo/ECG cut power from Mallam and Achimota substations as a precaution."
+      "note": "GNFS reported 150+ people rescued. Lectures/exams suspended at some tertiary institutions; GRIDCo/ECG cut power from Mallam and Achimota substations as a precaution. Notable because several affected areas (East Legon, East Legon Hills, Adenta, Madina, Achimota) are NOT traditionally considered flood-prone/waterlogged and sit OUTSIDE this project's pilot district + extended coverage entirely (East Legon/East Legon Hills fall in Ayawaso West Municipal, confirmed via point-in-polygon against pilot_district_assemblies.geojson -- not Ayawaso Central, the pilot assembly) -- a real, undercovered blind spot, not just a severity footnote. East Legon Hills flooding specifically tied in follow-up reporting to encroachment reducing the Tesa Dam's capacity near East Legon Boundary Road, and to a blocked stream under the Akafia Bridge (cleared by the 48 Engineer Regiment in early July) -- i.e. the same encroachment/drainage-capacity mechanism this project already documents for the pilot area, just unmeasured here.",
+      "sources_secondary": [
+        "https://viewghana.com/accra-floods-2026-what-really-happened-which-areas-were-affected-and-what-visitors-should-know/",
+        "https://www.myjoyonline.com/accra-floods-flood-mitigation-task-force-identifies-encroachment-at-tesa-dam-near-east-legon/",
+        "https://www.myjoyonline.com/east-legon-hills-residents-commend-48-engineer-regiment-for-swift-flood-response/"
+      ]
     },
     {
       "event_id": "ALAJO-FLOOD-2026-06-29",
