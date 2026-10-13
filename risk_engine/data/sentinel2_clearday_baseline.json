@@ -1,0 +1,2048 @@
+{
+  "purpose": "Static permanent-water baseline refinement at near-native S2 resolution on the clearest available scenes -- NOT flood-event detection (see module docstring). Reported alongside the composite score, not blended into it.",
+  "resolution_m": 20,
+  "scenes_used": [
+    {
+      "date": "2023-01-01",
+      "cloud_pct": 0.0,
+      "valid_coverage_pct": 88.6
+    },
+    {
+      "date": "2022-01-26",
+      "cloud_pct": 0.0,
+      "valid_coverage_pct": 93.0
+    },
+    {
+      "date": "2022-12-29",
+      "cloud_pct": 0.0,
+      "valid_coverage_pct": 71.3
+    }
+  ],
+  "mndwi_threshold": 0.111,
+  "n_cells": 1013,
+  "n_no_s2_coverage": 0,
+  "sar_s2clearday_correlation": 0.043,
+  "agreement_counts": {
+    "agree": 375,
+    "minor_disagreement": 350,
+    "major_disagreement": 288
+  },
+  "major_disagreements": [
+    {
+      "zone_id": "grid_r1_c7",
+      "sar_water_occ_pct": 17.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r5_c5",
+      "sar_water_occ_pct": 2.5,
+      "s2_clearday_water_pct": 29.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r6_c6",
+      "sar_water_occ_pct": 3.6,
+      "s2_clearday_water_pct": 31.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r6_c7",
+      "sar_water_occ_pct": 2.0,
+      "s2_clearday_water_pct": 39.84,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c5",
+      "sar_water_occ_pct": 6.2,
+      "s2_clearday_water_pct": 51.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r7_c6",
+      "sar_water_occ_pct": 4.1,
+      "s2_clearday_water_pct": 35.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c5",
+      "sar_water_occ_pct": 1.1,
+      "s2_clearday_water_pct": 27.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c6",
+      "sar_water_occ_pct": 3.3,
+      "s2_clearday_water_pct": 32.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c7",
+      "sar_water_occ_pct": 5.9,
+      "s2_clearday_water_pct": 43.68,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c8",
+      "sar_water_occ_pct": 7.6,
+      "s2_clearday_water_pct": 54.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c9",
+      "sar_water_occ_pct": 2.2,
+      "s2_clearday_water_pct": 51.68,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c10",
+      "sar_water_occ_pct": 2.1,
+      "s2_clearday_water_pct": 48.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c11",
+      "sar_water_occ_pct": 1.1,
+      "s2_clearday_water_pct": 54.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r8_c12",
+      "sar_water_occ_pct": 2.4,
+      "s2_clearday_water_pct": 22.08,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c5",
+      "sar_water_occ_pct": 2.8,
+      "s2_clearday_water_pct": 79.84,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c6",
+      "sar_water_occ_pct": 1.9,
+      "s2_clearday_water_pct": 65.6,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c11",
+      "sar_water_occ_pct": 2.7,
+      "s2_clearday_water_pct": 31.04,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c12",
+      "sar_water_occ_pct": 2.9,
+      "s2_clearday_water_pct": 38.72,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c14",
+      "sar_water_occ_pct": 4.0,
+      "s2_clearday_water_pct": 24.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c15",
+      "sar_water_occ_pct": 2.2,
+      "s2_clearday_water_pct": 28.16,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c16",
+      "sar_water_occ_pct": 1.2,
+      "s2_clearday_water_pct": 25.44,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c17",
+      "sar_water_occ_pct": 0.3,
+      "s2_clearday_water_pct": 42.08,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c18",
+      "sar_water_occ_pct": 0.0,
+      "s2_clearday_water_pct": 61.12,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c19",
+      "sar_water_occ_pct": 0.6,
+      "s2_clearday_water_pct": 63.68,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c20",
+      "sar_water_occ_pct": 0.8,
+      "s2_clearday_water_pct": 60.32,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c21",
+      "sar_water_occ_pct": 4.3,
+      "s2_clearday_water_pct": 29.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c25",
+      "sar_water_occ_pct": 2.7,
+      "s2_clearday_water_pct": 30.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c26",
+      "sar_water_occ_pct": 2.8,
+      "s2_clearday_water_pct": 31.52,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c27",
+      "sar_water_occ_pct": 4.0,
+      "s2_clearday_water_pct": 26.56,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r9_c28",
+      "sar_water_occ_pct": 3.9,
+      "s2_clearday_water_pct": 50.24,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c5",
+      "sar_water_occ_pct": 2.75,
+      "s2_clearday_water_pct": 22.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c6",
+      "sar_water_occ_pct": 2.58,
+      "s2_clearday_water_pct": 31.04,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c7",
+      "sar_water_occ_pct": 4.83,
+      "s2_clearday_water_pct": 36.32,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c10",
+      "sar_water_occ_pct": 1.42,
+      "s2_clearday_water_pct": 43.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c11",
+      "sar_water_occ_pct": 0.5,
+      "s2_clearday_water_pct": 79.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c12",
+      "sar_water_occ_pct": 2.58,
+      "s2_clearday_water_pct": 76.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c13",
+      "sar_water_occ_pct": 2.67,
+      "s2_clearday_water_pct": 54.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c14",
+      "sar_water_occ_pct": 0.67,
+      "s2_clearday_water_pct": 82.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c15",
+      "sar_water_occ_pct": 1.08,
+      "s2_clearday_water_pct": 91.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c16",
+      "sar_water_occ_pct": 0.92,
+      "s2_clearday_water_pct": 67.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c17",
+      "sar_water_occ_pct": 2.83,
+      "s2_clearday_water_pct": 52.48,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c18",
+      "sar_water_occ_pct": 0.17,
+      "s2_clearday_water_pct": 83.68,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c19",
+      "sar_water_occ_pct": 5.08,
+      "s2_clearday_water_pct": 80.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c20",
+      "sar_water_occ_pct": 0.5,
+      "s2_clearday_water_pct": 95.84,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c21",
+      "sar_water_occ_pct": 9.17,
+      "s2_clearday_water_pct": 100.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c22",
+      "sar_water_occ_pct": 17.42,
+      "s2_clearday_water_pct": 91.84,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c23",
+      "sar_water_occ_pct": 9.25,
+      "s2_clearday_water_pct": 89.28,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c24",
+      "sar_water_occ_pct": 6.67,
+      "s2_clearday_water_pct": 84.64,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c25",
+      "sar_water_occ_pct": 14.25,
+      "s2_clearday_water_pct": 96.64,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c26",
+      "sar_water_occ_pct": 3.83,
+      "s2_clearday_water_pct": 92.96,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c27",
+      "sar_water_occ_pct": 4.08,
+      "s2_clearday_water_pct": 78.08,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c28",
+      "sar_water_occ_pct": 14.92,
+      "s2_clearday_water_pct": 74.4,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c29",
+      "sar_water_occ_pct": 10.08,
+      "s2_clearday_water_pct": 72.16,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c30",
+      "sar_water_occ_pct": 9.83,
+      "s2_clearday_water_pct": 71.68,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r10_c31",
+      "sar_water_occ_pct": 0.67,
+      "s2_clearday_water_pct": 20.48,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c3",
+      "sar_water_occ_pct": 4.0,
+      "s2_clearday_water_pct": 24.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c12",
+      "sar_water_occ_pct": 0.4,
+      "s2_clearday_water_pct": 19.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c15",
+      "sar_water_occ_pct": 1.2,
+      "s2_clearday_water_pct": 17.28,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c16",
+      "sar_water_occ_pct": 0.4,
+      "s2_clearday_water_pct": 24.96,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c17",
+      "sar_water_occ_pct": 2.2,
+      "s2_clearday_water_pct": 28.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c18",
+      "sar_water_occ_pct": 1.4,
+      "s2_clearday_water_pct": 27.84,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c19",
+      "sar_water_occ_pct": 4.3,
+      "s2_clearday_water_pct": 25.28,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c20",
+      "sar_water_occ_pct": 9.9,
+      "s2_clearday_water_pct": 25.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c21",
+      "sar_water_occ_pct": 19.9,
+      "s2_clearday_water_pct": 49.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c22",
+      "sar_water_occ_pct": 19.6,
+      "s2_clearday_water_pct": 49.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c23",
+      "sar_water_occ_pct": 17.5,
+      "s2_clearday_water_pct": 72.64,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c24",
+      "sar_water_occ_pct": 4.6,
+      "s2_clearday_water_pct": 90.56,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c25",
+      "sar_water_occ_pct": 3.2,
+      "s2_clearday_water_pct": 97.6,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c26",
+      "sar_water_occ_pct": 1.9,
+      "s2_clearday_water_pct": 100.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c27",
+      "sar_water_occ_pct": 2.3,
+      "s2_clearday_water_pct": 100.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c28",
+      "sar_water_occ_pct": 4.4,
+      "s2_clearday_water_pct": 91.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c29",
+      "sar_water_occ_pct": 24.2,
+      "s2_clearday_water_pct": 91.68,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c30",
+      "sar_water_occ_pct": 37.7,
+      "s2_clearday_water_pct": 93.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c31",
+      "sar_water_occ_pct": 14.6,
+      "s2_clearday_water_pct": 93.44,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c32",
+      "sar_water_occ_pct": 1.0,
+      "s2_clearday_water_pct": 77.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c33",
+      "sar_water_occ_pct": 4.2,
+      "s2_clearday_water_pct": 58.08,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c34",
+      "sar_water_occ_pct": 4.9,
+      "s2_clearday_water_pct": 31.68,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c37",
+      "sar_water_occ_pct": 4.6,
+      "s2_clearday_water_pct": 20.16,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r11_c38",
+      "sar_water_occ_pct": 7.0,
+      "s2_clearday_water_pct": 22.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c3",
+      "sar_water_occ_pct": 6.4,
+      "s2_clearday_water_pct": 74.72,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c9",
+      "sar_water_occ_pct": 15.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c22",
+      "sar_water_occ_pct": 27.5,
+      "s2_clearday_water_pct": 6.24,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c26",
+      "sar_water_occ_pct": 3.4,
+      "s2_clearday_water_pct": 21.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c28",
+      "sar_water_occ_pct": 5.3,
+      "s2_clearday_water_pct": 50.08,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c29",
+      "sar_water_occ_pct": 8.3,
+      "s2_clearday_water_pct": 69.6,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c30",
+      "sar_water_occ_pct": 20.6,
+      "s2_clearday_water_pct": 79.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c31",
+      "sar_water_occ_pct": 11.9,
+      "s2_clearday_water_pct": 93.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c32",
+      "sar_water_occ_pct": 1.2,
+      "s2_clearday_water_pct": 98.4,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c33",
+      "sar_water_occ_pct": 6.4,
+      "s2_clearday_water_pct": 93.6,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c34",
+      "sar_water_occ_pct": 23.8,
+      "s2_clearday_water_pct": 78.24,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c35",
+      "sar_water_occ_pct": 21.8,
+      "s2_clearday_water_pct": 95.54,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c36",
+      "sar_water_occ_pct": 23.7,
+      "s2_clearday_water_pct": 80.32,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c37",
+      "sar_water_occ_pct": 6.3,
+      "s2_clearday_water_pct": 79.04,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c38",
+      "sar_water_occ_pct": 4.2,
+      "s2_clearday_water_pct": 45.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c39",
+      "sar_water_occ_pct": 4.8,
+      "s2_clearday_water_pct": 36.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c41",
+      "sar_water_occ_pct": 1.4,
+      "s2_clearday_water_pct": 37.44,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c42",
+      "sar_water_occ_pct": 1.3,
+      "s2_clearday_water_pct": 36.48,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r12_c43",
+      "sar_water_occ_pct": 1.9,
+      "s2_clearday_water_pct": 30.56,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c3",
+      "sar_water_occ_pct": 6.4,
+      "s2_clearday_water_pct": 76.64,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c4",
+      "sar_water_occ_pct": 5.0,
+      "s2_clearday_water_pct": 31.52,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c10",
+      "sar_water_occ_pct": 18.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c21",
+      "sar_water_occ_pct": 24.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c22",
+      "sar_water_occ_pct": 18.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c23",
+      "sar_water_occ_pct": 24.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c32",
+      "sar_water_occ_pct": 8.9,
+      "s2_clearday_water_pct": 27.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c35",
+      "sar_water_occ_pct": 31.0,
+      "s2_clearday_water_pct": 54.31,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c36",
+      "sar_water_occ_pct": 12.6,
+      "s2_clearday_water_pct": 69.12,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c37",
+      "sar_water_occ_pct": 2.1,
+      "s2_clearday_water_pct": 85.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c38",
+      "sar_water_occ_pct": 5.1,
+      "s2_clearday_water_pct": 67.04,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c39",
+      "sar_water_occ_pct": 14.7,
+      "s2_clearday_water_pct": 75.84,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c40",
+      "sar_water_occ_pct": 6.6,
+      "s2_clearday_water_pct": 72.16,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c41",
+      "sar_water_occ_pct": 9.8,
+      "s2_clearday_water_pct": 55.04,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c42",
+      "sar_water_occ_pct": 5.0,
+      "s2_clearday_water_pct": 43.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c43",
+      "sar_water_occ_pct": 1.0,
+      "s2_clearday_water_pct": 43.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c44",
+      "sar_water_occ_pct": 3.67,
+      "s2_clearday_water_pct": 61.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c45",
+      "sar_water_occ_pct": 4.7,
+      "s2_clearday_water_pct": 73.12,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r13_c46",
+      "sar_water_occ_pct": 9.0,
+      "s2_clearday_water_pct": 58.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c2",
+      "sar_water_occ_pct": 12.6,
+      "s2_clearday_water_pct": 58.56,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c3",
+      "sar_water_occ_pct": 2.6,
+      "s2_clearday_water_pct": 57.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c4",
+      "sar_water_occ_pct": 2.6,
+      "s2_clearday_water_pct": 31.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c5",
+      "sar_water_occ_pct": 3.4,
+      "s2_clearday_water_pct": 73.28,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c6",
+      "sar_water_occ_pct": 2.4,
+      "s2_clearday_water_pct": 36.32,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c11",
+      "sar_water_occ_pct": 16.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c23",
+      "sar_water_occ_pct": 23.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c24",
+      "sar_water_occ_pct": 16.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c33",
+      "sar_water_occ_pct": 28.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c34",
+      "sar_water_occ_pct": 16.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c40",
+      "sar_water_occ_pct": 14.0,
+      "s2_clearday_water_pct": 92.16,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c41",
+      "sar_water_occ_pct": 29.4,
+      "s2_clearday_water_pct": 98.72,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c42",
+      "sar_water_occ_pct": 16.6,
+      "s2_clearday_water_pct": 98.24,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c43",
+      "sar_water_occ_pct": 7.5,
+      "s2_clearday_water_pct": 92.96,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c44",
+      "sar_water_occ_pct": 6.5,
+      "s2_clearday_water_pct": 94.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c45",
+      "sar_water_occ_pct": 2.7,
+      "s2_clearday_water_pct": 96.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c46",
+      "sar_water_occ_pct": 4.6,
+      "s2_clearday_water_pct": 85.44,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c47",
+      "sar_water_occ_pct": 21.0,
+      "s2_clearday_water_pct": 69.76,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r14_c48",
+      "sar_water_occ_pct": 9.3,
+      "s2_clearday_water_pct": 57.12,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c2",
+      "sar_water_occ_pct": 12.5,
+      "s2_clearday_water_pct": 82.56,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c3",
+      "sar_water_occ_pct": 26.0,
+      "s2_clearday_water_pct": 73.12,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c4",
+      "sar_water_occ_pct": 26.2,
+      "s2_clearday_water_pct": 82.72,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c5",
+      "sar_water_occ_pct": 9.2,
+      "s2_clearday_water_pct": 90.88,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c6",
+      "sar_water_occ_pct": 2.0,
+      "s2_clearday_water_pct": 100.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c7",
+      "sar_water_occ_pct": 2.9,
+      "s2_clearday_water_pct": 41.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c9",
+      "sar_water_occ_pct": 16.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c20",
+      "sar_water_occ_pct": 17.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c33",
+      "sar_water_occ_pct": 34.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c40",
+      "sar_water_occ_pct": 18.8,
+      "s2_clearday_water_pct": 77.12,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c41",
+      "sar_water_occ_pct": 15.0,
+      "s2_clearday_water_pct": 88.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c42",
+      "sar_water_occ_pct": 11.0,
+      "s2_clearday_water_pct": 73.6,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c43",
+      "sar_water_occ_pct": 23.3,
+      "s2_clearday_water_pct": 82.72,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c44",
+      "sar_water_occ_pct": 11.17,
+      "s2_clearday_water_pct": 100.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c45",
+      "sar_water_occ_pct": 2.1,
+      "s2_clearday_water_pct": 100.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c46",
+      "sar_water_occ_pct": 11.6,
+      "s2_clearday_water_pct": 100.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c47",
+      "sar_water_occ_pct": 18.6,
+      "s2_clearday_water_pct": 99.84,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c48",
+      "sar_water_occ_pct": 5.1,
+      "s2_clearday_water_pct": 99.36,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r15_c49",
+      "sar_water_occ_pct": 10.6,
+      "s2_clearday_water_pct": 96.8,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c3",
+      "sar_water_occ_pct": 6.4,
+      "s2_clearday_water_pct": 21.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c4",
+      "sar_water_occ_pct": 8.3,
+      "s2_clearday_water_pct": 69.44,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c5",
+      "sar_water_occ_pct": 14.2,
+      "s2_clearday_water_pct": 53.28,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c6",
+      "sar_water_occ_pct": 8.8,
+      "s2_clearday_water_pct": 56.16,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c15",
+      "sar_water_occ_pct": 17.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c25",
+      "sar_water_occ_pct": 15.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c32",
+      "sar_water_occ_pct": 17.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c40",
+      "sar_water_occ_pct": 19.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c43",
+      "sar_water_occ_pct": 15.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c45",
+      "sar_water_occ_pct": 4.8,
+      "s2_clearday_water_pct": 33.92,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c46",
+      "sar_water_occ_pct": 20.5,
+      "s2_clearday_water_pct": 48.16,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c47",
+      "sar_water_occ_pct": 19.6,
+      "s2_clearday_water_pct": 58.56,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c48",
+      "sar_water_occ_pct": 16.6,
+      "s2_clearday_water_pct": 75.2,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c49",
+      "sar_water_occ_pct": 4.8,
+      "s2_clearday_water_pct": 85.28,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c50",
+      "sar_water_occ_pct": 22.2,
+      "s2_clearday_water_pct": 99.04,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c51",
+      "sar_water_occ_pct": 5.5,
+      "s2_clearday_water_pct": 98.72,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r16_c52",
+      "sar_water_occ_pct": 3.1,
+      "s2_clearday_water_pct": 28.64,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c5",
+      "sar_water_occ_pct": 16.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c8",
+      "sar_water_occ_pct": 19.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c11",
+      "sar_water_occ_pct": 17.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c12",
+      "sar_water_occ_pct": 22.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c16",
+      "sar_water_occ_pct": 15.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c40",
+      "sar_water_occ_pct": 16.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c42",
+      "sar_water_occ_pct": 17.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c43",
+      "sar_water_occ_pct": 19.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c46",
+      "sar_water_occ_pct": 31.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c47",
+      "sar_water_occ_pct": 48.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c48",
+      "sar_water_occ_pct": 39.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c49",
+      "sar_water_occ_pct": 19.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c50",
+      "sar_water_occ_pct": 23.7,
+      "s2_clearday_water_pct": 8.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c51",
+      "sar_water_occ_pct": 7.5,
+      "s2_clearday_water_pct": 26.4,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r17_c52",
+      "sar_water_occ_pct": 8.8,
+      "s2_clearday_water_pct": 39.04,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c3",
+      "sar_water_occ_pct": 18.0,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c15",
+      "sar_water_occ_pct": 15.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c16",
+      "sar_water_occ_pct": 26.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c41",
+      "sar_water_occ_pct": 19.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c42",
+      "sar_water_occ_pct": 22.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c43",
+      "sar_water_occ_pct": 19.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c45",
+      "sar_water_occ_pct": 16.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c46",
+      "sar_water_occ_pct": 19.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c47",
+      "sar_water_occ_pct": 41.0,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c48",
+      "sar_water_occ_pct": 20.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c49",
+      "sar_water_occ_pct": 37.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c50",
+      "sar_water_occ_pct": 21.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r18_c52",
+      "sar_water_occ_pct": 21.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c24",
+      "sar_water_occ_pct": 16.0,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c32",
+      "sar_water_occ_pct": 15.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c33",
+      "sar_water_occ_pct": 27.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c42",
+      "sar_water_occ_pct": 33.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c44",
+      "sar_water_occ_pct": 19.75,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c45",
+      "sar_water_occ_pct": 15.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c46",
+      "sar_water_occ_pct": 17.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c47",
+      "sar_water_occ_pct": 18.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c48",
+      "sar_water_occ_pct": 27.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c49",
+      "sar_water_occ_pct": 15.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r19_c50",
+      "sar_water_occ_pct": 15.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c33",
+      "sar_water_occ_pct": 22.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c34",
+      "sar_water_occ_pct": 19.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c40",
+      "sar_water_occ_pct": 15.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c42",
+      "sar_water_occ_pct": 22.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c45",
+      "sar_water_occ_pct": 20.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c46",
+      "sar_water_occ_pct": 27.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c48",
+      "sar_water_occ_pct": 24.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c51",
+      "sar_water_occ_pct": 17.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c52",
+      "sar_water_occ_pct": 20.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c53",
+      "sar_water_occ_pct": 22.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r20_c55",
+      "sar_water_occ_pct": 23.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c12",
+      "sar_water_occ_pct": 19.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c15",
+      "sar_water_occ_pct": 16.0,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c41",
+      "sar_water_occ_pct": 16.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c43",
+      "sar_water_occ_pct": 15.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c46",
+      "sar_water_occ_pct": 32.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c47",
+      "sar_water_occ_pct": 27.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c48",
+      "sar_water_occ_pct": 17.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c50",
+      "sar_water_occ_pct": 20.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c51",
+      "sar_water_occ_pct": 18.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c52",
+      "sar_water_occ_pct": 15.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r21_c53",
+      "sar_water_occ_pct": 16.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c9",
+      "sar_water_occ_pct": 24.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c12",
+      "sar_water_occ_pct": 17.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c43",
+      "sar_water_occ_pct": 18.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c46",
+      "sar_water_occ_pct": 17.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c47",
+      "sar_water_occ_pct": 21.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c48",
+      "sar_water_occ_pct": 26.0,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c49",
+      "sar_water_occ_pct": 21.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r22_c50",
+      "sar_water_occ_pct": 16.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r23_c5",
+      "sar_water_occ_pct": 22.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r23_c6",
+      "sar_water_occ_pct": 23.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r23_c11",
+      "sar_water_occ_pct": 16.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r23_c12",
+      "sar_water_occ_pct": 15.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r23_c45",
+      "sar_water_occ_pct": 27.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r23_c51",
+      "sar_water_occ_pct": 18.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r24_c8",
+      "sar_water_occ_pct": 22.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r24_c9",
+      "sar_water_occ_pct": 15.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r24_c10",
+      "sar_water_occ_pct": 23.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r24_c11",
+      "sar_water_occ_pct": 26.0,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r24_c17",
+      "sar_water_occ_pct": 15.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r24_c48",
+      "sar_water_occ_pct": 19.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r24_c50",
+      "sar_water_occ_pct": 16.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r25_c11",
+      "sar_water_occ_pct": 35.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r25_c12",
+      "sar_water_occ_pct": 23.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r25_c13",
+      "sar_water_occ_pct": 19.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r25_c16",
+      "sar_water_occ_pct": 16.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r25_c42",
+      "sar_water_occ_pct": 15.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r25_c49",
+      "sar_water_occ_pct": 28.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r25_c50",
+      "sar_water_occ_pct": 18.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r26_c8",
+      "sar_water_occ_pct": 15.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r26_c11",
+      "sar_water_occ_pct": 21.8,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r26_c12",
+      "sar_water_occ_pct": 16.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r26_c15",
+      "sar_water_occ_pct": 15.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r26_c43",
+      "sar_water_occ_pct": 20.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r27_c4",
+      "sar_water_occ_pct": 15.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r27_c8",
+      "sar_water_occ_pct": 19.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r27_c12",
+      "sar_water_occ_pct": 16.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r27_c42",
+      "sar_water_occ_pct": 17.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r27_c43",
+      "sar_water_occ_pct": 34.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r27_c44",
+      "sar_water_occ_pct": 18.0,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r27_c46",
+      "sar_water_occ_pct": 16.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r28_c11",
+      "sar_water_occ_pct": 19.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r28_c12",
+      "sar_water_occ_pct": 21.1,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r28_c14",
+      "sar_water_occ_pct": 17.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r28_c44",
+      "sar_water_occ_pct": 17.33,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r29_c12",
+      "sar_water_occ_pct": 24.6,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r29_c13",
+      "sar_water_occ_pct": 26.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r29_c14",
+      "sar_water_occ_pct": 17.9,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r29_c35",
+      "sar_water_occ_pct": 15.4,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r30_c5",
+      "sar_water_occ_pct": 16.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r30_c6",
+      "sar_water_occ_pct": 24.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r30_c11",
+      "sar_water_occ_pct": 17.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r30_c12",
+      "sar_water_occ_pct": 17.7,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r30_c35",
+      "sar_water_occ_pct": 20.5,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r30_c36",
+      "sar_water_occ_pct": 17.3,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    },
+    {
+      "zone_id": "grid_r31_c5",
+      "sar_water_occ_pct": 26.2,
+      "s2_clearday_water_pct": 0.0,
+      "valid_frac_pct": 100.0,
+      "agreement": "major_disagreement"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "event_id": "AKWADUM-DENSU-FLOOD-2022-10-02",
+      "name": "New Juaben North (Akwadum) Densu River flood",
+      "bbox": [
+        -0.38,
+        6.12,
+        -0.34,
+        6.16
+      ],
+      "scene_dates": {
+        "baseline": "2022-09-27",
+        "peak": "2022-10-09",
+        "recession": "2022-10-21"
+      },
+      "baseline_open_water_km2": 1.61,
+      "new_flood_at_peak_km2": 0.0,
+      "receded_by_recession_km2": 0.0,
+      "still_flooded_at_recession_km2": 0.0,
+      "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line."
+    }
+  ]
+}
