@@ -1,0 +1,26 @@
+{
+  "event_id": "WEIJA-DAM-FLOOD-2017-03",
+  "sensor": "Sentinel-2 L2A, MNDWI = (B03-B11)/(B03+B11), water > 0.00",
+  "bbox": [
+    -0.325,
+    5.518,
+    -0.283,
+    5.56
+  ],
+  "resolution_deg": 0.00045,
+  "scene_dates": {
+    "baseline": "2017-01-27",
+    "peak": "2017-04-27",
+    "recession": "2017-07-11"
+  },
+  "aoi_cloud_masked_pct": {
+    "baseline": 2.0,
+    "peak": 4.2,
+    "recession": 10.8
+  },
+  "baseline_open_water_km2": 2.52,
+  "new_flood_at_peak_km2": 2.17,
+  "receded_by_recession_km2": 1.71,
+  "still_flooded_at_recession_km2": 0.27,
+  "note": "new_flood is a LOWER BOUND: 4% of the AOI was cloud-masked in the peak scene, so flooding under those clouds is not counted. Optical complements the SAR result in dam_spillage_sar/ (radar had no cloud issue but noisier margins); where both are clear they should broadly agree."
+}

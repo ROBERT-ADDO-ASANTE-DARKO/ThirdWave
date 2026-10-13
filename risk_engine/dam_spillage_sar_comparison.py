@@ -112,6 +112,30 @@ EVENTS = [
             "unreliable, not a confirmed smaller re-measurement. Net: this is a satellite-revisit coverage gap, "
             "not a sign the flood didn't happen or was smaller than May's.",
     },
+    {
+        "event_id": "WEIJA-DAM-FLOOD-2020-10-11",
+        "name": "Weija Dam spillage (Tetegu / Weija Gbawe, Oct 2020)",
+        "bbox": (-0.325, 5.518, -0.283, 5.560),  # same downstream floodplain as the later Weija events
+        "baseline": "2020-10-07",   # 4 days before spillage began (Sun Oct 11 2020, GWCL-confirmed)
+        "peak": "2020-10-13",       # 2 days after -- tightest bracket of any Weija event studied so far
+        "recession": "2020-10-31",  # ~20 days later, same ascending orbit
+    },
+    {
+        "event_id": "WEIJA-DAM-FLOOD-2017-03",
+        "name": "Weija Dam spillage (Tetegu / Oblogo, March 2017)",
+        "bbox": (-0.325, 5.518, -0.283, 5.560),  # same downstream floodplain as the other Weija events
+        "baseline": "2017-02-01",   # before the spill started (month-only date: Wikipedia says "March 2017")
+        "peak": "2017-05-08",       # well within the sustained flood -- a June 27 2017 Daily Graphic report
+                                     # says residents were "still living in floodwater" 3 months after the spill
+                                     # began, i.e. this was NOT a short flashy event, so any clear mid-window
+                                     # scene should show it, unlike events anchored to one exact peak day
+        "recession": "2017-07-07",  # latest available scene in this run -- exact spill END date is undocumented,
+                                     # so this is "later", not a confirmed post-recession state
+        "known_limitation": "No exact day is documented for this event (only \"March 2017\"), and no end date "
+            "is documented either -- Daily Graphic (Jun 27 2017) confirms flooding was STILL ongoing 3 months "
+            "in. 'peak' and 'recession' here are therefore both just points within an undocumented-length "
+            "sustained flood, not a true peak-to-recession bracket like the day-dated Weija events.",
+    },
 ]
 
 

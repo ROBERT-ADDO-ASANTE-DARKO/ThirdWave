@@ -62,12 +62,14 @@ log = logging.getLogger(__name__)
 HERE = Path(__file__).parent
 OUT_DIR = HERE / "data" / "dam_spillage_s2"
 
-BBOX = (0.35, 6.00, 0.50, 6.15)      # Mepe / lower Volta reach -- same as the SAR script
 RES_DEG = 0.00045                    # ~50 m; finer than the SAR grid, to use S2's resolution
 MNDWI_THR = 0.0                      # standard MNDWI open-water cutoff
 MIN_BLOB_PX = 12                     # optical is cleaner than SAR; small blob filter still helps
 SCL_BAD = {0, 1, 3, 8, 9, 10}        # no-data, saturated, cloud shadow, cloud (med/high), thin cirrus
 
+# Kept as module-level defaults so the Akosombo call below (and any external
+# importer written before this was generalized) keeps working unchanged.
+BBOX = (0.35, 6.00, 0.50, 6.15)      # Mepe / lower Volta reach -- same as the SAR script
 SCENES = {
     "baseline": "2022-12-29",   # dry-season reference -- no usable rainy-season pre-flood scene (see docstring)
     "peak": "2023-10-15",
@@ -84,47 +86,68 @@ def _pixel_area_km2(bbox, shape_rc) -> float:
     return (dlon_m * dlat_m) / 1e6
 
 
-def _load_scene(catalog, date: str):
-    """MNDWI + validity mask for the least-cloudy S2 L2A scene within +/-3
-    days of `date`, on a common EPSG:4326 grid."""
+def _load_scene(catalog, bbox, date: str, search_days: int = 3):
+    """MNDWI + validity mask for the clearest S2 L2A scene within
+    +/-search_days of `date`, on a common EPSG:4326 grid. Picks by ACTUAL
+    cloud/invalid fraction over this specific (small) AOI, not the scene's
+    tile-wide eo:cloud_cover -- those can disagree a lot for a small bbox
+    (confirmed on WEIJA-DAM-FLOOD-2020-10-11: the lowest-tile-cloud
+    candidate was 100% cloud right over this AOI while a higher-tile-cloud
+    candidate the same day was clear here)."""
     from datetime import datetime, timedelta
     d = datetime.strptime(date, "%Y-%m-%d")
-    lo = (d - timedelta(days=3)).strftime("%Y-%m-%d")
-    hi = (d + timedelta(days=3)).strftime("%Y-%m-%d")
+    lo = (d - timedelta(days=search_days)).strftime("%Y-%m-%d")
+    hi = (d + timedelta(days=search_days)).strftime("%Y-%m-%d")
     items = list(catalog.search(
-        collections=["sentinel-2-l2a"], bbox=list(BBOX), datetime=f"{lo}/{hi}",
+        collections=["sentinel-2-l2a"], bbox=list(bbox), datetime=f"{lo}/{hi}",
     ).item_collection())
     if not items:
         raise RuntimeError(f"no Sentinel-2 scene near {date}")
     items.sort(key=lambda it: it.properties.get("eo:cloud_cover", 100))
-    item = items[0]
 
-    minlon, minlat, maxlon, maxlat = BBOX
-    ds = odc.stac.load(
-        [item], bands=["B03", "B11", "SCL"], crs="EPSG:4326", resolution=RES_DEG,
-        x=(minlon, maxlon), y=(minlat, maxlat), chunks={},
-        resampling={"B03": "bilinear", "B11": "bilinear", "SCL": "nearest"},
-    ).isel(time=0)
+    minlon, minlat, maxlon, maxlat = bbox
+    best = None
+    for item in items[:8]:
+        ds = odc.stac.load(
+            [item], bands=["B03", "B11", "SCL"], crs="EPSG:4326", resolution=RES_DEG,
+            x=(minlon, maxlon), y=(minlat, maxlat), chunks={},
+            resampling={"B03": "bilinear", "B11": "bilinear", "SCL": "nearest"},
+        ).isel(time=0)
 
-    green = ds["B03"].values.astype(np.float64)
-    swir = ds["B11"].values.astype(np.float64)
-    scl = ds["SCL"].values
+        green = ds["B03"].values.astype(np.float64)
+        swir = ds["B11"].values.astype(np.float64)
+        scl = ds["SCL"].values
 
-    # L2A processing baseline >= 04.00 stores reflectance as DN with a
-    # -1000 offset; ratios don't cancel an additive offset, so undo it.
-    if np.nanmax(green) > 100:
-        green = (green - 1000.0) / 10000.0
-        swir = (swir - 1000.0) / 10000.0
+        # L2A processing baseline >= 04.00 stores reflectance as DN with a
+        # -1000 offset; ratios don't cancel an additive offset, so undo it.
+        if np.nanmax(green) > 100:
+            green = (green - 1000.0) / 10000.0
+            swir = (swir - 1000.0) / 10000.0
 
-    denom = green + swir
-    mndwi = np.where(np.abs(denom) > 1e-6, (green - swir) / denom, np.nan)
+        denom = green + swir
+        mndwi = np.where(np.abs(denom) > 1e-6, (green - swir) / denom, np.nan)
 
-    bad = np.isin(scl, list(SCL_BAD)) | ~np.isfinite(mndwi)
-    mndwi[bad] = np.nan
-    cloud_frac = float(bad.mean())
-    log.info("  %s -> scene %s, AOI cloud/invalid %.0f%%",
-             date, item.properties["datetime"][:10], cloud_frac * 100)
-    return mndwi, item.properties["datetime"][:10], cloud_frac
+        # MNDWI is mathematically bounded to [-1, 1]; anything outside that
+        # is a numerical artifact, not real data -- confirmed over the
+        # Densu estuary/open-ocean strip near Weija, where SWIR reflectance
+        # sits near zero and atmospheric correction (tuned for land, not
+        # seawater) goes unstable, producing e.g. MNDWI=2.28 on one scene.
+        # Left unfiltered, that got misread as "no water in the baseline,
+        # water at peak" over the ocean itself -- a false "new flood" the
+        # width of the whole coastline. Treat out-of-range values as
+        # invalid, same as a cloud pixel.
+        out_of_range = np.abs(mndwi) > 1.0
+        bad = np.isin(scl, list(SCL_BAD)) | ~np.isfinite(mndwi) | out_of_range
+        mndwi[bad] = np.nan
+        cloud_frac = float(bad.mean())
+        scene_date = item.properties["datetime"][:10]
+        log.info("  %s candidate %s: AOI cloud/invalid %.0f%% (tile-wide %.0f%%)",
+                 date, scene_date, cloud_frac * 100, item.properties.get("eo:cloud_cover", -1))
+        if best is None or cloud_frac < best[2]:
+            best = (mndwi, scene_date, cloud_frac)
+        if cloud_frac < 0.05:
+            break
+    return best
 
 
 def _water(mndwi: np.ndarray) -> np.ndarray:
@@ -140,19 +163,13 @@ def _despeckle(mask: np.ndarray) -> np.ndarray:
     return np.isin(labels, keep) if keep else np.zeros_like(mask)
 
 
-def run():
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    catalog = pystac_client.Client.open(
-        "https://planetarycomputer.microsoft.com/api/stac/v1",
-        modifier=planetary_computer.sign_inplace,
-    )
-
+def run_event(catalog, *, bbox, scenes, event_id, title, out_name, baseline_is_dry_season_ref=True, search_days=3):
     mndwi, dates, cloud = {}, {}, {}
-    for phase, date in SCENES.items():
-        mndwi[phase], dates[phase], cloud[phase] = _load_scene(catalog, date)
+    for phase, date in scenes.items():
+        mndwi[phase], dates[phase], cloud[phase] = _load_scene(catalog, bbox, date, search_days=search_days)
 
     shape_rc = mndwi["baseline"].shape
-    px_km2 = _pixel_area_km2(BBOX, shape_rc)
+    px_km2 = _pixel_area_km2(bbox, shape_rc)
 
     w = {p: _water(mndwi[p]) for p in SCENES}
     both_bp = np.isfinite(mndwi["baseline"]) & np.isfinite(mndwi["peak"])
@@ -162,12 +179,13 @@ def run():
     receded = new_flood & both_pr & ~w["recession"]
     still_flooded = new_flood & both_pr & w["recession"]
 
+    baseline_label = "dry-season reference water" if baseline_is_dry_season_ref else "pre-event baseline water"
     summary = {
-        "event_id": "AKOSOMBO-DAM-SPILLAGE-2023-09-15",
+        "event_id": event_id,
         "sensor": "Sentinel-2 L2A, MNDWI = (B03-B11)/(B03+B11), water > %.2f" % MNDWI_THR,
-        "bbox": list(BBOX), "resolution_deg": RES_DEG,
+        "bbox": list(bbox), "resolution_deg": RES_DEG,
         "scene_dates": dates,
-        "aoi_cloud_masked_pct": {p: round(cloud[p] * 100, 1) for p in SCENES},
+        "aoi_cloud_masked_pct": {p: round(cloud[p] * 100, 1) for p in scenes},
         "baseline_open_water_km2": round(float(w["baseline"].sum()) * px_km2, 2),
         "new_flood_at_peak_km2": round(float(new_flood.sum()) * px_km2, 2),
         "receded_by_recession_km2": round(float(receded.sum()) * px_km2, 2),
@@ -186,7 +204,7 @@ def run():
     fig.colorbar(im, ax=axes[0].tolist(), fraction=0.02, label="MNDWI (blue-green = water)")
 
     axes[1][0].imshow(w["baseline"], cmap="Blues", interpolation="nearest")
-    axes[1][0].set_title(f"dry-season reference water ({dates['baseline']})\n{w['baseline'].sum() * px_km2:.1f} km2")
+    axes[1][0].set_title(f"{baseline_label} ({dates['baseline']})\n{w['baseline'].sum() * px_km2:.1f} km2")
     axes[1][1].imshow(new_flood, cmap="Reds", interpolation="nearest")
     axes[1][1].set_title(f"NEW flood at peak (MNDWI)\n{new_flood.sum() * px_km2:.1f} km2  (lower bound)")
     from matplotlib.colors import ListedColormap
@@ -199,19 +217,53 @@ def run():
                           f"red = still flooded ({still_flooded.sum() * px_km2:.1f} km2)")
     for ax in axes[1]:
         ax.set_xticks([]); ax.set_yticks([])
-    fig.suptitle("Akosombo/Kpong Dam spillage (Lower Volta)  --  Sentinel-2 MNDWI, before / during / after",
-                 fontsize=13)
+    fig.suptitle(f"{title}  --  Sentinel-2 MNDWI, before / during / after", fontsize=13)
     fig.tight_layout()
-    out_png = OUT_DIR / "AKOSOMBO-DAM-SPILLAGE-2023-09-15_S2_MNDWI.png"
+    out_png = OUT_DIR / f"{out_name}_S2_MNDWI.png"
     fig.savefig(out_png, dpi=110)
     plt.close(fig)
-    (OUT_DIR / "summary.json").write_text(json.dumps(summary, indent=2))
+    summary_path = OUT_DIR / f"{out_name}_summary.json"
+    summary_path.write_text(json.dumps(summary, indent=2))
     log.info("saved -> %s", out_png)
-    log.info("saved -> %s", OUT_DIR / "summary.json")
-    log.info("Akosombo S2: +%.1f km2 new flood at peak (%.0f%% AOI cloud-masked -> lower bound), "
+    log.info("saved -> %s", summary_path)
+    log.info("%s S2: +%.1f km2 new flood at peak (%.0f%% AOI cloud-masked -> lower bound), "
              "%.1f km2 still flooded by %s",
-             summary["new_flood_at_peak_km2"], cloud["peak"] * 100,
+             event_id, summary["new_flood_at_peak_km2"], cloud["peak"] * 100,
              summary["still_flooded_at_recession_km2"], dates["recession"])
+    return summary
+
+
+def run():
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    catalog = pystac_client.Client.open(
+        "https://planetarycomputer.microsoft.com/api/stac/v1",
+        modifier=planetary_computer.sign_inplace,
+    )
+    run_event(
+        catalog, bbox=BBOX, scenes=SCENES, event_id="AKOSOMBO-DAM-SPILLAGE-2023-09-15",
+        title="Akosombo/Kpong Dam spillage (Lower Volta)", out_name="AKOSOMBO-DAM-SPILLAGE-2023-09-15",
+    )
+    run_event(
+        catalog,
+        bbox=(-0.325, 5.518, -0.283, 5.560),  # same downstream floodplain as the SAR script's Weija events
+        scenes={"baseline": "2020-01-12", "peak": "2020-10-13", "recession": "2020-11-04"},
+        event_id="WEIJA-DAM-FLOOD-2020-10-11",
+        title="Weija Dam spillage (Tetegu / Weija Gbawe, Oct 2020)",
+        out_name="WEIJA-DAM-FLOOD-2020-10-11",
+    )
+    run_event(
+        catalog,
+        bbox=(-0.325, 5.518, -0.283, 5.560),
+        # Sustained, undocumented-length event (see dam_spillage_sar_comparison.py's known_limitation note) --
+        # candidates are sparser/cloudier here than the day-dated events, so search_days is widened to still
+        # land on the real usable scenes (2017-01-27, ~2017-05-01-14, 2017-07-11).
+        scenes={"baseline": "2017-01-27", "peak": "2017-05-01", "recession": "2017-07-11"},
+        event_id="WEIJA-DAM-FLOOD-2017-03",
+        title="Weija Dam spillage (Tetegu / Oblogo, March 2017)",
+        out_name="WEIJA-DAM-FLOOD-2017-03",
+        baseline_is_dry_season_ref=False,
+        search_days=14,
+    )
 
 
 if __name__ == "__main__":
