@@ -173,6 +173,40 @@
       "source": "https://www.citinewsroom.com/2026/05/flooding-in-weija-due-to-illegal-structures-not-dam-spillage-gwl/",
       "district": "Weija Gbawe Municipal",
       "note": "Third documented Weija dam-release flood in this file (see WEIJA-DAM-FLOOD-2022-10-04, WEIJA-FLOOD-2025-05) -- a genuinely recurring hazard, not a one-off. This is the only event in this file where an official source explicitly names encroachment/illegal structures as a contributing cause rather than just 'heavy rain'."
+    },
+    {
+      "event_id": "KPETOE-TORDZE-FLOOD-2026-06-29",
+      "date": "2026-06-29",
+      "name": "Kpetoe (Tordze River) flood",
+      "location_name": "Kpetoe, Agotime Ziope District, Volta Region (worst-hit: Agorve, Aborme, Asito, Afetor Yesu Kope, Kpekuita)",
+      "lon": 0.69721,
+      "lat": 6.547199,
+      "geocode_source": "OpenStreetMap Nominatim (Kpetoe town)",
+      "geocode_confidence": "high for Kpetoe; sub-areas (Agorve, Aborme, Asito etc.) not individually geocoded",
+      "hazard_type": "river_flood",
+      "deaths": 0,
+      "displaced": "~500",
+      "cause": "Heavy rain Monday 2026-06-29 swelled the Tordze River, submerging the Kpetoe bridge on the Ho-Denu highway and halting traffic; houses flooded, farms and livestock damaged.",
+      "source": "https://www.myjoyonline.com/volta-region-kpetoe-bridge-submerged/",
+      "district": "Agotime Ziope District",
+      "note": "Found while trying to confirm a user-recalled place name ('Avagoeme') that could not be independently verified -- Agorve (one of Kpetoe's worst-hit areas) is a plausible near-match, not confirmed. Recorded on its own merits regardless."
+    },
+    {
+      "event_id": "VOLTA-REGION-FLOODS-2026-07-11",
+      "date": "2026-07-11",
+      "name": "July 2026 Volta Region floods (54,000 displaced)",
+      "location_name": "66 communities across Anloga, South Tongu, Central Tongu, North Tongu, Akatsi North, Akatsi South, Adaklu, Agotime Ziope, Ketu North, Ketu South, Keta Municipality (only Azizadzi, Keta Municipality, individually named -- floodgates opened there to drain into the sea)",
+      "lon": 0.991073,
+      "lat": 5.921569,
+      "geocode_source": "OpenStreetMap Nominatim (Keta town, used as a regional anchor -- Azizadzi itself could not be geocoded)",
+      "geocode_confidence": "low -- regional event spanning 11-12 districts, anchored to Keta town only, not a measured centroid of the affected area",
+      "hazard_type": "river_flood",
+      "deaths": null,
+      "displaced": "54,000 across 66 communities (NADMO relief items presented Saturday 2026-07-11)",
+      "cause": "Not stated in source reporting beyond \"the recent floods\" and expectation of more rain; authorities redesigning/desilting drains in response. Scale (54,000 displaced, 11-12 districts) makes this one of the largest single flood events in this project's records -- larger in displacement than the 2023 Akosombo spillage's initial toll, though the cause/mechanism here is NOT confirmed to be dam-related (classified as river_flood/heavy rain pending better sourcing).",
+      "source": "https://www.graphic.com.gh/news/general-news/54-000-displaced-66-communities-affected-by-volta-region-floods.html",
+      "district": null,
+      "note": "Discovered incidentally while trying to verify a user-recalled place name ('Avagoeme'), which does not appear in this article or any source found. Only Azizadzi is individually named among 66 affected communities -- the other 65 are undocumented in available free sources, a real gap in this record, not an oversight."
     }
   ]
 }

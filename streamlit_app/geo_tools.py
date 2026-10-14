@@ -23,6 +23,18 @@ from data_loader import (
     load_historical_events, load_demo_seed_incidents, load_lower_volta_risk_grid_gdf,
 )
 
+# Known channel-encroachment index files across this project's several
+# parallel branches (see .claude/plans/temporal-waddling-trinket.md) --
+# not every file exists on every checkout (e.g. the East Legon one lives
+# only on the ayawaso-west-encroachment branch), so this is read
+# defensively: a missing file is skipped, not an error, same discipline
+# every other optional-data read in this project follows.
+_ENCROACHMENT_INDEX_FILES = {
+    "channel_encroachment_index.json": "pilot district",
+    "lower_volta_channel_encroachment_index.json": "Lower Volta basin",
+    "ayawaso_west_channel_encroachment_index.json": "Ayawaso West (East Legon)",
+}
+
 
 HISTORICAL_EVENT_RADIUS_KM = 2.0
 
@@ -252,6 +264,82 @@ def get_active_incidents() -> dict:
     ]}
 
 
+def get_channel_encroachment_for_district(district: str) -> dict:
+    """Channel-encroachment index results (OSM building-to-waterway
+    distance) for one district/assembly, searched across every
+    encroachment-index file this project has produced (pilot, Lower
+    Volta, Ayawaso West -- whichever exist on this checkout). Returns the
+    worst (closest) cells found, not every cell, since a briefing needs
+    the headline finding, not a full dump."""
+    import geopandas as gpd
+
+    grid_files = {
+        "channel_encroachment_index.json": "pilot_risk_grid.geojson",
+        "lower_volta_channel_encroachment_index.json": "lower_volta_risk_grid.geojson",
+        "ayawaso_west_channel_encroachment_index.json": "ayawaso_west_risk_grid.geojson",
+    }
+    worst: list[dict] = []
+    searched_sources = []
+    for index_name, grid_name in grid_files.items():
+        index_path = Path(DATA_DIR) / index_name
+        grid_path = Path(DATA_DIR) / grid_name
+        if not index_path.exists() or not grid_path.exists():
+            continue
+        searched_sources.append(_ENCROACHMENT_INDEX_FILES.get(index_name, index_name))
+        index = json.loads(index_path.read_text())
+        grid = gpd.read_file(grid_path)
+        if "assembly" not in grid.columns:
+            continue
+        district_zone_ids = set(grid.loc[grid["assembly"] == district, "zone_id"])
+        if not district_zone_ids:
+            continue
+        for zone_id in district_zone_ids:
+            rec = index.get(zone_id)
+            if rec and rec.get("status") == "ok":
+                worst.append({
+                    "zone_id": zone_id, "min_building_to_waterway_m": rec["min_building_to_waterway_m"],
+                    "encroachment_level": rec["encroachment_level"], "n_buildings": rec["n_buildings"],
+                })
+    worst.sort(key=lambda r: r["min_building_to_waterway_m"])
+    return {
+        "district": district, "sources_searched": searched_sources,
+        "n_cells_with_findings": len(worst), "worst_cells": worst[:10],
+        "note": "min_building_to_waterway_m is from OpenStreetMap geometry, not a field survey -- "
+                "say so if citing it.",
+    }
+
+
+# Evidence images this project has actually produced and verified this
+# session (true/false-color satellite crops, each manually checked against
+# the real OSM waterway/building overlay before being trusted -- see
+# project chat history). A small explicit map, not filename-guessing: the
+# naming across risk_engine/data/*.png isn't consistent enough to pattern-
+# match reliably, and a wrong image attached to the wrong district would
+# be worse than a missing one.
+_DISTRICT_EVIDENCE_IMAGES = {
+    "Weija Gbawe Municipal": ["weija_tetegu_truecolor.png", "weija_tetegu_falsecolor.png"],
+    "Ayawaso West Municipal": ["ayawaso_west_encroachment_truecolor.png", "ayawaso_west_encroachment_falsecolor.png"],
+    "South Tongu": ["sogakope_s2_imagery.png"],
+    "Lower Manya": ["akuse_s2_imagery.png"],
+    "North Tongu": ["juapong_s2_imagery.png"],
+    "Asuogyaman": ["juapong_s2_imagery.png"],
+    "Ada East": ["adafoah_s2_imagery.png"],
+}
+
+
+def get_satellite_evidence_paths_for_district(district: str) -> dict:
+    """Which verified satellite-evidence images (if any) exist for this
+    district, and whether they're actually present on this checkout right
+    now (several live on different git branches -- see
+    .claude/plans/temporal-waddling-trinket.md). Paths are relative to
+    risk_engine/data/."""
+    names = _DISTRICT_EVIDENCE_IMAGES.get(district, [])
+    out = []
+    for name in names:
+        out.append({"filename": name, "present_on_this_checkout": (Path(DATA_DIR) / name).exists()})
+    return {"district": district, "images": out}
+
+
 TOOLS = [
     {
         "name": "find_zone_by_address",
@@ -295,6 +383,20 @@ TOOLS = [
         "description": "Get currently active/historical flood incidents tracked by the system.",
         "input_schema": {"type": "object", "properties": {}, "required": []},
     },
+    {
+        "name": "get_channel_encroachment_for_district",
+        "description": "Get channel-encroachment index findings (how close buildings sit to mapped waterways) for one specific district/assembly, searched across every encroachment-index file this project has produced.",
+        "input_schema": {"type": "object", "properties": {
+            "district": {"type": "string", "description": "Exact assembly/district name, e.g. 'Weija Gbawe Municipal' or 'South Tongu'"}},
+            "required": ["district"]},
+    },
+    {
+        "name": "get_satellite_evidence_paths_for_district",
+        "description": "Check which verified satellite-imagery evidence files (if any) exist for a district, confirming they are present before citing them.",
+        "input_schema": {"type": "object", "properties": {
+            "district": {"type": "string", "description": "Exact assembly/district name"}},
+            "required": ["district"]},
+    },
 ]
 
 TOOL_FUNCTIONS = {
@@ -305,4 +407,69 @@ TOOL_FUNCTIONS = {
     "get_population_exposure_summary": get_population_exposure_summary,
     "get_historical_flood_events": get_historical_flood_events,
     "get_active_incidents": get_active_incidents,
+    "get_channel_encroachment_for_district": get_channel_encroachment_for_district,
+    "get_satellite_evidence_paths_for_district": get_satellite_evidence_paths_for_district,
 }
+
+
+BRIEFING_SECTION_KEYS = ["purpose", "context", "finding", "implications", "sources"]
+
+BRIEFING_SYSTEM_PROMPT = """You are drafting a short flood-risk briefing document for a Ghanaian district \
+assembly, grounded ONLY in data you look up via the tools available to you -- the same tools the ThirdWave AI \
+Assistant uses. Never invent a figure, date, or finding; if a tool returns nothing useful for this district, \
+say so in the relevant section rather than filling the gap with a plausible-sounding guess.
+
+Call get_historical_flood_events, get_channel_encroachment_for_district, and \
+get_satellite_evidence_paths_for_district for the requested district before writing anything. Use \
+get_assembly_comparison too if it helps explain how this district's generic risk score compares to others.
+
+Write five sections, each 2-4 short sentences, plain language for a non-technical official reader (this mirrors \
+real briefings already written by hand for Weija Gbawe, East Legon/Ayawaso West, and South Tongu -- match that \
+tone: lead with the point, cite real numbers/dates, no padding):
+- purpose: what this briefing is and why it exists for this district, in one or two sentences.
+- context: relevant history -- documented flood events, recurrence pattern, any official findings (e.g. a task \
+force report) already on record for this area.
+- finding: the channel-encroachment result (or its absence) and what it means, mentioning whether verified \
+satellite imagery exists for this finding (say so explicitly either way -- never claim imagery support that \
+get_satellite_evidence_paths_for_district didn't confirm present).
+- implications: 2-4 concrete, numbered recommendations for the assembly, grounded in what was actually found.
+- sources: list the real source URLs returned by the tools (historical events' `source` fields), one per line.
+
+When you are done calling tools, respond with ONLY a JSON object (no prose outside it, no markdown code fence) \
+with exactly these keys: purpose, context, finding, implications, sources. Each value is a markdown-formatted \
+string body for that section (no "## Heading" line -- the document template adds headings itself)."""
+
+
+def draft_briefing(district: str, trigger_reason: str = "manual", source_finding: str | None = None) -> dict:
+    """Runs a dedicated tool-calling turn (same engine as the AI Assistant
+    chat, see claude_client.run_tool_loop) to draft the 5 briefing
+    sections for one district. Returns {"sections": {...}, "tool_log": [...]}
+    on success, or {"error": ...} if the model's final answer wasn't valid
+    JSON with the expected keys -- this is a DRAFT for a human to review
+    and edit, never auto-published (see govt_briefing_review.py and
+    backend/routers/briefings.py's module docstrings for the same
+    human-in-the-loop discipline vlm_client.py already established)."""
+    from claude_client import get_client, run_tool_loop
+
+    client = get_client()
+    user_msg = f"Draft a briefing for {district}."
+    if source_finding:
+        user_msg += f" This was triggered by: {source_finding} (reason: {trigger_reason})."
+    messages = [{"role": "user", "content": user_msg}]
+    final_text, tool_log = run_tool_loop(
+        client, system=BRIEFING_SYSTEM_PROMPT, tools=TOOLS, tool_functions=TOOL_FUNCTIONS,
+        messages=messages, max_rounds=6, max_tokens=2048,
+    )
+    try:
+        text = final_text.strip()
+        if text.startswith("```"):
+            text = text.split("```")[1]
+            if text.startswith("json"):
+                text = text[4:]
+        sections = json.loads(text)
+        missing = [k for k in BRIEFING_SECTION_KEYS if k not in sections]
+        if missing:
+            return {"error": f"Model's draft was missing section(s): {missing}", "raw": final_text, "tool_log": tool_log}
+        return {"sections": {k: sections[k] for k in BRIEFING_SECTION_KEYS}, "tool_log": tool_log}
+    except json.JSONDecodeError as exc:
+        return {"error": f"Model's final answer wasn't valid JSON: {exc}", "raw": final_text, "tool_log": tool_log}

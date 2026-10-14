@@ -49,6 +49,7 @@ FEATURES = {
         "Pluvial Flood Simulator": "govt_inundation_simulator",
         "3D Flood View": "govt_3d_flood_view",
         "Incident Verification": "govt_verification_sandbox",
+        "District Briefing Review": "govt_briefing_review",
         "AI Assistant": "ai_assistant",
     },
     "Citizen": {

@@ -19,7 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from db import init_db
-from routers import devices, incidents, reports
+from routers import briefings, devices, incidents, reports
 
 
 @asynccontextmanager
@@ -44,6 +44,7 @@ app.mount("/uploads", StaticFiles(directory=UPLOADS_DIR), name="uploads")
 app.include_router(reports.router)
 app.include_router(incidents.router)
 app.include_router(devices.router)
+app.include_router(briefings.router)
 
 
 @app.get("/health")

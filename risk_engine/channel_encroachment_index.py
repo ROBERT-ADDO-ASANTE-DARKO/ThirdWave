@@ -34,6 +34,8 @@ import requests
 from shapely.geometry import shape, LineString, Polygon
 from shapely.ops import unary_union
 
+from briefing_queue import flag_district
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s", datefmt="%H:%M:%S")
 log = logging.getLogger(__name__)
 
@@ -133,6 +135,7 @@ def run(grid_path: Path, output: Path = OUTPUT):
     waterway_union_all = unary_union(all_waterways) if all_waterways else None
 
     results = {}
+    assembly_by_zone = {f["properties"]["zone_id"]: f["properties"].get("assembly") for f in grid["features"]}
     for i, f in enumerate(grid["features"]):
         zone_id = f["properties"]["zone_id"]
         cell_geom = shape(f["geometry"])
@@ -189,6 +192,23 @@ def run(grid_path: Path, output: Path = OUTPUT):
 
     output.write_text(json.dumps(results, indent=2))
     log.info("Saved -> %s", output)
+
+    very_high_districts = {
+        assembly_by_zone.get(zid) for zid, r in results.items()
+        if r["status"] == "ok" and r["encroachment_level"] == "Very High" and assembly_by_zone.get(zid)
+    }
+    for district in very_high_districts:
+        worst = min(
+            (r for zid, r in results.items() if r["status"] == "ok" and assembly_by_zone.get(zid) == district),
+            key=lambda r: r["min_building_to_waterway_m"],
+        )
+        flag_district(
+            district, reason="new_encroachment_finding",
+            source_finding=f"Channel encroachment index: nearest building {worst['min_building_to_waterway_m']}m "
+                            f"from a mapped waterway ({worst['n_buildings_within_20m']} buildings within 20m).",
+        )
+    if very_high_districts:
+        log.info("Flagged %d district(s) for a briefing: %s", len(very_high_districts), ", ".join(sorted(very_high_districts)))
 
 
 if __name__ == "__main__":

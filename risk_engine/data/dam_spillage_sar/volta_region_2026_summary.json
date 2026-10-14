@@ -1,0 +1,44 @@
+{
+  "events": [
+    {
+      "event_id": "KPETOE-TORDZE-FLOOD-2026-06-29",
+      "name": "Kpetoe (Tordze River) flood, Agotime Ziope",
+      "bbox": [
+        0.677,
+        6.527,
+        0.717,
+        6.567
+      ],
+      "scene_dates": {
+        "baseline": "2026-06-28",
+        "peak": "2026-07-04",
+        "recession": "2026-07-16"
+      },
+      "baseline_open_water_km2": 1.57,
+      "new_flood_at_peak_km2": 0.0,
+      "receded_by_recession_km2": 0.0,
+      "still_flooded_at_recession_km2": 0.0,
+      "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line."
+    },
+    {
+      "event_id": "VOLTA-REGION-FLOODS-2026-07-11",
+      "name": "July 2026 Volta Region floods, Azizadzi/Keta drainage point",
+      "bbox": [
+        0.971,
+        5.902,
+        1.011,
+        5.942
+      ],
+      "scene_dates": {
+        "baseline": "2026-07-04",
+        "peak": "2026-07-16",
+        "recession": "2026-08-03"
+      },
+      "baseline_open_water_km2": 1.98,
+      "new_flood_at_peak_km2": 0.0,
+      "receded_by_recession_km2": 0.0,
+      "still_flooded_at_recession_km2": 0.0,
+      "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line."
+    }
+  ]
+}
