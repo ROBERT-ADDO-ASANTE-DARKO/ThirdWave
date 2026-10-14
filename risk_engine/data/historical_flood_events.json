@@ -207,6 +207,37 @@
       "source": "https://www.graphic.com.gh/news/general-news/54-000-displaced-66-communities-affected-by-volta-region-floods.html",
       "district": null,
       "note": "Discovered incidentally while trying to verify a user-recalled place name ('Avagoeme'), which does not appear in this article or any source found. Only Azizadzi is individually named among 66 affected communities -- the other 65 are undocumented in available free sources, a real gap in this record, not an oversight."
+    },
+    {
+      "event_id": "ACCRA-FLOOD-1995-07-04",
+      "date": "1995-07-04",
+      "name": "July 1995 Accra flood",
+      "location_name": "Achimota, Accra",
+      "lon": -0.2276807,
+      "lat": 5.6242019,
+      "geocode_source": "OpenStreetMap Nominatim",
+      "geocode_confidence": "medium -- Achimota is the one specific site named (the VRA substation knocked out by this flood), not necessarily the single worst-hit neighborhood; contemporary reports describe flooding across 'low-lying parts of the Accra metropolis' broadly",
+      "hazard_type": "flash_flood",
+      "deaths": "at least 20 (contemporary Reuters wire reporting, July 1995; a 2001 Graphic retrospective calls this 'the worst flood in Accra since July 4, 1995', implying it was a benchmark event)",
+      "cause": "Heavy overnight rainfall caused flash flooding across low-lying parts of Accra by morning; floodwater also knocked out the Achimota VRA substation, cutting power across the city",
+      "source": "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/ACCRA-HIT-BY-FLOODS-352",
+      "note": "This is the earliest event in this file -- added specifically to look for pre-2010 media-documented flooding, which this record was previously missing entirely. A commonly repeated figure of 258mm of rain in 5 hours for this event could not be verified against a primary source and is deliberately left out rather than restated unverified."
+    },
+    {
+      "event_id": "ACCRA-FLOOD-2001-06-28",
+      "date": "2001-06-28",
+      "name": "June 2001 Accra flood",
+      "location_name": "Alajo, Accra",
+      "lon": -0.2168952,
+      "lat": 5.5937033,
+      "geocode_source": "OpenStreetMap Nominatim",
+      "geocode_confidence": "medium -- contemporary reporting (Accra Mail, via GhanaWeb) names Alajo, Adabraka, Sahara and Avenor together as the worst-affected areas; Alajo used as the single geocodable anchor (also the site of ALAJO-FLOOD-2026-06-29 in this file), not because it was uniquely worst-hit",
+      "hazard_type": "flash_flood",
+      "deaths": null,
+      "displaced": "figures vary by source and scope, not one consistent count: Dartmouth Flood Observatory lists 12 fatalities / ~80,000 displaced for Ghana nationally for 27-30 June 2001; OCHA reported ~139,000 affected across coastal towns including Accra; a later IRIN follow-up put ~40,000 still affected in and around Accra",
+      "cause": "Heavy rainfall on 28 June caused an early-morning downpour that submerged low-lying parts of the city",
+      "source": "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Accra-Drowns-Again-16233",
+      "note": "Described by the Graphic's flood disaster profile as the worst Accra flood since ACCRA-FLOOD-1995-07-04. Do not confuse with the ~300,000-affected 1999 flood figure cited by the same Graphic profile -- that event was in the Upper West/Upper East/Northern regions, not Accra, and is out of this project's Accra/Volta coverage scope, so it isn't recorded here."
     }
   ]
 }
