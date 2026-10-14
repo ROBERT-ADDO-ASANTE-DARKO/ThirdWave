@@ -1,0 +1,165 @@
+"""
+alajo_s2_imagery.py — real Sentinel-2 true-color AND NIR false-color crops
+over the Alajo channel-encroachment cluster (Ablekuma North Municipal per
+our authoritative boundary -- see historical_flood_events.json's note on
+ALAJO-FLOOD-2026-06-29 -- though OSM/Nominatim labels the area Ayawaso
+Central). This cluster (grid_r26_c46 through grid_r29_c46, up to 2,670
+buildings in one cell) is numerically the WORST channel-encroachment
+finding in this district -- every one of its 8 "Very High" cells sits at a
+literal 0.0m minimum building-to-waterway distance, more extreme than
+Kwame Nkrumah Circle's already-severe 0.3m -- but until now had no
+satellite confirmation at all, only the index numbers themselves. Also the
+site of the 2026 Alajo electrocution deaths (3 dead, floodwater contacting
+household wiring).
+
+Same template as ablekuma_north_s2_imagery.py / sogakope_s2_imagery.py.
+
+Usage
+─────
+    python3 alajo_s2_imagery.py
+"""
+
+from __future__ import annotations
+
+import logging
+import warnings
+from pathlib import Path
+
+import numpy as np
+import requests
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+import pystac_client
+import planetary_computer
+
+from sentinel2_crossvalidation import _read_s2_band
+
+warnings.filterwarnings("ignore")
+logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(message)s", datefmt="%H:%M:%S")
+log = logging.getLogger(__name__)
+
+HERE = Path(__file__).parent
+# Bounds of the 8 "Very High" (0.0m) encroachment cells, grid_r26_c46..
+# grid_r29_c46, plus ~200m padding.
+BBOX = (-0.2270, 5.5848, -0.2093, 5.6069)
+MAX_CLOUD = 10.0
+PIXEL_DEG = 0.00009
+
+
+def fetch_osm_overlay(bbox):
+    """OSM building footprints + waterway lines for this bbox -- same
+    query/parsing pattern used for every other ground-truth check in this
+    project."""
+    minlon, minlat, maxlon, maxlat = bbox
+    query = f"""
+    [out:json][timeout:60];
+    (
+      way["waterway"]({minlat},{minlon},{maxlat},{maxlon});
+      way["building"]({minlat},{minlon},{maxlat},{maxlon});
+    );
+    out geom;
+    """
+    elements = []
+    for attempt in range(4):
+        try:
+            resp = requests.post("https://overpass-api.de/api/interpreter", data=query,
+                                  headers={"User-Agent": "ThirdWave-risk-engine/1.0 (research prototype)"}, timeout=60)
+            resp.raise_for_status()
+            elements = resp.json().get("elements", [])
+            break
+        except Exception as exc:
+            log.warning("Overpass fetch failed (attempt %d/4: %s)", attempt + 1, exc)
+    else:
+        log.warning("Overpass fetch failed after 4 attempts -- overlay will be empty")
+
+    waterways, buildings = [], []
+    for e in elements:
+        tags = e.get("tags", {})
+        geom = e.get("geometry")
+        if not geom:
+            continue
+        coords = [(pt["lon"], pt["lat"]) for pt in geom]
+        if tags.get("waterway") and len(coords) >= 2:
+            waterways.append(coords)
+        elif tags.get("building") and len(coords) >= 3:
+            buildings.append(coords)
+    log.info("OSM overlay: %d waterway segments, %d buildings", len(waterways), len(buildings))
+    return waterways, buildings
+
+
+def _pick_clean_scene(bbox, catalog):
+    items = list(catalog.search(
+        collections=["sentinel-2-l2a"], bbox=list(bbox), datetime="2023-01-01/2026-10-13",
+        query={"eo:cloud_cover": {"lt": MAX_CLOUD}},
+    ).item_collection())
+    items.sort(key=lambda it: it.properties.get("eo:cloud_cover", 100))
+    if not items:
+        raise RuntimeError("no low-cloud S2 scene found")
+    minlon, minlat, maxlon, maxlat = bbox
+    cols = int((maxlon - minlon) / PIXEL_DEG)
+    rows = int((maxlat - minlat) / PIXEL_DEG)
+    for candidate in items[:6]:
+        red_check = _read_s2_band(candidate, "B04", bbox, (rows, cols))
+        nodata_frac = float((red_check == 0).mean())
+        if nodata_frac < 0.01:
+            return candidate, (rows, cols)
+        log.info("  %s has %.0f%% no-data, trying next", candidate.properties["datetime"][:10], nodata_frac * 100)
+    return items[0], (rows, cols)
+
+
+def _composite(item, bbox, shape, bands):
+    arrs = [_read_s2_band(item, b, bbox, shape) for b in bands]
+    rgb = np.stack(arrs, axis=-1)
+    lo, hi = np.percentile(rgb[rgb > 0], 2), np.percentile(rgb[rgb > 0], 98)
+    return np.clip((rgb - lo) / (hi - lo), 0, 1)
+
+
+def main():
+    catalog = pystac_client.Client.open(
+        "https://planetarycomputer.microsoft.com/api/stac/v1",
+        modifier=planetary_computer.sign_inplace,
+    )
+    item, shape = _pick_clean_scene(BBOX, catalog)
+    date = item.properties["datetime"][:10]
+    cc = item.properties.get("eo:cloud_cover", -1)
+    log.info("Using scene %s (cloud=%.1f%%)", date, cc)
+
+    truecolor = _composite(item, BBOX, shape, ["B04", "B03", "B02"])
+    falsecolor = _composite(item, BBOX, shape, ["B08", "B04", "B03"])
+    waterways, buildings = fetch_osm_overlay(BBOX)
+
+    minlon, minlat, maxlon, maxlat = BBOX
+    fig, axes = plt.subplots(2, 2, figsize=(14, 13))
+
+    for ax, img, title in [
+        (axes[0][0], truecolor, f"True color, {date} ({cc:.0f}% cloud)"),
+        (axes[0][1], truecolor, "True color + OSM overlay"),
+        (axes[1][0], falsecolor, "False color (NIR-Red-Green)\nvegetation=red/pink, water/moisture=dark"),
+        (axes[1][1], falsecolor, "False color + OSM overlay"),
+    ]:
+        ax.imshow(img, extent=(minlon, maxlon, minlat, maxlat), origin="upper")
+        ax.set_xlim(minlon, maxlon); ax.set_ylim(minlat, maxlat)
+        ax.set_title(title, fontsize=10)
+        ax.set_xlabel("Longitude"); ax.set_ylabel("Latitude")
+
+    for ax in (axes[0][1], axes[1][1]):
+        for coords in buildings:
+            xs, ys = zip(*coords)
+            ax.plot(xs, ys, color="#39ff6a", linewidth=0.5, alpha=0.75)
+        for coords in waterways:
+            xs, ys = zip(*coords)
+            ax.plot(xs, ys, color="#00d4ff", linewidth=2.2, alpha=0.95)
+
+    fig.suptitle("Alajo cluster (Ablekuma North Municipal) -- worst channel-encroachment finding in the district\n"
+                 "up to 2,670 buildings/cell, min distance 0.0m across 8 \"Very High\" cells; site of the 2026 electrocution deaths",
+                 fontsize=12, fontweight="bold")
+    fig.tight_layout()
+    out_png = HERE / "data" / "alajo_s2_imagery.png"
+    fig.savefig(out_png, dpi=150, bbox_inches="tight")
+    log.info("Saved -> %s", out_png)
+
+
+if __name__ == "__main__":
+    main()
