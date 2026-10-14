@@ -13,6 +13,7 @@ just burns tokens without adding value the model will use.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import requests
@@ -22,6 +23,13 @@ from data_loader import (
     DATA_DIR, load_risk_zones, load_assembly_scores, load_encroachment_index,
     load_historical_events, load_demo_seed_incidents, load_lower_volta_risk_grid_gdf,
 )
+
+# Same backend the briefing-review page talks to (govt_briefing_review.py)
+# -- verified citizen reports live in the FastAPI/SQLite backend, not in a
+# risk_engine/data/*.json file, so reaching them means an HTTP call, not a
+# local read like every other tool in this module.
+BACKEND_URL = os.environ.get("THIRDWAVE_BACKEND_URL", "http://localhost:8000")
+CITIZEN_SAR_CHECKS_PATH = Path(DATA_DIR) / "dam_spillage_sar" / "citizen_report_checks.json"
 
 # Known channel-encroachment index files across this project's several
 # parallel branches (see .claude/plans/temporal-waddling-trinket.md) --
@@ -67,6 +75,97 @@ def _nearby_historical_events(lat: float, lon: float, radius_km: float = HISTORI
                 "distance_km": round(d, 2),
             })
     return sorted(out, key=lambda r: r["distance_km"])
+
+
+def _sar_checks_by_report_id() -> dict:
+    if not CITIZEN_SAR_CHECKS_PATH.exists():
+        return {}
+    return json.loads(CITIZEN_SAR_CHECKS_PATH.read_text())
+
+
+def _nearby_verified_reports(lat: float, lon: float, radius_km: float = HISTORICAL_EVENT_RADIUS_KM) -> list[dict]:
+    """Verified citizen reports within radius_km of a point, live from the
+    backend (not a static risk_engine/data file -- see BACKEND_URL),
+    attached with any Sentinel-1 SAR corroboration already computed for
+    that exact report by citizen_report_sar_check.py. Mirrors
+    _nearby_historical_events()'s role: a computed score should never be
+    shown without also surfacing live citizen evidence nearby, same as it
+    already does for curated historical events. Fails soft (empty list +
+    a note) if the backend isn't reachable -- a down backend must not
+    break the rest of the tool-calling loop."""
+    try:
+        resp = requests.get(
+            f"{BACKEND_URL}/incidents/nearby", params={"lat": lat, "lon": lon, "radius_km": radius_km}, timeout=8,
+        )
+        resp.raise_for_status()
+        reports = resp.json()
+    except Exception as exc:
+        return [{"error": f"Could not reach the citizen-reports backend ({exc}) -- this does NOT mean there are "
+                           "no nearby reports, only that they couldn't be checked."}]
+
+    checks = _sar_checks_by_report_id()
+    out = []
+    for r in reports:
+        entry = {
+            "report_id": r["id"], "hazard_type": r["hazard_type"], "description": r["description"],
+            "location_label": r.get("location_label"), "distance_km": r["distance_km"],
+            "verified_at": r.get("verified_at"),
+        }
+        check = checks.get(r["id"])
+        if check:
+            if "error" in check:
+                entry["sar_corroboration"] = {"status": "check_failed", "detail": check["error"]}
+            else:
+                entry["sar_corroboration"] = {
+                    "new_flood_at_peak_km2": check["new_flood_at_peak_km2"], "verdict": check["verdict"],
+                    "scene_dates": check["scene_dates"],
+                }
+        else:
+            entry["sar_corroboration"] = {"status": "not_yet_checked"}
+        out.append(entry)
+    return out
+
+
+def get_verified_citizen_reports_for_district(district: str) -> dict:
+    """Verified citizen flood reports for a district, straight from the
+    live backend (not historical/curated data -- see
+    get_historical_flood_events for that), each with any Sentinel-1 SAR
+    corroboration already computed for it by citizen_report_sar_check.py.
+    This is the live counterpart to historical events: use it to show a
+    district assembly that current, on-the-ground reports are backed by
+    independent satellite evidence, not just citizen testimony alone."""
+    try:
+        resp = requests.get(f"{BACKEND_URL}/incidents/active", params={"district": district}, timeout=8)
+        resp.raise_for_status()
+        reports = resp.json()
+    except Exception as exc:
+        return {"district": district, "error": f"Could not reach the citizen-reports backend ({exc})."}
+
+    checks = _sar_checks_by_report_id()
+    out = []
+    for r in reports:
+        entry = {
+            "report_id": r["id"], "hazard_type": r["hazard_type"], "description": r["description"],
+            "location_label": r.get("location_label"), "verified_at": r.get("verified_at"),
+        }
+        check = checks.get(r["id"])
+        if check:
+            if "error" in check:
+                entry["sar_corroboration"] = {"status": "check_failed", "detail": check["error"]}
+            else:
+                entry["sar_corroboration"] = {
+                    "new_flood_at_peak_km2": check["new_flood_at_peak_km2"], "verdict": check["verdict"],
+                    "scene_dates": check["scene_dates"],
+                }
+        else:
+            entry["sar_corroboration"] = {"status": "not_yet_checked"}
+        out.append(entry)
+    return {
+        "district": district, "n_verified_reports": len(out), "reports": out,
+        "note": "sar_corroboration is from citizen_report_sar_check.py, a Sentinel-1 change-detection check "
+                "anchored to this exact report's location and submission date -- 'not_yet_checked' means that "
+                "script hasn't run for this report, not that satellite evidence is absent.",
+    }
 
 
 def _geocode(address: str, region_hint: str = "Accra, Ghana"):
@@ -151,6 +250,7 @@ def find_zone_by_address(address: str) -> dict:
             else:
                 out["nearby_historical_events"] = []
                 out["historical_context_note"] = f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated record -- absence of history here is not the same as absence of risk."
+            out["nearby_verified_citizen_reports"] = _nearby_verified_reports(lat, lon)
             return out
     # Not in the pilot grid -- try the Lower Volta basin before giving up.
     # Re-geocode broadly ("Ghana", not "Accra, Ghana"): the pilot-biased
@@ -170,6 +270,7 @@ def find_zone_by_address(address: str) -> dict:
                 f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated "
                 "record -- absence of history here is not the same as absence of risk."
             )
+            lv["nearby_verified_citizen_reports"] = _nearby_verified_reports(b_lat, b_lon)
             return lv
 
     out = {"resolved_address": label, "error": "This location is outside the pilot district's coverage area."}
@@ -179,6 +280,7 @@ def find_zone_by_address(address: str) -> dict:
             f"No computed score available (outside pilot coverage), but {len(nearby_events)} documented "
             "flood event(s) exist within range -- mention this even though there's no score to give."
         )
+    out["nearby_verified_citizen_reports"] = _nearby_verified_reports(lat, lon)
     return out
 
 
@@ -397,6 +499,13 @@ TOOLS = [
             "district": {"type": "string", "description": "Exact assembly/district name"}},
             "required": ["district"]},
     },
+    {
+        "name": "get_verified_citizen_reports_for_district",
+        "description": "Get live, officer-verified citizen flood reports for a district from the ThirdWave backend, each annotated with any Sentinel-1 SAR satellite corroboration already computed for that specific report (citizen_report_sar_check.py). Use this for current/live evidence, separate from the curated historical record.",
+        "input_schema": {"type": "object", "properties": {
+            "district": {"type": "string", "description": "Exact assembly/district name"}},
+            "required": ["district"]},
+    },
 ]
 
 TOOL_FUNCTIONS = {
@@ -409,6 +518,7 @@ TOOL_FUNCTIONS = {
     "get_active_incidents": get_active_incidents,
     "get_channel_encroachment_for_district": get_channel_encroachment_for_district,
     "get_satellite_evidence_paths_for_district": get_satellite_evidence_paths_for_district,
+    "get_verified_citizen_reports_for_district": get_verified_citizen_reports_for_district,
 }
 
 
@@ -419,16 +529,20 @@ assembly, grounded ONLY in data you look up via the tools available to you -- th
 Assistant uses. Never invent a figure, date, or finding; if a tool returns nothing useful for this district, \
 say so in the relevant section rather than filling the gap with a plausible-sounding guess.
 
-Call get_historical_flood_events, get_channel_encroachment_for_district, and \
-get_satellite_evidence_paths_for_district for the requested district before writing anything. Use \
-get_assembly_comparison too if it helps explain how this district's generic risk score compares to others.
+Call get_historical_flood_events, get_channel_encroachment_for_district, \
+get_satellite_evidence_paths_for_district, and get_verified_citizen_reports_for_district for the requested \
+district before writing anything. Use get_assembly_comparison too if it helps explain how this district's \
+generic risk score compares to others.
 
 Write five sections, each 2-4 short sentences, plain language for a non-technical official reader (this mirrors \
 real briefings already written by hand for Weija Gbawe, East Legon/Ayawaso West, and South Tongu -- match that \
 tone: lead with the point, cite real numbers/dates, no padding):
 - purpose: what this briefing is and why it exists for this district, in one or two sentences.
 - context: relevant history -- documented flood events, recurrence pattern, any official findings (e.g. a task \
-force report) already on record for this area.
+force report) already on record for this area. If get_verified_citizen_reports_for_district returned any \
+reports, mention them here too as current/live evidence, distinct from the historical record -- and if any of \
+them have SAR corroboration ("new_flood_at_peak_km2" > 0), say so explicitly as independent satellite backing \
+for a citizen's claim.
 - finding: the channel-encroachment result (or its absence) and what it means, mentioning whether verified \
 satellite imagery exists for this finding (say so explicitly either way -- never claim imagery support that \
 get_satellite_evidence_paths_for_district didn't confirm present).
