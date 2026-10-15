@@ -419,6 +419,7 @@ def get_channel_encroachment_for_district(district: str) -> dict:
 # match reliably, and a wrong image attached to the wrong district would
 # be worse than a missing one.
 _DISTRICT_EVIDENCE_IMAGES = {
+    "Ablekuma Central Municipal": ["ablekuma_central_korlebu_s2_imagery.png", "ablekuma_central_kaneshie_s2_imagery.png"],
     "Ablekuma North Municipal": ["ablekuma_north_s2_imagery.png", "alajo_s2_imagery.png"],
     "Weija Gbawe Municipal": ["weija_tetegu_truecolor.png", "weija_tetegu_falsecolor.png"],
     "Ayawaso West Municipal": ["ayawaso_west_encroachment_truecolor.png", "ayawaso_west_encroachment_falsecolor.png"],
