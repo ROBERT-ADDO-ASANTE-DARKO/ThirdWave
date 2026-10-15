@@ -41,6 +41,7 @@ _ENCROACHMENT_INDEX_FILES = {
     "channel_encroachment_index.json": "pilot district",
     "lower_volta_channel_encroachment_index.json": "Lower Volta basin",
     "ayawaso_west_channel_encroachment_index.json": "Ayawaso West (East Legon)",
+    "madina_channel_encroachment_index.json": "La-Nkwantanang-Madina",
 }
 
 
@@ -379,6 +380,7 @@ def get_channel_encroachment_for_district(district: str) -> dict:
         "channel_encroachment_index.json": "pilot_risk_grid.geojson",
         "lower_volta_channel_encroachment_index.json": "lower_volta_risk_grid.geojson",
         "ayawaso_west_channel_encroachment_index.json": "ayawaso_west_risk_grid.geojson",
+        "madina_channel_encroachment_index.json": "madina_risk_grid.geojson",
     }
     worst: list[dict] = []
     searched_sources = []
@@ -419,6 +421,7 @@ def get_channel_encroachment_for_district(district: str) -> dict:
 # match reliably, and a wrong image attached to the wrong district would
 # be worse than a missing one.
 _DISTRICT_EVIDENCE_IMAGES = {
+    "La-Nkwantanang-Madina Municipal": ["madina_zongo_s2_imagery.png"],
     "Ablekuma Central Municipal": ["ablekuma_central_korlebu_s2_imagery.png", "ablekuma_central_kaneshie_s2_imagery.png"],
     "Ablekuma North Municipal": ["ablekuma_north_s2_imagery.png", "alajo_s2_imagery.png"],
     "Weija Gbawe Municipal": ["weija_tetegu_truecolor.png", "weija_tetegu_falsecolor.png"],

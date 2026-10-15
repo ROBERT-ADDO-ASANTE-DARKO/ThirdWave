@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "district": "La-Nkwantanang-Madina",
+    "reason": "new_encroachment_finding",
+    "source_finding": "Channel encroachment index: nearest building 0.0m from a mapped waterway (65 buildings within 20m).",
+    "flagged_at": "2026-10-15T02:27:49.334936+00:00"
+  }
+]
