@@ -22,6 +22,7 @@ from shapely.geometry import Point, shape
 from data_loader import (
     DATA_DIR, load_risk_zones, load_assembly_scores, load_encroachment_index,
     load_historical_events, load_demo_seed_incidents, load_lower_volta_risk_grid_gdf,
+    load_madina_risk_grid_gdf,
 )
 
 # Same backend the briefing-review page talks to (govt_briefing_review.py)
@@ -185,6 +186,39 @@ def _geocode(address: str, region_hint: str = "Accra, Ghana"):
     return None
 
 
+def _find_zone_in_madina(lat: float, lon: float) -> dict | None:
+    """La-Nkwantanang-Madina Municipal -- checked after the pilot and
+    Lower Volta grids both miss, same broadly-re-geocoded-point pattern as
+    _find_zone_in_lower_volta. Unlike Lower Volta, this district's
+    composite score and its channel-encroachment index were computed in
+    the same session and directly contradict each other at the worst
+    encroachment site (Madina Zongo): composite score ~20 ("Low") vs.
+    0.0-0.2m building-to-waterway distance ("Very High" encroachment) --
+    the coverage_note says so explicitly rather than leaving the model to
+    notice the gap on its own."""
+    pt = Point(lon, lat)
+    gdf = load_madina_risk_grid_gdf()
+    hits = gdf[gdf.contains(pt)]
+    if hits.empty:
+        return None
+    row = hits.iloc[0]
+    out = {"zone_id": row["zone_id"], "assembly": row["assembly"]}
+    if "score" in row and row["score"] is not None:
+        out["score"] = round(float(row["score"]), 1)
+        out["level"] = row["level"]
+    out["coverage_note"] = (
+        "This is in La-Nkwantanang-Madina Municipal, NOT the MVP pilot district -- it gets the same "
+        "fine-grid treatment (500m cells) but the composite score is the same multi-year statistical "
+        "SAR/DEM/land-cover formula used everywhere else in this project, and it structurally cannot see "
+        "localized drainage/channel encroachment. At this district's worst encroachment site (Madina Zongo), "
+        "the composite score is only ~20 (\"Low\") while the channel-encroachment index rates the same cells "
+        "\"Very High\" (0.0-0.2m building-to-waterway distance) -- a Low/Moderate score here should not be "
+        "read as reassuring; check nearby_historical_events and the encroachment index before concluding "
+        "low risk."
+    )
+    return out
+
+
 def _find_zone_in_lower_volta(lat: float, lon: float) -> dict | None:
     """Lower Volta is a separate, non-contiguous extended-coverage region
     (Akosombo/Akuse/Sogakope/Ada basin, ~150km from Accra) -- checked only
@@ -273,6 +307,21 @@ def find_zone_by_address(address: str) -> dict:
             )
             lv["nearby_verified_citizen_reports"] = _nearby_verified_reports(b_lat, b_lon)
             return lv
+
+        madina = _find_zone_in_madina(b_lat, b_lon)
+        if madina:
+            madina["resolved_address"] = b_label
+            b_events = _nearby_historical_events(b_lat, b_lon)
+            madina["nearby_historical_events"] = b_events
+            madina["historical_context_note"] = (
+                f"{len(b_events)} documented flood event(s) within {HISTORICAL_EVENT_RADIUS_KM:.0f}km -- "
+                "weigh this alongside the computed score."
+                if b_events else
+                f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated "
+                "record -- absence of history here is not the same as absence of risk."
+            )
+            madina["nearby_verified_citizen_reports"] = _nearby_verified_reports(b_lat, b_lon)
+            return madina
 
     out = {"resolved_address": label, "error": "This location is outside the pilot district's coverage area."}
     if nearby_events:
@@ -450,7 +499,7 @@ def get_satellite_evidence_paths_for_district(district: str) -> dict:
 TOOLS = [
     {
         "name": "find_zone_by_address",
-        "description": "Look up the flood vulnerability zone containing a given address or landmark in the pilot district. Also returns any documented historical flood events within ~2km, since the computed score alone can miss hazard types (like dam-release floods) its satellite/terrain inputs can't detect -- always consider both together.",
+        "description": "Look up the flood vulnerability zone containing a given address or landmark, checking the pilot district first and falling back to extended coverage (Lower Volta basin, La-Nkwantanang-Madina Municipal) if it's outside the pilot. Also returns any documented historical flood events within ~2km, since the computed score alone can miss hazard types (like dam-release floods or localized drainage encroachment) its satellite/terrain inputs can't detect -- always consider both together.",
         "input_schema": {"type": "object", "properties": {
             "address": {"type": "string", "description": "An address or landmark, e.g. 'Kwame Nkrumah Circle'"}},
             "required": ["address"]},
