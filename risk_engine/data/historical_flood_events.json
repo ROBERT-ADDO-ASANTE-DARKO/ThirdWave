@@ -238,6 +238,40 @@
       "cause": "Heavy rainfall on 28 June caused an early-morning downpour that submerged low-lying parts of the city",
       "source": "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Accra-Drowns-Again-16233",
       "note": "Described by the Graphic's flood disaster profile as the worst Accra flood since ACCRA-FLOOD-1995-07-04. Do not confuse with the ~300,000-affected 1999 flood figure cited by the same Graphic profile -- that event was in the Upper West/Upper East/Northern regions, not Accra, and is out of this project's Accra/Volta coverage scope, so it isn't recorded here."
+    },
+    {
+      "event_id": "MADINA-MARKET-FLOOD-2023-06-21",
+      "date": "2023-06-21",
+      "name": "Madina Market flood",
+      "location_name": "Madina Market, La-Nkwantanang-Madina Municipal District, Accra",
+      "lon": -0.1694567,
+      "lat": 5.6789954,
+      "geocode_source": "OpenStreetMap Nominatim",
+      "geocode_confidence": "high",
+      "hazard_type": "urban_flood",
+      "deaths": null,
+      "displaced": null,
+      "cause": "Heavy rainfall from about 9am through mid-evening; part of a wider Accra downpour that also affected Kaneshie First Light, Ofankor Barrier, and Taifa Junction",
+      "source": "https://citinewsroom.com/2023/06/ofankor-kaneshie-other-parts-of-accra-flooded-after-downpour-on-wednesday/",
+      "district": "La-Nkwantanang-Madina Municipal",
+      "note": "First recorded event for La-Nkwantanang-Madina -- this district is outside all of this project's scored coverage grids (pilot, extended, Lower Volta, Ayawaso West); no channel-encroachment index or satellite imagery exists for it yet. Traders reported struggling with floodwater to save market wares."
+    },
+    {
+      "event_id": "PANTANG-FLOOD-2026-06-07",
+      "date": "2026-06-07",
+      "name": "Pantang Village flood (Dakubi River)",
+      "location_name": "Pantang, La-Nkwantanang-Madina Municipal District, Accra",
+      "lon": -0.1938575,
+      "lat": 5.7305855,
+      "geocode_source": "OpenStreetMap Nominatim",
+      "geocode_confidence": "medium -- Pantang is the named suburb; the Dakubi River itself could not be geocoded",
+      "hazard_type": "river_flood",
+      "deaths": null,
+      "displaced": null,
+      "cause": "Structures encroaching on the Dakubi River obstructed water flow during rainfall, causing flooding and property damage; the Municipal Chief Executive described Pantang as a natural reservoir absorbing runoff from nearby mountains, making it structurally flood-prone",
+      "source": "https://ghanaiantimes.com.gh/madina-assembly-demolishes-structures-on-waterways/",
+      "district": "La-Nkwantanang-Madina Municipal",
+      "note": "The assembly's response is itself documented: a June 24, 2026 demolition of structures blocking the Dakubi River (LaNMMA Taskforce, https://lanmma.gov.gh/?p=3565), including a contested removal of an uncompleted church building, explicitly to prevent recurrence. Officials said enforcement covers the whole municipality, with more demolitions planned -- treat this as an active, officially acknowledged hotspot, not a one-off. The assembly separately publishes an official 'List of Flood-Prone Areas in La Nkwantanang Madina Municipality' (https://lanmma.gov.gh/wp-content/uploads/2023/03/LIST-OF-FLOOD-PRONE-AREAS-IN-LA-NKWANTANANG-MADINA-MUNICIPALITY-FINAL-1.pdf) naming Madina REDCO Flats and Madina Point 5 among other hotspots -- cited as a known primary source for future investigation, but its contents could not be verified here: the site's SSL certificate has expired, blocking both direct fetch and WebFetch."
     }
   ]
 }
