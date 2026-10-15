@@ -25,6 +25,26 @@ from data_loader import (
 )
 
 OVERLAY_DIR = DATA_DIR / "overlays"
+BRIEFING_QUEUE_PATH = DATA_DIR / "briefing_queue.json"
+
+
+def _render_briefing_queue_banner():
+    """Reads risk_engine/data/briefing_queue.json, written by
+    risk_engine scripts (e.g. channel_encroachment_index.py) via
+    risk_engine/briefing_queue.py's flag_district() when they find
+    something briefing-worthy. See
+    .claude/plans/temporal-waddling-trinket.md -- this is the
+    "semi-automatic flagging" trigger, not a real scheduler."""
+    if not BRIEFING_QUEUE_PATH.exists():
+        return
+    queue = json.loads(BRIEFING_QUEUE_PATH.read_text())
+    if not queue:
+        return
+    districts = ", ".join(sorted({e["district"] for e in queue}))
+    st.info(
+        f"📋 **{len(queue)} district(s) have new findings worth briefing the assembly on:** {districts}. "
+        f"Go to **District Briefing Review** to draft and send an update."
+    )
 
 
 @st.cache_data
@@ -85,6 +105,7 @@ def _render_map_legend(manifest: dict | None):
 
 def render():
     st.subheader("Ward / District Vulnerability Dashboard")
+    _render_briefing_queue_banner()
     st.caption(
         "Composite score = 0.45 x SAR water occurrence (2020-2024) + 0.35 x low-elevation fraction "
         "+ 0.20 x impervious land cover. Land cover components are reported for context, not weighted "

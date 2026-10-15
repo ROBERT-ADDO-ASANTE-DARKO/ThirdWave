@@ -1,0 +1,2142 @@
+{
+  "madina_r0_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 62,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 62 buildings and 0 waterways)."
+  },
+  "madina_r0_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 91,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 91 buildings and 0 waterways)."
+  },
+  "madina_r0_c6": {
+    "status": "ok",
+    "n_buildings": 124,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 7.6,
+    "median_building_to_waterway_m": 568.7,
+    "n_buildings_within_20m": 2,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r0_c7": {
+    "status": "ok",
+    "n_buildings": 432,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 1.9,
+    "median_building_to_waterway_m": 471.1,
+    "n_buildings_within_20m": 29,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r0_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 452,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 452 buildings and 0 waterways)."
+  },
+  "madina_r0_c9": {
+    "status": "ok",
+    "n_buildings": 379,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 2.1,
+    "median_building_to_waterway_m": 261.8,
+    "n_buildings_within_20m": 13,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r0_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 229,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 229 buildings and 0 waterways)."
+  },
+  "madina_r1_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 138,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 138 buildings and 0 waterways)."
+  },
+  "madina_r1_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 132,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 132 buildings and 0 waterways)."
+  },
+  "madina_r1_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 131,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 131 buildings and 0 waterways)."
+  },
+  "madina_r1_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 482,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 482 buildings and 0 waterways)."
+  },
+  "madina_r1_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 1054,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 1054 buildings and 0 waterways)."
+  },
+  "madina_r1_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 836,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 836 buildings and 0 waterways)."
+  },
+  "madina_r1_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 400,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 400 buildings and 0 waterways)."
+  },
+  "madina_r1_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 185,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 185 buildings and 0 waterways)."
+  },
+  "madina_r2_c2": {
+    "status": "ok",
+    "n_buildings": 215,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 45.7,
+    "median_building_to_waterway_m": 522.4,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "madina_r2_c3": {
+    "status": "ok",
+    "n_buildings": 344,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 4.2,
+    "median_building_to_waterway_m": 340.3,
+    "n_buildings_within_20m": 35,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r2_c4": {
+    "status": "ok",
+    "n_buildings": 320,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 4.2,
+    "median_building_to_waterway_m": 327.6,
+    "n_buildings_within_20m": 25,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r2_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 360,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 360 buildings and 0 waterways)."
+  },
+  "madina_r2_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 757,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 757 buildings and 0 waterways)."
+  },
+  "madina_r2_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 678,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 678 buildings and 0 waterways)."
+  },
+  "madina_r2_c8": {
+    "status": "ok",
+    "n_buildings": 598,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 6.3,
+    "median_building_to_waterway_m": 377.8,
+    "n_buildings_within_20m": 7,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r2_c9": {
+    "status": "ok",
+    "n_buildings": 311,
+    "n_waterways": 4,
+    "min_building_to_waterway_m": 6.3,
+    "median_building_to_waterway_m": 166.2,
+    "n_buildings_within_20m": 11,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r2_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 148,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 148 buildings and 0 waterways)."
+  },
+  "madina_r3_c2": {
+    "status": "ok",
+    "n_buildings": 367,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 2.2,
+    "median_building_to_waterway_m": 84.3,
+    "n_buildings_within_20m": 48,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r3_c3": {
+    "status": "ok",
+    "n_buildings": 780,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 3.9,
+    "median_building_to_waterway_m": 149.3,
+    "n_buildings_within_20m": 56,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r3_c4": {
+    "status": "ok",
+    "n_buildings": 1126,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 0.2,
+    "median_building_to_waterway_m": 162.4,
+    "n_buildings_within_20m": 101,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r3_c5": {
+    "status": "ok",
+    "n_buildings": 828,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 170.8,
+    "n_buildings_within_20m": 65,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r3_c6": {
+    "status": "ok",
+    "n_buildings": 308,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 309.9,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r3_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 278,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 278 buildings and 0 waterways)."
+  },
+  "madina_r3_c8": {
+    "status": "ok",
+    "n_buildings": 321,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 7.5,
+    "median_building_to_waterway_m": 432.0,
+    "n_buildings_within_20m": 4,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r3_c9": {
+    "status": "ok",
+    "n_buildings": 180,
+    "n_waterways": 8,
+    "min_building_to_waterway_m": 6.6,
+    "median_building_to_waterway_m": 286.2,
+    "n_buildings_within_20m": 10,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r3_c10": {
+    "status": "ok",
+    "n_buildings": 108,
+    "n_waterways": 7,
+    "min_building_to_waterway_m": 6.4,
+    "median_building_to_waterway_m": 279.4,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r4_c1": {
+    "status": "ok",
+    "n_buildings": 301,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 2.2,
+    "median_building_to_waterway_m": 349.4,
+    "n_buildings_within_20m": 13,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r4_c2": {
+    "status": "ok",
+    "n_buildings": 395,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 2.2,
+    "median_building_to_waterway_m": 70.0,
+    "n_buildings_within_20m": 56,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r4_c3": {
+    "status": "ok",
+    "n_buildings": 769,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 3.9,
+    "median_building_to_waterway_m": 258.5,
+    "n_buildings_within_20m": 24,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r4_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 995,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 995 buildings and 0 waterways)."
+  },
+  "madina_r4_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 681,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 681 buildings and 0 waterways)."
+  },
+  "madina_r4_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 204,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 204 buildings and 0 waterways)."
+  },
+  "madina_r4_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 259,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 259 buildings and 0 waterways)."
+  },
+  "madina_r4_c8": {
+    "status": "ok",
+    "n_buildings": 535,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 2.3,
+    "median_building_to_waterway_m": 451.2,
+    "n_buildings_within_20m": 13,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r4_c9": {
+    "status": "ok",
+    "n_buildings": 388,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 5.4,
+    "median_building_to_waterway_m": 287.3,
+    "n_buildings_within_20m": 9,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r4_c10": {
+    "status": "ok",
+    "n_buildings": 171,
+    "n_waterways": 11,
+    "min_building_to_waterway_m": 6.4,
+    "median_building_to_waterway_m": 72.8,
+    "n_buildings_within_20m": 18,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 305,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 305 buildings and 0 waterways)."
+  },
+  "madina_r5_c2": {
+    "status": "ok",
+    "n_buildings": 106,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 6.2,
+    "median_building_to_waterway_m": 356.0,
+    "n_buildings_within_20m": 12,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c3": {
+    "status": "ok",
+    "n_buildings": 255,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 3.9,
+    "median_building_to_waterway_m": 96.1,
+    "n_buildings_within_20m": 36,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c4": {
+    "status": "ok",
+    "n_buildings": 403,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 4.7,
+    "median_building_to_waterway_m": 188.7,
+    "n_buildings_within_20m": 33,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c5": {
+    "status": "ok",
+    "n_buildings": 308,
+    "n_waterways": 4,
+    "min_building_to_waterway_m": 4.1,
+    "median_building_to_waterway_m": 242.4,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c6": {
+    "status": "ok",
+    "n_buildings": 192,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 0.8,
+    "median_building_to_waterway_m": 164.2,
+    "n_buildings_within_20m": 19,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c7": {
+    "status": "ok",
+    "n_buildings": 362,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 0.8,
+    "median_building_to_waterway_m": 174.3,
+    "n_buildings_within_20m": 29,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c8": {
+    "status": "ok",
+    "n_buildings": 283,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 1.6,
+    "median_building_to_waterway_m": 99.2,
+    "n_buildings_within_20m": 25,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c9": {
+    "status": "ok",
+    "n_buildings": 223,
+    "n_waterways": 4,
+    "min_building_to_waterway_m": 4.7,
+    "median_building_to_waterway_m": 123.3,
+    "n_buildings_within_20m": 22,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r5_c10": {
+    "status": "ok",
+    "n_buildings": 223,
+    "n_waterways": 4,
+    "min_building_to_waterway_m": 4.7,
+    "median_building_to_waterway_m": 157.5,
+    "n_buildings_within_20m": 12,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r6_c1": {
+    "status": "ok",
+    "n_buildings": 172,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 167.9,
+    "median_building_to_waterway_m": 589.1,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r6_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 58,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 58 buildings and 0 waterways)."
+  },
+  "madina_r6_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 36,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 36 buildings and 0 waterways)."
+  },
+  "madina_r6_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 84,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 84 buildings and 0 waterways)."
+  },
+  "madina_r6_c5": {
+    "status": "ok",
+    "n_buildings": 79,
+    "n_waterways": 8,
+    "min_building_to_waterway_m": 4.1,
+    "median_building_to_waterway_m": 154.4,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r6_c6": {
+    "status": "ok",
+    "n_buildings": 60,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 4.1,
+    "median_building_to_waterway_m": 412.2,
+    "n_buildings_within_20m": 2,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r7_c2": {
+    "status": "ok",
+    "n_buildings": 13,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 125.9,
+    "median_building_to_waterway_m": 469.4,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r7_c3": {
+    "status": "ok",
+    "n_buildings": 27,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 175.7,
+    "median_building_to_waterway_m": 387.8,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r7_c4": {
+    "status": "ok",
+    "n_buildings": 29,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 175.7,
+    "median_building_to_waterway_m": 342.7,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r7_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 12,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 12 buildings and 0 waterways)."
+  },
+  "madina_r7_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 33,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 33 buildings and 0 waterways)."
+  },
+  "madina_r8_c1": {
+    "status": "ok",
+    "n_buildings": 17,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 261.1,
+    "median_building_to_waterway_m": 390.2,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r8_c2": {
+    "status": "ok",
+    "n_buildings": 21,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 125.9,
+    "median_building_to_waterway_m": 197.5,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r8_c3": {
+    "status": "ok",
+    "n_buildings": 70,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 146.0,
+    "median_building_to_waterway_m": 442.4,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r8_c4": {
+    "status": "ok",
+    "n_buildings": 205,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 260.6,
+    "median_building_to_waterway_m": 540.7,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r8_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 118,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 118 buildings and 0 waterways)."
+  },
+  "madina_r8_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 120,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 120 buildings and 0 waterways)."
+  },
+  "madina_r9_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 19,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 19 buildings and 0 waterways)."
+  },
+  "madina_r9_c2": {
+    "status": "ok",
+    "n_buildings": 60,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 34.2,
+    "median_building_to_waterway_m": 186.9,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "madina_r9_c3": {
+    "status": "ok",
+    "n_buildings": 173,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 4.2,
+    "median_building_to_waterway_m": 290.5,
+    "n_buildings_within_20m": 1,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r9_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 309,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 309 buildings and 0 waterways)."
+  },
+  "madina_r9_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 113,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 113 buildings and 0 waterways)."
+  },
+  "madina_r9_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 142,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 142 buildings and 0 waterways)."
+  },
+  "madina_r10_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r10_c2": {
+    "status": "ok",
+    "n_buildings": 31,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 34.2,
+    "median_building_to_waterway_m": 197.7,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "madina_r10_c3": {
+    "status": "ok",
+    "n_buildings": 72,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 4.2,
+    "median_building_to_waterway_m": 168.0,
+    "n_buildings_within_20m": 3,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "madina_r10_c4": {
+    "status": "ok",
+    "n_buildings": 235,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 103.2,
+    "median_building_to_waterway_m": 596.7,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r10_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 205,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 205 buildings and 0 waterways)."
+  },
+  "madina_r10_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 146,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 146 buildings and 0 waterways)."
+  },
+  "madina_r11_c0": {
+    "status": "insufficient_data",
+    "n_buildings": 60,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 60 buildings and 0 waterways)."
+  },
+  "madina_r11_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 53,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 53 buildings and 0 waterways)."
+  },
+  "madina_r11_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 34,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 34 buildings and 0 waterways)."
+  },
+  "madina_r11_c3": {
+    "status": "ok",
+    "n_buildings": 9,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 41.9,
+    "median_building_to_waterway_m": 351.0,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "madina_r11_c4": {
+    "status": "ok",
+    "n_buildings": 40,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 520.1,
+    "median_building_to_waterway_m": 591.9,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r11_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 47,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 47 buildings and 0 waterways)."
+  },
+  "madina_r11_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 69,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 69 buildings and 0 waterways)."
+  },
+  "madina_r12_c0": {
+    "status": "insufficient_data",
+    "n_buildings": 31,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 31 buildings and 0 waterways)."
+  },
+  "madina_r12_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 95,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 95 buildings and 0 waterways)."
+  },
+  "madina_r12_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 80,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 80 buildings and 0 waterways)."
+  },
+  "madina_r12_c3": {
+    "status": "ok",
+    "n_buildings": 35,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 94.8,
+    "median_building_to_waterway_m": 254.6,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r12_c4": {
+    "status": "ok",
+    "n_buildings": 9,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 94.8,
+    "median_building_to_waterway_m": 157.5,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r12_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 7,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 7 buildings and 0 waterways)."
+  },
+  "madina_r12_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 1,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 1 buildings and 0 waterways)."
+  },
+  "madina_r12_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 157,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 157 buildings and 0 waterways)."
+  },
+  "madina_r13_c0": {
+    "status": "insufficient_data",
+    "n_buildings": 19,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 19 buildings and 0 waterways)."
+  },
+  "madina_r13_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 64,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 64 buildings and 0 waterways)."
+  },
+  "madina_r13_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 54,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 54 buildings and 0 waterways)."
+  },
+  "madina_r13_c3": {
+    "status": "ok",
+    "n_buildings": 53,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 94.8,
+    "median_building_to_waterway_m": 327.7,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r13_c4": {
+    "status": "ok",
+    "n_buildings": 9,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 94.8,
+    "median_building_to_waterway_m": 157.5,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r13_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 13,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 13 buildings and 0 waterways)."
+  },
+  "madina_r13_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 8,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 8 buildings and 0 waterways)."
+  },
+  "madina_r13_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 203,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 203 buildings and 0 waterways)."
+  },
+  "madina_r14_c0": {
+    "status": "insufficient_data",
+    "n_buildings": 14,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 14 buildings and 0 waterways)."
+  },
+  "madina_r14_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 6,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 6 buildings and 0 waterways)."
+  },
+  "madina_r14_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 10,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 10 buildings and 0 waterways)."
+  },
+  "madina_r14_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 39,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 39 buildings and 0 waterways)."
+  },
+  "madina_r14_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 20,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 20 buildings and 0 waterways)."
+  },
+  "madina_r14_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 12,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 12 buildings and 0 waterways)."
+  },
+  "madina_r14_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 9,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 9 buildings and 0 waterways)."
+  },
+  "madina_r14_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 82,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 82 buildings and 0 waterways)."
+  },
+  "madina_r14_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 430,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 430 buildings and 0 waterways)."
+  },
+  "madina_r15_c0": {
+    "status": "insufficient_data",
+    "n_buildings": 78,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 78 buildings and 0 waterways)."
+  },
+  "madina_r15_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 15,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 15 buildings and 0 waterways)."
+  },
+  "madina_r15_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 104,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 104 buildings and 0 waterways)."
+  },
+  "madina_r15_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 241,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 241 buildings and 0 waterways)."
+  },
+  "madina_r15_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 130,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 130 buildings and 0 waterways)."
+  },
+  "madina_r15_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 26,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 26 buildings and 0 waterways)."
+  },
+  "madina_r15_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 10,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 10 buildings and 0 waterways)."
+  },
+  "madina_r15_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 15,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 15 buildings and 0 waterways)."
+  },
+  "madina_r15_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 195,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 195 buildings and 0 waterways)."
+  },
+  "madina_r16_c0": {
+    "status": "insufficient_data",
+    "n_buildings": 128,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 128 buildings and 0 waterways)."
+  },
+  "madina_r16_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 16,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 16 buildings and 0 waterways)."
+  },
+  "madina_r16_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 139,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 139 buildings and 0 waterways)."
+  },
+  "madina_r16_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 286,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 286 buildings and 0 waterways)."
+  },
+  "madina_r16_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 94,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 94 buildings and 0 waterways)."
+  },
+  "madina_r16_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 35,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 35 buildings and 0 waterways)."
+  },
+  "madina_r16_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 53,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 53 buildings and 0 waterways)."
+  },
+  "madina_r16_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 44,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 44 buildings and 0 waterways)."
+  },
+  "madina_r16_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 74,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 74 buildings and 0 waterways)."
+  },
+  "madina_r16_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 522,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 522 buildings and 0 waterways)."
+  },
+  "madina_r17_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 219,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 219 buildings and 0 waterways)."
+  },
+  "madina_r17_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 118,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 118 buildings and 0 waterways)."
+  },
+  "madina_r17_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 139,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 139 buildings and 0 waterways)."
+  },
+  "madina_r17_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 68,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 68 buildings and 0 waterways)."
+  },
+  "madina_r17_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 41,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 41 buildings and 0 waterways)."
+  },
+  "madina_r17_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 19,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 19 buildings and 0 waterways)."
+  },
+  "madina_r17_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 6,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 6 buildings and 0 waterways)."
+  },
+  "madina_r17_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 42,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 42 buildings and 0 waterways)."
+  },
+  "madina_r17_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 396,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 396 buildings and 0 waterways)."
+  },
+  "madina_r18_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 299,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 299 buildings and 0 waterways)."
+  },
+  "madina_r18_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 144,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 144 buildings and 0 waterways)."
+  },
+  "madina_r18_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 209,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 209 buildings and 0 waterways)."
+  },
+  "madina_r18_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 57,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 57 buildings and 0 waterways)."
+  },
+  "madina_r18_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 29,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 29 buildings and 0 waterways)."
+  },
+  "madina_r18_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 76,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 76 buildings and 0 waterways)."
+  },
+  "madina_r18_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 43,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 43 buildings and 0 waterways)."
+  },
+  "madina_r18_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 138,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 138 buildings and 0 waterways)."
+  },
+  "madina_r18_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 239,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 239 buildings and 0 waterways)."
+  },
+  "madina_r18_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 800,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 800 buildings and 0 waterways)."
+  },
+  "madina_r19_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 50,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 50 buildings and 0 waterways)."
+  },
+  "madina_r19_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 97,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 97 buildings and 0 waterways)."
+  },
+  "madina_r19_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 348,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 348 buildings and 0 waterways)."
+  },
+  "madina_r19_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 160,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 160 buildings and 0 waterways)."
+  },
+  "madina_r19_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 135,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 135 buildings and 0 waterways)."
+  },
+  "madina_r19_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 138,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 138 buildings and 0 waterways)."
+  },
+  "madina_r19_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 56,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 56 buildings and 0 waterways)."
+  },
+  "madina_r19_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 13,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 13 buildings and 0 waterways)."
+  },
+  "madina_r19_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 26,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 26 buildings and 0 waterways)."
+  },
+  "madina_r19_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 370,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 370 buildings and 0 waterways)."
+  },
+  "madina_r20_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 62,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 62 buildings and 0 waterways)."
+  },
+  "madina_r20_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 139,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 139 buildings and 0 waterways)."
+  },
+  "madina_r20_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 268,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 268 buildings and 0 waterways)."
+  },
+  "madina_r20_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 251,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 251 buildings and 0 waterways)."
+  },
+  "madina_r20_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 356,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 356 buildings and 0 waterways)."
+  },
+  "madina_r20_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 195,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 195 buildings and 0 waterways)."
+  },
+  "madina_r20_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 29,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 29 buildings and 0 waterways)."
+  },
+  "madina_r20_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 14,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 14 buildings and 0 waterways)."
+  },
+  "madina_r20_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 5,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 5 buildings and 0 waterways)."
+  },
+  "madina_r20_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 29,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 29 buildings and 0 waterways)."
+  },
+  "madina_r20_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 99,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 99 buildings and 0 waterways)."
+  },
+  "madina_r21_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 33,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 33 buildings and 0 waterways)."
+  },
+  "madina_r21_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 106,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 106 buildings and 0 waterways)."
+  },
+  "madina_r21_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 145,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 145 buildings and 0 waterways)."
+  },
+  "madina_r21_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 252,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 252 buildings and 0 waterways)."
+  },
+  "madina_r21_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 155,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 155 buildings and 0 waterways)."
+  },
+  "madina_r21_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 54,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 54 buildings and 0 waterways)."
+  },
+  "madina_r21_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 5,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 5 buildings and 0 waterways)."
+  },
+  "madina_r21_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r21_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r21_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 0 waterways)."
+  },
+  "madina_r22_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 38,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 38 buildings and 0 waterways)."
+  },
+  "madina_r22_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 32,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 32 buildings and 0 waterways)."
+  },
+  "madina_r22_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 80,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 80 buildings and 0 waterways)."
+  },
+  "madina_r22_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 45,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 45 buildings and 0 waterways)."
+  },
+  "madina_r22_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 17,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 17 buildings and 0 waterways)."
+  },
+  "madina_r22_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r22_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r22_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r22_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 1,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 1 buildings and 0 waterways)."
+  },
+  "madina_r23_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 8,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 8 buildings and 0 waterways)."
+  },
+  "madina_r23_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 115,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 115 buildings and 0 waterways)."
+  },
+  "madina_r23_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r23_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r23_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r23_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r23_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r23_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r23_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r24_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 10,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 10 buildings and 0 waterways)."
+  },
+  "madina_r24_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 15,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 15 buildings and 0 waterways)."
+  },
+  "madina_r24_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 0 waterways)."
+  },
+  "madina_r24_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r24_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r24_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r24_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r24_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r24_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r25_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 41,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 41 buildings and 0 waterways)."
+  },
+  "madina_r25_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 42,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 42 buildings and 0 waterways)."
+  },
+  "madina_r25_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 18,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 18 buildings and 0 waterways)."
+  },
+  "madina_r25_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r25_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r25_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 14,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 14 buildings and 0 waterways)."
+  },
+  "madina_r25_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r25_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r25_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 0 waterways)."
+  },
+  "madina_r25_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 8,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 8 buildings and 0 waterways)."
+  },
+  "madina_r26_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 45,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 45 buildings and 0 waterways)."
+  },
+  "madina_r26_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 29,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 29 buildings and 0 waterways)."
+  },
+  "madina_r26_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 82,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 82 buildings and 0 waterways)."
+  },
+  "madina_r26_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 15,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 15 buildings and 0 waterways)."
+  },
+  "madina_r26_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 3,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 3 buildings and 0 waterways)."
+  },
+  "madina_r26_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r26_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r26_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r26_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 0 waterways)."
+  },
+  "madina_r26_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 8,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 8 buildings and 0 waterways)."
+  },
+  "madina_r27_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 17,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 17 buildings and 0 waterways)."
+  },
+  "madina_r27_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 57,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 57 buildings and 0 waterways)."
+  },
+  "madina_r27_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 45,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 45 buildings and 0 waterways)."
+  },
+  "madina_r27_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 112,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 112 buildings and 0 waterways)."
+  },
+  "madina_r27_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 76,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 76 buildings and 0 waterways)."
+  },
+  "madina_r27_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 0 waterways)."
+  },
+  "madina_r27_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 15,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 15 buildings and 0 waterways)."
+  },
+  "madina_r27_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 39,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 39 buildings and 0 waterways)."
+  },
+  "madina_r27_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 37,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 37 buildings and 0 waterways)."
+  },
+  "madina_r27_c14": {
+    "status": "ok",
+    "n_buildings": 13,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 122.7,
+    "median_building_to_waterway_m": 141.5,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r28_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 87,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 87 buildings and 0 waterways)."
+  },
+  "madina_r28_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 5,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 5 buildings and 0 waterways)."
+  },
+  "madina_r28_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 5,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 5 buildings and 0 waterways)."
+  },
+  "madina_r28_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 35,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 35 buildings and 0 waterways)."
+  },
+  "madina_r28_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 296,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 296 buildings and 0 waterways)."
+  },
+  "madina_r28_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 525,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 525 buildings and 0 waterways)."
+  },
+  "madina_r28_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 119,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 119 buildings and 0 waterways)."
+  },
+  "madina_r28_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 1,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 1 waterways)."
+  },
+  "madina_r28_c12": {
+    "status": "ok",
+    "n_buildings": 79,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 38.2,
+    "median_building_to_waterway_m": 238.2,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "madina_r28_c13": {
+    "status": "ok",
+    "n_buildings": 69,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 38.2,
+    "median_building_to_waterway_m": 256.4,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "madina_r28_c14": {
+    "status": "insufficient_data",
+    "n_buildings": 1,
+    "n_waterways": 5,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 1 buildings and 5 waterways)."
+  },
+  "madina_r28_c15": {
+    "status": "ok",
+    "n_buildings": 10,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 51.7,
+    "median_building_to_waterway_m": 137.1,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "madina_r29_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 31,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 31 buildings and 0 waterways)."
+  },
+  "madina_r29_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r29_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r29_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 6,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 6 buildings and 0 waterways)."
+  },
+  "madina_r29_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 322,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 322 buildings and 0 waterways)."
+  },
+  "madina_r29_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 496,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 496 buildings and 0 waterways)."
+  },
+  "madina_r29_c10": {
+    "status": "ok",
+    "n_buildings": 97,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 336.1,
+    "median_building_to_waterway_m": 652.5,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r29_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 2,
+    "n_waterways": 3,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 2 buildings and 3 waterways)."
+  },
+  "madina_r29_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 2,
+    "n_waterways": 1,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 2 buildings and 1 waterways)."
+  },
+  "madina_r29_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 1,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 1 waterways)."
+  },
+  "madina_r29_c14": {
+    "status": "ok",
+    "n_buildings": 25,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 585.1,
+    "median_building_to_waterway_m": 641.8,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "madina_r29_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 81,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 81 buildings and 0 waterways)."
+  },
+  "madina_r30_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 10,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 10 buildings and 0 waterways)."
+  },
+  "madina_r30_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 7,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 7 buildings and 0 waterways)."
+  },
+  "madina_r30_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r30_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r30_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 76,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 76 buildings and 0 waterways)."
+  },
+  "madina_r30_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 113,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 113 buildings and 0 waterways)."
+  },
+  "madina_r30_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 6,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 6 buildings and 0 waterways)."
+  },
+  "madina_r30_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 15,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 15 buildings and 0 waterways)."
+  },
+  "madina_r30_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 14,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 14 buildings and 0 waterways)."
+  },
+  "madina_r30_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r30_c14": {
+    "status": "insufficient_data",
+    "n_buildings": 22,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 22 buildings and 0 waterways)."
+  },
+  "madina_r30_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 62,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 62 buildings and 0 waterways)."
+  },
+  "madina_r31_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 2,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 2 buildings and 0 waterways)."
+  },
+  "madina_r31_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r31_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r31_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r31_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r31_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r31_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 12,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 12 buildings and 0 waterways)."
+  },
+  "madina_r31_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 13,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 13 buildings and 0 waterways)."
+  },
+  "madina_r31_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r31_c14": {
+    "status": "insufficient_data",
+    "n_buildings": 5,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 5 buildings and 0 waterways)."
+  },
+  "madina_r31_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 20,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 20 buildings and 0 waterways)."
+  },
+  "madina_r31_c16": {
+    "status": "insufficient_data",
+    "n_buildings": 133,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 133 buildings and 0 waterways)."
+  },
+  "madina_r32_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r32_c14": {
+    "status": "insufficient_data",
+    "n_buildings": 38,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 38 buildings and 0 waterways)."
+  },
+  "madina_r32_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 87,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 87 buildings and 0 waterways)."
+  },
+  "madina_r32_c16": {
+    "status": "insufficient_data",
+    "n_buildings": 104,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 104 buildings and 0 waterways)."
+  },
+  "madina_r33_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r33_c14": {
+    "status": "insufficient_data",
+    "n_buildings": 70,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 70 buildings and 0 waterways)."
+  },
+  "madina_r33_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 187,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 187 buildings and 0 waterways)."
+  },
+  "madina_r33_c16": {
+    "status": "insufficient_data",
+    "n_buildings": 167,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 167 buildings and 0 waterways)."
+  },
+  "madina_r34_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r34_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "madina_r34_c14": {
+    "status": "insufficient_data",
+    "n_buildings": 27,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 27 buildings and 0 waterways)."
+  },
+  "madina_r34_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 151,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 151 buildings and 0 waterways)."
+  },
+  "madina_r34_c16": {
+    "status": "insufficient_data",
+    "n_buildings": 170,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 170 buildings and 0 waterways)."
+  },
+  "madina_r35_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 56,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 56 buildings and 0 waterways)."
+  },
+  "madina_r35_c16": {
+    "status": "insufficient_data",
+    "n_buildings": 71,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 71 buildings and 0 waterways)."
+  },
+  "madina_r36_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  }
+}
