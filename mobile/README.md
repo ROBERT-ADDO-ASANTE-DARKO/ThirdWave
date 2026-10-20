@@ -41,8 +41,13 @@ In the app:
 3. Tap **Register device with backend** -- lon/lat default to Kwame Nkrumah
    Circle, edit them to test whether a report falls inside or outside
    `push.py`'s `DEVICE_NOTIFY_RADIUS_KM` (1.5km default).
-4. From Swagger UI (`http://localhost:8000/docs` on the PC) or the
-   Streamlit sandbox, verify a report near that point.
+4. From Swagger UI (`http://localhost:8000/docs` on the PC), submit a
+   report near that point, then verify it. Officer endpoints (verify,
+   verify-bulk, pending/clusters, active incidents, assign-responder,
+   resolve) need an `X-Officer-Key` header since Phase 3 -- click
+   **Authorize** in Swagger UI and paste the value of `OFFICER_API_KEY`
+   from `backend/.env`. (Not the Streamlit sandbox -- that's still a
+   separate, disconnected system from this backend; see Phase 5.)
 5. Watch the phone -- a system notification should arrive if the app is
    backgrounded, or show up in the "Received while app is open" list if
    it's in the foreground.

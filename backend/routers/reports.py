@@ -20,6 +20,7 @@ import clustering
 import geo_data
 import news_corroboration as news
 import push
+from auth import require_officer
 from db import get_session
 from models import Report
 from schemas import BulkVerifyBody, VerifyBody
@@ -48,7 +49,7 @@ def submit_report(
     location_label: Optional[str] = Form(None),
     depth_lo_m: Optional[float] = Form(None),
     depth_hi_m: Optional[float] = Form(None),
-    reporter_ref: str = Form("unknown"),
+    reporter_ref: str = Form(..., description="Client-generated, persisted identifier -- not a login (see auth.py)"),
     ai_assisted: bool = Form(False),
     synthetic: bool = Form(False),
     photo: Optional[UploadFile] = File(None),
@@ -75,7 +76,7 @@ def submit_report(
     return serialize_report(report)
 
 
-@router.get("/pending")
+@router.get("/pending", dependencies=[Depends(require_officer)])
 def list_pending(district: Optional[str] = None, session: Session = Depends(get_session)):
     stmt = select(Report).where(Report.status == "pending")
     if district:
@@ -85,7 +86,7 @@ def list_pending(district: Optional[str] = None, session: Session = Depends(get_
     return [serialize_report(r) for r in reports]
 
 
-@router.get("/clusters")
+@router.get("/clusters", dependencies=[Depends(require_officer)])
 def list_clusters(district: Optional[str] = None, session: Session = Depends(get_session)):
     """Same clustering an officer sees in the Streamlit sandbox, plus
     per-cluster news corroboration -- see clustering.py / news_corroboration.py."""
@@ -118,7 +119,7 @@ def _notify(session: Session, lon: float, lat: float, hazard_types: list[str], l
         return {"error": str(exc)}
 
 
-@router.post("/{report_id}/verify")
+@router.post("/{report_id}/verify", dependencies=[Depends(require_officer)])
 def verify_report(report_id: str, body: VerifyBody, session: Session = Depends(get_session)):
     report = session.get(Report, report_id)
     if report is None or report.status != "pending":
@@ -138,7 +139,7 @@ def verify_report(report_id: str, body: VerifyBody, session: Session = Depends(g
     return {**serialize_report(report), "push": push_result}
 
 
-@router.post("/verify-bulk")
+@router.post("/verify-bulk", dependencies=[Depends(require_officer)])
 def verify_bulk(body: BulkVerifyBody, session: Session = Depends(get_session)):
     out = []
     for rid in body.report_ids:

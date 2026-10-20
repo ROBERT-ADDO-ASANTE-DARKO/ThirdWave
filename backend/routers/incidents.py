@@ -10,6 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 
 import clustering
+from auth import require_officer
 from db import get_session
 from models import Report
 from schemas import AssignResponderBody
@@ -18,7 +19,7 @@ from serializers import serialize_report
 router = APIRouter(prefix="/incidents", tags=["incidents"])
 
 
-@router.get("/active")
+@router.get("/active", dependencies=[Depends(require_officer)])
 def list_active(district: Optional[str] = None, session: Session = Depends(get_session)):
     stmt = select(Report).where(Report.status == "verified")
     if district:
@@ -45,7 +46,7 @@ def nearby(lat: float, lon: float, radius_km: float = 1.5, session: Session = De
     return out
 
 
-@router.post("/{incident_id}/assign-responder")
+@router.post("/{incident_id}/assign-responder", dependencies=[Depends(require_officer)])
 def assign_responder(incident_id: str, body: AssignResponderBody, session: Session = Depends(get_session)):
     report = session.get(Report, incident_id)
     if report is None or report.status != "verified":
@@ -59,7 +60,7 @@ def assign_responder(incident_id: str, body: AssignResponderBody, session: Sessi
     return serialize_report(report)
 
 
-@router.post("/{incident_id}/resolve")
+@router.post("/{incident_id}/resolve", dependencies=[Depends(require_officer)])
 def resolve(incident_id: str, session: Session = Depends(get_session)):
     report = session.get(Report, incident_id)
     if report is None or report.status != "verified":
