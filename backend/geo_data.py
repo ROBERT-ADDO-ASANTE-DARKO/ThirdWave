@@ -106,6 +106,22 @@ def nearby_historical_events(lat: float, lon: float, radius_km: float = HISTORIC
     return sorted(out, key=lambda r: r["distance_km"])
 
 
+def geocode_address(address: str) -> dict:
+    """Geocode with the same two-step fallback find_zone_by_address uses
+    -- "{address}, Accra, Ghana" can fail outright for a location the
+    region hint doesn't fit, not just mis-resolve, so retry broadly
+    ("Ghana") before giving up. Factored out so other callers (e.g. the
+    citizen reporting flow's address search) get the same fallback
+    without re-implementing it."""
+    result = _geocode(address)
+    if not result:
+        result = _geocode(address, region_hint="Ghana")
+        if not result:
+            return {"error": f"Could not geocode '{address}'."}
+    lat, lon, label = result
+    return {"lat": lat, "lon": lon, "resolved_address": label}
+
+
 def find_zone_by_address(address: str) -> dict:
     """Ported from streamlit_app/geo_tools.py's function of the same name.
     Lower Volta extended-coverage fallback is NOT ported -- same Phase 1
@@ -113,15 +129,10 @@ def find_zone_by_address(address: str) -> dict:
     docstring): a location outside the pilot grid returns an
     out-of-coverage error here, where the Streamlit version would also
     try the separate Lower Volta basin grid."""
-    result = _geocode(address)
-    if not result:
-        # "{address}, Accra, Ghana" can fail outright for a location the
-        # region hint doesn't fit, not just mis-resolve -- retry broadly
-        # before giving up.
-        result = _geocode(address, region_hint="Ghana")
-        if not result:
-            return {"error": f"Could not geocode '{address}'."}
-    lat, lon, label = result
+    geocoded = geocode_address(address)
+    if "error" in geocoded:
+        return geocoded
+    lat, lon, label = geocoded["lat"], geocoded["lon"], geocoded["resolved_address"]
     events = nearby_historical_events(lat, lon)
     zone = zone_for_point(lon, lat)
 
