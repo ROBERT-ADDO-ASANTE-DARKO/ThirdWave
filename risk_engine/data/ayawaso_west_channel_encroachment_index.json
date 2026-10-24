@@ -1,0 +1,1270 @@
+{
+  "ext_c2_r0_c8": {
+    "status": "ok",
+    "n_buildings": 135,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 8.7,
+    "median_building_to_waterway_m": 299.3,
+    "n_buildings_within_20m": 6,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r0_c9": {
+    "status": "ok",
+    "n_buildings": 75,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 8.7,
+    "median_building_to_waterway_m": 208.7,
+    "n_buildings_within_20m": 6,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r1_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 142,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 142 buildings and 0 waterways)."
+  },
+  "ext_c2_r1_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 132,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 132 buildings and 0 waterways)."
+  },
+  "ext_c2_r1_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 151,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 151 buildings and 0 waterways)."
+  },
+  "ext_c2_r2_c0": {
+    "status": "ok",
+    "n_buildings": 390,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 5.8,
+    "median_building_to_waterway_m": 397.6,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r2_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 308,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 308 buildings and 0 waterways)."
+  },
+  "ext_c2_r2_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 153,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 153 buildings and 0 waterways)."
+  },
+  "ext_c2_r2_c3": {
+    "status": "ok",
+    "n_buildings": 131,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 48.6,
+    "median_building_to_waterway_m": 520.9,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "ext_c2_r2_c5": {
+    "status": "ok",
+    "n_buildings": 291,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 2.4,
+    "median_building_to_waterway_m": 147.7,
+    "n_buildings_within_20m": 13,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r2_c6": {
+    "status": "ok",
+    "n_buildings": 291,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 5.0,
+    "median_building_to_waterway_m": 232.8,
+    "n_buildings_within_20m": 13,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r2_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 192,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 192 buildings and 0 waterways)."
+  },
+  "ext_c2_r2_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 142,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 142 buildings and 0 waterways)."
+  },
+  "ext_c2_r2_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 191,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 191 buildings and 0 waterways)."
+  },
+  "ext_c2_r2_c17": {
+    "status": "ok",
+    "n_buildings": 444,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 6.4,
+    "median_building_to_waterway_m": 189.3,
+    "n_buildings_within_20m": 10,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r2_c18": {
+    "status": "ok",
+    "n_buildings": 690,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 4.9,
+    "median_building_to_waterway_m": 145.7,
+    "n_buildings_within_20m": 50,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r2_c19": {
+    "status": "ok",
+    "n_buildings": 978,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 2.8,
+    "median_building_to_waterway_m": 101.6,
+    "n_buildings_within_20m": 107,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r3_c0": {
+    "status": "insufficient_data",
+    "n_buildings": 176,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 176 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 184,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 184 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 164,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 164 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 176,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 176 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 227,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 227 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c5": {
+    "status": "ok",
+    "n_buildings": 281,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 5.8,
+    "median_building_to_waterway_m": 352.9,
+    "n_buildings_within_20m": 3,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r3_c6": {
+    "status": "ok",
+    "n_buildings": 315,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 3.6,
+    "median_building_to_waterway_m": 150.6,
+    "n_buildings_within_20m": 17,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r3_c7": {
+    "status": "ok",
+    "n_buildings": 219,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 4.0,
+    "median_building_to_waterway_m": 204.0,
+    "n_buildings_within_20m": 7,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r3_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 178,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 178 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 247,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 247 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 156,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 156 buildings and 0 waterways)."
+  },
+  "ext_c2_r3_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 5,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 5 waterways)."
+  },
+  "ext_c2_r3_c16": {
+    "status": "ok",
+    "n_buildings": 129,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 32.0,
+    "median_building_to_waterway_m": 454.9,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "ext_c2_r3_c17": {
+    "status": "ok",
+    "n_buildings": 465,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 6.4,
+    "median_building_to_waterway_m": 350.7,
+    "n_buildings_within_20m": 7,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r3_c18": {
+    "status": "ok",
+    "n_buildings": 647,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 6.4,
+    "median_building_to_waterway_m": 209.8,
+    "n_buildings_within_20m": 21,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r3_c19": {
+    "status": "ok",
+    "n_buildings": 862,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 2.8,
+    "median_building_to_waterway_m": 173.9,
+    "n_buildings_within_20m": 52,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r4_c1": {
+    "status": "insufficient_data",
+    "n_buildings": 28,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 28 buildings and 0 waterways)."
+  },
+  "ext_c2_r4_c2": {
+    "status": "insufficient_data",
+    "n_buildings": 4,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 4 buildings and 0 waterways)."
+  },
+  "ext_c2_r4_c3": {
+    "status": "insufficient_data",
+    "n_buildings": 22,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 22 buildings and 0 waterways)."
+  },
+  "ext_c2_r4_c4": {
+    "status": "insufficient_data",
+    "n_buildings": 48,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 48 buildings and 0 waterways)."
+  },
+  "ext_c2_r4_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 130,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 130 buildings and 0 waterways)."
+  },
+  "ext_c2_r4_c6": {
+    "status": "ok",
+    "n_buildings": 185,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 30.2,
+    "median_building_to_waterway_m": 439.5,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 40.0,
+    "encroachment_level": "Moderate"
+  },
+  "ext_c2_r4_c7": {
+    "status": "ok",
+    "n_buildings": 210,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 15.5,
+    "median_building_to_waterway_m": 185.1,
+    "n_buildings_within_20m": 3,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r4_c8": {
+    "status": "ok",
+    "n_buildings": 172,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 14.9,
+    "median_building_to_waterway_m": 152.2,
+    "n_buildings_within_20m": 1,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r4_c9": {
+    "status": "ok",
+    "n_buildings": 263,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 5.9,
+    "median_building_to_waterway_m": 375.1,
+    "n_buildings_within_20m": 1,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r4_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 103,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 103 buildings and 0 waterways)."
+  },
+  "ext_c2_r4_c14": {
+    "status": "ok",
+    "n_buildings": 95,
+    "n_waterways": 8,
+    "min_building_to_waterway_m": 19.2,
+    "median_building_to_waterway_m": 251.4,
+    "n_buildings_within_20m": 1,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r4_c15": {
+    "status": "ok",
+    "n_buildings": 204,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 374.1,
+    "median_building_to_waterway_m": 593.4,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "ext_c2_r4_c16": {
+    "status": "insufficient_data",
+    "n_buildings": 428,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 428 buildings and 0 waterways)."
+  },
+  "ext_c2_r4_c17": {
+    "status": "ok",
+    "n_buildings": 506,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 8.7,
+    "median_building_to_waterway_m": 469.0,
+    "n_buildings_within_20m": 9,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r4_c18": {
+    "status": "ok",
+    "n_buildings": 592,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 1.2,
+    "median_building_to_waterway_m": 158.8,
+    "n_buildings_within_20m": 53,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r5_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 31,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 31 buildings and 0 waterways)."
+  },
+  "ext_c2_r5_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 114,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 114 buildings and 0 waterways)."
+  },
+  "ext_c2_r5_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 140,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 140 buildings and 0 waterways)."
+  },
+  "ext_c2_r5_c8": {
+    "status": "ok",
+    "n_buildings": 160,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 4.2,
+    "median_building_to_waterway_m": 354.6,
+    "n_buildings_within_20m": 6,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r5_c9": {
+    "status": "ok",
+    "n_buildings": 113,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 4.2,
+    "median_building_to_waterway_m": 85.7,
+    "n_buildings_within_20m": 10,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r5_c10": {
+    "status": "ok",
+    "n_buildings": 27,
+    "n_waterways": 10,
+    "min_building_to_waterway_m": 0.5,
+    "median_building_to_waterway_m": 41.7,
+    "n_buildings_within_20m": 10,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r5_c14": {
+    "status": "ok",
+    "n_buildings": 325,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 5.4,
+    "median_building_to_waterway_m": 285.5,
+    "n_buildings_within_20m": 2,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r5_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 720,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 720 buildings and 0 waterways)."
+  },
+  "ext_c2_r5_c16": {
+    "status": "ok",
+    "n_buildings": 1151,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 1.8,
+    "median_building_to_waterway_m": 233.3,
+    "n_buildings_within_20m": 58,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r5_c17": {
+    "status": "ok",
+    "n_buildings": 720,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 0.8,
+    "median_building_to_waterway_m": 156.9,
+    "n_buildings_within_20m": 66,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r5_c18": {
+    "status": "ok",
+    "n_buildings": 764,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 1.2,
+    "median_building_to_waterway_m": 116.2,
+    "n_buildings_within_20m": 74,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 110,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 110 buildings and 0 waterways)."
+  },
+  "ext_c2_r6_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 316,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 316 buildings and 0 waterways)."
+  },
+  "ext_c2_r6_c9": {
+    "status": "ok",
+    "n_buildings": 255,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 6.4,
+    "median_building_to_waterway_m": 234.3,
+    "n_buildings_within_20m": 16,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c10": {
+    "status": "ok",
+    "n_buildings": 244,
+    "n_waterways": 12,
+    "min_building_to_waterway_m": 0.5,
+    "median_building_to_waterway_m": 154.9,
+    "n_buildings_within_20m": 25,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c11": {
+    "status": "ok",
+    "n_buildings": 445,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 0.5,
+    "median_building_to_waterway_m": 231.6,
+    "n_buildings_within_20m": 15,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c12": {
+    "status": "ok",
+    "n_buildings": 186,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 7.0,
+    "median_building_to_waterway_m": 433.1,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c13": {
+    "status": "ok",
+    "n_buildings": 64,
+    "n_waterways": 10,
+    "min_building_to_waterway_m": 7.0,
+    "median_building_to_waterway_m": 69.0,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c14": {
+    "status": "ok",
+    "n_buildings": 102,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 133.5,
+    "median_building_to_waterway_m": 517.3,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 10.0,
+    "encroachment_level": "Low"
+  },
+  "ext_c2_r6_c15": {
+    "status": "insufficient_data",
+    "n_buildings": 211,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 211 buildings and 0 waterways)."
+  },
+  "ext_c2_r6_c16": {
+    "status": "ok",
+    "n_buildings": 474,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 1.8,
+    "median_building_to_waterway_m": 154.1,
+    "n_buildings_within_20m": 41,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c17": {
+    "status": "ok",
+    "n_buildings": 803,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 6.6,
+    "median_building_to_waterway_m": 541.9,
+    "n_buildings_within_20m": 8,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r6_c18": {
+    "status": "ok",
+    "n_buildings": 934,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 9.1,
+    "median_building_to_waterway_m": 188.7,
+    "n_buildings_within_20m": 15,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r7_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 11,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 11 buildings and 0 waterways)."
+  },
+  "ext_c2_r7_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 96,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 96 buildings and 0 waterways)."
+  },
+  "ext_c2_r7_c9": {
+    "status": "ok",
+    "n_buildings": 179,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 10.6,
+    "median_building_to_waterway_m": 240.1,
+    "n_buildings_within_20m": 3,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r7_c10": {
+    "status": "ok",
+    "n_buildings": 335,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 4.1,
+    "median_building_to_waterway_m": 197.8,
+    "n_buildings_within_20m": 9,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r7_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 498,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 498 buildings and 0 waterways)."
+  },
+  "ext_c2_r7_c12": {
+    "status": "ok",
+    "n_buildings": 484,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 1.7,
+    "median_building_to_waterway_m": 187.0,
+    "n_buildings_within_20m": 40,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r7_c13": {
+    "status": "ok",
+    "n_buildings": 437,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 1.5,
+    "median_building_to_waterway_m": 97.4,
+    "n_buildings_within_20m": 50,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r7_c14": {
+    "status": "ok",
+    "n_buildings": 252,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 1.5,
+    "median_building_to_waterway_m": 222.8,
+    "n_buildings_within_20m": 9,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r7_c15": {
+    "status": "ok",
+    "n_buildings": 216,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 3.2,
+    "median_building_to_waterway_m": 351.5,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r7_c16": {
+    "status": "ok",
+    "n_buildings": 147,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 3.2,
+    "median_building_to_waterway_m": 231.5,
+    "n_buildings_within_20m": 12,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r7_c17": {
+    "status": "ok",
+    "n_buildings": 276,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 14.5,
+    "median_building_to_waterway_m": 220.0,
+    "n_buildings_within_20m": 7,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r7_c18": {
+    "status": "ok",
+    "n_buildings": 335,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 14.5,
+    "median_building_to_waterway_m": 177.2,
+    "n_buildings_within_20m": 10,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r8_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 57,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 57 buildings and 0 waterways)."
+  },
+  "ext_c2_r8_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 22,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 22 buildings and 0 waterways)."
+  },
+  "ext_c2_r8_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 38,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 38 buildings and 0 waterways)."
+  },
+  "ext_c2_r8_c9": {
+    "status": "ok",
+    "n_buildings": 104,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 8.2,
+    "median_building_to_waterway_m": 128.1,
+    "n_buildings_within_20m": 4,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c10": {
+    "status": "ok",
+    "n_buildings": 220,
+    "n_waterways": 4,
+    "min_building_to_waterway_m": 1.9,
+    "median_building_to_waterway_m": 83.0,
+    "n_buildings_within_20m": 30,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c11": {
+    "status": "ok",
+    "n_buildings": 366,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 3.1,
+    "median_building_to_waterway_m": 377.4,
+    "n_buildings_within_20m": 7,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c12": {
+    "status": "ok",
+    "n_buildings": 516,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 4.2,
+    "median_building_to_waterway_m": 199.0,
+    "n_buildings_within_20m": 22,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c13": {
+    "status": "ok",
+    "n_buildings": 550,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 1.5,
+    "median_building_to_waterway_m": 254.7,
+    "n_buildings_within_20m": 12,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c14": {
+    "status": "ok",
+    "n_buildings": 484,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 1.5,
+    "median_building_to_waterway_m": 493.9,
+    "n_buildings_within_20m": 9,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c15": {
+    "status": "ok",
+    "n_buildings": 547,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 3.2,
+    "median_building_to_waterway_m": 466.8,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c16": {
+    "status": "ok",
+    "n_buildings": 438,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 3.2,
+    "median_building_to_waterway_m": 298.7,
+    "n_buildings_within_20m": 12,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r8_c17": {
+    "status": "ok",
+    "n_buildings": 227,
+    "n_waterways": 8,
+    "min_building_to_waterway_m": 14.5,
+    "median_building_to_waterway_m": 288.9,
+    "n_buildings_within_20m": 8,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r9_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 117,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 117 buildings and 0 waterways)."
+  },
+  "ext_c2_r9_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 82,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 82 buildings and 0 waterways)."
+  },
+  "ext_c2_r9_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 24,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 24 buildings and 0 waterways)."
+  },
+  "ext_c2_r9_c9": {
+    "status": "ok",
+    "n_buildings": 152,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 109.2,
+    "n_buildings_within_20m": 16,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r9_c10": {
+    "status": "ok",
+    "n_buildings": 432,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 133.1,
+    "n_buildings_within_20m": 23,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r9_c11": {
+    "status": "ok",
+    "n_buildings": 390,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 155.6,
+    "n_buildings_within_20m": 14,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r9_c12": {
+    "status": "insufficient_data",
+    "n_buildings": 459,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 459 buildings and 0 waterways)."
+  },
+  "ext_c2_r9_c13": {
+    "status": "insufficient_data",
+    "n_buildings": 605,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 605 buildings and 0 waterways)."
+  },
+  "ext_c2_r9_c14": {
+    "status": "insufficient_data",
+    "n_buildings": 585,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 585 buildings and 0 waterways)."
+  },
+  "ext_c2_r9_c15": {
+    "status": "ok",
+    "n_buildings": 545,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 5.8,
+    "median_building_to_waterway_m": 426.1,
+    "n_buildings_within_20m": 8,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r9_c16": {
+    "status": "ok",
+    "n_buildings": 449,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 1.9,
+    "median_building_to_waterway_m": 189.8,
+    "n_buildings_within_20m": 27,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r9_c17": {
+    "status": "ok",
+    "n_buildings": 168,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 10.6,
+    "median_building_to_waterway_m": 143.5,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r10_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 120,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 120 buildings and 0 waterways)."
+  },
+  "ext_c2_r10_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 124,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 124 buildings and 0 waterways)."
+  },
+  "ext_c2_r10_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 76,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 76 buildings and 0 waterways)."
+  },
+  "ext_c2_r10_c9": {
+    "status": "ok",
+    "n_buildings": 94,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 391.5,
+    "n_buildings_within_20m": 3,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r10_c10": {
+    "status": "ok",
+    "n_buildings": 92,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 223.1,
+    "n_buildings_within_20m": 3,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r10_c11": {
+    "status": "ok",
+    "n_buildings": 166,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 21.0,
+    "median_building_to_waterway_m": 417.3,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r10_c12": {
+    "status": "ok",
+    "n_buildings": 403,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 23.9,
+    "median_building_to_waterway_m": 451.2,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r10_c13": {
+    "status": "ok",
+    "n_buildings": 505,
+    "n_waterways": 2,
+    "min_building_to_waterway_m": 5.8,
+    "median_building_to_waterway_m": 379.1,
+    "n_buildings_within_20m": 3,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r10_c14": {
+    "status": "ok",
+    "n_buildings": 441,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 2.5,
+    "median_building_to_waterway_m": 180.1,
+    "n_buildings_within_20m": 21,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r10_c15": {
+    "status": "ok",
+    "n_buildings": 392,
+    "n_waterways": 5,
+    "min_building_to_waterway_m": 3.3,
+    "median_building_to_waterway_m": 134.6,
+    "n_buildings_within_20m": 24,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r11_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 121,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 121 buildings and 0 waterways)."
+  },
+  "ext_c2_r11_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 158,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 158 buildings and 0 waterways)."
+  },
+  "ext_c2_r11_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 186,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 186 buildings and 0 waterways)."
+  },
+  "ext_c2_r11_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 134,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 134 buildings and 0 waterways)."
+  },
+  "ext_c2_r11_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 129,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 129 buildings and 0 waterways)."
+  },
+  "ext_c2_r11_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 189,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 189 buildings and 0 waterways)."
+  },
+  "ext_c2_r11_c12": {
+    "status": "ok",
+    "n_buildings": 398,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 23.9,
+    "median_building_to_waterway_m": 358.0,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r11_c13": {
+    "status": "ok",
+    "n_buildings": 444,
+    "n_waterways": 7,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 90.7,
+    "n_buildings_within_20m": 35,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r11_c14": {
+    "status": "ok",
+    "n_buildings": 408,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 2.5,
+    "median_building_to_waterway_m": 251.0,
+    "n_buildings_within_20m": 15,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r11_c15": {
+    "status": "ok",
+    "n_buildings": 244,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 4.4,
+    "median_building_to_waterway_m": 278.7,
+    "n_buildings_within_20m": 7,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r12_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 0,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 0 buildings and 0 waterways)."
+  },
+  "ext_c2_r12_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 39,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 39 buildings and 0 waterways)."
+  },
+  "ext_c2_r12_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 84,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 84 buildings and 0 waterways)."
+  },
+  "ext_c2_r12_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 135,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 135 buildings and 0 waterways)."
+  },
+  "ext_c2_r12_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 132,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 132 buildings and 0 waterways)."
+  },
+  "ext_c2_r12_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 130,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 130 buildings and 0 waterways)."
+  },
+  "ext_c2_r12_c11": {
+    "status": "insufficient_data",
+    "n_buildings": 116,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 116 buildings and 0 waterways)."
+  },
+  "ext_c2_r12_c12": {
+    "status": "ok",
+    "n_buildings": 326,
+    "n_waterways": 4,
+    "min_building_to_waterway_m": 2.9,
+    "median_building_to_waterway_m": 167.2,
+    "n_buildings_within_20m": 17,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r12_c13": {
+    "status": "ok",
+    "n_buildings": 412,
+    "n_waterways": 3,
+    "min_building_to_waterway_m": 0.0,
+    "median_building_to_waterway_m": 132.3,
+    "n_buildings_within_20m": 32,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r12_c14": {
+    "status": "ok",
+    "n_buildings": 482,
+    "n_waterways": 7,
+    "min_building_to_waterway_m": 1.7,
+    "median_building_to_waterway_m": 175.3,
+    "n_buildings_within_20m": 40,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r12_c15": {
+    "status": "ok",
+    "n_buildings": 257,
+    "n_waterways": 9,
+    "min_building_to_waterway_m": 0.4,
+    "median_building_to_waterway_m": 106.5,
+    "n_buildings_within_20m": 34,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r13_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 6,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 6 buildings and 0 waterways)."
+  },
+  "ext_c2_r13_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 19,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 19 buildings and 0 waterways)."
+  },
+  "ext_c2_r13_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 24,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 24 buildings and 0 waterways)."
+  },
+  "ext_c2_r13_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 59,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 59 buildings and 0 waterways)."
+  },
+  "ext_c2_r13_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 71,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 71 buildings and 0 waterways)."
+  },
+  "ext_c2_r13_c10": {
+    "status": "insufficient_data",
+    "n_buildings": 51,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 51 buildings and 0 waterways)."
+  },
+  "ext_c2_r13_c11": {
+    "status": "ok",
+    "n_buildings": 120,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 1.9,
+    "median_building_to_waterway_m": 182.7,
+    "n_buildings_within_20m": 5,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r13_c12": {
+    "status": "ok",
+    "n_buildings": 335,
+    "n_waterways": 7,
+    "min_building_to_waterway_m": 1.9,
+    "median_building_to_waterway_m": 136.2,
+    "n_buildings_within_20m": 36,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r13_c13": {
+    "status": "ok",
+    "n_buildings": 312,
+    "n_waterways": 1,
+    "min_building_to_waterway_m": 26.0,
+    "median_building_to_waterway_m": 560.7,
+    "n_buildings_within_20m": 0,
+    "encroachment_score": 70.0,
+    "encroachment_level": "High"
+  },
+  "ext_c2_r13_c14": {
+    "status": "ok",
+    "n_buildings": 426,
+    "n_waterways": 6,
+    "min_building_to_waterway_m": 2.1,
+    "median_building_to_waterway_m": 173.8,
+    "n_buildings_within_20m": 33,
+    "encroachment_score": 100.0,
+    "encroachment_level": "Very High"
+  },
+  "ext_c2_r14_c5": {
+    "status": "insufficient_data",
+    "n_buildings": 98,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 98 buildings and 0 waterways)."
+  },
+  "ext_c2_r14_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 36,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 36 buildings and 0 waterways)."
+  },
+  "ext_c2_r14_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 12,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 12 buildings and 0 waterways)."
+  },
+  "ext_c2_r14_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 26,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 26 buildings and 0 waterways)."
+  },
+  "ext_c2_r14_c9": {
+    "status": "insufficient_data",
+    "n_buildings": 56,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 56 buildings and 0 waterways)."
+  },
+  "ext_c2_r15_c6": {
+    "status": "insufficient_data",
+    "n_buildings": 73,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 73 buildings and 0 waterways)."
+  },
+  "ext_c2_r15_c7": {
+    "status": "insufficient_data",
+    "n_buildings": 183,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 183 buildings and 0 waterways)."
+  },
+  "ext_c2_r15_c8": {
+    "status": "insufficient_data",
+    "n_buildings": 225,
+    "n_waterways": 0,
+    "note": "Below coverage threshold (need >=5 buildings and >=1 waterway, got 225 buildings and 0 waterways)."
+  }
+}
