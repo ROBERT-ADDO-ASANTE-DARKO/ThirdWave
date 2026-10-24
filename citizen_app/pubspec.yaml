@@ -39,6 +39,8 @@ dependencies:
   http: ^1.6.0
   shared_preferences: ^2.5.5
   uuid: ^4.6.0
+  image_picker: ^1.2.2
+  geolocator: ^14.0.2
 
 dev_dependencies:
   flutter_test:

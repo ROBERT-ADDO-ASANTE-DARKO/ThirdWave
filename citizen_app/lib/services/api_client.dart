@@ -37,4 +37,31 @@ class ApiClient {
       body: jsonEncode(body),
     );
   }
+
+  /// Takes raw bytes rather than an image_picker XFile so this module
+  /// doesn't need to depend on that package -- the caller reads the file
+  /// itself and hands over bytes + a field name + filename.
+  Future<http.Response> postMultipart(
+    String path, {
+    Map<String, String>? fields,
+    List<MultipartFilePart>? files,
+  }) async {
+    final base = await getBaseUrl();
+    final request = http.MultipartRequest('POST', Uri.parse('$base$path'));
+    if (fields != null) request.fields.addAll(fields);
+    if (files != null) {
+      for (final f in files) {
+        request.files.add(http.MultipartFile.fromBytes(f.field, f.bytes, filename: f.filename));
+      }
+    }
+    final streamed = await request.send();
+    return http.Response.fromStream(streamed);
+  }
+}
+
+class MultipartFilePart {
+  final String field;
+  final List<int> bytes;
+  final String filename;
+  MultipartFilePart(this.field, this.bytes, this.filename);
 }

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'screens/address_vulnerability_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/placeholder_screen.dart';
+import 'screens/report_screen.dart';
 import 'services/api_client.dart';
 import 'services/identity_service.dart';
 import 'services/push_service.dart';
@@ -68,10 +69,7 @@ class _NavShellState extends State<_NavShell> {
     final screens = [
       HomeScreen(reporterRef: widget.reporterRef, pushService: widget.pushService, apiClient: widget.apiClient),
       AddressVulnerabilityScreen(apiClient: widget.apiClient),
-      const PlaceholderScreen(
-        title: 'Report',
-        featureNote: 'Crowdsourced Flood Reporting (photo + GPS + AI draft).',
-      ),
+      ReportScreen(apiClient: widget.apiClient, reporterRef: widget.reporterRef),
       const PlaceholderScreen(
         title: 'Rainfall',
         featureNote: '6-hour precipitation outlook per zone.',

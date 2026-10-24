@@ -201,12 +201,42 @@ Kumasi; correct error for an unresolvable address.
 
 ### 2. Crowdsourced Flood Reporting
 
-- [ ] Backend: VLM drafting endpoint (photo in -> draft description +
-      depth estimate + annotated image out), porting `vlm_client.py`'s
-      Claude vision call -- new work, not yet planned as an endpoint
-- [x] Backend: `POST /reports` itself (Phase 1)
-- [ ] Flutter: camera/gallery picker + GPS capture + draft review/edit
-      screen + submit
+- [x] Backend: `POST /reports/draft` -- `backend/vlm_client.py`, a
+      faithful port of `streamlit_app/vlm_client.py` (same prompt, same
+      bounding-box/depth-estimate contract, same "draft only, never
+      auto-submit" design). Returns the draft JSON plus the annotated
+      image as base64; nothing is persisted until the client calls
+      POST /reports for real.
+- [x] Backend: `POST /reports` extended to accept an optional
+      `annotated_photo` upload alongside `photo` -- `Report.annotated_photo_path`
+      existed on the model since Phase 1 but nothing populated it until now.
+- [x] Backend: `GET /geocode?address=` -- plain address -> (lat, lon),
+      factored out of `geo_data.find_zone_by_address()` into a reusable
+      `geocode_address()` so the reporting flow's location search and
+      feature #1's zone lookup share one geocoding implementation.
+- [x] Flutter: `lib/screens/report_screen.dart` -- camera/gallery
+      (`image_picker`), "Draft with AI" call showing the annotated image
+      + editable description/hazard defaults, location via address
+      search or `geolocator` current-position, submit. `flutter analyze`
+      clean. **Not build/run-tested on a real device** -- same hardware
+      block as feature #1.
+
+**Verified thoroughly against the real Claude vision API, not mocked:**
+the full `/reports/draft` -> annotate -> `POST /reports` pipeline was
+run against a real, user-supplied street-level flood photo (a taxi
+with floodwater at wheel-well height, people wading) -- correct
+`shows_flooding: true`, correct `urban_flood` suggestion, a plausible
+0.3-0.5m depth estimate, 4 accurately-boxed reference objects, and a
+correctly-rendered annotated image (boxes, non-overlapping labels,
+waterline, depth caption). Also tested three synthetic/non-matching
+photos (a cartoon street scene, a real but non-street dam-spillway
+photo) -- the model correctly declined to report flooding on all three,
+including correctly distinguishing a dam spillway release from
+street-level flooding (consistent with this project's own dam-release
+vs. urban-flood distinction elsewhere). The validated photo pair is
+kept locally as a regression fixture (`backend/test_fixtures/`,
+gitignored -- real, watermarked news photo, not for redistribution,
+same treatment as `risk_engine/data/Flooding_Accra_6.jpg`).
 
 ### 3. Rainfall Forecast
 

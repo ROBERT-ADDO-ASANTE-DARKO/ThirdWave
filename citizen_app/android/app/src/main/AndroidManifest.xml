@@ -5,6 +5,10 @@
     <!-- Android 13+ requires this to be requested at runtime before a
          notification can be shown; see push_service.dart's permission request. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!-- Report screen: photo capture and GPS location, see report_screen.dart. -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:label="citizen"
         android:name="${applicationName}"

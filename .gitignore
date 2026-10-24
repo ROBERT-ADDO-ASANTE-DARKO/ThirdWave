@@ -15,6 +15,12 @@ risk_engine/data/Accra, Ghana - very high-resolution satellite image.jpg
 # non-redistribution treatment as the other Airbus-branded assets above.
 risk_engine/data/Ghana_GHA_Country_Coverage_2026.zip
 
+# Real, watermarked CitiNewsroom flood photo (Kaneshie-area taxi, floodwater at
+# wheel-well height) used to validate backend/vlm_client.py's full pipeline --
+# same non-redistribution treatment, local test fixture only.
+backend/test_fixtures/vlm_validated_flood_photo.webp
+backend/test_fixtures/vlm_validated_flood_photo_annotated.jpg
+
 # Ephemeral API/data caches -- regenerable, not source
 risk_engine/cache/
 
