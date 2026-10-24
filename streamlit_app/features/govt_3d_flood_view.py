@@ -34,6 +34,7 @@ import pydeck as pdk
 import requests
 import streamlit as st
 from PIL import Image
+import rasterio.features
 from rasterio.features import shapes as rio_shapes
 from rasterio.transform import from_bounds as rio_from_bounds
 
@@ -187,7 +188,7 @@ def _local_window(dem_shape, bbox, lat0, lon0, radius_m):
     return (r0, r1, c0, c1), (crop_minlon, crop_minlat, crop_maxlon, crop_maxlat)
 
 
-def _depth_crop_to_layer(local_depth: np.ndarray, crop_bounds) -> pdk.Layer | None:
+def _depth_crop_to_layer(local_depth: np.ndarray, crop_bounds, buildings: list | None = None) -> pdk.Layer | None:
     if local_depth.size == 0:
         return None
     crop_minlon, crop_minlat, crop_maxlon, crop_maxlat = crop_bounds
@@ -197,6 +198,20 @@ def _depth_crop_to_layer(local_depth: np.ndarray, crop_bounds) -> pdk.Layer | No
     )
     up_depth = np.array(up_img)
     transform = rio_from_bounds(crop_minlon, crop_minlat, crop_maxlon, crop_maxlat, up_depth.shape[1], up_depth.shape[0])
+
+    if buildings:
+        # Zero depth under building footprints so water never renders as
+        # pooling "through" an extruded wall -- this is a RENDERING fix
+        # only, not flow redistribution: the CA simulation never routed
+        # this water around the building, it's just hidden here rather
+        # than shown in a physically misleading spot. Water is not
+        # conserved by this step (see module docstring).
+        footprint_mask = rasterio.features.rasterize(
+            [({"type": "Polygon", "coordinates": [poly]}, 1) for poly in buildings],
+            out_shape=up_depth.shape, transform=transform,
+            all_touched=True, fill=0, dtype=np.uint8,
+        ).astype(bool)
+        up_depth = np.where(footprint_mask, 0.0, up_depth)
 
     cat = np.zeros(up_depth.shape, dtype=np.int32)
     for i, (lo, hi, _, _, _) in enumerate(DEPTH_BINS, start=1):
@@ -208,7 +223,12 @@ def _depth_crop_to_layer(local_depth: np.ndarray, crop_bounds) -> pdk.Layer | No
         if val < 1 or val > len(DEPTH_BINS):
             continue
         _, _, elev, color, _ = DEPTH_BINS[val - 1]
-        coords = geom["coordinates"][0]
+        # ALL rings, not just [0] (the outer boundary) -- a water polygon that
+        # wraps around a masked-out building footprint has an interior ring
+        # (hole) at that building, same issue already hit and fixed for BGT
+        # courtyards in risk_engine/bgt_draw.py. deck.gl's PolygonLayer
+        # accepts [outer_ring, hole_ring, ...] directly for get_polygon.
+        coords = geom["coordinates"]
         records.append({"polygon": coords, "elevation": elev, "fill_color": color})
 
     if not records:
@@ -220,23 +240,23 @@ def _depth_crop_to_layer(local_depth: np.ndarray, crop_bounds) -> pdk.Layer | No
     )
 
 
-def build_water_layer(dem, wc_int, bbox, lat0, lon0, radius_m, rainfall_mm):
+def build_water_layer(dem, wc_int, bbox, lat0, lon0, radius_m, rainfall_mm, buildings=None):
     (r0, r1, c0, c1), crop_bounds = _local_window(dem.shape, bbox, lat0, lon0, radius_m)
     depth_full = simulate_ponding(dem, wc_int, rainfall_mm=rainfall_mm, iterations=ITERATIONS)
     local_depth = depth_full[r0:r1, c0:c1]
-    layer = _depth_crop_to_layer(local_depth, crop_bounds)
+    layer = _depth_crop_to_layer(local_depth, crop_bounds, buildings)
     return layer, crop_bounds
 
 
 @st.cache_data(ttl=1800, show_spinner=False)
-def build_water_layer_frames(_dem, _wc_int, bbox, lat0, lon0, radius_m, rainfall_mm, n_frames=18):
+def build_water_layer_frames(_dem, _wc_int, bbox, lat0, lon0, radius_m, rainfall_mm, _buildings=None, n_frames=18):
     """Precompute the animation: one water layer per CA snapshot. Cached on
     (bbox, lat0, lon0, radius_m, rainfall_mm) so replaying the same scenario
-    (e.g. pressing Play again) doesn't re-simulate. dem/wc_int are prefixed
-    with _ so Streamlit doesn't try to hash the full arrays."""
+    (e.g. pressing Play again) doesn't re-simulate. dem/wc_int/buildings are
+    prefixed with _ so Streamlit doesn't try to hash them."""
     (r0, r1, c0, c1), crop_bounds = _local_window(_dem.shape, bbox, lat0, lon0, radius_m)
     frames = simulate_ponding_frames(_dem, _wc_int, rainfall_mm=rainfall_mm, iterations=ITERATIONS, n_frames=n_frames)
-    layers = [_depth_crop_to_layer(f[r0:r1, c0:c1], crop_bounds) for f in frames]
+    layers = [_depth_crop_to_layer(f[r0:r1, c0:c1], crop_bounds, _buildings) for f in frames]
     return layers, crop_bounds
 
 
@@ -245,12 +265,17 @@ def render():
     st.warning(
         "⚠️ **A visualization aid, not a new simulation.** Water depth here is the exact same "
         "simulate_ponding() output as the Pluvial Flood Simulator, just cropped to a small area and "
-        "shown in 3D. Three things to know before reading it: (1) the ground is a **flat reference plane** "
+        "shown in 3D. Things to know before reading it: (1) the ground is a **flat reference plane** "
         "-- real terrain relief isn't rendered in 3D here, only building height and water depth are true "
         "relative extrusions; (2) **building heights are estimated** from footprint size, not real survey "
         "data (OSM rarely has building height for Accra); (3) water depth uses **true scale, not "
         "exaggerated** -- so it will often look thin next to a building, which is the honest picture, not "
-        "a rendering bug."
+        "a rendering bug; (4) the DEM feeding the simulation has the mapped Odaw/drain network **burned in** "
+        "so water routes toward real channels instead of spreading as uniform sheet flow -- a coarse "
+        "~100m-grid correction, not surveyed channel geometry; (5) water is **hidden under building "
+        "footprints** here so it never renders as pooling through a wall -- this only fixes the picture, it "
+        "does NOT reroute that water around the building (the CA simulation has no building obstacles), so "
+        "treat footprint edges as a rendering cutoff, not a true flood boundary."
     )
 
     inputs = load_inundation_inputs()
@@ -311,12 +336,12 @@ def render():
 
     if play:
         with st.spinner("Simulating rise..."):
-            frames, _ = build_water_layer_frames(dem, wc_int, tuple(bbox), lat, lon, radius_m, rainfall_mm)
+            frames, _ = build_water_layer_frames(dem, wc_int, tuple(bbox), lat, lon, radius_m, rainfall_mm, buildings)
         for water_layer in frames:
             chart_slot.pydeck_chart(assemble(water_layer), height=520)
             time.sleep(0.12)
     else:
-        water_layer, _ = build_water_layer(dem, wc_int, bbox, lat, lon, radius_m, rainfall_mm)
+        water_layer, _ = build_water_layer(dem, wc_int, bbox, lat, lon, radius_m, rainfall_mm, buildings)
         chart_slot.pydeck_chart(assemble(water_layer), height=520)
 
     caption_col.caption(
