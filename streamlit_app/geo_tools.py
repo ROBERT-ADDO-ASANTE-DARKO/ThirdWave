@@ -13,6 +13,7 @@ just burns tokens without adding value the model will use.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import requests
@@ -21,7 +22,28 @@ from shapely.geometry import Point, shape
 from data_loader import (
     DATA_DIR, load_risk_zones, load_assembly_scores, load_encroachment_index,
     load_historical_events, load_demo_seed_incidents, load_lower_volta_risk_grid_gdf,
+    load_madina_risk_grid_gdf,
 )
+
+# Same backend the briefing-review page talks to (govt_briefing_review.py)
+# -- verified citizen reports live in the FastAPI/SQLite backend, not in a
+# risk_engine/data/*.json file, so reaching them means an HTTP call, not a
+# local read like every other tool in this module.
+BACKEND_URL = os.environ.get("THIRDWAVE_BACKEND_URL", "http://localhost:8000")
+CITIZEN_SAR_CHECKS_PATH = Path(DATA_DIR) / "dam_spillage_sar" / "citizen_report_checks.json"
+
+# Known channel-encroachment index files across this project's several
+# parallel branches (see .claude/plans/temporal-waddling-trinket.md) --
+# not every file exists on every checkout (e.g. the East Legon one lives
+# only on the ayawaso-west-encroachment branch), so this is read
+# defensively: a missing file is skipped, not an error, same discipline
+# every other optional-data read in this project follows.
+_ENCROACHMENT_INDEX_FILES = {
+    "channel_encroachment_index.json": "pilot district",
+    "lower_volta_channel_encroachment_index.json": "Lower Volta basin",
+    "ayawaso_west_channel_encroachment_index.json": "Ayawaso West (East Legon)",
+    "madina_channel_encroachment_index.json": "La-Nkwantanang-Madina",
+}
 
 
 HISTORICAL_EVENT_RADIUS_KM = 2.0
@@ -57,6 +79,97 @@ def _nearby_historical_events(lat: float, lon: float, radius_km: float = HISTORI
     return sorted(out, key=lambda r: r["distance_km"])
 
 
+def _sar_checks_by_report_id() -> dict:
+    if not CITIZEN_SAR_CHECKS_PATH.exists():
+        return {}
+    return json.loads(CITIZEN_SAR_CHECKS_PATH.read_text())
+
+
+def _nearby_verified_reports(lat: float, lon: float, radius_km: float = HISTORICAL_EVENT_RADIUS_KM) -> list[dict]:
+    """Verified citizen reports within radius_km of a point, live from the
+    backend (not a static risk_engine/data file -- see BACKEND_URL),
+    attached with any Sentinel-1 SAR corroboration already computed for
+    that exact report by citizen_report_sar_check.py. Mirrors
+    _nearby_historical_events()'s role: a computed score should never be
+    shown without also surfacing live citizen evidence nearby, same as it
+    already does for curated historical events. Fails soft (empty list +
+    a note) if the backend isn't reachable -- a down backend must not
+    break the rest of the tool-calling loop."""
+    try:
+        resp = requests.get(
+            f"{BACKEND_URL}/incidents/nearby", params={"lat": lat, "lon": lon, "radius_km": radius_km}, timeout=8,
+        )
+        resp.raise_for_status()
+        reports = resp.json()
+    except Exception as exc:
+        return [{"error": f"Could not reach the citizen-reports backend ({exc}) -- this does NOT mean there are "
+                           "no nearby reports, only that they couldn't be checked."}]
+
+    checks = _sar_checks_by_report_id()
+    out = []
+    for r in reports:
+        entry = {
+            "report_id": r["id"], "hazard_type": r["hazard_type"], "description": r["description"],
+            "location_label": r.get("location_label"), "distance_km": r["distance_km"],
+            "verified_at": r.get("verified_at"),
+        }
+        check = checks.get(r["id"])
+        if check:
+            if "error" in check:
+                entry["sar_corroboration"] = {"status": "check_failed", "detail": check["error"]}
+            else:
+                entry["sar_corroboration"] = {
+                    "new_flood_at_peak_km2": check["new_flood_at_peak_km2"], "verdict": check["verdict"],
+                    "scene_dates": check["scene_dates"],
+                }
+        else:
+            entry["sar_corroboration"] = {"status": "not_yet_checked"}
+        out.append(entry)
+    return out
+
+
+def get_verified_citizen_reports_for_district(district: str) -> dict:
+    """Verified citizen flood reports for a district, straight from the
+    live backend (not historical/curated data -- see
+    get_historical_flood_events for that), each with any Sentinel-1 SAR
+    corroboration already computed for it by citizen_report_sar_check.py.
+    This is the live counterpart to historical events: use it to show a
+    district assembly that current, on-the-ground reports are backed by
+    independent satellite evidence, not just citizen testimony alone."""
+    try:
+        resp = requests.get(f"{BACKEND_URL}/incidents/active", params={"district": district}, timeout=8)
+        resp.raise_for_status()
+        reports = resp.json()
+    except Exception as exc:
+        return {"district": district, "error": f"Could not reach the citizen-reports backend ({exc})."}
+
+    checks = _sar_checks_by_report_id()
+    out = []
+    for r in reports:
+        entry = {
+            "report_id": r["id"], "hazard_type": r["hazard_type"], "description": r["description"],
+            "location_label": r.get("location_label"), "verified_at": r.get("verified_at"),
+        }
+        check = checks.get(r["id"])
+        if check:
+            if "error" in check:
+                entry["sar_corroboration"] = {"status": "check_failed", "detail": check["error"]}
+            else:
+                entry["sar_corroboration"] = {
+                    "new_flood_at_peak_km2": check["new_flood_at_peak_km2"], "verdict": check["verdict"],
+                    "scene_dates": check["scene_dates"],
+                }
+        else:
+            entry["sar_corroboration"] = {"status": "not_yet_checked"}
+        out.append(entry)
+    return {
+        "district": district, "n_verified_reports": len(out), "reports": out,
+        "note": "sar_corroboration is from citizen_report_sar_check.py, a Sentinel-1 change-detection check "
+                "anchored to this exact report's location and submission date -- 'not_yet_checked' means that "
+                "script hasn't run for this report, not that satellite evidence is absent.",
+    }
+
+
 def _geocode(address: str, region_hint: str = "Accra, Ghana"):
     try:
         resp = requests.get(
@@ -71,6 +184,39 @@ def _geocode(address: str, region_hint: str = "Accra, Ghana"):
     except Exception:
         pass
     return None
+
+
+def _find_zone_in_madina(lat: float, lon: float) -> dict | None:
+    """La-Nkwantanang-Madina Municipal -- checked after the pilot and
+    Lower Volta grids both miss, same broadly-re-geocoded-point pattern as
+    _find_zone_in_lower_volta. Unlike Lower Volta, this district's
+    composite score and its channel-encroachment index were computed in
+    the same session and directly contradict each other at the worst
+    encroachment site (Madina Zongo): composite score ~20 ("Low") vs.
+    0.0-0.2m building-to-waterway distance ("Very High" encroachment) --
+    the coverage_note says so explicitly rather than leaving the model to
+    notice the gap on its own."""
+    pt = Point(lon, lat)
+    gdf = load_madina_risk_grid_gdf()
+    hits = gdf[gdf.contains(pt)]
+    if hits.empty:
+        return None
+    row = hits.iloc[0]
+    out = {"zone_id": row["zone_id"], "assembly": row["assembly"]}
+    if "score" in row and row["score"] is not None:
+        out["score"] = round(float(row["score"]), 1)
+        out["level"] = row["level"]
+    out["coverage_note"] = (
+        "This is in La-Nkwantanang-Madina Municipal, NOT the MVP pilot district -- it gets the same "
+        "fine-grid treatment (500m cells) but the composite score is the same multi-year statistical "
+        "SAR/DEM/land-cover formula used everywhere else in this project, and it structurally cannot see "
+        "localized drainage/channel encroachment. At this district's worst encroachment site (Madina Zongo), "
+        "the composite score is only ~20 (\"Low\") while the channel-encroachment index rates the same cells "
+        "\"Very High\" (0.0-0.2m building-to-waterway distance) -- a Low/Moderate score here should not be "
+        "read as reassuring; check nearby_historical_events and the encroachment index before concluding "
+        "low risk."
+    )
+    return out
 
 
 def _find_zone_in_lower_volta(lat: float, lon: float) -> dict | None:
@@ -139,6 +285,7 @@ def find_zone_by_address(address: str) -> dict:
             else:
                 out["nearby_historical_events"] = []
                 out["historical_context_note"] = f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated record -- absence of history here is not the same as absence of risk."
+            out["nearby_verified_citizen_reports"] = _nearby_verified_reports(lat, lon)
             return out
     # Not in the pilot grid -- try the Lower Volta basin before giving up.
     # Re-geocode broadly ("Ghana", not "Accra, Ghana"): the pilot-biased
@@ -158,7 +305,23 @@ def find_zone_by_address(address: str) -> dict:
                 f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated "
                 "record -- absence of history here is not the same as absence of risk."
             )
+            lv["nearby_verified_citizen_reports"] = _nearby_verified_reports(b_lat, b_lon)
             return lv
+
+        madina = _find_zone_in_madina(b_lat, b_lon)
+        if madina:
+            madina["resolved_address"] = b_label
+            b_events = _nearby_historical_events(b_lat, b_lon)
+            madina["nearby_historical_events"] = b_events
+            madina["historical_context_note"] = (
+                f"{len(b_events)} documented flood event(s) within {HISTORICAL_EVENT_RADIUS_KM:.0f}km -- "
+                "weigh this alongside the computed score."
+                if b_events else
+                f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated "
+                "record -- absence of history here is not the same as absence of risk."
+            )
+            madina["nearby_verified_citizen_reports"] = _nearby_verified_reports(b_lat, b_lon)
+            return madina
 
     out = {"resolved_address": label, "error": "This location is outside the pilot district's coverage area."}
     if nearby_events:
@@ -167,6 +330,7 @@ def find_zone_by_address(address: str) -> dict:
             f"No computed score available (outside pilot coverage), but {len(nearby_events)} documented "
             "flood event(s) exist within range -- mention this even though there's no score to give."
         )
+    out["nearby_verified_citizen_reports"] = _nearby_verified_reports(lat, lon)
     return out
 
 
@@ -252,10 +416,91 @@ def get_active_incidents() -> dict:
     ]}
 
 
+def get_channel_encroachment_for_district(district: str) -> dict:
+    """Channel-encroachment index results (OSM building-to-waterway
+    distance) for one district/assembly, searched across every
+    encroachment-index file this project has produced (pilot, Lower
+    Volta, Ayawaso West -- whichever exist on this checkout). Returns the
+    worst (closest) cells found, not every cell, since a briefing needs
+    the headline finding, not a full dump."""
+    import geopandas as gpd
+
+    grid_files = {
+        "channel_encroachment_index.json": "pilot_risk_grid.geojson",
+        "lower_volta_channel_encroachment_index.json": "lower_volta_risk_grid.geojson",
+        "ayawaso_west_channel_encroachment_index.json": "ayawaso_west_risk_grid.geojson",
+        "madina_channel_encroachment_index.json": "madina_risk_grid.geojson",
+    }
+    worst: list[dict] = []
+    searched_sources = []
+    for index_name, grid_name in grid_files.items():
+        index_path = Path(DATA_DIR) / index_name
+        grid_path = Path(DATA_DIR) / grid_name
+        if not index_path.exists() or not grid_path.exists():
+            continue
+        searched_sources.append(_ENCROACHMENT_INDEX_FILES.get(index_name, index_name))
+        index = json.loads(index_path.read_text())
+        grid = gpd.read_file(grid_path)
+        if "assembly" not in grid.columns:
+            continue
+        district_zone_ids = set(grid.loc[grid["assembly"] == district, "zone_id"])
+        if not district_zone_ids:
+            continue
+        for zone_id in district_zone_ids:
+            rec = index.get(zone_id)
+            if rec and rec.get("status") == "ok":
+                worst.append({
+                    "zone_id": zone_id, "min_building_to_waterway_m": rec["min_building_to_waterway_m"],
+                    "encroachment_level": rec["encroachment_level"], "n_buildings": rec["n_buildings"],
+                })
+    worst.sort(key=lambda r: r["min_building_to_waterway_m"])
+    return {
+        "district": district, "sources_searched": searched_sources,
+        "n_cells_with_findings": len(worst), "worst_cells": worst[:10],
+        "note": "min_building_to_waterway_m is from OpenStreetMap geometry, not a field survey -- "
+                "say so if citing it.",
+    }
+
+
+# Evidence images this project has actually produced and verified this
+# session (true/false-color satellite crops, each manually checked against
+# the real OSM waterway/building overlay before being trusted -- see
+# project chat history). A small explicit map, not filename-guessing: the
+# naming across risk_engine/data/*.png isn't consistent enough to pattern-
+# match reliably, and a wrong image attached to the wrong district would
+# be worse than a missing one.
+_DISTRICT_EVIDENCE_IMAGES = {
+    "Korle Klottey Municipal": ["korle_klottey_christiansborg_s2_imagery.png", "korle_klottey_adabraka_s2_imagery.png"],
+    "La-Nkwantanang-Madina Municipal": ["madina_zongo_s2_imagery.png"],
+    "Ablekuma Central Municipal": ["ablekuma_central_korlebu_s2_imagery.png", "ablekuma_central_kaneshie_s2_imagery.png"],
+    "Ablekuma North Municipal": ["ablekuma_north_s2_imagery.png", "alajo_s2_imagery.png"],
+    "Weija Gbawe Municipal": ["weija_tetegu_truecolor.png", "weija_tetegu_falsecolor.png"],
+    "Ayawaso West Municipal": ["ayawaso_west_encroachment_truecolor.png", "ayawaso_west_encroachment_falsecolor.png"],
+    "South Tongu": ["sogakope_s2_imagery.png"],
+    "Lower Manya": ["akuse_s2_imagery.png"],
+    "North Tongu": ["juapong_s2_imagery.png"],
+    "Asuogyaman": ["juapong_s2_imagery.png"],
+    "Ada East": ["adafoah_s2_imagery.png"],
+}
+
+
+def get_satellite_evidence_paths_for_district(district: str) -> dict:
+    """Which verified satellite-evidence images (if any) exist for this
+    district, and whether they're actually present on this checkout right
+    now (several live on different git branches -- see
+    .claude/plans/temporal-waddling-trinket.md). Paths are relative to
+    risk_engine/data/."""
+    names = _DISTRICT_EVIDENCE_IMAGES.get(district, [])
+    out = []
+    for name in names:
+        out.append({"filename": name, "present_on_this_checkout": (Path(DATA_DIR) / name).exists()})
+    return {"district": district, "images": out}
+
+
 TOOLS = [
     {
         "name": "find_zone_by_address",
-        "description": "Look up the flood vulnerability zone containing a given address or landmark in the pilot district. Also returns any documented historical flood events within ~2km, since the computed score alone can miss hazard types (like dam-release floods) its satellite/terrain inputs can't detect -- always consider both together.",
+        "description": "Look up the flood vulnerability zone containing a given address or landmark, checking the pilot district first and falling back to extended coverage (Lower Volta basin, La-Nkwantanang-Madina Municipal) if it's outside the pilot. Also returns any documented historical flood events within ~2km, since the computed score alone can miss hazard types (like dam-release floods or localized drainage encroachment) its satellite/terrain inputs can't detect -- always consider both together.",
         "input_schema": {"type": "object", "properties": {
             "address": {"type": "string", "description": "An address or landmark, e.g. 'Kwame Nkrumah Circle'"}},
             "required": ["address"]},
@@ -295,6 +540,27 @@ TOOLS = [
         "description": "Get currently active/historical flood incidents tracked by the system.",
         "input_schema": {"type": "object", "properties": {}, "required": []},
     },
+    {
+        "name": "get_channel_encroachment_for_district",
+        "description": "Get channel-encroachment index findings (how close buildings sit to mapped waterways) for one specific district/assembly, searched across every encroachment-index file this project has produced.",
+        "input_schema": {"type": "object", "properties": {
+            "district": {"type": "string", "description": "Exact assembly/district name, e.g. 'Weija Gbawe Municipal' or 'South Tongu'"}},
+            "required": ["district"]},
+    },
+    {
+        "name": "get_satellite_evidence_paths_for_district",
+        "description": "Check which verified satellite-imagery evidence files (if any) exist for a district, confirming they are present before citing them.",
+        "input_schema": {"type": "object", "properties": {
+            "district": {"type": "string", "description": "Exact assembly/district name"}},
+            "required": ["district"]},
+    },
+    {
+        "name": "get_verified_citizen_reports_for_district",
+        "description": "Get live, officer-verified citizen flood reports for a district from the ThirdWave backend, each annotated with any Sentinel-1 SAR satellite corroboration already computed for that specific report (citizen_report_sar_check.py). Use this for current/live evidence, separate from the curated historical record.",
+        "input_schema": {"type": "object", "properties": {
+            "district": {"type": "string", "description": "Exact assembly/district name"}},
+            "required": ["district"]},
+    },
 ]
 
 TOOL_FUNCTIONS = {
@@ -305,4 +571,74 @@ TOOL_FUNCTIONS = {
     "get_population_exposure_summary": get_population_exposure_summary,
     "get_historical_flood_events": get_historical_flood_events,
     "get_active_incidents": get_active_incidents,
+    "get_channel_encroachment_for_district": get_channel_encroachment_for_district,
+    "get_satellite_evidence_paths_for_district": get_satellite_evidence_paths_for_district,
+    "get_verified_citizen_reports_for_district": get_verified_citizen_reports_for_district,
 }
+
+
+BRIEFING_SECTION_KEYS = ["purpose", "context", "finding", "implications", "sources"]
+
+BRIEFING_SYSTEM_PROMPT = """You are drafting a short flood-risk briefing document for a Ghanaian district \
+assembly, grounded ONLY in data you look up via the tools available to you -- the same tools the ThirdWave AI \
+Assistant uses. Never invent a figure, date, or finding; if a tool returns nothing useful for this district, \
+say so in the relevant section rather than filling the gap with a plausible-sounding guess.
+
+Call get_historical_flood_events, get_channel_encroachment_for_district, \
+get_satellite_evidence_paths_for_district, and get_verified_citizen_reports_for_district for the requested \
+district before writing anything. Use get_assembly_comparison too if it helps explain how this district's \
+generic risk score compares to others.
+
+Write five sections, each 2-4 short sentences, plain language for a non-technical official reader (this mirrors \
+real briefings already written by hand for Weija Gbawe, East Legon/Ayawaso West, and South Tongu -- match that \
+tone: lead with the point, cite real numbers/dates, no padding):
+- purpose: what this briefing is and why it exists for this district, in one or two sentences.
+- context: relevant history -- documented flood events, recurrence pattern, any official findings (e.g. a task \
+force report) already on record for this area. If get_verified_citizen_reports_for_district returned any \
+reports, mention them here too as current/live evidence, distinct from the historical record -- and if any of \
+them have SAR corroboration ("new_flood_at_peak_km2" > 0), say so explicitly as independent satellite backing \
+for a citizen's claim.
+- finding: the channel-encroachment result (or its absence) and what it means, mentioning whether verified \
+satellite imagery exists for this finding (say so explicitly either way -- never claim imagery support that \
+get_satellite_evidence_paths_for_district didn't confirm present).
+- implications: 2-4 concrete, numbered recommendations for the assembly, grounded in what was actually found.
+- sources: list the real source URLs returned by the tools (historical events' `source` fields), one per line.
+
+When you are done calling tools, respond with ONLY a JSON object (no prose outside it, no markdown code fence) \
+with exactly these keys: purpose, context, finding, implications, sources. Each value is a markdown-formatted \
+string body for that section (no "## Heading" line -- the document template adds headings itself)."""
+
+
+def draft_briefing(district: str, trigger_reason: str = "manual", source_finding: str | None = None) -> dict:
+    """Runs a dedicated tool-calling turn (same engine as the AI Assistant
+    chat, see claude_client.run_tool_loop) to draft the 5 briefing
+    sections for one district. Returns {"sections": {...}, "tool_log": [...]}
+    on success, or {"error": ...} if the model's final answer wasn't valid
+    JSON with the expected keys -- this is a DRAFT for a human to review
+    and edit, never auto-published (see govt_briefing_review.py and
+    backend/routers/briefings.py's module docstrings for the same
+    human-in-the-loop discipline vlm_client.py already established)."""
+    from claude_client import get_client, run_tool_loop
+
+    client = get_client()
+    user_msg = f"Draft a briefing for {district}."
+    if source_finding:
+        user_msg += f" This was triggered by: {source_finding} (reason: {trigger_reason})."
+    messages = [{"role": "user", "content": user_msg}]
+    final_text, tool_log = run_tool_loop(
+        client, system=BRIEFING_SYSTEM_PROMPT, tools=TOOLS, tool_functions=TOOL_FUNCTIONS,
+        messages=messages, max_rounds=6, max_tokens=2048,
+    )
+    try:
+        text = final_text.strip()
+        if text.startswith("```"):
+            text = text.split("```")[1]
+            if text.startswith("json"):
+                text = text[4:]
+        sections = json.loads(text)
+        missing = [k for k in BRIEFING_SECTION_KEYS if k not in sections]
+        if missing:
+            return {"error": f"Model's draft was missing section(s): {missing}", "raw": final_text, "tool_log": tool_log}
+        return {"sections": {k: sections[k] for k in BRIEFING_SECTION_KEYS}, "tool_log": tool_log}
+    except json.JSONDecodeError as exc:
+        return {"error": f"Model's final answer wasn't valid JSON: {exc}", "raw": final_text, "tool_log": tool_log}

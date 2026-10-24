@@ -15,19 +15,13 @@ feeding tool_result blocks back until Claude returns a final text turn.
 
 from __future__ import annotations
 
-import json
 import os
-from pathlib import Path
 
-import anthropic
 import streamlit as st
-from dotenv import load_dotenv
 
+from claude_client import get_client, run_tool_loop
 from geo_tools import TOOLS, TOOL_FUNCTIONS
 
-load_dotenv(Path(__file__).parent.parent.parent / ".env")
-
-MODEL = "claude-sonnet-5"
 MAX_TOOL_ROUNDS = 6
 
 SYSTEM_PROMPT = """You are the ThirdWave AI Assistant, embedded in a flood early-warning \
@@ -54,45 +48,6 @@ like dam-release floods, drainage encroachment, or one-off infrastructure failur
 "Low" score next to a documented flood history is a real gap in what the score can see, \
 not a contradiction to explain away. Say so plainly when it happens.
 """
-
-
-def _get_client() -> anthropic.Anthropic:
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    workspace_id = os.environ.get("ANTHROPIC_WORKSPACE_ID")
-    headers = {"anthropic-workspace-id": workspace_id} if workspace_id else None
-    return anthropic.Anthropic(api_key=api_key, default_headers=headers)
-
-
-def _run_turn(client: anthropic.Anthropic, messages: list) -> tuple[str, list]:
-    """Runs the tool-calling loop for one user turn. Returns (final_text, tool_log)."""
-    tool_log = []
-    for _ in range(MAX_TOOL_ROUNDS):
-        response = client.messages.create(
-            model=MODEL, max_tokens=1024, system=SYSTEM_PROMPT,
-            tools=TOOLS, messages=messages,
-        )
-        if response.stop_reason != "tool_use":
-            final_text = "".join(b.text for b in response.content if b.type == "text")
-            return final_text, tool_log
-
-        messages.append({"role": "assistant", "content": response.content})
-        tool_results = []
-        for block in response.content:
-            if block.type != "tool_use":
-                continue
-            func = TOOL_FUNCTIONS.get(block.name)
-            try:
-                result = func(**block.input) if func else {"error": f"Unknown tool {block.name}"}
-            except Exception as exc:
-                result = {"error": str(exc)}
-            tool_log.append({"tool": block.name, "input": block.input, "result": result})
-            tool_results.append({
-                "type": "tool_result", "tool_use_id": block.id,
-                "content": json.dumps(result),
-            })
-        messages.append({"role": "user", "content": tool_results})
-
-    return "I wasn't able to finish looking that up -- try rephrasing your question.", tool_log
 
 
 def render():
@@ -145,9 +100,12 @@ def render():
 
     with st.chat_message("assistant"):
         with st.spinner("Looking that up..."):
-            client = _get_client()
+            client = get_client()
             try:
-                final_text, tool_log = _run_turn(client, api_messages)
+                final_text, tool_log = run_tool_loop(
+                    client, system=SYSTEM_PROMPT, tools=TOOLS, tool_functions=TOOL_FUNCTIONS,
+                    messages=api_messages, max_rounds=MAX_TOOL_ROUNDS,
+                )
             except Exception as exc:
                 final_text, tool_log = f"Something went wrong calling the model: {exc}", []
         st.markdown(final_text)

@@ -1,0 +1,2864 @@
+{
+  "madina_r0_c4": {
+    "zone_id": "madina_r0_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 7.9,
+    "rainfall_6h_warning_mm": 57.9,
+    "rainfall_6h_critical_mm": 106.1,
+    "river_level_warning_m": 3.91,
+    "river_level_critical_m": 4.88
+  },
+  "madina_r0_c5": {
+    "zone_id": "madina_r0_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 9.4,
+    "rainfall_6h_warning_mm": 57.5,
+    "rainfall_6h_critical_mm": 105.3,
+    "river_level_warning_m": 3.89,
+    "river_level_critical_m": 4.86
+  },
+  "madina_r0_c6": {
+    "zone_id": "madina_r0_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 10.6,
+    "rainfall_6h_warning_mm": 57.1,
+    "rainfall_6h_critical_mm": 104.8,
+    "river_level_warning_m": 3.87,
+    "river_level_critical_m": 4.84
+  },
+  "madina_r0_c7": {
+    "zone_id": "madina_r0_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.0,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 101.1,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r0_c8": {
+    "zone_id": "madina_r0_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.5,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r0_c9": {
+    "zone_id": "madina_r0_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r0_c10": {
+    "zone_id": "madina_r0_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 26.7,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.8,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "madina_r1_c3": {
+    "zone_id": "madina_r1_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 7.3,
+    "rainfall_6h_warning_mm": 58.0,
+    "rainfall_6h_critical_mm": 106.4,
+    "river_level_warning_m": 3.91,
+    "river_level_critical_m": 4.89
+  },
+  "madina_r1_c4": {
+    "zone_id": "madina_r1_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.2,
+    "rainfall_6h_warning_mm": 56.7,
+    "rainfall_6h_critical_mm": 104.0,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.82
+  },
+  "madina_r1_c5": {
+    "zone_id": "madina_r1_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 8.9,
+    "rainfall_6h_warning_mm": 57.6,
+    "rainfall_6h_critical_mm": 105.6,
+    "river_level_warning_m": 3.89,
+    "river_level_critical_m": 4.87
+  },
+  "madina_r1_c6": {
+    "zone_id": "madina_r1_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 13.6,
+    "rainfall_6h_warning_mm": 56.3,
+    "rainfall_6h_critical_mm": 103.3,
+    "river_level_warning_m": 3.84,
+    "river_level_critical_m": 4.8
+  },
+  "madina_r1_c7": {
+    "zone_id": "madina_r1_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r1_c8": {
+    "zone_id": "madina_r1_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.4,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r1_c9": {
+    "zone_id": "madina_r1_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.2,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r1_c10": {
+    "zone_id": "madina_r1_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.6,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r2_c2": {
+    "zone_id": "madina_r2_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r2_c3": {
+    "zone_id": "madina_r2_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.5,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r2_c4": {
+    "zone_id": "madina_r2_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.2,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r2_c5": {
+    "zone_id": "madina_r2_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r2_c6": {
+    "zone_id": "madina_r2_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r2_c7": {
+    "zone_id": "madina_r2_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r2_c8": {
+    "zone_id": "madina_r2_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.5,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r2_c9": {
+    "zone_id": "madina_r2_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 28.1,
+    "rainfall_6h_warning_mm": 52.4,
+    "rainfall_6h_critical_mm": 96.1,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.58
+  },
+  "madina_r2_c10": {
+    "zone_id": "madina_r2_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r3_c2": {
+    "zone_id": "madina_r3_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.0,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r3_c3": {
+    "zone_id": "madina_r3_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r3_c4": {
+    "zone_id": "madina_r3_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r3_c5": {
+    "zone_id": "madina_r3_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.7,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r3_c6": {
+    "zone_id": "madina_r3_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r3_c7": {
+    "zone_id": "madina_r3_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.2,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r3_c8": {
+    "zone_id": "madina_r3_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.2,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r3_c9": {
+    "zone_id": "madina_r3_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.6,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.8,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r3_c10": {
+    "zone_id": "madina_r3_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.6,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r4_c1": {
+    "zone_id": "madina_r4_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.2,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r4_c2": {
+    "zone_id": "madina_r4_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.7,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r4_c3": {
+    "zone_id": "madina_r4_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r4_c4": {
+    "zone_id": "madina_r4_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.0,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.1,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r4_c5": {
+    "zone_id": "madina_r4_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r4_c6": {
+    "zone_id": "madina_r4_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r4_c7": {
+    "zone_id": "madina_r4_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r4_c8": {
+    "zone_id": "madina_r4_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r4_c9": {
+    "zone_id": "madina_r4_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.2,
+    "rainfall_6h_warning_mm": 55.9,
+    "rainfall_6h_critical_mm": 102.5,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r4_c10": {
+    "zone_id": "madina_r4_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.7,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r5_c1": {
+    "zone_id": "madina_r5_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.7,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r5_c2": {
+    "zone_id": "madina_r5_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.6,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r5_c3": {
+    "zone_id": "madina_r5_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.7,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r5_c4": {
+    "zone_id": "madina_r5_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.1,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "madina_r5_c5": {
+    "zone_id": "madina_r5_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.3,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r5_c6": {
+    "zone_id": "madina_r5_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r5_c7": {
+    "zone_id": "madina_r5_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r5_c8": {
+    "zone_id": "madina_r5_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r5_c9": {
+    "zone_id": "madina_r5_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.8,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r5_c10": {
+    "zone_id": "madina_r5_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.6,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r6_c1": {
+    "zone_id": "madina_r6_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r6_c2": {
+    "zone_id": "madina_r6_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 27.6,
+    "rainfall_6h_warning_mm": 52.5,
+    "rainfall_6h_critical_mm": 96.3,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "madina_r6_c3": {
+    "zone_id": "madina_r6_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.4,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.9,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r6_c4": {
+    "zone_id": "madina_r6_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.3,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 98.0,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r6_c5": {
+    "zone_id": "madina_r6_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.0,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r6_c6": {
+    "zone_id": "madina_r6_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r7_c2": {
+    "zone_id": "madina_r7_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.6,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r7_c3": {
+    "zone_id": "madina_r7_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r7_c4": {
+    "zone_id": "madina_r7_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r7_c5": {
+    "zone_id": "madina_r7_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r7_c6": {
+    "zone_id": "madina_r7_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r8_c1": {
+    "zone_id": "madina_r8_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.6,
+    "rainfall_6h_warning_mm": 53.4,
+    "rainfall_6h_critical_mm": 97.8,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r8_c2": {
+    "zone_id": "madina_r8_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r8_c3": {
+    "zone_id": "madina_r8_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r8_c4": {
+    "zone_id": "madina_r8_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r8_c5": {
+    "zone_id": "madina_r8_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r8_c6": {
+    "zone_id": "madina_r8_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.1,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r9_c1": {
+    "zone_id": "madina_r9_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.8,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r9_c2": {
+    "zone_id": "madina_r9_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.7,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r9_c3": {
+    "zone_id": "madina_r9_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.5,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r9_c4": {
+    "zone_id": "madina_r9_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.7,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r9_c5": {
+    "zone_id": "madina_r9_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.5,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r9_c6": {
+    "zone_id": "madina_r9_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.8,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.2,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r10_c1": {
+    "zone_id": "madina_r10_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r10_c2": {
+    "zone_id": "madina_r10_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r10_c3": {
+    "zone_id": "madina_r10_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.2,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r10_c4": {
+    "zone_id": "madina_r10_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.2,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r10_c5": {
+    "zone_id": "madina_r10_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.8,
+    "rainfall_6h_warning_mm": 56.5,
+    "rainfall_6h_critical_mm": 103.7,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.81
+  },
+  "madina_r10_c6": {
+    "zone_id": "madina_r10_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.2,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.5,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r11_c0": {
+    "zone_id": "madina_r11_c0",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.0,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r11_c1": {
+    "zone_id": "madina_r11_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.2,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 101.0,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r11_c2": {
+    "zone_id": "madina_r11_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.2,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r11_c3": {
+    "zone_id": "madina_r11_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r11_c4": {
+    "zone_id": "madina_r11_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.2,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r11_c5": {
+    "zone_id": "madina_r11_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.2,
+    "rainfall_6h_warning_mm": 53.5,
+    "rainfall_6h_critical_mm": 98.0,
+    "river_level_warning_m": 3.71,
+    "river_level_critical_m": 4.64
+  },
+  "madina_r11_c6": {
+    "zone_id": "madina_r11_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r12_c0": {
+    "zone_id": "madina_r12_c0",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 17.3,
+    "rainfall_6h_warning_mm": 55.3,
+    "rainfall_6h_critical_mm": 101.4,
+    "river_level_warning_m": 3.79,
+    "river_level_critical_m": 4.74
+  },
+  "madina_r12_c1": {
+    "zone_id": "madina_r12_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.0,
+    "rainfall_6h_warning_mm": 59.5,
+    "rainfall_6h_critical_mm": 109.0,
+    "river_level_warning_m": 3.98,
+    "river_level_critical_m": 4.97
+  },
+  "madina_r12_c2": {
+    "zone_id": "madina_r12_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.3,
+    "rainfall_6h_warning_mm": 55.9,
+    "rainfall_6h_critical_mm": 102.4,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r12_c3": {
+    "zone_id": "madina_r12_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r12_c4": {
+    "zone_id": "madina_r12_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r12_c5": {
+    "zone_id": "madina_r12_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.6,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r12_c6": {
+    "zone_id": "madina_r12_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.6,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r12_c7": {
+    "zone_id": "madina_r12_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r13_c0": {
+    "zone_id": "madina_r13_c0",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.7,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.7,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r13_c1": {
+    "zone_id": "madina_r13_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 6.2,
+    "rainfall_6h_warning_mm": 58.3,
+    "rainfall_6h_critical_mm": 106.9,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.91
+  },
+  "madina_r13_c2": {
+    "zone_id": "madina_r13_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 11.5,
+    "rainfall_6h_warning_mm": 56.9,
+    "rainfall_6h_critical_mm": 104.3,
+    "river_level_warning_m": 3.86,
+    "river_level_critical_m": 4.83
+  },
+  "madina_r13_c3": {
+    "zone_id": "madina_r13_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 17.6,
+    "rainfall_6h_warning_mm": 55.2,
+    "rainfall_6h_critical_mm": 101.3,
+    "river_level_warning_m": 3.79,
+    "river_level_critical_m": 4.74
+  },
+  "madina_r13_c4": {
+    "zone_id": "madina_r13_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.7,
+    "rainfall_6h_warning_mm": 55.8,
+    "rainfall_6h_critical_mm": 102.2,
+    "river_level_warning_m": 3.81,
+    "river_level_critical_m": 4.76
+  },
+  "madina_r13_c5": {
+    "zone_id": "madina_r13_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.6,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r13_c6": {
+    "zone_id": "madina_r13_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.3,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r13_c7": {
+    "zone_id": "madina_r13_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.7,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.7,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r14_c0": {
+    "zone_id": "madina_r14_c0",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r14_c1": {
+    "zone_id": "madina_r14_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r14_c2": {
+    "zone_id": "madina_r14_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.1,
+    "rainfall_6h_warning_mm": 56.2,
+    "rainfall_6h_critical_mm": 103.0,
+    "river_level_warning_m": 3.83,
+    "river_level_critical_m": 4.79
+  },
+  "madina_r14_c3": {
+    "zone_id": "madina_r14_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.0,
+    "rainfall_6h_warning_mm": 56.2,
+    "rainfall_6h_critical_mm": 103.1,
+    "river_level_warning_m": 3.83,
+    "river_level_critical_m": 4.79
+  },
+  "madina_r14_c4": {
+    "zone_id": "madina_r14_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r14_c5": {
+    "zone_id": "madina_r14_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r14_c6": {
+    "zone_id": "madina_r14_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r14_c7": {
+    "zone_id": "madina_r14_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.6,
+    "rainfall_6h_warning_mm": 55.8,
+    "rainfall_6h_critical_mm": 102.3,
+    "river_level_warning_m": 3.81,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r14_c8": {
+    "zone_id": "madina_r14_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r15_c0": {
+    "zone_id": "madina_r15_c0",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 13.7,
+    "rainfall_6h_warning_mm": 56.3,
+    "rainfall_6h_critical_mm": 103.2,
+    "river_level_warning_m": 3.84,
+    "river_level_critical_m": 4.79
+  },
+  "madina_r15_c1": {
+    "zone_id": "madina_r15_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.6,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.8,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r15_c2": {
+    "zone_id": "madina_r15_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.7,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r15_c3": {
+    "zone_id": "madina_r15_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.8,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r15_c4": {
+    "zone_id": "madina_r15_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.9,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r15_c5": {
+    "zone_id": "madina_r15_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 17.9,
+    "rainfall_6h_warning_mm": 55.2,
+    "rainfall_6h_critical_mm": 101.1,
+    "river_level_warning_m": 3.79,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r15_c6": {
+    "zone_id": "madina_r15_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r15_c7": {
+    "zone_id": "madina_r15_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 9.8,
+    "rainfall_6h_warning_mm": 57.4,
+    "rainfall_6h_critical_mm": 105.1,
+    "river_level_warning_m": 3.88,
+    "river_level_critical_m": 4.85
+  },
+  "madina_r15_c8": {
+    "zone_id": "madina_r15_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.8,
+    "rainfall_6h_warning_mm": 58.4,
+    "rainfall_6h_critical_mm": 107.1,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.91
+  },
+  "madina_r16_c0": {
+    "zone_id": "madina_r16_c0",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 7.5,
+    "rainfall_6h_warning_mm": 58.0,
+    "rainfall_6h_critical_mm": 106.3,
+    "river_level_warning_m": 3.91,
+    "river_level_critical_m": 4.89
+  },
+  "madina_r16_c1": {
+    "zone_id": "madina_r16_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.7,
+    "rainfall_6h_warning_mm": 55.8,
+    "rainfall_6h_critical_mm": 102.2,
+    "river_level_warning_m": 3.81,
+    "river_level_critical_m": 4.76
+  },
+  "madina_r16_c2": {
+    "zone_id": "madina_r16_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.3,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 100.9,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r16_c3": {
+    "zone_id": "madina_r16_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.7,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.8,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r16_c4": {
+    "zone_id": "madina_r16_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.0,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r16_c5": {
+    "zone_id": "madina_r16_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r16_c6": {
+    "zone_id": "madina_r16_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.6,
+    "rainfall_6h_warning_mm": 53.1,
+    "rainfall_6h_critical_mm": 97.3,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.62
+  },
+  "madina_r16_c7": {
+    "zone_id": "madina_r16_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.4,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.9,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r16_c8": {
+    "zone_id": "madina_r16_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 11.3,
+    "rainfall_6h_warning_mm": 56.9,
+    "rainfall_6h_critical_mm": 104.4,
+    "river_level_warning_m": 3.86,
+    "river_level_critical_m": 4.83
+  },
+  "madina_r16_c9": {
+    "zone_id": "madina_r16_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.5,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r17_c1": {
+    "zone_id": "madina_r17_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 11.5,
+    "rainfall_6h_warning_mm": 56.9,
+    "rainfall_6h_critical_mm": 104.3,
+    "river_level_warning_m": 3.86,
+    "river_level_critical_m": 4.83
+  },
+  "madina_r17_c2": {
+    "zone_id": "madina_r17_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.4,
+    "rainfall_6h_warning_mm": 55.8,
+    "rainfall_6h_critical_mm": 102.4,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r17_c3": {
+    "zone_id": "madina_r17_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r17_c4": {
+    "zone_id": "madina_r17_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.4,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r17_c5": {
+    "zone_id": "madina_r17_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r17_c6": {
+    "zone_id": "madina_r17_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.3,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.5,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r17_c7": {
+    "zone_id": "madina_r17_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 26.6,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.8,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "madina_r17_c8": {
+    "zone_id": "madina_r17_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r17_c9": {
+    "zone_id": "madina_r17_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r18_c1": {
+    "zone_id": "madina_r18_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.3,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.4,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r18_c2": {
+    "zone_id": "madina_r18_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.0,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r18_c3": {
+    "zone_id": "madina_r18_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r18_c4": {
+    "zone_id": "madina_r18_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.8,
+    "rainfall_6h_warning_mm": 54.9,
+    "rainfall_6h_critical_mm": 100.7,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r18_c5": {
+    "zone_id": "madina_r18_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r18_c6": {
+    "zone_id": "madina_r18_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.6,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r18_c7": {
+    "zone_id": "madina_r18_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.3,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.5,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "madina_r18_c8": {
+    "zone_id": "madina_r18_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 27.0,
+    "rainfall_6h_warning_mm": 52.7,
+    "rainfall_6h_critical_mm": 96.6,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "madina_r18_c9": {
+    "zone_id": "madina_r18_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r18_c10": {
+    "zone_id": "madina_r18_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.6,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r19_c1": {
+    "zone_id": "madina_r19_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r19_c2": {
+    "zone_id": "madina_r19_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r19_c3": {
+    "zone_id": "madina_r19_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.5,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r19_c4": {
+    "zone_id": "madina_r19_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.3,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.4,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r19_c5": {
+    "zone_id": "madina_r19_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 30.1,
+    "rainfall_6h_warning_mm": 51.9,
+    "rainfall_6h_critical_mm": 95.1,
+    "river_level_warning_m": 3.64,
+    "river_level_critical_m": 4.55
+  },
+  "madina_r19_c6": {
+    "zone_id": "madina_r19_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r19_c7": {
+    "zone_id": "madina_r19_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.3,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 100.9,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r19_c8": {
+    "zone_id": "madina_r19_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r19_c9": {
+    "zone_id": "madina_r19_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r19_c10": {
+    "zone_id": "madina_r19_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r20_c1": {
+    "zone_id": "madina_r20_c1",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.1,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r20_c2": {
+    "zone_id": "madina_r20_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.9,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r20_c3": {
+    "zone_id": "madina_r20_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.4,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 99.9,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r20_c4": {
+    "zone_id": "madina_r20_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.5,
+    "rainfall_6h_warning_mm": 53.1,
+    "rainfall_6h_critical_mm": 97.4,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.62
+  },
+  "madina_r20_c5": {
+    "zone_id": "madina_r20_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 26.6,
+    "rainfall_6h_warning_mm": 52.8,
+    "rainfall_6h_critical_mm": 96.8,
+    "river_level_warning_m": 3.68,
+    "river_level_critical_m": 4.6
+  },
+  "madina_r20_c6": {
+    "zone_id": "madina_r20_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 30.2,
+    "rainfall_6h_warning_mm": 51.8,
+    "rainfall_6h_critical_mm": 95.1,
+    "river_level_warning_m": 3.64,
+    "river_level_critical_m": 4.55
+  },
+  "madina_r20_c7": {
+    "zone_id": "madina_r20_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 28.7,
+    "rainfall_6h_warning_mm": 52.3,
+    "rainfall_6h_critical_mm": 95.8,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.57
+  },
+  "madina_r20_c8": {
+    "zone_id": "madina_r20_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r20_c9": {
+    "zone_id": "madina_r20_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.2,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r20_c10": {
+    "zone_id": "madina_r20_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.5,
+    "rainfall_6h_warning_mm": 55.0,
+    "rainfall_6h_critical_mm": 100.8,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r20_c11": {
+    "zone_id": "madina_r20_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.2,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 101.0,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r21_c2": {
+    "zone_id": "madina_r21_c2",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.3,
+    "rainfall_6h_warning_mm": 54.5,
+    "rainfall_6h_critical_mm": 100.0,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r21_c3": {
+    "zone_id": "madina_r21_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 27.8,
+    "rainfall_6h_warning_mm": 52.5,
+    "rainfall_6h_critical_mm": 96.2,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.58
+  },
+  "madina_r21_c4": {
+    "zone_id": "madina_r21_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r21_c5": {
+    "zone_id": "madina_r21_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.0,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r21_c6": {
+    "zone_id": "madina_r21_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r21_c7": {
+    "zone_id": "madina_r21_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r21_c8": {
+    "zone_id": "madina_r21_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r21_c9": {
+    "zone_id": "madina_r21_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 17.7,
+    "rainfall_6h_warning_mm": 55.2,
+    "rainfall_6h_critical_mm": 101.2,
+    "river_level_warning_m": 3.79,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r21_c10": {
+    "zone_id": "madina_r21_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.6,
+    "rainfall_6h_warning_mm": 56.6,
+    "rainfall_6h_critical_mm": 103.8,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.81
+  },
+  "madina_r21_c11": {
+    "zone_id": "madina_r21_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.9,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r22_c3": {
+    "zone_id": "madina_r22_c3",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 28.3,
+    "rainfall_6h_warning_mm": 52.4,
+    "rainfall_6h_critical_mm": 96.0,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.58
+  },
+  "madina_r22_c4": {
+    "zone_id": "madina_r22_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.9,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r22_c5": {
+    "zone_id": "madina_r22_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.1,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.5,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r22_c6": {
+    "zone_id": "madina_r22_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r22_c7": {
+    "zone_id": "madina_r22_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.9,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.2,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "madina_r22_c8": {
+    "zone_id": "madina_r22_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.5,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r22_c9": {
+    "zone_id": "madina_r22_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.8,
+    "rainfall_6h_warning_mm": 56.0,
+    "rainfall_6h_critical_mm": 102.7,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.78
+  },
+  "madina_r22_c10": {
+    "zone_id": "madina_r22_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.0,
+    "rainfall_6h_warning_mm": 58.7,
+    "rainfall_6h_critical_mm": 107.5,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r22_c11": {
+    "zone_id": "madina_r22_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.6,
+    "rainfall_6h_warning_mm": 56.1,
+    "rainfall_6h_critical_mm": 102.8,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.78
+  },
+  "madina_r23_c4": {
+    "zone_id": "madina_r23_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r23_c5": {
+    "zone_id": "madina_r23_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.9,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.2,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "madina_r23_c6": {
+    "zone_id": "madina_r23_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.9,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r23_c7": {
+    "zone_id": "madina_r23_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.1,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r23_c8": {
+    "zone_id": "madina_r23_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.5,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r23_c9": {
+    "zone_id": "madina_r23_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 9.3,
+    "rainfall_6h_warning_mm": 57.5,
+    "rainfall_6h_critical_mm": 105.4,
+    "river_level_warning_m": 3.89,
+    "river_level_critical_m": 4.86
+  },
+  "madina_r23_c10": {
+    "zone_id": "madina_r23_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 6.4,
+    "rainfall_6h_warning_mm": 58.3,
+    "rainfall_6h_critical_mm": 106.8,
+    "river_level_warning_m": 3.92,
+    "river_level_critical_m": 4.9
+  },
+  "madina_r23_c11": {
+    "zone_id": "madina_r23_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.2,
+    "rainfall_6h_warning_mm": 59.4,
+    "rainfall_6h_critical_mm": 108.9,
+    "river_level_warning_m": 3.97,
+    "river_level_critical_m": 4.97
+  },
+  "madina_r23_c12": {
+    "zone_id": "madina_r23_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.5,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r24_c4": {
+    "zone_id": "madina_r24_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.6,
+    "rainfall_6h_warning_mm": 53.6,
+    "rainfall_6h_critical_mm": 98.3,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r24_c5": {
+    "zone_id": "madina_r24_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.1,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.6,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r24_c6": {
+    "zone_id": "madina_r24_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.1,
+    "rainfall_6h_warning_mm": 56.2,
+    "rainfall_6h_critical_mm": 103.0,
+    "river_level_warning_m": 3.83,
+    "river_level_critical_m": 4.79
+  },
+  "madina_r24_c7": {
+    "zone_id": "madina_r24_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 13.0,
+    "rainfall_6h_warning_mm": 56.5,
+    "rainfall_6h_critical_mm": 103.6,
+    "river_level_warning_m": 3.84,
+    "river_level_critical_m": 4.8
+  },
+  "madina_r24_c8": {
+    "zone_id": "madina_r24_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.2,
+    "rainfall_6h_warning_mm": 55.9,
+    "rainfall_6h_critical_mm": 102.5,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r24_c9": {
+    "zone_id": "madina_r24_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.2,
+    "rainfall_6h_warning_mm": 58.6,
+    "rainfall_6h_critical_mm": 107.4,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r24_c10": {
+    "zone_id": "madina_r24_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 1.7,
+    "rainfall_6h_warning_mm": 59.5,
+    "rainfall_6h_critical_mm": 109.2,
+    "river_level_warning_m": 3.98,
+    "river_level_critical_m": 4.97
+  },
+  "madina_r24_c11": {
+    "zone_id": "madina_r24_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.6,
+    "rainfall_6h_warning_mm": 59.3,
+    "rainfall_6h_critical_mm": 108.7,
+    "river_level_warning_m": 3.97,
+    "river_level_critical_m": 4.96
+  },
+  "madina_r24_c12": {
+    "zone_id": "madina_r24_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.2,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.5,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r25_c4": {
+    "zone_id": "madina_r25_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r25_c5": {
+    "zone_id": "madina_r25_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r25_c6": {
+    "zone_id": "madina_r25_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 10.7,
+    "rainfall_6h_warning_mm": 57.1,
+    "rainfall_6h_critical_mm": 104.7,
+    "river_level_warning_m": 3.87,
+    "river_level_critical_m": 4.84
+  },
+  "madina_r25_c7": {
+    "zone_id": "madina_r25_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 3.6,
+    "rainfall_6h_warning_mm": 59.0,
+    "rainfall_6h_critical_mm": 108.2,
+    "river_level_warning_m": 3.96,
+    "river_level_critical_m": 4.95
+  },
+  "madina_r25_c8": {
+    "zone_id": "madina_r25_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.7,
+    "rainfall_6h_warning_mm": 59.3,
+    "rainfall_6h_critical_mm": 108.7,
+    "river_level_warning_m": 3.97,
+    "river_level_critical_m": 4.96
+  },
+  "madina_r25_c9": {
+    "zone_id": "madina_r25_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.6,
+    "rainfall_6h_warning_mm": 58.5,
+    "rainfall_6h_critical_mm": 107.2,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r25_c10": {
+    "zone_id": "madina_r25_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 4.9,
+    "rainfall_6h_warning_mm": 58.7,
+    "rainfall_6h_critical_mm": 107.6,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.93
+  },
+  "madina_r25_c11": {
+    "zone_id": "madina_r25_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.4,
+    "rainfall_6h_warning_mm": 59.4,
+    "rainfall_6h_critical_mm": 108.8,
+    "river_level_warning_m": 3.97,
+    "river_level_critical_m": 4.96
+  },
+  "madina_r25_c12": {
+    "zone_id": "madina_r25_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.1,
+    "rainfall_6h_warning_mm": 54.3,
+    "rainfall_6h_critical_mm": 99.6,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r25_c13": {
+    "zone_id": "madina_r25_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 17.0,
+    "rainfall_6h_warning_mm": 55.4,
+    "rainfall_6h_critical_mm": 101.6,
+    "river_level_warning_m": 3.8,
+    "river_level_critical_m": 4.75
+  },
+  "madina_r26_c4": {
+    "zone_id": "madina_r26_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r26_c5": {
+    "zone_id": "madina_r26_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 16.2,
+    "rainfall_6h_warning_mm": 55.6,
+    "rainfall_6h_critical_mm": 102.0,
+    "river_level_warning_m": 3.81,
+    "river_level_critical_m": 4.76
+  },
+  "madina_r26_c6": {
+    "zone_id": "madina_r26_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 13.3,
+    "rainfall_6h_warning_mm": 56.4,
+    "rainfall_6h_critical_mm": 103.4,
+    "river_level_warning_m": 3.84,
+    "river_level_critical_m": 4.8
+  },
+  "madina_r26_c7": {
+    "zone_id": "madina_r26_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.8,
+    "rainfall_6h_warning_mm": 58.4,
+    "rainfall_6h_critical_mm": 107.1,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.91
+  },
+  "madina_r26_c8": {
+    "zone_id": "madina_r26_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 6.7,
+    "rainfall_6h_warning_mm": 58.2,
+    "rainfall_6h_critical_mm": 106.7,
+    "river_level_warning_m": 3.92,
+    "river_level_critical_m": 4.9
+  },
+  "madina_r26_c9": {
+    "zone_id": "madina_r26_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 4.5,
+    "rainfall_6h_warning_mm": 58.8,
+    "rainfall_6h_critical_mm": 107.8,
+    "river_level_warning_m": 3.95,
+    "river_level_critical_m": 4.93
+  },
+  "madina_r26_c10": {
+    "zone_id": "madina_r26_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 3.1,
+    "rainfall_6h_warning_mm": 59.2,
+    "rainfall_6h_critical_mm": 108.5,
+    "river_level_warning_m": 3.96,
+    "river_level_critical_m": 4.95
+  },
+  "madina_r26_c11": {
+    "zone_id": "madina_r26_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 10.4,
+    "rainfall_6h_warning_mm": 57.2,
+    "rainfall_6h_critical_mm": 104.9,
+    "river_level_warning_m": 3.88,
+    "river_level_critical_m": 4.84
+  },
+  "madina_r26_c12": {
+    "zone_id": "madina_r26_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.4,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.4,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r26_c13": {
+    "zone_id": "madina_r26_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.6,
+    "rainfall_6h_warning_mm": 56.1,
+    "rainfall_6h_critical_mm": 102.8,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.78
+  },
+  "madina_r27_c5": {
+    "zone_id": "madina_r27_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.1,
+    "rainfall_6h_warning_mm": 55.9,
+    "rainfall_6h_critical_mm": 102.5,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r27_c6": {
+    "zone_id": "madina_r27_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.5,
+    "rainfall_6h_warning_mm": 56.6,
+    "rainfall_6h_critical_mm": 103.8,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.81
+  },
+  "madina_r27_c7": {
+    "zone_id": "madina_r27_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 28.3,
+    "rainfall_6h_warning_mm": 52.4,
+    "rainfall_6h_critical_mm": 96.0,
+    "river_level_warning_m": 3.66,
+    "river_level_critical_m": 4.58
+  },
+  "madina_r27_c8": {
+    "zone_id": "madina_r27_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r27_c9": {
+    "zone_id": "madina_r27_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.2,
+    "rainfall_6h_warning_mm": 58.6,
+    "rainfall_6h_critical_mm": 107.4,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r27_c10": {
+    "zone_id": "madina_r27_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.4,
+    "rainfall_6h_warning_mm": 59.4,
+    "rainfall_6h_critical_mm": 108.8,
+    "river_level_warning_m": 3.97,
+    "river_level_critical_m": 4.96
+  },
+  "madina_r27_c11": {
+    "zone_id": "madina_r27_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.0,
+    "rainfall_6h_warning_mm": 56.2,
+    "rainfall_6h_critical_mm": 103.1,
+    "river_level_warning_m": 3.83,
+    "river_level_critical_m": 4.79
+  },
+  "madina_r27_c12": {
+    "zone_id": "madina_r27_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.6,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.3,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  },
+  "madina_r27_c13": {
+    "zone_id": "madina_r27_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.0,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "madina_r27_c14": {
+    "zone_id": "madina_r27_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.9,
+    "rainfall_6h_warning_mm": 56.0,
+    "rainfall_6h_critical_mm": 102.6,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.78
+  },
+  "madina_r28_c4": {
+    "zone_id": "madina_r28_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 17.2,
+    "rainfall_6h_warning_mm": 55.4,
+    "rainfall_6h_critical_mm": 101.5,
+    "river_level_warning_m": 3.79,
+    "river_level_critical_m": 4.74
+  },
+  "madina_r28_c5": {
+    "zone_id": "madina_r28_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 16.6,
+    "rainfall_6h_warning_mm": 55.5,
+    "rainfall_6h_critical_mm": 101.8,
+    "river_level_warning_m": 3.8,
+    "river_level_critical_m": 4.75
+  },
+  "madina_r28_c6": {
+    "zone_id": "madina_r28_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.0,
+    "rainfall_6h_warning_mm": 56.0,
+    "rainfall_6h_critical_mm": 102.6,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r28_c7": {
+    "zone_id": "madina_r28_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.7,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r28_c8": {
+    "zone_id": "madina_r28_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.3,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 99.0,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r28_c9": {
+    "zone_id": "madina_r28_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.0,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r28_c10": {
+    "zone_id": "madina_r28_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.3,
+    "rainfall_6h_warning_mm": 56.7,
+    "rainfall_6h_critical_mm": 103.9,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.82
+  },
+  "madina_r28_c11": {
+    "zone_id": "madina_r28_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.6,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.8,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r28_c12": {
+    "zone_id": "madina_r28_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 17.7,
+    "rainfall_6h_warning_mm": 55.2,
+    "rainfall_6h_critical_mm": 101.2,
+    "river_level_warning_m": 3.79,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r28_c13": {
+    "zone_id": "madina_r28_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 26.0,
+    "rainfall_6h_warning_mm": 53.0,
+    "rainfall_6h_critical_mm": 97.1,
+    "river_level_warning_m": 3.69,
+    "river_level_critical_m": 4.61
+  },
+  "madina_r28_c14": {
+    "zone_id": "madina_r28_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.2,
+    "rainfall_6h_warning_mm": 56.7,
+    "rainfall_6h_critical_mm": 104.0,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.82
+  },
+  "madina_r28_c15": {
+    "zone_id": "madina_r28_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.6,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r29_c4": {
+    "zone_id": "madina_r29_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 7.2,
+    "rainfall_6h_warning_mm": 58.1,
+    "rainfall_6h_critical_mm": 106.4,
+    "river_level_warning_m": 3.91,
+    "river_level_critical_m": 4.89
+  },
+  "madina_r29_c5": {
+    "zone_id": "madina_r29_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.1,
+    "rainfall_6h_warning_mm": 56.2,
+    "rainfall_6h_critical_mm": 103.0,
+    "river_level_warning_m": 3.83,
+    "river_level_critical_m": 4.79
+  },
+  "madina_r29_c6": {
+    "zone_id": "madina_r29_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.3,
+    "rainfall_6h_warning_mm": 56.7,
+    "rainfall_6h_critical_mm": 103.9,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.82
+  },
+  "madina_r29_c7": {
+    "zone_id": "madina_r29_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.8,
+    "rainfall_6h_warning_mm": 55.7,
+    "rainfall_6h_critical_mm": 102.2,
+    "river_level_warning_m": 3.81,
+    "river_level_critical_m": 4.76
+  },
+  "madina_r29_c8": {
+    "zone_id": "madina_r29_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.0,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.1,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r29_c9": {
+    "zone_id": "madina_r29_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r29_c10": {
+    "zone_id": "madina_r29_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.9,
+    "rainfall_6h_warning_mm": 53.8,
+    "rainfall_6h_critical_mm": 98.7,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r29_c11": {
+    "zone_id": "madina_r29_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.0,
+    "rainfall_6h_warning_mm": 55.1,
+    "rainfall_6h_critical_mm": 101.1,
+    "river_level_warning_m": 3.78,
+    "river_level_critical_m": 4.73
+  },
+  "madina_r29_c12": {
+    "zone_id": "madina_r29_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.3,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.4,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r29_c13": {
+    "zone_id": "madina_r29_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r29_c14": {
+    "zone_id": "madina_r29_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 25.0,
+    "rainfall_6h_warning_mm": 53.2,
+    "rainfall_6h_critical_mm": 97.6,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.62
+  },
+  "madina_r29_c15": {
+    "zone_id": "madina_r29_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.5,
+    "rainfall_6h_warning_mm": 53.9,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r30_c4": {
+    "zone_id": "madina_r30_c4",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.2,
+    "rainfall_6h_warning_mm": 58.6,
+    "rainfall_6h_critical_mm": 107.4,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r30_c5": {
+    "zone_id": "madina_r30_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 6.6,
+    "rainfall_6h_warning_mm": 58.2,
+    "rainfall_6h_critical_mm": 106.7,
+    "river_level_warning_m": 3.92,
+    "river_level_critical_m": 4.9
+  },
+  "madina_r30_c6": {
+    "zone_id": "madina_r30_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.7,
+    "rainfall_6h_warning_mm": 58.5,
+    "rainfall_6h_critical_mm": 107.2,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.91
+  },
+  "madina_r30_c7": {
+    "zone_id": "madina_r30_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.1,
+    "rainfall_6h_warning_mm": 56.7,
+    "rainfall_6h_critical_mm": 104.0,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.82
+  },
+  "madina_r30_c8": {
+    "zone_id": "madina_r30_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.9,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r30_c9": {
+    "zone_id": "madina_r30_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 27.4,
+    "rainfall_6h_warning_mm": 52.6,
+    "rainfall_6h_critical_mm": 96.4,
+    "river_level_warning_m": 3.67,
+    "river_level_critical_m": 4.59
+  },
+  "madina_r30_c10": {
+    "zone_id": "madina_r30_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 30.9,
+    "rainfall_6h_warning_mm": 51.7,
+    "rainfall_6h_critical_mm": 94.7,
+    "river_level_warning_m": 3.63,
+    "river_level_critical_m": 4.54
+  },
+  "madina_r30_c11": {
+    "zone_id": "madina_r30_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r30_c12": {
+    "zone_id": "madina_r30_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.6,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r30_c13": {
+    "zone_id": "madina_r30_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.6,
+    "rainfall_6h_warning_mm": 56.1,
+    "rainfall_6h_critical_mm": 102.8,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.78
+  },
+  "madina_r30_c14": {
+    "zone_id": "madina_r30_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 22.4,
+    "rainfall_6h_warning_mm": 54.0,
+    "rainfall_6h_critical_mm": 98.9,
+    "river_level_warning_m": 3.73,
+    "river_level_critical_m": 4.66
+  },
+  "madina_r30_c15": {
+    "zone_id": "madina_r30_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.6,
+    "rainfall_6h_warning_mm": 54.7,
+    "rainfall_6h_critical_mm": 100.3,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r31_c5": {
+    "zone_id": "madina_r31_c5",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 9.0,
+    "rainfall_6h_warning_mm": 57.6,
+    "rainfall_6h_critical_mm": 105.5,
+    "river_level_warning_m": 3.89,
+    "river_level_critical_m": 4.87
+  },
+  "madina_r31_c6": {
+    "zone_id": "madina_r31_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 7.4,
+    "rainfall_6h_warning_mm": 58.0,
+    "rainfall_6h_critical_mm": 106.3,
+    "river_level_warning_m": 3.91,
+    "river_level_critical_m": 4.89
+  },
+  "madina_r31_c7": {
+    "zone_id": "madina_r31_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.3,
+    "rainfall_6h_warning_mm": 58.6,
+    "rainfall_6h_critical_mm": 107.4,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r31_c8": {
+    "zone_id": "madina_r31_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 19.1,
+    "rainfall_6h_warning_mm": 54.8,
+    "rainfall_6h_critical_mm": 100.5,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.71
+  },
+  "madina_r31_c9": {
+    "zone_id": "madina_r31_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.8,
+    "rainfall_6h_warning_mm": 54.1,
+    "rainfall_6h_critical_mm": 99.2,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.67
+  },
+  "madina_r31_c10": {
+    "zone_id": "madina_r31_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 23.4,
+    "rainfall_6h_warning_mm": 53.7,
+    "rainfall_6h_critical_mm": 98.4,
+    "river_level_warning_m": 3.72,
+    "river_level_critical_m": 4.65
+  },
+  "madina_r31_c11": {
+    "zone_id": "madina_r31_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 10.4,
+    "rainfall_6h_warning_mm": 57.2,
+    "rainfall_6h_critical_mm": 104.9,
+    "river_level_warning_m": 3.88,
+    "river_level_critical_m": 4.84
+  },
+  "madina_r31_c12": {
+    "zone_id": "madina_r31_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.1,
+    "rainfall_6h_warning_mm": 54.6,
+    "rainfall_6h_critical_mm": 100.1,
+    "river_level_warning_m": 3.76,
+    "river_level_critical_m": 4.7
+  },
+  "madina_r31_c13": {
+    "zone_id": "madina_r31_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.8,
+    "rainfall_6h_warning_mm": 55.7,
+    "rainfall_6h_critical_mm": 102.2,
+    "river_level_warning_m": 3.81,
+    "river_level_critical_m": 4.76
+  },
+  "madina_r31_c14": {
+    "zone_id": "madina_r31_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 10.0,
+    "rainfall_6h_warning_mm": 57.3,
+    "rainfall_6h_critical_mm": 105.0,
+    "river_level_warning_m": 3.88,
+    "river_level_critical_m": 4.85
+  },
+  "madina_r31_c15": {
+    "zone_id": "madina_r31_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 8.9,
+    "rainfall_6h_warning_mm": 57.6,
+    "rainfall_6h_critical_mm": 105.6,
+    "river_level_warning_m": 3.89,
+    "river_level_critical_m": 4.87
+  },
+  "madina_r31_c16": {
+    "zone_id": "madina_r31_c16",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 6.2,
+    "rainfall_6h_warning_mm": 58.3,
+    "rainfall_6h_critical_mm": 106.9,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.91
+  },
+  "madina_r32_c6": {
+    "zone_id": "madina_r32_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.0,
+    "rainfall_6h_warning_mm": 59.5,
+    "rainfall_6h_critical_mm": 109.0,
+    "river_level_warning_m": 3.98,
+    "river_level_critical_m": 4.97
+  },
+  "madina_r32_c7": {
+    "zone_id": "madina_r32_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.3,
+    "rainfall_6h_warning_mm": 59.4,
+    "rainfall_6h_critical_mm": 108.9,
+    "river_level_warning_m": 3.97,
+    "river_level_critical_m": 4.97
+  },
+  "madina_r32_c8": {
+    "zone_id": "madina_r32_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 11.3,
+    "rainfall_6h_warning_mm": 56.9,
+    "rainfall_6h_critical_mm": 104.4,
+    "river_level_warning_m": 3.86,
+    "river_level_critical_m": 4.83
+  },
+  "madina_r32_c9": {
+    "zone_id": "madina_r32_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.4,
+    "rainfall_6h_warning_mm": 58.5,
+    "rainfall_6h_critical_mm": 107.3,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r32_c10": {
+    "zone_id": "madina_r32_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 5.5,
+    "rainfall_6h_warning_mm": 58.5,
+    "rainfall_6h_critical_mm": 107.3,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.92
+  },
+  "madina_r32_c11": {
+    "zone_id": "madina_r32_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 2.9,
+    "rainfall_6h_warning_mm": 59.2,
+    "rainfall_6h_critical_mm": 108.6,
+    "river_level_warning_m": 3.97,
+    "river_level_critical_m": 4.96
+  },
+  "madina_r32_c12": {
+    "zone_id": "madina_r32_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.7,
+    "rainfall_6h_warning_mm": 56.6,
+    "rainfall_6h_critical_mm": 103.7,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.81
+  },
+  "madina_r32_c13": {
+    "zone_id": "madina_r32_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 8.3,
+    "rainfall_6h_warning_mm": 57.8,
+    "rainfall_6h_critical_mm": 105.9,
+    "river_level_warning_m": 3.9,
+    "river_level_critical_m": 4.88
+  },
+  "madina_r32_c14": {
+    "zone_id": "madina_r32_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.4,
+    "rainfall_6h_warning_mm": 56.7,
+    "rainfall_6h_critical_mm": 103.9,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.81
+  },
+  "madina_r32_c15": {
+    "zone_id": "madina_r32_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.3,
+    "rainfall_6h_warning_mm": 56.7,
+    "rainfall_6h_critical_mm": 103.9,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.82
+  },
+  "madina_r32_c16": {
+    "zone_id": "madina_r32_c16",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 16.9,
+    "rainfall_6h_warning_mm": 55.4,
+    "rainfall_6h_critical_mm": 101.6,
+    "river_level_warning_m": 3.8,
+    "river_level_critical_m": 4.75
+  },
+  "madina_r33_c6": {
+    "zone_id": "madina_r33_c6",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 3.6,
+    "rainfall_6h_warning_mm": 59.0,
+    "rainfall_6h_critical_mm": 108.2,
+    "river_level_warning_m": 3.96,
+    "river_level_critical_m": 4.95
+  },
+  "madina_r33_c7": {
+    "zone_id": "madina_r33_c7",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 1.9,
+    "rainfall_6h_warning_mm": 59.5,
+    "rainfall_6h_critical_mm": 109.1,
+    "river_level_warning_m": 3.98,
+    "river_level_critical_m": 4.97
+  },
+  "madina_r33_c8": {
+    "zone_id": "madina_r33_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 11.4,
+    "rainfall_6h_warning_mm": 56.9,
+    "rainfall_6h_critical_mm": 104.4,
+    "river_level_warning_m": 3.86,
+    "river_level_critical_m": 4.83
+  },
+  "madina_r33_c9": {
+    "zone_id": "madina_r33_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 12.9,
+    "rainfall_6h_warning_mm": 56.5,
+    "rainfall_6h_critical_mm": 103.6,
+    "river_level_warning_m": 3.85,
+    "river_level_critical_m": 4.81
+  },
+  "madina_r33_c10": {
+    "zone_id": "madina_r33_c10",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 6.1,
+    "rainfall_6h_warning_mm": 58.4,
+    "rainfall_6h_critical_mm": 107.0,
+    "river_level_warning_m": 3.93,
+    "river_level_critical_m": 4.91
+  },
+  "madina_r33_c11": {
+    "zone_id": "madina_r33_c11",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 7.3,
+    "rainfall_6h_warning_mm": 58.0,
+    "rainfall_6h_critical_mm": 106.4,
+    "river_level_warning_m": 3.91,
+    "river_level_critical_m": 4.89
+  },
+  "madina_r33_c12": {
+    "zone_id": "madina_r33_c12",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 7.5,
+    "rainfall_6h_warning_mm": 58.0,
+    "rainfall_6h_critical_mm": 106.3,
+    "river_level_warning_m": 3.91,
+    "river_level_critical_m": 4.89
+  },
+  "madina_r33_c13": {
+    "zone_id": "madina_r33_c13",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 15.4,
+    "rainfall_6h_warning_mm": 55.8,
+    "rainfall_6h_critical_mm": 102.4,
+    "river_level_warning_m": 3.82,
+    "river_level_critical_m": 4.77
+  },
+  "madina_r33_c14": {
+    "zone_id": "madina_r33_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 10.0,
+    "rainfall_6h_warning_mm": 57.3,
+    "rainfall_6h_critical_mm": 105.0,
+    "river_level_warning_m": 3.88,
+    "river_level_critical_m": 4.85
+  },
+  "madina_r33_c15": {
+    "zone_id": "madina_r33_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 13.4,
+    "rainfall_6h_warning_mm": 56.4,
+    "rainfall_6h_critical_mm": 103.4,
+    "river_level_warning_m": 3.84,
+    "river_level_critical_m": 4.8
+  },
+  "madina_r33_c16": {
+    "zone_id": "madina_r33_c16",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 18.8,
+    "rainfall_6h_warning_mm": 54.9,
+    "rainfall_6h_critical_mm": 100.7,
+    "river_level_warning_m": 3.77,
+    "river_level_critical_m": 4.72
+  },
+  "madina_r34_c8": {
+    "zone_id": "madina_r34_c8",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 4.9,
+    "rainfall_6h_warning_mm": 58.7,
+    "rainfall_6h_critical_mm": 107.6,
+    "river_level_warning_m": 3.94,
+    "river_level_critical_m": 4.93
+  },
+  "madina_r34_c9": {
+    "zone_id": "madina_r34_c9",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 1.7,
+    "rainfall_6h_warning_mm": 59.5,
+    "rainfall_6h_critical_mm": 109.2,
+    "river_level_warning_m": 3.98,
+    "river_level_critical_m": 4.97
+  },
+  "madina_r34_c14": {
+    "zone_id": "madina_r34_c14",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 3.6,
+    "rainfall_6h_warning_mm": 59.0,
+    "rainfall_6h_critical_mm": 108.2,
+    "river_level_warning_m": 3.96,
+    "river_level_critical_m": 4.95
+  },
+  "madina_r34_c15": {
+    "zone_id": "madina_r34_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 14.0,
+    "rainfall_6h_warning_mm": 56.2,
+    "rainfall_6h_critical_mm": 103.1,
+    "river_level_warning_m": 3.83,
+    "river_level_critical_m": 4.79
+  },
+  "madina_r34_c16": {
+    "zone_id": "madina_r34_c16",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 24.9,
+    "rainfall_6h_warning_mm": 53.3,
+    "rainfall_6h_critical_mm": 97.7,
+    "river_level_warning_m": 3.7,
+    "river_level_critical_m": 4.63
+  },
+  "madina_r35_c15": {
+    "zone_id": "madina_r35_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 20.8,
+    "rainfall_6h_warning_mm": 54.4,
+    "rainfall_6h_critical_mm": 99.7,
+    "river_level_warning_m": 3.75,
+    "river_level_critical_m": 4.69
+  },
+  "madina_r35_c16": {
+    "zone_id": "madina_r35_c16",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 31.9,
+    "rainfall_6h_warning_mm": 51.4,
+    "rainfall_6h_critical_mm": 94.2,
+    "river_level_warning_m": 3.62,
+    "river_level_critical_m": 4.52
+  },
+  "madina_r36_c15": {
+    "zone_id": "madina_r36_c15",
+    "assembly": "La-Nkwantanang-Madina Municipal",
+    "vulnerability_score": 21.4,
+    "rainfall_6h_warning_mm": 54.2,
+    "rainfall_6h_critical_mm": 99.4,
+    "river_level_warning_m": 3.74,
+    "river_level_critical_m": 4.68
+  }
+}

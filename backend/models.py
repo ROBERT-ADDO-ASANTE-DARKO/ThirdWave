@@ -73,3 +73,35 @@ class Device(SQLModel, table=True):
     last_lat: Optional[float] = None
     last_lon: Optional[float] = None
     registered_at: datetime
+
+
+class Briefing(SQLModel, table=True):
+    """District assembly briefing: an AI-drafted, human-reviewed document
+    summarizing real flood/encroachment findings for one district. See
+    .claude/plans/temporal-waddling-trinket.md for the design this
+    implements -- deliberately NOT a full CMS: draft_sections is a single
+    JSON-encoded dict of {section_key: markdown_body}, not a normalized
+    sections table, because there are always exactly five fixed sections
+    (purpose / context / finding / implications / sources) and a table per
+    section would add joins for no real benefit at this scale.
+
+    No Assembly/contact FK -- district stays a plain string, same
+    deliberate choice as Report.district (see that field's history: no
+    canonical Assembly entity exists anywhere in this project yet, and
+    inventing one before there's real contact data to put in it would be
+    speculative).
+    """
+
+    id: str = Field(primary_key=True)
+    district: str
+    trigger_reason: str  # "new_encroachment_finding" | "new_historical_event" | "manual"
+    source_finding: Optional[str] = None  # free text: what specifically triggered this (e.g. an event_id)
+
+    status: str = "drafted"  # drafted | approved | rejected
+    draft_sections: str = "{}"  # JSON-encoded {"purpose": "...", "context": "...", ...}
+
+    doc_url: Optional[str] = None  # set once Approve & Publish creates the Claude Doc
+
+    created_at: datetime
+    reviewed_at: Optional[datetime] = None
+    reviewed_by: Optional[str] = None

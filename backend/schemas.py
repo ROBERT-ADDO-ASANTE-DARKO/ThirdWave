@@ -27,3 +27,22 @@ class DeviceRegisterBody(BaseModel):
     platform: str  # "android" | "ios"
     lat: float | None = None
     lon: float | None = None
+
+
+class DraftBriefingBody(BaseModel):
+    district: str
+    trigger_reason: str = "manual"
+    source_finding: str | None = None
+    sections: dict[str, str]
+
+
+class UpdateBriefingSectionsBody(BaseModel):
+    """Sent when an officer edits the draft before publishing -- the
+    edited text, not the original AI draft, is what gets published."""
+    sections: dict[str, str]
+
+
+class ReviewBriefingBody(BaseModel):
+    approve: bool
+    reviewed_by: str = "Officer"
+    doc_url: str | None = None  # set by the client once it has published the Claude Doc (approve only)

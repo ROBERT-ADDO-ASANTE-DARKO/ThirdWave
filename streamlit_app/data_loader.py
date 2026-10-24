@@ -103,6 +103,13 @@ def load_lower_volta_risk_grid_gdf() -> gpd.GeoDataFrame:
 
 
 @st.cache_data
+def load_madina_risk_grid_gdf() -> gpd.GeoDataFrame:
+    """318-cell fine grid over La-Nkwantanang-Madina Municipal (500m, same treatment as the
+    pilot/Lower Volta) -- see madina_grid.py/madina_vulnerability.py."""
+    return gpd.read_file(DATA_DIR / "madina_risk_grid.geojson")
+
+
+@st.cache_data
 def load_lower_volta_population_exposure() -> dict:
     return json.loads((DATA_DIR / "lower_volta_population_exposure.json").read_text())
 
