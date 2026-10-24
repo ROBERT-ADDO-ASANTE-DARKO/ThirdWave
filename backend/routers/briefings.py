@@ -23,11 +23,18 @@ from fastapi import APIRouter, HTTPException
 from fastapi import Depends
 from sqlmodel import Session, select
 
+from auth import require_officer
 from db import get_session
 from models import Briefing
 from schemas import DraftBriefingBody, ReviewBriefingBody, UpdateBriefingSectionsBody
 
-router = APIRouter(prefix="/briefings", tags=["briefings"])
+# Every endpoint here is an internal officer workflow (draft/list/edit/
+# approve a district briefing), never citizen-facing -- unlike
+# reports.py/incidents.py, which mix public and private routes and so
+# gate per-endpoint, this router forked before auth.py existed (Phase 3
+# postdates it) and has no public routes to carve out, so it's gated as
+# a whole rather than retrofitting each decorator individually.
+router = APIRouter(prefix="/briefings", tags=["briefings"], dependencies=[Depends(require_officer)])
 
 
 def _now() -> datetime:
