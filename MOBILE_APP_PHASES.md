@@ -16,7 +16,7 @@ still deferred, and the commit(s) that did it.
 | 1 | FastAPI backend + database | **Done** | `4454566` |
 | 2 | FCM push notifications | **Done** | `ee41efe`, `07d02f8` |
 | 3 | Minimal auth | **Done** | `da6c347` |
-| 4 | Real Flutter citizen app | Not started | -- |
+| 4 | Real Flutter citizen app | **In progress** | -- |
 | 5 | Port Streamlit features onto the new backend | Not started | -- |
 
 ## Phase 0 — scope the walking skeleton
@@ -113,13 +113,134 @@ oversight.
 officer endpoints 401 with no/wrong key and succeed with the right one,
 a wrong-key verify attempt correctly leaves the report `pending`.
 
-## Phase 4 — real Flutter citizen app — not started
+## Phase 4 — real Flutter citizen app — in progress
 
-The actual citizen-facing app: map, report submission (photo + GPS),
-address-based zone lookup, safer routing, the AI assistant -- the real
-counterpart to `streamlit_app/features/citizen_*.py`, replacing
-`push_test_stub` rather than building on it (that app is explicitly
-throwaway, see its own README).
+The real citizen-facing app, replacing `push_test_stub` rather than
+building on it (that app is explicitly throwaway, see its own README).
+Feature list mirrors `streamlit_app`'s six citizen pages exactly (see
+README.md's feature table) -- each needs a backend endpoint and a
+Flutter screen, checked separately since several need backend work that
+doesn't exist yet: only `reports`/`incidents`/`devices` routers exist as
+of Phase 3. Zones, historical events, rainfall, routing, and the AI
+assistant have no backend endpoint at all yet.
+
+### App shell (shared groundwork, not one of the six features) — done
+
+- [x] Project scaffold (`flutter create`, real app -- not `push_test_stub`)
+      -> `citizen_app/`, package `com.thirdwave.citizen`
+- [x] Persistent anonymous `reporter_ref` (UUID generated once, stored
+      locally via `shared_preferences`) -- `lib/services/identity_service.dart`
+- [x] FCM token registration + foreground notification handling, lifted
+      from `push_test_stub` -- `lib/services/push_service.dart`.
+      Background/terminated notifications need no extra code (handled by
+      the OS from the `notification` payload), same as `push_test_stub`
+      found.
+- [x] Navigation shell -- bottom nav, Home (shell status) + 6 feature
+      tabs, 5 still `PlaceholderScreen`. Shared location-permission
+      plumbing deliberately NOT added yet -- deferred to the first
+      feature that actually needs GPS (`lib/screens/`).
+
+**Two real findings while building only the shell** (recorded, not
+skipped past):
+1. `flutter build apk` crashed the Gradle daemon with a native OOM --
+   this dev machine has 5 GB total RAM, and Flutter's default
+   `org.gradle.jvmargs` (`-Xmx8G`) asks for more heap than exists on the
+   machine, let alone what's left after the OS/IDEs. Fixed in both
+   `citizen_app/android/gradle.properties` and (same inherited default)
+   `mobile/android/gradle.properties`, down to `-Xmx1536m`.
+2. A second instance of Phase 2's fid-vs-token trap, from the client
+   side this time: `firebase_messaging` 17.0.0 deprecates `getToken()` in
+   favor of `register()`/`onRegistered` -- but `onRegistered` yields a
+   Firebase **Installation ID**, not an FCM token, per the package's own
+   doc comments. Switching would need `backend/push.py` migrated to
+   FID-based direct-send too; deliberately kept `getToken()` instead,
+   documented in `push_service.dart` rather than silently "fixed".
+
+**Hardware blocker, as of 2026-10-24: `flutter build apk` crashed/froze
+this dev machine twice**, the second time requiring a hard restart, even
+after lowering the Gradle heap (down to 1536MB), disabling the daemon,
+and capping workers at 1 -- a live memory watchdog never saw free RAM
+drop below 250MB either time, so the failure is a genuine capacity
+ceiling, not a tunable setting. Root cause: the board (HP Laptop
+14-dk1xxx, AMD 3020e) has a free second SODIMM slot and supports up to
+32GB, but only 8GB is installed today, and the integrated Radeon
+graphics carve a further chunk out of what Windows reports as usable
+(~6GB visible). **On-device Android/Flutter builds are paused on this
+machine until RAM is upgraded** -- a second 8GB+ SODIMM in the empty
+slot is the concrete fix. Work that doesn't need the Android toolchain
+(backend endpoints, `flutter analyze`-only Dart code) can continue in
+the meantime; `flutter build`/`flutter run` should not be attempted
+again until the upgrade lands.
+
+### 1. Current Vulnerability by Address
+
+- [x] Backend: `GET /zones/lookup?address=` -- `routers/zones.py` +
+      `geo_data.find_zone_by_address()`/`_geocode()`/`nearby_historical_events()`,
+      ported faithfully from `streamlit_app/geo_tools.py`'s function of the
+      same name (geocode retry fallback, zone containment, the
+      score+historical-events join). Lower Volta fallback not ported, same
+      documented Phase 1 gap. Citizen-facing, no officer key.
+- [x] Flutter: `lib/screens/address_vulnerability_screen.dart` -- address
+      search, zone score/level card (same color palette as
+      `data_loader.LEVEL_COLOR`), contributing factors, historical
+      events. `flutter analyze` clean. **Not build/run-tested on a real
+      device** -- blocked by the hardware issue above, same as everything
+      else in `citizen_app/` past the app shell.
+
+**Testing note, not a bug:** the very first geocode request against a
+freshly-started `TestClient` instance failed consistently (silently
+swallowed by `_geocode()`'s bare `except: pass`, same as the original
+Streamlit code), while the identical query against a real, already-warm
+`uvicorn` process succeeded every time -- almost certainly a cold-start
+networking hiccup right after `geo_data`'s heavy `geopandas` import
+during app startup, not a defect in the endpoint. Verified against a
+real persistent server instead: correct zone, score, contributing
+factors, and all 3 relevant historical events (2015/2023/2026 Circle-area
+floods) for Kwame Nkrumah Circle; correct out-of-coverage response for
+Kumasi; correct error for an unresolvable address.
+
+### 2. Crowdsourced Flood Reporting
+
+- [ ] Backend: VLM drafting endpoint (photo in -> draft description +
+      depth estimate + annotated image out), porting `vlm_client.py`'s
+      Claude vision call -- new work, not yet planned as an endpoint
+- [x] Backend: `POST /reports` itself (Phase 1)
+- [ ] Flutter: camera/gallery picker + GPS capture + draft review/edit
+      screen + submit
+
+### 3. Rainfall Forecast
+
+- [ ] Backend: `GET /forecast/rainfall?lat=&lon=` (proxy to Open-Meteo,
+      same as `citizen_forecast.fetch_rainfall_forecast`)
+- [ ] Flutter: location picker + 6h precipitation chart
+
+### 4. High-Risk Zone Alert
+
+- [ ] Backend: none beyond #1 + #3 + the existing `GET /incidents/nearby`
+      -- combine client-side rather than adding a new aggregating
+      endpoint, unless that proves awkward in practice
+- [ ] Flutter: map combining zone score, rainfall, and nearby verified
+      incidents with distance
+
+### 5. Safer Routing
+
+- [ ] Backend: `GET /routing/safer-route?origin=&dest=` -- the biggest
+      backend gap, porting `citizen_routing.py`'s graph-based
+      fastest-vs-vulnerability-weighted routing (`pilot_road_network.gpickle`
+      + networkx) with dynamic incident-based edge penalties
+- [ ] Flutter: origin/destination input (typed address or live GPS) +
+      dual-route map
+
+### 6. AI Assistant
+
+- [ ] Backend: chat endpoint wrapping `geo_tools.py`'s Claude tool-calling
+      loop (same assistant as the government console)
+- [ ] Flutter: chat UI
+
+**Known scope note:** items marked "Backend: none beyond..." assume
+client-side composition is good enough; revisit if that turns out to
+need real server-side aggregation (e.g. for caching or to keep the
+Flutter client thin).
 
 ## Phase 5 — port Streamlit features onto the new backend — not started
 

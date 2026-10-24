@@ -46,3 +46,9 @@ app.*.map.json
 
 # Firebase client config -- project-specific, not committed (see README.md)
 /android/app/google-services.json
+
+# JVM/Gradle crash artifacts -- can be hundreds of MB; see
+# citizen_app/README.md's note on this machine's RAM constraints
+/android/*.hprof
+/android/hs_err_pid*.log
+/android/.kotlin/
