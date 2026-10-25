@@ -240,9 +240,32 @@ same treatment as `risk_engine/data/Flooding_Accra_6.jpg`).
 
 ### 3. Rainfall Forecast
 
-- [ ] Backend: `GET /forecast/rainfall?lat=&lon=` (proxy to Open-Meteo,
-      same as `citizen_forecast.fetch_rainfall_forecast`)
-- [ ] Flutter: location picker + 6h precipitation chart
+- [x] Backend: `GET /forecast/rainfall?lat=&lon=` -- `backend/open_meteo.py`
+      (Open-Meteo client, 6h rolling sum in plain Python rather than
+      adding pandas as a backend dependency for one sliding-window sum)
+      + `routers/forecast.py` (zone/threshold lookup via `geo_data`,
+      status classification). Same honest rainfall-only scope limit as
+      `citizen_forecast.py`. Citizen-facing, no officer key.
+- [x] Flutter: `lib/screens/rainfall_screen.dart` -- address search,
+      `fl_chart` line chart of the 7-day/168-hour rolling-6h series with
+      warning/critical threshold lines (same colors as the Streamlit
+      Plotly version), status banner. `flutter analyze` clean. **Not
+      build/run-tested on a real device** -- same hardware block as
+      features #1-2.
+
+**Verified against the real Open-Meteo API:** 168 correct hourly points
+for Kwame Nkrumah Circle, rolling-6h sum computed correctly from zero,
+correct zone/threshold lookup (`grid_r22_c47`, warning 52mm, critical
+95.2mm), correct "ok" status and message when the forecast peak stays
+under threshold, and correct graceful out-of-coverage error for a point
+outside the pilot grid (Kumasi).
+
+**Naming near-miss caught before it shipped:** the Open-Meteo client
+module was initially also named `forecast.py`, colliding with
+`routers/forecast.py` -- technically resolvable (different
+`sys.modules` entries) but needlessly confusing, renamed to
+`open_meteo.py` immediately rather than left as a working-but-fragile
+clever trick.
 
 ### 4. High-Risk Zone Alert
 
