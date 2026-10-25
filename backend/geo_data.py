@@ -48,6 +48,14 @@ def historical_events() -> list[dict]:
     return json.loads((DATA_DIR / "historical_flood_events.json").read_text())["events"]
 
 
+@lru_cache(maxsize=1)
+def grid_thresholds() -> dict:
+    """Per-zone rainfall/river-level thresholds, keyed by bare zone_id (no
+    "RZ-" prefix -- see zone_for_point()'s dicts for that distinction).
+    Same file citizen_forecast.load_thresholds() reads."""
+    return json.loads((DATA_DIR / "grid_zone_threshold_config.json").read_text())
+
+
 def assign_district(lon: float, lat: float) -> str | None:
     """Point-in-polygon against the 7 pilot assemblies -- same approach as
     incident_store.assign_district(), Lower Volta fallback not yet ported

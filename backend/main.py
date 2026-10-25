@@ -19,7 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from db import init_db
-from routers import briefings, devices, geocode, incidents, reports, zones
+from routers import briefings, devices, forecast, geocode, incidents, reports, zones
 
 
 @asynccontextmanager
@@ -47,6 +47,7 @@ app.include_router(devices.router)
 app.include_router(zones.router)
 app.include_router(briefings.router)
 app.include_router(geocode.router)
+app.include_router(forecast.router)
 
 
 @app.get("/health")
