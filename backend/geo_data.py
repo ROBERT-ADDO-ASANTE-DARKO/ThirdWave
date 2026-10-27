@@ -130,17 +130,12 @@ def geocode_address(address: str) -> dict:
     return {"lat": lat, "lon": lon, "resolved_address": label}
 
 
-def find_zone_by_address(address: str) -> dict:
-    """Ported from streamlit_app/geo_tools.py's function of the same name.
-    Lower Volta extended-coverage fallback is NOT ported -- same Phase 1
-    simplification as assign_district()/zone_for_point() (see module
-    docstring): a location outside the pilot grid returns an
-    out-of-coverage error here, where the Streamlit version would also
-    try the separate Lower Volta basin grid."""
-    geocoded = geocode_address(address)
-    if "error" in geocoded:
-        return geocoded
-    lat, lon, label = geocoded["lat"], geocoded["lon"], geocoded["resolved_address"]
+def zone_info_for_point(lon: float, lat: float, label: str | None = None) -> dict:
+    """Shared by find_zone_by_address() (address-in) and
+    zone_info_by_point() (coordinates-in, e.g. from a GPS fix with no
+    address text at all -- feature #4's "use my location" path, which
+    find_zone_by_address() can't serve since it requires an address to
+    geocode). Same score+historical-events join either way."""
     events = nearby_historical_events(lat, lon)
     zone = zone_for_point(lon, lat)
 
@@ -170,3 +165,17 @@ def find_zone_by_address(address: str) -> dict:
             "event(s) exist within range."
         )
     return out
+
+
+def find_zone_by_address(address: str) -> dict:
+    """Ported from streamlit_app/geo_tools.py's function of the same name.
+    Lower Volta extended-coverage fallback is NOT ported -- same Phase 1
+    simplification as assign_district()/zone_for_point() (see module
+    docstring): a location outside the pilot grid returns an
+    out-of-coverage error here, where the Streamlit version would also
+    try the separate Lower Volta basin grid."""
+    geocoded = geocode_address(address)
+    if "error" in geocoded:
+        return geocoded
+    lat, lon, label = geocoded["lat"], geocoded["lon"], geocoded["resolved_address"]
+    return zone_info_for_point(lon, lat, label)
