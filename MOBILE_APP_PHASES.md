@@ -269,11 +269,35 @@ clever trick.
 
 ### 4. High-Risk Zone Alert
 
-- [ ] Backend: none beyond #1 + #3 + the existing `GET /incidents/nearby`
-      -- combine client-side rather than adding a new aggregating
-      endpoint, unless that proves awkward in practice
-- [ ] Flutter: map combining zone score, rainfall, and nearby verified
-      incidents with distance
+- [x] Backend: the "no new endpoint" plan held, with one small, honest
+      exception -- `GET /zones/lookup-by-point?lat=&lon=` (new,
+      `routers/zones.py` + `geo_data.zone_info_for_point()`, factored out
+      of `find_zone_by_address()` for reuse). The existing
+      `/zones/lookup` is address-only; a GPS fix is coordinates with no
+      address text to look up, so feature #1's endpoint genuinely
+      couldn't serve this path. Otherwise combines `/forecast/rainfall`
+      (#3) and the existing `GET /incidents/nearby` (Phase 1)
+      client-side, no aggregating endpoint.
+- [x] Flutter: `lib/screens/alert_screen.dart` -- address search or
+      live GPS, the same 5-branch alert classification
+      (critical/warning-rain/warning-zone/info-rain/ok) as
+      `citizen_alert.py`, evacuation guidance text per hazard type,
+      nearby incident list with distance. **No map** -- deliberate scope
+      cut (see chat history: Mapbox would be this project's first
+      paid/metered dependency and a real risk to this dev machine's
+      constrained RAM; a map is deferred to feature #5, which actually
+      needs one for route visualization). `flutter analyze` clean. **Not
+      build/run-tested on a real device** -- same hardware block as
+      features #1-3.
+
+**Verified against a real server:** point-based zone lookup returns the
+same shape as the address-based version (score, level, contributing
+factors, historical events) for Kwame Nkrumah Circle; a synthetic
+verified incident 118m away was correctly picked up by
+`/incidents/nearby`; `/forecast/rainfall`'s existing response reused
+directly for "next 6h rain" (`hourly[5].rolling_6h_mm` -- mathematically
+identical to `citizen_alert.py`'s separate `sum(precip[:6])` call, so no
+second Open-Meteo request needed).
 
 ### 5. Safer Routing
 

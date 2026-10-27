@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/address_vulnerability_screen.dart';
+import 'screens/alert_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/placeholder_screen.dart';
 import 'screens/rainfall_screen.dart';
@@ -72,10 +73,7 @@ class _NavShellState extends State<_NavShell> {
       AddressVulnerabilityScreen(apiClient: widget.apiClient),
       ReportScreen(apiClient: widget.apiClient, reporterRef: widget.reporterRef),
       RainfallScreen(apiClient: widget.apiClient),
-      const PlaceholderScreen(
-        title: 'Alert',
-        featureNote: 'High-Risk Zone Alert -- zone score + rainfall + nearby incidents.',
-      ),
+      AlertScreen(apiClient: widget.apiClient),
       const PlaceholderScreen(
         title: 'Routing',
         featureNote: 'Safer Routing -- fastest vs. vulnerability-weighted route.',
