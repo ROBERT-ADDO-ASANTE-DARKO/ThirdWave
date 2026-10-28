@@ -1,15 +1,14 @@
 // main.dart — citizen app shell: identity + push registration at
 // startup, then a bottom-nav holding Home (shell status) plus the six
-// citizen features from streamlit_app's README table. One of six (the AI
-// Assistant) is still PlaceholderScreen -- see MOBILE_APP_PHASES.md's
-// Phase 4 checklist for what's built vs. not.
+// citizen features from streamlit_app's README table. All six are now
+// real screens -- see MOBILE_APP_PHASES.md's Phase 4 checklist.
 
 import 'package:flutter/material.dart';
 
 import 'screens/address_vulnerability_screen.dart';
 import 'screens/alert_screen.dart';
+import 'screens/assistant_screen.dart';
 import 'screens/home_screen.dart';
-import 'screens/placeholder_screen.dart';
 import 'screens/rainfall_screen.dart';
 import 'screens/report_screen.dart';
 import 'screens/routing_screen.dart';
@@ -76,10 +75,7 @@ class _NavShellState extends State<_NavShell> {
       RainfallScreen(apiClient: widget.apiClient),
       AlertScreen(apiClient: widget.apiClient),
       RoutingScreen(apiClient: widget.apiClient),
-      const PlaceholderScreen(
-        title: 'Assistant',
-        featureNote: 'AI Assistant, same as the government console.',
-      ),
+      AssistantScreen(apiClient: widget.apiClient),
     ];
 
     return Scaffold(

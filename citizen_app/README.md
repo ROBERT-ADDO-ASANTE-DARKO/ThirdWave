@@ -6,12 +6,15 @@ tool, not something this app builds on.
 
 ## Status
 
-App shell only, right now: identity (persistent anonymous `reporter_ref`),
-push registration (lifted from `push_test_stub`, properly reused this
-time, not throwaway), and a bottom-nav holding the six citizen features
-from `streamlit_app`'s README table -- five of six are still
-`PlaceholderScreen`. See `MOBILE_APP_PHASES.md`'s Phase 4 checklist for
-exactly what's built vs. not, ticked off as each feature lands.
+App shell (identity -- persistent anonymous `reporter_ref`, push
+registration lifted from `push_test_stub`) plus all six citizen features
+from `streamlit_app`'s README table, now real screens: Current
+Vulnerability by Address, Crowdsourced Flood Reporting, Rainfall
+Forecast, High-Risk Zone Alert, Safer Routing, and the AI Assistant. See
+`MOBILE_APP_PHASES.md`'s Phase 4 checklist for what was ported as-is vs.
+deliberately scoped down (mostly: pilot district only, no Lower
+Volta/Ayawaso West/Madina extended coverage). Not build/run-tested on a
+real device -- see that file's hardware-blocker note.
 
 ## One-time setup (your side -- needs your Firebase login, can't be scripted)
 

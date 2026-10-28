@@ -113,15 +113,18 @@ oversight.
 officer endpoints 401 with no/wrong key and succeed with the right one,
 a wrong-key verify attempt correctly leaves the report `pending`.
 
-## Phase 4 — real Flutter citizen app — in progress
+## Phase 4 — real Flutter citizen app — all 6 features built, pending device testing
 
 The real citizen-facing app, replacing `push_test_stub` rather than
 building on it (that app is explicitly throwaway, see its own README).
 Feature list mirrors `streamlit_app`'s six citizen pages exactly (see
-README.md's feature table) -- each needs a backend endpoint and a
-Flutter screen, checked separately since several need backend work that
-doesn't exist yet: only `reports`/`incidents`/`devices` routers existed as
-of Phase 3. Only the AI assistant has no backend endpoint yet.
+README.md's feature table) -- each needed a backend endpoint and a
+Flutter screen, checked separately since several needed backend work that
+didn't exist yet: only `reports`/`incidents`/`devices` routers existed as
+of Phase 3. All six are now built and verified against real servers/APIs;
+none are build/run-tested on a real device (see the hardware blocker
+below) and Phase 5 (repointing `streamlit_app` at this same backend)
+hasn't started.
 
 ### App shell (shared groundwork, not one of the six features) — done
 
@@ -135,9 +138,10 @@ of Phase 3. Only the AI assistant has no backend endpoint yet.
       the OS from the `notification` payload), same as `push_test_stub`
       found.
 - [x] Navigation shell -- bottom nav, Home (shell status) + 6 feature
-      tabs, 1 (AI Assistant) still `PlaceholderScreen`. Shared
-      location-permission plumbing deliberately NOT added yet -- deferred
-      to the first feature that actually needs GPS (`lib/screens/`).
+      tabs, all real screens as of feature #6 (`placeholder_screen.dart`
+      deleted, nothing left to placeholder). Shared location-permission
+      plumbing deliberately NOT added as a shared module -- each feature
+      that needs GPS (`lib/screens/`) asks for it itself.
 
 **Two real findings while building only the shell** (recorded, not
 skipped past):
@@ -342,14 +346,52 @@ afterward to leave the DB clean.
 
 ### 6. AI Assistant
 
-- [ ] Backend: chat endpoint wrapping `geo_tools.py`'s Claude tool-calling
-      loop (same assistant as the government console)
-- [ ] Flutter: chat UI
+- [x] Backend: `POST /assistant/chat` -- `backend/claude_chat.py` (the
+      tool-calling loop, ported unchanged from `streamlit_app/claude_client.py`)
+      + `backend/ai_tools.py` (8 tools, ported from `geo_tools.py`'s
+      TOOLS/TOOL_FUNCTIONS) + `routers/assistant.py`. Stateless like every
+      other endpoint here: no server-side conversation state, the client
+      sends its full message history each call (OpenAI-style chat shape)
+      and appends the reply itself.
+      Scope cuts from the Streamlit version, documented in `ai_tools.py`'s
+      module docstring rather than silently dropped: pilot district only
+      (no Lower Volta/Ayawaso West/Madina extended-coverage fallback,
+      same as every other feature in this backend); no Sentinel-1 SAR
+      corroboration on citizen reports (`citizen_report_sar_check.py` is
+      a separate offline pipeline script, not ported); no per-district
+      channel-encroachment breakdown or satellite-evidence-image lookup
+      (government-briefing-specific tools); `get_active_incidents` reads
+      this backend's real `Report` table instead of Streamlit's synthetic
+      demo-seed data -- a live upgrade, not a gap. Needed 3 new pilot-only
+      loaders in `geo_data.py` (`assembly_scores()`, `encroachment_index()`,
+      `population_exposure()`) for the tools that read data the mobile
+      backend hadn't loaded before.
+- [x] Flutter: `lib/screens/assistant_screen.dart` -- chat UI, example
+      questions, per-message collapsible tool-call log (same transparency
+      `ai_assistant.py` shows via `st.expander`). `placeholder_screen.dart`
+      deleted -- all six features are now real screens, nothing left to
+      placeholder. `flutter analyze` clean. **Not build/run-tested on a
+      real device** -- same hardware block as features #1-5.
 
-**Known scope note:** items marked "Backend: none beyond..." assume
-client-side composition is good enough; revisit if that turns out to
-need real server-side aggregation (e.g. for caching or to keep the
-Flutter client thin).
+**Verified against the real Claude API, all 8 tools exercised, including
+a multi-turn follow-up:** "flood risk near Kwame Nkrumah Circle" correctly
+called `find_zone_by_address` and produced a well-grounded answer (score
+29.8/Moderate, explicitly flagged as an understatement given 3 historical
+events within 60m, 0.3m building-to-waterway encroachment, and the 2015
+Circle flood/fuel-explosion disaster); `get_drain_priority`,
+`get_assembly_comparison`, `get_population_exposure_summary`,
+`get_active_incidents`, and `get_verified_citizen_reports_for_district`
+each called the right tool and answered correctly. A follow-up question
+in a second request ("what was the score again, and is that higher or
+lower than Circle?") correctly recalled Kaneshie Market's score from
+conversation history without re-calling a tool, while correctly
+re-calling `find_zone_by_address` for Circle (not yet in that
+conversation) to compare -- confirming the stateless, client-owned-history
+design actually works across turns, not just within one.
+
+**All six Phase 4 citizen features are now built.** Phase 4 closes as an
+honest, pilot-scoped port of every `streamlit_app` citizen page, none
+build/run-tested on a real device pending the RAM upgrade noted above.
 
 ## Phase 5 — port Streamlit features onto the new backend — not started
 
