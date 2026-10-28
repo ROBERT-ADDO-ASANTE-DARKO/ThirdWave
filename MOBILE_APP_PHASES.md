@@ -120,9 +120,8 @@ building on it (that app is explicitly throwaway, see its own README).
 Feature list mirrors `streamlit_app`'s six citizen pages exactly (see
 README.md's feature table) -- each needs a backend endpoint and a
 Flutter screen, checked separately since several need backend work that
-doesn't exist yet: only `reports`/`incidents`/`devices` routers exist as
-of Phase 3. Zones, historical events, rainfall, routing, and the AI
-assistant have no backend endpoint at all yet.
+doesn't exist yet: only `reports`/`incidents`/`devices` routers existed as
+of Phase 3. Only the AI assistant has no backend endpoint yet.
 
 ### App shell (shared groundwork, not one of the six features) — done
 
@@ -136,9 +135,9 @@ assistant have no backend endpoint at all yet.
       the OS from the `notification` payload), same as `push_test_stub`
       found.
 - [x] Navigation shell -- bottom nav, Home (shell status) + 6 feature
-      tabs, 5 still `PlaceholderScreen`. Shared location-permission
-      plumbing deliberately NOT added yet -- deferred to the first
-      feature that actually needs GPS (`lib/screens/`).
+      tabs, 1 (AI Assistant) still `PlaceholderScreen`. Shared
+      location-permission plumbing deliberately NOT added yet -- deferred
+      to the first feature that actually needs GPS (`lib/screens/`).
 
 **Two real findings while building only the shell** (recorded, not
 skipped past):
@@ -301,12 +300,45 @@ second Open-Meteo request needed).
 
 ### 5. Safer Routing
 
-- [ ] Backend: `GET /routing/safer-route?origin=&dest=` -- the biggest
-      backend gap, porting `citizen_routing.py`'s graph-based
-      fastest-vs-vulnerability-weighted routing (`pilot_road_network.gpickle`
-      + networkx) with dynamic incident-based edge penalties
-- [ ] Flutter: origin/destination input (typed address or live GPS) +
-      dual-route map
+- [x] Backend: `GET /routing/safer-route?olat=&olon=&dlat=&dlon=` --
+      `backend/route_engine.py` + `routers/routing.py`, porting
+      `citizen_routing.py`'s graph-based fastest-vs-vulnerability-weighted
+      routing (same precomputed `pilot_road_network.gpickle`, 22,552 nodes/
+      58,962 edges) with dynamic incident-based edge penalties (verified
+      reports within ~200m of an edge multiply its weight ×30, computed
+      fresh per request, never mutating the cached graph). Coordinates in,
+      not addresses -- same split as `/zones/lookup-by-point` and
+      `/forecast/rainfall`; the Flutter client geocodes via `/geocode`
+      itself. OSMnx's `nearest_nodes()` deliberately NOT pulled in as a
+      backend dependency just to snap a point to the graph -- replaced
+      with a vectorized numpy haversine over all 22,552 nodes instead
+      (module docstring explains the naming choice, `route_engine.py` not
+      `routing.py`, to avoid a repeat of the forecast.py naming near-miss).
+- [x] Flutter: `lib/screens/routing_screen.dart` -- origin by typed
+      address or live GPS, destination by address, dual-route map via
+      `flutter_map` (OSM tiles, no native SDK/billing -- the map this
+      project deferred from feature #4), stats row (distance + avg zone
+      score per route, extra distance), active-incident markers and
+      per-route "passes within ~200m of N incident(s)" callouts. Needed
+      `flutter_map`/`latlong2` added via `flutter pub add` (resolved to
+      `^8.3.2`/`^0.10.1` -- plain Dart package resolution, not a Gradle/
+      native build, so safe under the hardware constraint below).
+      `flutter analyze` clean. **Not build/run-tested on a real device**
+      -- same hardware block as features #1-4.
+
+**Verified against a real server, including the incident-detour case (the
+part that actually exercises the dynamic penalty, not just the static
+grid):** Kwame Nkrumah Circle -> Kaneshie Market with no active incidents
+returned identical fast/safe paths (2.878km, avg zone score 26.9, origin/
+dest snap <10m -- both points land almost exactly on mapped roads). After
+submitting and verifying one synthetic incident on the fast path's
+corridor, re-querying the same two points showed the fast route still
+taking the direct 2.878km path (now flagged 1 incident within range)
+while the safer route detoured to 3.865km (+0.987km) specifically to
+avoid it (0 incidents within range) -- confirming a verified citizen
+report changes routing outcomes live, not just the static composite
+score, same as the Streamlit version's intent. Test incident resolved
+afterward to leave the DB clean.
 
 ### 6. AI Assistant
 

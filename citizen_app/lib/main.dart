@@ -1,8 +1,8 @@
 // main.dart — citizen app shell: identity + push registration at
 // startup, then a bottom-nav holding Home (shell status) plus the six
-// citizen features from streamlit_app's README table. Five of six are
-// still PlaceholderScreen -- see MOBILE_APP_PHASES.md's Phase 4
-// checklist for what's built vs. not.
+// citizen features from streamlit_app's README table. One of six (the AI
+// Assistant) is still PlaceholderScreen -- see MOBILE_APP_PHASES.md's
+// Phase 4 checklist for what's built vs. not.
 
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,7 @@ import 'screens/home_screen.dart';
 import 'screens/placeholder_screen.dart';
 import 'screens/rainfall_screen.dart';
 import 'screens/report_screen.dart';
+import 'screens/routing_screen.dart';
 import 'services/api_client.dart';
 import 'services/identity_service.dart';
 import 'services/push_service.dart';
@@ -74,10 +75,7 @@ class _NavShellState extends State<_NavShell> {
       ReportScreen(apiClient: widget.apiClient, reporterRef: widget.reporterRef),
       RainfallScreen(apiClient: widget.apiClient),
       AlertScreen(apiClient: widget.apiClient),
-      const PlaceholderScreen(
-        title: 'Routing',
-        featureNote: 'Safer Routing -- fastest vs. vulnerability-weighted route.',
-      ),
+      RoutingScreen(apiClient: widget.apiClient),
       const PlaceholderScreen(
         title: 'Assistant',
         featureNote: 'AI Assistant, same as the government console.',
