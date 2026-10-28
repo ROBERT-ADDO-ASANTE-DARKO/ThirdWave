@@ -56,6 +56,41 @@ def grid_thresholds() -> dict:
     return json.loads((DATA_DIR / "grid_zone_threshold_config.json").read_text())
 
 
+@lru_cache(maxsize=1)
+def assembly_scores() -> list[dict]:
+    """The 7-assembly pilot vulnerability scores -- same file and shape as
+    streamlit_app/data_loader.load_assembly_scores(), just a plain list of
+    dicts here instead of a pandas DataFrame (this backend has no other use
+    for pandas, so not worth adding as a dependency for one table)."""
+    raw = json.loads((DATA_DIR / "pilot_zone_vulnerability.json").read_text())
+    return [
+        {
+            "assembly": name, "score": r["score"], "level": r["level"],
+            "water_occ_pct": r["water_occ_pct"], "impervious_pct": r["impervious_pct"],
+        }
+        for name, r in raw.items()
+    ]
+
+
+@lru_cache(maxsize=1)
+def encroachment_index() -> dict:
+    """OSM building-to-waterway distance per grid cell, keyed by bare
+    zone_id -- same file as streamlit_app/data_loader.load_encroachment_index().
+    Pilot-only: the multi-region search across Lower Volta/Ayawaso West/
+    Madina's separate index files that geo_tools.get_channel_encroachment_for_district()
+    does isn't ported here, same documented Phase 1 scope limit as every
+    other extended-coverage gap in this module."""
+    return json.loads((DATA_DIR / "channel_encroachment_index.json").read_text())
+
+
+@lru_cache(maxsize=1)
+def population_exposure() -> dict:
+    """Pilot-wide estimated population/building counts per grid cell --
+    same file as streamlit_app/data_loader's equivalent read in
+    geo_tools.get_population_exposure_summary()."""
+    return json.loads((DATA_DIR / "population_exposure.json").read_text())
+
+
 def assign_district(lon: float, lat: float) -> str | None:
     """Point-in-polygon against the 7 pilot assemblies -- same approach as
     incident_store.assign_district(), Lower Volta fallback not yet ported
