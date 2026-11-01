@@ -10,8 +10,25 @@
 // screen, which deliberately shipped without one). flutter_map is free,
 // OSM-tile-based, pure Dart -- no native SDK, no metered billing, and no
 // extra load on this dev machine's constrained Gradle build.
+//
+// The map is centered on the pilot district by default, not conditional
+// on having a route -- orients the citizen before they've searched
+// anything (same change made to My Zone).
+//
+// _mapWidgetReady below exists because mounting the map unconditionally
+// (rather than gated on a result) turned out NOT to fully dodge
+// flutter_map 8.3.2's "setState called during build" bug -- it still hit
+// live, triggered by switching to this tab at all: that switch is itself
+// a setState()-driven rebuild in the nav shell, and FlutterMap's very
+// first mount happening inside ANY ancestor's active build (not just one
+// this screen's own setState produced) is what actually triggers the
+// bug. Deferring the first mount by one frame via this screen's own
+// initState/addPostFrameCallback -- independent of whatever caused the
+// screen to appear -- is the fix that actually holds.
 
+import 'dart:async';
 import 'dart:convert';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -19,6 +36,13 @@ import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../services/api_client.dart';
+import '../widgets/citizen_app_bar.dart';
+
+// Pilot district bbox centroid (risk_engine/channel_encroachment_timeseries.py's
+// own computed extent) -- the default map view before any route is found.
+const _pilotCenter = LatLng(5.541198730000104, -0.30136108399989303);
+const _fastColor = Color(0xFFC1621B);
+const _safeColor = Color(0xFF1B7A9E);
 
 class RoutingScreen extends StatefulWidget {
   final ApiClient apiClient;
@@ -41,6 +65,148 @@ class _RoutingScreenState extends State<RoutingScreen> {
   Map<String, dynamic>? _result;
   LatLng? _originLatLng;
   LatLng? _destLatLng;
+  bool _mapWidgetReady = false;
+
+  // Opt-in "Start navigation": live GPS position/heading/speed while the
+  // citizen is actually driving/walking the found route. Off by default --
+  // only requests a continuous location stream once the user explicitly
+  // asks for it, same permission flow as "Use my location" above.
+  StreamSubscription<Position>? _positionSub;
+  bool _navigating = false;
+  LatLng? _liveLatLng;
+  double? _liveHeadingDeg;
+  double? _liveSpeedKmh;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) setState(() => _mapWidgetReady = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _positionSub?.cancel();
+    super.dispose();
+  }
+
+  List<Polyline> get _polylines {
+    if (_result == null) return [];
+    final fast = _result!['fast_route'] as Map<String, dynamic>;
+    final safe = _result!['safe_route'] as Map<String, dynamic>;
+    return [
+      Polyline(points: _pathPoints(fast), color: _fastColor, strokeWidth: 5),
+      Polyline(points: _pathPoints(safe), color: _safeColor, strokeWidth: 5),
+    ];
+  }
+
+  List<Marker> get _markers {
+    final markers = <Marker>[];
+    if (_originLatLng != null) {
+      markers.add(Marker(point: _originLatLng!, width: 32, height: 32,
+          child: const Icon(Icons.trip_origin, color: Color(0xFF1E8A4C), size: 28)));
+    }
+    if (_destLatLng != null) {
+      markers.add(Marker(point: _destLatLng!, width: 32, height: 32,
+          child: const Icon(Icons.flag, color: Color(0xFF0B2545), size: 28)));
+    }
+    if (_result != null) {
+      final activeIncidents = (_result!['active_incidents'] as List).cast<Map<String, dynamic>>();
+      for (final inc in activeIncidents) {
+        markers.add(Marker(
+          point: LatLng((inc['lat'] as num).toDouble(), (inc['lon'] as num).toDouble()),
+          width: 32, height: 32,
+          child: const Icon(Icons.warning_amber, color: Color(0xFFB0241D), size: 26),
+        ));
+      }
+    }
+    if (_navigating && _liveLatLng != null) {
+      markers.add(Marker(
+        point: _liveLatLng!,
+        width: 40, height: 40,
+        child: Transform.rotate(
+          angle: (_liveHeadingDeg ?? 0) * math.pi / 180,
+          child: const Icon(Icons.navigation, color: _safeColor, size: 34),
+        ),
+      ));
+    }
+    return markers;
+  }
+
+  Future<void> _toggleNavigation() async {
+    if (_navigating) {
+      await _stopNavigation();
+      return;
+    }
+    try {
+      if (!await Geolocator.isLocationServiceEnabled()) {
+        setState(() => _error = 'Location services are off.');
+        return;
+      }
+      var permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+        setState(() => _error = 'Location permission denied.');
+        return;
+      }
+    } catch (e) {
+      setState(() => _error = 'Could not start navigation: $e');
+      return;
+    }
+    setState(() { _navigating = true; _error = null; });
+    _positionSub = Geolocator.getPositionStream(
+      locationSettings: const LocationSettings(accuracy: LocationAccuracy.high, distanceFilter: 3),
+    ).listen(_onPosition);
+  }
+
+  Future<void> _stopNavigation() async {
+    await _positionSub?.cancel();
+    _positionSub = null;
+    if (mounted) setState(() => _navigating = false);
+  }
+
+  void _onPosition(Position pos) {
+    if (!mounted) return;
+    setState(() {
+      _liveLatLng = LatLng(pos.latitude, pos.longitude);
+      if (!pos.heading.isNaN && pos.heading >= 0) _liveHeadingDeg = pos.heading;
+      if (!pos.speed.isNaN && pos.speed >= 0) _liveSpeedKmh = pos.speed * 3.6;
+    });
+    if (_mapWidgetReady) {
+      final zoom = _mapController.camera.zoom;
+      _mapController.move(_liveLatLng!, zoom < 15 ? 16 : zoom);
+    }
+  }
+
+  // Which of the two found routes the live position is currently closest
+  // to -- a cheap nearest-vertex snap, not a full map-matching algorithm,
+  // but good enough at the road-network resolution this pilot district
+  // uses.
+  String? _activeRouteLabel(LatLng point) {
+    if (_result == null) return null;
+    const onRouteMeters = 40.0;
+    final fastDist = _minDistanceToPath(point, _pathPoints(_result!['fast_route']));
+    final safeDist = _minDistanceToPath(point, _pathPoints(_result!['safe_route']));
+    if (fastDist == null && safeDist == null) return null;
+    final onFast = fastDist != null && (safeDist == null || fastDist <= safeDist);
+    final nearest = onFast ? fastDist : safeDist!;
+    final label = onFast ? 'Fastest route' : 'Safer route';
+    return nearest <= onRouteMeters ? 'On: $label' : 'Off route (nearest: $label)';
+  }
+
+  double? _minDistanceToPath(LatLng point, List<LatLng> path) {
+    if (path.isEmpty) return null;
+    const distance = Distance();
+    var best = double.infinity;
+    for (final p in path) {
+      final d = distance.as(LengthUnit.Meter, point, p);
+      if (d < best) best = d;
+    }
+    return best;
+  }
 
   Future<Map<String, double>?> _resolveOrigin() async {
     if (_originMode == _OriginMode.currentLocation) {
@@ -82,6 +248,7 @@ class _RoutingScreenState extends State<RoutingScreen> {
   }
 
   Future<void> _findRoutes() async {
+    if (_navigating) await _stopNavigation();
     setState(() { _loading = true; _error = null; _result = null; });
     try {
       final o = await _resolveOrigin();
@@ -108,7 +275,9 @@ class _RoutingScreenState extends State<RoutingScreen> {
         _originLatLng = LatLng(o['lat']!, o['lon']!);
         _destLatLng = LatLng(d['lat']!, d['lon']!);
       });
-      WidgetsBinding.instance.addPostFrameCallback((_) => _fitBounds());
+      if (_mapWidgetReady) {
+        WidgetsBinding.instance.addPostFrameCallback((_) => _fitBounds());
+      }
     } catch (e) {
       setState(() => _error = 'Could not reach backend: $e');
     } finally {
@@ -135,9 +304,9 @@ class _RoutingScreenState extends State<RoutingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Safer Routing')),
+      appBar: const CitizenAppBar(eyebrow: 'Routing', title: 'Safer Routing'),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
         children: [
           const Text(
             "Compares the fastest route against a risk-weighted route that prefers lower-vulnerability "
@@ -175,10 +344,56 @@ class _RoutingScreenState extends State<RoutingScreen> {
             const SizedBox(height: 12),
             Text(_error!, style: const TextStyle(color: Colors.red)),
           ],
-          if (_result != null) _RouteResultView(
-            result: _result!, originLatLng: _originLatLng!, destLatLng: _destLatLng!,
-            mapController: _mapController,
+          if (_result != null) ...[
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: _toggleNavigation,
+              icon: Icon(_navigating ? Icons.stop_circle_outlined : Icons.navigation_outlined),
+              label: Text(_navigating ? 'Stop navigation' : 'Start navigation'),
+            ),
+          ],
+          const SizedBox(height: 12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: SizedBox(
+              height: 320,
+              child: Stack(
+                children: [
+                  !_mapWidgetReady
+                      ? const ColoredBox(color: Color(0xFFE6ECEF))
+                      : FlutterMap(
+                    mapController: _mapController,
+                    options: const MapOptions(initialCenter: _pilotCenter, initialZoom: 12),
+                    children: [
+                      TileLayer(
+                        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        userAgentPackageName: 'com.thirdwave.citizen',
+                      ),
+                      PolylineLayer(polylines: _polylines),
+                      MarkerLayer(markers: _markers),
+                    ],
+                  ),
+                  if (_navigating && _liveLatLng != null)
+                    Positioned(
+                      top: 10, left: 10,
+                      child: _NavHud(
+                        speedKmh: _liveSpeedKmh,
+                        routeLabel: _activeRouteLabel(_liveLatLng!),
+                      ),
+                    ),
+                ],
+              ),
+            ),
           ),
+          const SizedBox(height: 8),
+          const Wrap(spacing: 14, runSpacing: 4, children: [
+            _Legend(color: _fastColor, label: 'Fastest route'),
+            _Legend(color: _safeColor, label: 'Safer route'),
+            _Legend(color: Color(0xFF1E8A4C), label: 'From'),
+            _Legend(color: Color(0xFF0B2545), label: 'To'),
+            _Legend(color: Color(0xFFB0241D), label: 'Active incident'),
+          ]),
+          if (_result != null) _RouteResultView(result: _result!),
         ],
       ),
     );
@@ -187,17 +402,8 @@ class _RoutingScreenState extends State<RoutingScreen> {
 
 class _RouteResultView extends StatelessWidget {
   final Map<String, dynamic> result;
-  final LatLng originLatLng;
-  final LatLng destLatLng;
-  final MapController mapController;
 
-  const _RouteResultView({
-    required this.result, required this.originLatLng, required this.destLatLng,
-    required this.mapController,
-  });
-
-  static const _fastColor = Color(0xFFC1621B);
-  static const _safeColor = Color(0xFF1B7A9E);
+  const _RouteResultView({required this.result});
 
   @override
   Widget build(BuildContext context) {
@@ -209,36 +415,36 @@ class _RouteResultView extends StatelessWidget {
     final sameRoute = result['same_route'] == true;
     final snapWarning = result['snap_warning'] == true;
 
-    final fastPoints = (fast['path'] as List).cast<List>()
-        .map((p) => LatLng((p[0] as num).toDouble(), (p[1] as num).toDouble())).toList();
-    final safePoints = (safe['path'] as List).cast<List>()
-        .map((p) => LatLng((p[0] as num).toDouble(), (p[1] as num).toDouble())).toList();
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Divider(height: 24),
-        Row(children: [
-          Expanded(child: _StatTile(
-            label: 'Fastest route', value: '${fast['distance_km']} km',
-            sub: fast['avg_zone_score'] != null ? 'avg zone score ${fast['avg_zone_score']}' : 'no zone data',
-            color: _fastColor,
-          )),
-          Expanded(child: _StatTile(
-            label: 'Safer route', value: '${safe['distance_km']} km',
-            sub: safe['avg_zone_score'] != null ? 'avg zone score ${safe['avg_zone_score']}' : 'no zone data',
-            color: _safeColor,
-          )),
-          Expanded(child: _StatTile(
-            label: 'Extra distance', value: '${result['extra_km'] >= 0 ? '+' : ''}${result['extra_km']} km',
-            sub: null, color: Colors.grey,
-          )),
-        ]),
+        const SizedBox(height: 16),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(children: [
+              Expanded(child: _StatTile(
+                label: 'Fastest route', value: '${fast['distance_km']} km',
+                sub: fast['avg_zone_score'] != null ? 'avg zone score ${fast['avg_zone_score']}' : 'no zone data',
+                color: _fastColor,
+              )),
+              Expanded(child: _StatTile(
+                label: 'Safer route', value: '${safe['distance_km']} km',
+                sub: safe['avg_zone_score'] != null ? 'avg zone score ${safe['avg_zone_score']}' : 'no zone data',
+                color: _safeColor,
+              )),
+              Expanded(child: _StatTile(
+                label: 'Extra distance', value: '${result['extra_km'] >= 0 ? '+' : ''}${result['extra_km']} km',
+                sub: null, color: Colors.grey,
+              )),
+            ]),
+          ),
+        ),
         if (sameRoute) ...[
           const SizedBox(height: 8),
           const Text(
             'The fastest route and the safer route are the same road here -- no lower-risk alternative exists.',
-            style: TextStyle(color: Colors.green),
+            style: TextStyle(color: Color(0xFF166534)),
           ),
         ],
         if (snapWarning) ...[
@@ -247,46 +453,11 @@ class _RouteResultView extends StatelessWidget {
             "One of your points is >${(0.3 * 1000).toStringAsFixed(0)}m from the nearest road in the pilot "
             "district's mapped network -- the route shown actually starts/ends from the nearest mapped road, "
             "not the exact pin. This usually means that point falls outside the pilot district's coverage area.",
-            style: const TextStyle(color: Color(0xFFB8860B)),
+            style: const TextStyle(color: Color(0xFF8A5B07)),
           ),
         ],
-        const SizedBox(height: 12),
-        SizedBox(
-          height: 320,
-          child: FlutterMap(
-            mapController: mapController,
-            options: MapOptions(initialCenter: originLatLng, initialZoom: 14),
-            children: [
-              TileLayer(
-                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                userAgentPackageName: 'com.thirdwave.citizen',
-              ),
-              PolylineLayer(polylines: [
-                Polyline(points: fastPoints, color: _fastColor, strokeWidth: 5),
-                Polyline(points: safePoints, color: _safeColor, strokeWidth: 5),
-              ]),
-              MarkerLayer(markers: [
-                Marker(point: originLatLng, width: 32, height: 32,
-                    child: const Icon(Icons.trip_origin, color: Colors.green, size: 28)),
-                Marker(point: destLatLng, width: 32, height: 32,
-                    child: const Icon(Icons.flag, color: Colors.red, size: 28)),
-                for (final inc in activeIncidents)
-                  Marker(
-                    point: LatLng((inc['lat'] as num).toDouble(), (inc['lon'] as num).toDouble()),
-                    width: 32, height: 32,
-                    child: const Icon(Icons.warning, color: Color(0xFF8B0000), size: 26),
-                  ),
-              ]),
-            ],
-          ),
-        ),
-        const SizedBox(height: 4),
-        const Text(
-          '🟠 Fastest route · 🔵 Safer route · 🟢 From · 🚩 To · ⚠️ Active verified incident',
-          style: TextStyle(fontSize: 12, color: Colors.grey),
-        ),
         if (activeIncidents.isNotEmpty) ...[
-          const Divider(height: 24),
+          const SizedBox(height: 20),
           Text('Active incidents along these routes', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
           Text(
@@ -298,15 +469,15 @@ class _RouteResultView extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             fastHits.isNotEmpty
-                ? '🟠 Fastest route passes within ~200m of ${fastHits.length} active incident(s).'
-                : "🟠 Fastest route doesn't pass near any active incident.",
-            style: TextStyle(color: fastHits.isNotEmpty ? const Color(0xFFB8860B) : Colors.green),
+                ? 'Fastest route passes within ~200m of ${fastHits.length} active incident(s).'
+                : "Fastest route doesn't pass near any active incident.",
+            style: TextStyle(color: fastHits.isNotEmpty ? const Color(0xFF8A5B07) : const Color(0xFF166534)),
           ),
           Text(
             safeHits.isNotEmpty
-                ? '🔵 Safer route still passes within ~200m of ${safeHits.length} active incident(s) -- no clear alternative avoids it.'
-                : '🔵 Safer route avoids all currently active incidents.',
-            style: TextStyle(color: safeHits.isNotEmpty ? const Color(0xFFB8860B) : Colors.green),
+                ? 'Safer route still passes within ~200m of ${safeHits.length} active incident(s) -- no clear alternative avoids it.'
+                : 'Safer route avoids all currently active incidents.',
+            style: TextStyle(color: safeHits.isNotEmpty ? const Color(0xFF8A5B07) : const Color(0xFF166534)),
           ),
         ] else ...[
           const SizedBox(height: 8),
@@ -318,6 +489,51 @@ class _RouteResultView extends StatelessWidget {
         ],
       ],
     );
+  }
+}
+
+class _NavHud extends StatelessWidget {
+  final double? speedKmh;
+  final String? routeLabel;
+  const _NavHud({required this.speedKmh, required this.routeLabel});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.92),
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: const [BoxShadow(color: Color(0x33000000), blurRadius: 8, offset: Offset(0, 2))],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            speedKmh != null ? '${speedKmh!.toStringAsFixed(0)} km/h' : '-- km/h',
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Color(0xFF0B2545)),
+          ),
+          if (routeLabel != null)
+            Text(routeLabel!, style: const TextStyle(fontSize: 11, color: Colors.grey)),
+        ],
+      ),
+    );
+  }
+}
+
+class _Legend extends StatelessWidget {
+  final Color color;
+  final String label;
+  const _Legend({required this.color, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisSize: MainAxisSize.min, children: [
+      Container(width: 9, height: 9, decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
+      const SizedBox(width: 5),
+      Text(label, style: const TextStyle(fontSize: 11, color: Colors.grey, fontWeight: FontWeight.w600)),
+    ]);
   }
 }
 
