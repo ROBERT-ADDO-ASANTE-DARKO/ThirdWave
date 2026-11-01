@@ -22,6 +22,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 import '../services/api_client.dart';
+import '../theme.dart';
+import '../widgets/citizen_app_bar.dart';
 
 const _nearbyRadiusKm = 1.5;
 
@@ -141,9 +143,9 @@ class _AlertScreenState extends State<AlertScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('High-Risk Zone Alert')),
+      appBar: const CitizenAppBar(eyebrow: 'Alert', title: 'High-Risk Zone Alert'),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
         children: [
           const Text(
             'Not a real push notification -- true "notify when entering a '
@@ -156,7 +158,10 @@ class _AlertScreenState extends State<AlertScreen> {
           Row(children: [
             Expanded(child: TextField(
               controller: _addressController,
-              decoration: const InputDecoration(hintText: 'Address or landmark'),
+              decoration: const InputDecoration(
+                hintText: 'Address or landmark',
+                prefixIcon: Icon(Icons.search, size: 20),
+              ),
               onSubmitted: (_) => _checkAddress(),
             )),
             const SizedBox(width: 8),
@@ -200,71 +205,91 @@ class _AlertBody extends StatelessWidget {
     final isRainImminent = next6hRain != null && warnMm != null && next6hRain! >= warnMm! * 0.5;
     final exceedsWarning = next6hRain != null && warnMm != null && next6hRain! >= warnMm!;
 
-    late final Color bannerColor;
+    late final Color bannerBase;
     late final String bannerText;
     if (isHighZone && exceedsWarning) {
-      bannerColor = Colors.red;
+      bannerBase = const Color(0xFFB0241D);
       bannerText = 'ALERT: $label is a $level zone, and ${next6hRain!.toStringAsFixed(0)}mm of rain is '
           "forecast in the next 6 hours (exceeds this zone's ${warnMm!.toStringAsFixed(0)}mm warning "
           'threshold). Avoid low-lying routes.';
     } else if (isHighZone && isRainImminent) {
-      bannerColor = const Color(0xFFB8860B);
+      bannerBase = const Color(0xFFB8860B);
       bannerText = '$label is a $level zone, and moderate rain (${next6hRain!.toStringAsFixed(0)}mm) is '
           'forecast in the next 6 hours. Stay alert.';
     } else if (isHighZone) {
-      bannerColor = const Color(0xFFB8860B);
+      bannerBase = const Color(0xFFB8860B);
       bannerText = '$label is a $level zone, but no significant rain is forecast in the next 6 hours right now.';
     } else if (isRainImminent) {
-      bannerColor = Colors.blue;
+      bannerBase = steelBlue;
       bannerText = '$label is a $level zone (not high-risk), but ${next6hRain!.toStringAsFixed(0)}mm of rain '
           'is forecast in the next 6 hours.';
     } else {
-      bannerColor = Colors.green;
+      bannerBase = const Color(0xFF1E8A4C);
       bannerText = '$label is a $level zone, and no significant rain is forecast in the next 6 hours.';
     }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Divider(height: 24),
-        Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: bannerColor.withValues(alpha: 0.12),
-            border: Border.all(color: bannerColor),
-            borderRadius: BorderRadius.circular(8),
+        const SizedBox(height: 12),
+        Card(
+          color: tintBackground(context, bannerBase),
+          child: Padding(
+            padding: const EdgeInsets.all(14),
+            child: Text(bannerText, style: TextStyle(color: tintForeground(context, bannerBase), fontWeight: FontWeight.bold)),
           ),
-          child: Text(bannerText, style: TextStyle(color: bannerColor, fontWeight: FontWeight.bold)),
         ),
         const SizedBox(height: 12),
-        Row(children: [
-          Expanded(child: _StatTile(label: 'Zone vulnerability', value: level)),
-          Expanded(child: _StatTile(
-            label: 'Next 6h rainfall',
-            value: next6hRain != null ? '${next6hRain!.toStringAsFixed(0)}mm' : 'unavailable',
-          )),
-        ]),
-        const Divider(height: 24),
-        Text('Active flooding near you right now', style: Theme.of(context).textTheme.titleSmall),
-        const SizedBox(height: 8),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(children: [
+              Expanded(child: _StatTile(label: 'Zone vulnerability', value: level)),
+              Expanded(child: _StatTile(
+                label: 'Next 6h rainfall',
+                value: next6hRain != null ? '${next6hRain!.toStringAsFixed(0)}mm' : 'unavailable',
+              )),
+            ]),
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Text('ACTIVE FLOODING NEAR YOU RIGHT NOW', style: TextStyle(
+          fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: 0.8, color: Colors.grey,
+        )),
+        const SizedBox(height: 10),
         if (nearbyIncidents.isEmpty)
-          Text('No verified active incidents within ${_nearbyRadiusKm}km of this location right now.',
-              style: const TextStyle(color: Colors.green))
+          Card(
+            color: tintBackground(context, const Color(0xFF1E8A4C)),
+            child: Padding(
+              padding: const EdgeInsets.all(14),
+              child: Text('No verified active incidents within ${_nearbyRadiusKm}km of this location right now.',
+                  style: TextStyle(color: tintForeground(context, const Color(0xFF1E8A4C)), fontWeight: FontWeight.w600)),
+            ),
+          )
         else
           ...nearbyIncidents.map((inc) {
             final hazard = inc['hazard_type'] as String;
             final distM = ((inc['distance_km'] as num).toDouble() * 1000).toStringAsFixed(0);
             final synthetic = inc['synthetic'] == true ? ' (demo)' : '';
+            final incidentFg = tintForeground(context, const Color(0xFFB0241D));
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('${hazard.replaceAll('_', ' ')}$synthetic -- ${distM}m away '
-                      '(${inc['location_label'] ?? 'unnamed location'})',
-                      style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
-                  Text(_evacuationGuidance[hazard] ?? _genericGuidance, style: const TextStyle(fontSize: 12)),
-                ],
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Card(
+                color: tintBackground(context, const Color(0xFFB0241D)),
+                child: Padding(
+                  padding: const EdgeInsets.all(14),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${hazard.replaceAll('_', ' ')}$synthetic -- ${distM}m away '
+                          '(${inc['location_label'] ?? 'unnamed location'})',
+                          style: TextStyle(color: incidentFg, fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 4),
+                      Text(_evacuationGuidance[hazard] ?? _genericGuidance,
+                          style: TextStyle(fontSize: 12, color: incidentFg.withValues(alpha: 0.85))),
+                    ],
+                  ),
+                ),
               ),
             );
           }),
@@ -283,8 +308,11 @@ class _StatTile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: const TextStyle(color: Colors.grey, fontSize: 12)),
-        Text(value, style: Theme.of(context).textTheme.titleLarge),
+        Text(label, style: const TextStyle(
+          fontSize: 11, fontWeight: FontWeight.w800, letterSpacing: 0.6, color: Colors.grey,
+        )),
+        const SizedBox(height: 2),
+        Text(value, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800)),
       ],
     );
   }

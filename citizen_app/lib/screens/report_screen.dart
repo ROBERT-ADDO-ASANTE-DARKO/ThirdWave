@@ -12,6 +12,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../services/api_client.dart';
+import '../theme.dart';
+import '../widgets/citizen_app_bar.dart';
 
 const _hazardTypes = ['flash_flood', 'urban_flood', 'river_flood'];
 
@@ -201,9 +203,9 @@ class _ReportScreenState extends State<ReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Report a Flood')),
+      appBar: const CitizenAppBar(eyebrow: 'Report', title: 'Report a Flood'),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
         children: [
           Text('1. Add a photo', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
@@ -231,14 +233,28 @@ class _ReportScreenState extends State<ReportScreen> {
             ),
           ],
           if (_draft != null) ...[
-            const SizedBox(height: 8),
-            if (_draft!['shows_flooding'] == false)
-              Text("AI couldn't confirm this photo shows flooding: ${_draft!['note'] ?? ''}", style: const TextStyle(fontStyle: FontStyle.italic))
-            else ...[
-              Text('AI-suggested description -- check it\'s accurate before submitting:', style: const TextStyle(fontWeight: FontWeight.bold)),
-              if (_draft!['depth_estimate_m'] != null)
-                Text('Estimated depth: ${_draft!['depth_estimate_m']['low']}-${_draft!['depth_estimate_m']['high']}m (triage-quality estimate, not survey-grade)'),
-            ],
+            const SizedBox(height: 12),
+            Card(
+              color: tintBackground(context, signalTeal),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: _draft!['shows_flooding'] == false
+                    ? Text("AI couldn't confirm this photo shows flooding: ${_draft!['note'] ?? ''}",
+                        style: const TextStyle(fontStyle: FontStyle.italic))
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('AI-suggested description -- check it\'s accurate before submitting:',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          if (_draft!['depth_estimate_m'] != null) ...[
+                            const SizedBox(height: 4),
+                            Text('Estimated depth: ${_draft!['depth_estimate_m']['low']}-${_draft!['depth_estimate_m']['high']}m '
+                                '(triage-quality estimate, not survey-grade)'),
+                          ],
+                        ],
+                      ),
+              ),
+            ),
           ],
           const Divider(height: 32),
 

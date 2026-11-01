@@ -13,6 +13,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../services/api_client.dart';
+import '../theme.dart';
+import '../widgets/citizen_app_bar.dart';
 
 class RainfallScreen extends StatefulWidget {
   final ApiClient apiClient;
@@ -61,9 +63,9 @@ class _RainfallScreenState extends State<RainfallScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Rainfall Forecast')),
+      appBar: const CitizenAppBar(eyebrow: 'Rainfall', title: 'Rainfall Forecast'),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
         children: [
           const Text(
             'A real numerical weather forecast (Open-Meteo) fed through this '
@@ -75,7 +77,10 @@ class _RainfallScreenState extends State<RainfallScreen> {
           Row(children: [
             Expanded(child: TextField(
               controller: _addressController,
-              decoration: const InputDecoration(hintText: 'e.g. Kwame Nkrumah Circle'),
+              decoration: const InputDecoration(
+                hintText: 'e.g. Kwame Nkrumah Circle',
+                prefixIcon: Icon(Icons.search, size: 20),
+              ),
               onSubmitted: (_) => _getForecast(),
             )),
             const SizedBox(width: 8),
@@ -96,9 +101,9 @@ class _ForecastView extends StatelessWidget {
   const _ForecastView({required this.result});
 
   Color get _statusColor => switch (result['status']) {
-        'critical' => Colors.red,
+        'critical' => const Color(0xFFB0241D),
         'warning' => const Color(0xFFB8860B),
-        _ => Colors.green,
+        _ => const Color(0xFF1E8A4C),
       };
 
   @override
@@ -117,41 +122,45 @@ class _ForecastView extends StatelessWidget {
         Text('Zone: ${result['zone_id']} (vulnerability score ${result['vulnerability_score']})',
             style: Theme.of(context).textTheme.bodySmall),
         const SizedBox(height: 12),
-        SizedBox(
-          height: 260,
-          child: LineChart(LineChartData(
-            minY: 0, maxY: maxY,
-            titlesData: const FlTitlesData(
-              topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: true, reservedSize: 36)),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 16, 16, 8),
+            child: SizedBox(
+              height: 260,
+              child: LineChart(LineChartData(
+                minY: 0, maxY: maxY,
+                titlesData: const FlTitlesData(
+                  topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: true, reservedSize: 36)),
+                ),
+                gridData: const FlGridData(show: true, drawVerticalLine: false),
+                borderData: FlBorderData(show: false),
+                lineBarsData: [
+                  LineChartBarData(spots: spots, isCurved: false, color: signalTeal,
+                      barWidth: 2, dotData: const FlDotData(show: false)),
+                ],
+                extraLinesData: ExtraLinesData(horizontalLines: [
+                  HorizontalLine(y: warnMm, color: const Color(0xFFB8860B), strokeWidth: 1, dashArray: [6, 4],
+                      label: HorizontalLineLabel(show: true, alignment: Alignment.topRight,
+                          labelResolver: (_) => 'Warning ${warnMm.toStringAsFixed(0)}mm')),
+                  HorizontalLine(y: critMm, color: const Color(0xFFB0241D), strokeWidth: 1, dashArray: [6, 4],
+                      label: HorizontalLineLabel(show: true, alignment: Alignment.topRight,
+                          labelResolver: (_) => 'Critical ${critMm.toStringAsFixed(0)}mm')),
+                ]),
+              )),
             ),
-            gridData: const FlGridData(show: true, drawVerticalLine: false),
-            borderData: FlBorderData(show: false),
-            lineBarsData: [
-              LineChartBarData(spots: spots, isCurved: false, color: const Color(0xFF1B7A9E),
-                  barWidth: 2, dotData: const FlDotData(show: false)),
-            ],
-            extraLinesData: ExtraLinesData(horizontalLines: [
-              HorizontalLine(y: warnMm, color: const Color(0xFFB8860B), strokeWidth: 1, dashArray: [6, 4],
-                  label: HorizontalLineLabel(show: true, alignment: Alignment.topRight,
-                      labelResolver: (_) => 'Warning ${warnMm.toStringAsFixed(0)}mm')),
-              HorizontalLine(y: critMm, color: const Color(0xFFB0241D), strokeWidth: 1, dashArray: [6, 4],
-                  label: HorizontalLineLabel(show: true, alignment: Alignment.topRight,
-                      labelResolver: (_) => 'Critical ${critMm.toStringAsFixed(0)}mm')),
-            ]),
-          )),
+          ),
         ),
         const SizedBox(height: 12),
-        Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: _statusColor.withValues(alpha: 0.12),
-            border: Border.all(color: _statusColor),
-            borderRadius: BorderRadius.circular(8),
+        Card(
+          color: tintBackground(context, _statusColor),
+          child: Padding(
+            padding: const EdgeInsets.all(14),
+            child: Text(result['message'] as String,
+                style: TextStyle(color: tintForeground(context, _statusColor), fontWeight: FontWeight.w600)),
           ),
-          child: Text(result['message'] as String, style: TextStyle(color: _statusColor)),
         ),
       ],
     );
