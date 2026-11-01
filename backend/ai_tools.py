@@ -38,8 +38,8 @@ from __future__ import annotations
 from sqlmodel import Session, select
 
 import geo_data
-from clustering import haversine_km
 from models import Report
+from report_queries import summarize, verified_reports_near
 
 NEARBY_REPORT_RADIUS_KM = 2.0
 
@@ -72,17 +72,8 @@ away. Say so plainly when it happens.
 
 
 def _nearby_verified_reports(session: Session, lon: float, lat: float) -> list[dict]:
-    reports = session.exec(select(Report).where(Report.status == "verified")).all()
-    out = []
-    for r in reports:
-        d = haversine_km(lon, lat, r.lon, r.lat)
-        if d <= NEARBY_REPORT_RADIUS_KM:
-            out.append({
-                "report_id": r.id, "hazard_type": r.hazard_type, "description": r.description,
-                "location_label": r.location_label, "distance_km": round(d, 2),
-                "verified_at": r.verified_at.isoformat() if r.verified_at else None,
-            })
-    return sorted(out, key=lambda x: x["distance_km"])
+    hits = verified_reports_near(session, lon, lat, radius_km=NEARBY_REPORT_RADIUS_KM)
+    return [summarize(r, d) for r, d in hits]
 
 
 def _find_zone_by_address(session: Session, address: str) -> dict:

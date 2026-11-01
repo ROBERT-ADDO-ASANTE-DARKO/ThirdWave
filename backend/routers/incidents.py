@@ -9,10 +9,10 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 
-import clustering
 from auth import require_officer
 from db import get_session
 from models import Report
+from report_queries import verified_reports_near
 from schemas import AssignResponderBody
 from serializers import serialize_report
 
@@ -36,14 +36,8 @@ def nearby(lat: float, lon: float, radius_km: float = 1.5, session: Session = De
     incident_store.nearby_active_incidents()). This is the query a push
     notification (Phase 2) would run against newly-registered device
     locations instead of a client-initiated request."""
-    reports = list(session.exec(select(Report).where(Report.status == "verified")).all())
-    out = []
-    for r in reports:
-        d = clustering.haversine_km(lon, lat, r.lon, r.lat)
-        if d <= radius_km:
-            out.append({**serialize_report(r), "distance_km": round(d, 3)})
-    out.sort(key=lambda x: x["distance_km"])
-    return out
+    hits = verified_reports_near(session, lon, lat, radius_km=radius_km)
+    return [{**serialize_report(r), "distance_km": d} for r, d in hits]
 
 
 @router.post("/{incident_id}/assign-responder", dependencies=[Depends(require_officer)])

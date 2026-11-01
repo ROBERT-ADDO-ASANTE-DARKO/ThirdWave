@@ -170,13 +170,20 @@ def zone_info_for_point(lon: float, lat: float, label: str | None = None) -> dic
     zone_info_by_point() (coordinates-in, e.g. from a GPS fix with no
     address text at all -- feature #4's "use my location" path, which
     find_zone_by_address() can't serve since it requires an address to
-    geocode). Same score+historical-events join either way."""
+    geocode). Same score+historical-events join either way.
+
+    Echoes lon/lat back in the result (added for feature #7, My Zone's
+    nearby-citizen-reports join and inline map) -- the router needs them
+    to run report_queries.verified_reports_near() and to center a map,
+    and this is the one place both call paths (address and point) already
+    have them in scope, so neither router has to re-geocode or thread
+    them through separately."""
     events = nearby_historical_events(lat, lon)
     zone = zone_for_point(lon, lat)
 
     if zone:
         out = {
-            "resolved_address": label, "zone_id": zone["id"].replace("RZ-", ""),
+            "resolved_address": label, "lon": lon, "lat": lat, "zone_id": zone["id"].replace("RZ-", ""),
             "assembly": zone["assembly"], "score": zone["score"], "level": zone["level"],
             "confidence": zone["confidence"],
             "contributing_factors": [f["text"] for f in zone["contributing_factors"]],
@@ -192,7 +199,7 @@ def zone_info_for_point(lon: float, lat: float, label: str | None = None) -> dic
         )
         return out
 
-    out = {"resolved_address": label, "error": "This location is outside the pilot district's coverage area."}
+    out = {"resolved_address": label, "lon": lon, "lat": lat, "error": "This location is outside the pilot district's coverage area."}
     if events:
         out["nearby_historical_events"] = events
         out["historical_context_note"] = (
