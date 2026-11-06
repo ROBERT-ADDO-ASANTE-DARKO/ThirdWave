@@ -16,12 +16,20 @@
 // of the technical terms (SAR, composite score, assembly, ...) the
 // assistant's answers actually use, reachable from the app bar before a
 // citizen needs it.
+//
+// Conversation history is persisted to shared_preferences (loaded on
+// initState, saved after every turn) so it survives both app restarts
+// and -- now that _NavShell in main.dart uses IndexedStack instead of
+// rebuilding the screen list on every tab switch -- simply switching
+// tabs and coming back, which previously discarded it along with every
+// other screen's state.
 
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gpt_markdown_lite/gpt_markdown_lite.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../services/api_client.dart';
 import '../theme.dart';
@@ -94,12 +102,68 @@ class AssistantScreen extends StatefulWidget {
   State<AssistantScreen> createState() => _AssistantScreenState();
 }
 
+const _historyPrefsKey = 'tide_chat_history';
+
 class _AssistantScreenState extends State<AssistantScreen> {
   final _inputController = TextEditingController();
   final _scrollController = ScrollController();
   final List<_ChatMessage> _messages = [];
   bool _sending = false;
   String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadHistory();
+  }
+
+  Future<void> _loadHistory() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_historyPrefsKey);
+    if (raw == null) return;
+    try {
+      final saved = (jsonDecode(raw) as List).cast<Map<String, dynamic>>();
+      final loaded = saved.map((m) => _ChatMessage(
+            role: m['role'] as String,
+            content: m['content'] as String,
+            toolLog: (m['toolLog'] as List?)?.cast<Map<String, dynamic>>(),
+          )).toList();
+      if (!mounted) return;
+      setState(() => _messages.addAll(loaded));
+      _scrollToBottom();
+    } catch (_) {
+      // Saved history is corrupt or from an older, incompatible shape --
+      // drop it rather than let a parse error crash this screen.
+      await prefs.remove(_historyPrefsKey);
+    }
+  }
+
+  Future<void> _saveHistory() async {
+    final prefs = await SharedPreferences.getInstance();
+    final encoded = jsonEncode(_messages.map((m) => {
+          'role': m.role, 'content': m.content, 'toolLog': m.toolLog,
+        }).toList());
+    await prefs.setString(_historyPrefsKey, encoded);
+  }
+
+  Future<void> _confirmNewChat() async {
+    if (_messages.isEmpty) return;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Start a new chat?'),
+        content: const Text('This clears your current conversation with Tide on this device.'),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
+          TextButton(onPressed: () => Navigator.pop(context, true), child: const Text('New chat')),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    setState(() => _messages.clear());
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_historyPrefsKey);
+  }
 
   Future<void> _send([String? text]) async {
     final message = (text ?? _inputController.text).trim();
@@ -133,6 +197,7 @@ class _AssistantScreenState extends State<AssistantScreen> {
     } finally {
       setState(() => _sending = false);
       _scrollToBottom();
+      _saveHistory();
     }
   }
 
@@ -169,7 +234,7 @@ class _AssistantScreenState extends State<AssistantScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            Text('Terms the assistant uses', style: Theme.of(context).textTheme.titleLarge),
+            Text('Terms Tide uses', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 4),
             Text(
               'A quick glossary for the technical terms you might see in an answer below.',
@@ -199,12 +264,17 @@ class _AssistantScreenState extends State<AssistantScreen> {
     return Scaffold(
       appBar: CitizenAppBar(
         eyebrow: 'Assistant',
-        title: 'AI Assistant',
+        title: 'Tide',
         actions: [
           IconButton(
             tooltip: 'Glossary of terms',
             icon: const Icon(Icons.menu_book_outlined, color: Colors.white),
             onPressed: _showGlossary,
+          ),
+          IconButton(
+            tooltip: 'New chat',
+            icon: const Icon(Icons.add_comment_outlined, color: Colors.white),
+            onPressed: _messages.isEmpty ? null : _confirmNewChat,
           ),
         ],
       ),
@@ -296,7 +366,7 @@ class _EmptyState extends StatelessWidget {
               children: [
                 const _AssistantAvatar(size: 56),
                 const SizedBox(height: 14),
-                Text('Ask the AI Assistant', style: Theme.of(context).textTheme.titleLarge),
+                Text('Ask Tide', style: Theme.of(context).textTheme.titleLarge),
                 const SizedBox(height: 8),
                 Text(
                   'Ask questions about flood vulnerability in the pilot district. Answers are grounded in data '
@@ -372,7 +442,7 @@ class _MessageRow extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(isUser ? 'You' : 'ThirdWave Assistant',
+                    Text(isUser ? 'You' : 'Tide',
                         style: TextStyle(fontWeight: FontWeight.w700, fontSize: 12, color: Colors.grey[600])),
                     const SizedBox(height: 4),
                     isUser

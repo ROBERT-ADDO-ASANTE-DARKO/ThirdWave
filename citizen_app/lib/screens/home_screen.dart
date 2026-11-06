@@ -193,10 +193,11 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(height: 16),
           _InfoCard(
             icon: Icons.chat_bubble_outline, baseColor: steelBlue,
-            title: 'Ask the AI Assistant',
+            title: 'Ask Tide',
             subtitle: 'Grounded in real flood data',
-            description: 'Ask questions about flood risk in plain language -- answers are grounded in real '
-                'data from the risk engine and live, officer-verified citizen reports, not guesses.',
+            description: 'Ask Tide, the AI Assistant, questions about flood risk in plain language -- answers '
+                'are grounded in real data from the risk engine and live, officer-verified citizen reports, '
+                'not guesses.',
             onTap: () => widget.onNavigate(6),
             illustrationBuilder: (active) => _ChatBubbleIllustration(active: active, color: steelBlue),
           ),
