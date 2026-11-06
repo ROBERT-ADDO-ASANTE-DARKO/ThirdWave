@@ -46,6 +46,7 @@ dependencies:
   latlong2: ^0.10.1
   google_fonts: ^8.1.0
   gpt_markdown_lite: ^1.0.16
+  flutter_tts: ^4.2.5
 
 dev_dependencies:
   flutter_test:

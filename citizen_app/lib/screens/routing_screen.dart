@@ -32,10 +32,12 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../services/api_client.dart';
+import '../services/push_service.dart';
 import '../widgets/citizen_app_bar.dart';
 
 // Pilot district bbox centroid (risk_engine/channel_encroachment_timeseries.py's
@@ -46,7 +48,8 @@ const _safeColor = Color(0xFF1B7A9E);
 
 class RoutingScreen extends StatefulWidget {
   final ApiClient apiClient;
-  const RoutingScreen({super.key, required this.apiClient});
+  final PushService pushService;
+  const RoutingScreen({super.key, required this.apiClient, required this.pushService});
 
   @override
   State<RoutingScreen> createState() => _RoutingScreenState();
@@ -77,6 +80,43 @@ class _RoutingScreenState extends State<RoutingScreen> {
   double? _liveHeadingDeg;
   double? _liveSpeedKmh;
 
+  // Spoken turn-by-turn: geometric only (turn direction + distance), no
+  // street names -- route_engine.py returns a bare lat/lon path, not named
+  // road segments, so "turn left onto X Street" isn't available without
+  // backend work. Computed once from whichever route navigation started
+  // on; _nextStepIdx walks forward through it as the live position passes
+  // each maneuver.
+  final _tts = FlutterTts();
+  List<_NavStep> _navSteps = [];
+  int _nextStepIdx = 0;
+  int _preAnnouncedStepIdx = -1;
+  int _announcedStepIdx = -1;
+
+  static const _preAnnounceMeters = 150.0;
+  static const _atManeuverMeters = 30.0;
+  static const _navZoom = 17.5;
+
+  // Heading-up ("driving mode") rotation, Google-Maps style: the map spins
+  // so the direction of travel points up the screen, with a compass button
+  // to flip back to north-up. Only active while navigating -- normal
+  // browsing of the map stays north-up. _mapRotationDeg mirrors whatever
+  // was last sent to _mapController.rotate() so the compass needle (and
+  // the toggle logic) don't need to read it back off the controller.
+  bool _hasZoomedForNav = false;
+  bool _hasRegisteredPushForNav = false;
+  bool _headingUpEnabled = true;
+  double _mapRotationDeg = 0;
+
+  void _toggleHeadingUp() {
+    setState(() {
+      _headingUpEnabled = !_headingUpEnabled;
+      if (!_headingUpEnabled) {
+        _mapRotationDeg = 0;
+        _mapController.rotate(0);
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -88,6 +128,7 @@ class _RoutingScreenState extends State<RoutingScreen> {
   @override
   void dispose() {
     _positionSub?.cancel();
+    _tts.stop();
     super.dispose();
   }
 
@@ -156,7 +197,19 @@ class _RoutingScreenState extends State<RoutingScreen> {
       setState(() => _error = 'Could not start navigation: $e');
       return;
     }
+    final navPath = _chooseNavPath();
+    _navSteps = _buildSteps(navPath);
+    _nextStepIdx = 0;
+    _preAnnouncedStepIdx = -1;
+    _announcedStepIdx = -1;
+    _hasZoomedForNav = false;
+    _hasRegisteredPushForNav = false;
+    _headingUpEnabled = true;
     setState(() { _navigating = true; _error = null; });
+    if (_navSteps.isNotEmpty) {
+      final turns = _navSteps.length - 1; // last step is always 'arrive', not a turn
+      _speak('Starting navigation. $turns turn${turns == 1 ? '' : 's'} ahead.');
+    }
     _positionSub = Geolocator.getPositionStream(
       locationSettings: const LocationSettings(accuracy: LocationAccuracy.high, distanceFilter: 3),
     ).listen(_onPosition);
@@ -165,20 +218,132 @@ class _RoutingScreenState extends State<RoutingScreen> {
   Future<void> _stopNavigation() async {
     await _positionSub?.cancel();
     _positionSub = null;
-    if (mounted) setState(() => _navigating = false);
+    await _tts.stop();
+    _mapRotationDeg = 0;
+    _mapController.rotate(0);
+    if (mounted) {
+      setState(() {
+        _navigating = false;
+        _navSteps = [];
+        _nextStepIdx = 0;
+      });
+    }
+  }
+
+  void _speak(String text) {
+    _tts.speak(text);
+  }
+
+  // Which route to narrate turn-by-turn for: whichever of the two found
+  // routes the live position is currently closer to (same "which route are
+  // you on" signal the HUD uses), defaulting to the safer route -- the one
+  // this app actually recommends -- before a GPS fix has come in yet.
+  List<LatLng> _chooseNavPath() {
+    final safePath = _result == null ? <LatLng>[] : _pathPoints(_result!['safe_route']);
+    if (_liveLatLng == null || _result == null) return safePath;
+    final fastPath = _pathPoints(_result!['fast_route']);
+    final fastDist = _minDistanceToPath(_liveLatLng!, fastPath);
+    final safeDist = _minDistanceToPath(_liveLatLng!, safePath);
+    if (fastDist != null && (safeDist == null || fastDist < safeDist)) return fastPath;
+    return safePath;
   }
 
   void _onPosition(Position pos) {
     if (!mounted) return;
+    if (!_hasRegisteredPushForNav) {
+      _hasRegisteredPushForNav = true;
+      widget.pushService.registerWithBackend(lat: pos.latitude, lon: pos.longitude);
+    }
     setState(() {
       _liveLatLng = LatLng(pos.latitude, pos.longitude);
       if (!pos.heading.isNaN && pos.heading >= 0) _liveHeadingDeg = pos.heading;
       if (!pos.speed.isNaN && pos.speed >= 0) _liveSpeedKmh = pos.speed * 3.6;
     });
     if (_mapWidgetReady) {
-      final zoom = _mapController.camera.zoom;
-      _mapController.move(_liveLatLng!, zoom < 15 ? 16 : zoom);
+      if (!_hasZoomedForNav) {
+        _hasZoomedForNav = true;
+        _mapController.move(_liveLatLng!, _navZoom);
+      } else {
+        _mapController.move(_liveLatLng!, _mapController.camera.zoom);
+      }
+      if (_headingUpEnabled && _liveHeadingDeg != null) {
+        _mapRotationDeg = -_liveHeadingDeg!;
+        _mapController.rotate(_mapRotationDeg);
+      }
     }
+    _announceUpcomingTurn();
+  }
+
+  // Pre-announces a turn ~150m out ("In 150 meters, turn left"), then
+  // again right at the maneuver point ("Turn left now"), tracked via
+  // straight-line distance from the live position to that maneuver's path
+  // vertex -- an approximation (not true distance-remaining-along-route),
+  // but a reasonable one at city-block scale.
+  void _announceUpcomingTurn() {
+    if (!_navigating || _liveLatLng == null || _nextStepIdx >= _navSteps.length) return;
+    final step = _navSteps[_nextStepIdx];
+    const distance = Distance();
+    final distToManeuver = distance.as(LengthUnit.Meter, _liveLatLng!, step.point);
+
+    if (distToManeuver <= _preAnnounceMeters && _preAnnouncedStepIdx != _nextStepIdx && step.direction != 'arrive') {
+      _preAnnouncedStepIdx = _nextStepIdx;
+      _speak('In ${_preAnnounceMeters.round()} meters, ${_instructionFor(step.direction)}.');
+    }
+    if (distToManeuver <= _atManeuverMeters && _announcedStepIdx != _nextStepIdx) {
+      _announcedStepIdx = _nextStepIdx;
+      if (step.direction == 'arrive') {
+        _speak('You have arrived at your destination.');
+        _stopNavigation();
+      } else {
+        _speak('${_instructionFor(step.direction)} now.');
+        _nextStepIdx++;
+      }
+    }
+  }
+
+  double _bearingDeg(LatLng a, LatLng b) => const Distance().bearing(a, b);
+
+  // Normalizes an angle difference to (-180, 180]: positive = turning
+  // right (clockwise), negative = turning left.
+  double _normalizeAngle(double deg) => ((deg + 540) % 360) - 180;
+
+  String? _classifyTurn(double turnDeg) {
+    final a = turnDeg.abs();
+    if (a < 15) return null; // straight -- not a maneuver worth a step
+    final right = turnDeg > 0;
+    if (a < 45) return right ? 'slight_right' : 'slight_left';
+    if (a < 135) return right ? 'right' : 'left';
+    if (a < 160) return right ? 'sharp_right' : 'sharp_left';
+    return 'u_turn';
+  }
+
+  String _instructionFor(String direction) {
+    switch (direction) {
+      case 'slight_left': return 'Bear left';
+      case 'slight_right': return 'Bear right';
+      case 'left': return 'Turn left';
+      case 'right': return 'Turn right';
+      case 'sharp_left': return 'Turn sharp left';
+      case 'sharp_right': return 'Turn sharp right';
+      case 'u_turn': return 'Make a U-turn';
+      case 'arrive': return 'You have arrived';
+      default: return 'Continue';
+    }
+  }
+
+  List<_NavStep> _buildSteps(List<LatLng> path) {
+    if (path.length < 2) return [];
+    final steps = <_NavStep>[];
+    for (var i = 1; i < path.length - 1; i++) {
+      final bearingIn = _bearingDeg(path[i - 1], path[i]);
+      final bearingOut = _bearingDeg(path[i], path[i + 1]);
+      final direction = _classifyTurn(_normalizeAngle(bearingOut - bearingIn));
+      if (direction != null) {
+        steps.add(_NavStep(point: path[i], direction: direction));
+      }
+    }
+    steps.add(_NavStep(point: path.last, direction: 'arrive'));
+    return steps;
   }
 
   // Which of the two found routes the live position is currently closest
@@ -224,6 +389,7 @@ class _RoutingScreenState extends State<RoutingScreen> {
           return null;
         }
         final pos = await Geolocator.getCurrentPosition();
+        widget.pushService.registerWithBackend(lat: pos.latitude, lon: pos.longitude);
         return {'lat': pos.latitude, 'lon': pos.longitude};
       } catch (e) {
         setState(() => _error = 'Could not get location: $e');
@@ -379,7 +545,15 @@ class _RoutingScreenState extends State<RoutingScreen> {
                       child: _NavHud(
                         speedKmh: _liveSpeedKmh,
                         routeLabel: _activeRouteLabel(_liveLatLng!),
+                        nextInstruction: _nextStepIdx < _navSteps.length
+                            ? _instructionFor(_navSteps[_nextStepIdx].direction)
+                            : null,
                       ),
+                    ),
+                  if (_navigating)
+                    Positioned(
+                      top: 10, right: 10,
+                      child: _CompassButton(rotationDeg: _mapRotationDeg, onTap: _toggleHeadingUp),
                     ),
                 ],
               ),
@@ -492,10 +666,49 @@ class _RouteResultView extends StatelessWidget {
   }
 }
 
+// Google-Maps-style compass: always points at true north regardless of
+// how the map itself is rotated (heading-up mode spins the map, so the
+// needle counter-rotates to compensate). Tapping it toggles heading-up
+// vs. north-up, same as tapping Google Maps' compass during navigation.
+class _CompassButton extends StatelessWidget {
+  final double rotationDeg;
+  final VoidCallback onTap;
+  const _CompassButton({required this.rotationDeg, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white.withValues(alpha: 0.92),
+      shape: const CircleBorder(),
+      elevation: 2,
+      child: InkWell(
+        onTap: onTap,
+        customBorder: const CircleBorder(),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Transform.rotate(
+            angle: rotationDeg * math.pi / 180,
+            child: const Icon(Icons.explore, color: Color(0xFF0B2545), size: 24),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// One spoken turn-by-turn maneuver: a point along the navigated route's
+// path and the turn direction at that point ('arrive' for the final step).
+class _NavStep {
+  final LatLng point;
+  final String direction;
+  const _NavStep({required this.point, required this.direction});
+}
+
 class _NavHud extends StatelessWidget {
   final double? speedKmh;
   final String? routeLabel;
-  const _NavHud({required this.speedKmh, required this.routeLabel});
+  final String? nextInstruction;
+  const _NavHud({required this.speedKmh, required this.routeLabel, this.nextInstruction});
 
   @override
   Widget build(BuildContext context) {
@@ -516,6 +729,14 @@ class _NavHud extends StatelessWidget {
           ),
           if (routeLabel != null)
             Text(routeLabel!, style: const TextStyle(fontSize: 11, color: Colors.grey)),
+          if (nextInstruction != null) ...[
+            const SizedBox(height: 4),
+            Row(mainAxisSize: MainAxisSize.min, children: [
+              const Icon(Icons.turn_slight_right, size: 14, color: _safeColor),
+              const SizedBox(width: 4),
+              Text(nextInstruction!, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: _safeColor)),
+            ]),
+          ],
         ],
       ),
     );
