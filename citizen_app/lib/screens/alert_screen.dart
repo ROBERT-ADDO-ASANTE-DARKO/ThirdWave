@@ -22,6 +22,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 import '../services/api_client.dart';
+import '../services/push_service.dart';
 import '../theme.dart';
 import '../widgets/citizen_app_bar.dart';
 
@@ -40,7 +41,8 @@ const _genericGuidance = 'Avoid the area. Do not attempt to walk or drive throug
 
 class AlertScreen extends StatefulWidget {
   final ApiClient apiClient;
-  const AlertScreen({super.key, required this.apiClient});
+  final PushService pushService;
+  const AlertScreen({super.key, required this.apiClient, required this.pushService});
 
   @override
   State<AlertScreen> createState() => _AlertScreenState();
@@ -88,6 +90,7 @@ class _AlertScreenState extends State<AlertScreen> {
         return;
       }
       final pos = await Geolocator.getCurrentPosition();
+      widget.pushService.registerWithBackend(lat: pos.latitude, lon: pos.longitude);
       await _check(pos.latitude, pos.longitude, 'Detected location');
     } catch (e) {
       setState(() => _error = 'Could not get location: $e');

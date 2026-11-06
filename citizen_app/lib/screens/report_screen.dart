@@ -12,6 +12,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../services/api_client.dart';
+import '../services/push_service.dart';
 import '../theme.dart';
 import '../widgets/citizen_app_bar.dart';
 
@@ -20,7 +21,8 @@ const _hazardTypes = ['flash_flood', 'urban_flood', 'river_flood'];
 class ReportScreen extends StatefulWidget {
   final ApiClient apiClient;
   final String reporterRef;
-  const ReportScreen({super.key, required this.apiClient, required this.reporterRef});
+  final PushService pushService;
+  const ReportScreen({super.key, required this.apiClient, required this.reporterRef, required this.pushService});
 
   @override
   State<ReportScreen> createState() => _ReportScreenState();
@@ -133,6 +135,7 @@ class _ReportScreenState extends State<ReportScreen> {
         return;
       }
       final pos = await Geolocator.getCurrentPosition();
+      widget.pushService.registerWithBackend(lat: pos.latitude, lon: pos.longitude);
       setState(() {
         _lat = pos.latitude;
         _lon = pos.longitude;

@@ -5,10 +5,19 @@
 // the whole app -- every other screen should work independently of
 // whether this app's Firebase registration is set up yet.
 //
-// lat/lon are omitted at registration time (left null) -- this app
-// doesn't capture live GPS yet (see MOBILE_APP_PHASES.md's app-shell
-// checklist); the first feature that does (High-Risk Zone Alert) should
-// re-register with a real location once it has one.
+// lat/lon are omitted at the initial app-startup registration (main.dart
+// calls registerWithBackend() with no position yet) -- startup is too
+// early to ask for a location permission the user hasn't triggered
+// anything to need. Instead, every screen that already asks for a GPS fix
+// for its own feature (My Zone, Alert, Report, Routing) re-registers with
+// that real position once it has one (see each screen's _useCurrentLocation
+// / equivalent), piggybacking on a permission the user already granted for
+// a reason they understand, rather than prompting for location just for
+// push registration. Without a real last-known position on the device
+// row, backend/push.py's notify_nearby_devices (radius-filtered on it)
+// can never actually target this device -- this was a real gap, found
+// when a push ID smoke test sent directly to a token worked fine while
+// nothing had ever updated this device's stored lat/lon.
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -65,14 +74,14 @@ class PushService {
     }
   }
 
-  Future<void> registerWithBackend() async {
+  Future<void> registerWithBackend({double? lat, double? lon}) async {
     if (token == null) return;
     try {
       final resp = await _api.postJson('/devices/register', {
         'fcm_token': token,
         'platform': 'android',
-        'lat': null,
-        'lon': null,
+        'lat': lat,
+        'lon': lon,
       });
       status = resp.statusCode == 200 ? PushStatus.registered : PushStatus.error;
       if (resp.statusCode != 200) error = 'Backend returned ${resp.statusCode}: ${resp.body}';
