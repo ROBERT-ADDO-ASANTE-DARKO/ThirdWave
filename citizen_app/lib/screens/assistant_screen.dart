@@ -32,6 +32,7 @@ import 'package:gpt_markdown_lite/gpt_markdown_lite.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../services/api_client.dart';
+import '../services/profile_controller.dart';
 import '../theme.dart';
 import '../widgets/citizen_app_bar.dart';
 
@@ -92,11 +93,29 @@ const _glossary = [
     "A flood report submitted in this app that a local official has reviewed and confirmed -- shown as live "
         "evidence alongside the computed score, not a replacement for it.",
   ),
+  (
+    'Channel encroachment',
+    "How close buildings are to a drainage channel or waterway. A separate risk signal from the main score "
+        "above -- a building built right next to a channel can block water flow during heavy rain, something "
+        "the score itself can't see.",
+  ),
+  (
+    'Outside the main pilot area',
+    "A few places (like Madina and East Legon) are covered by a simpler, lower-detail check instead of the "
+        "app's full analysis -- the score for these areas may be less accurate than one from the main "
+        "pilot area.",
+  ),
+  (
+    'Mentioned in a nearby flood report',
+    "A past flood report that names this general area, but whose exact recorded location is actually "
+        "somewhere else close by -- not a precise match, just worth knowing about.",
+  ),
 ];
 
 class AssistantScreen extends StatefulWidget {
   final ApiClient apiClient;
-  const AssistantScreen({super.key, required this.apiClient});
+  final ProfileController profileController;
+  const AssistantScreen({super.key, required this.apiClient, required this.profileController});
 
   @override
   State<AssistantScreen> createState() => _AssistantScreenState();
@@ -282,7 +301,7 @@ class _AssistantScreenState extends State<AssistantScreen> {
         children: [
           Expanded(
             child: _messages.isEmpty
-                ? _EmptyState(onExample: _send, onGlossary: _showGlossary)
+                ? _EmptyState(onExample: _send, onGlossary: _showGlossary, name: widget.profileController.name)
                 : ListView.builder(
                     controller: _scrollController,
                     padding: const EdgeInsets.symmetric(vertical: 12),
@@ -352,7 +371,8 @@ class _AssistantAvatar extends StatelessWidget {
 class _EmptyState extends StatelessWidget {
   final void Function(String) onExample;
   final VoidCallback onGlossary;
-  const _EmptyState({required this.onExample, required this.onGlossary});
+  final String? name;
+  const _EmptyState({required this.onExample, required this.onGlossary, this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -366,7 +386,7 @@ class _EmptyState extends StatelessWidget {
               children: [
                 const _AssistantAvatar(size: 56),
                 const SizedBox(height: 14),
-                Text('Ask Tide', style: Theme.of(context).textTheme.titleLarge),
+                Text(name != null ? 'Hi $name, ask Tide' : 'Ask Tide', style: Theme.of(context).textTheme.titleLarge),
                 const SizedBox(height: 8),
                 Text(
                   'Ask questions about flood vulnerability in the pilot district. Answers are grounded in data '

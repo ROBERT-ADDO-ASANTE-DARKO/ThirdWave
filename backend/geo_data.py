@@ -7,14 +7,20 @@ instead of @st.cache_data (no Streamlit runtime here) -- same effect
 (load from disk once, reuse the in-memory object after), different
 decorator.
 
-Phase 1 simplification, noted rather than silently dropped: only the 6
-pilot-district assemblies and the 1013-cell pilot grid are wired up here.
-incident_store.assign_district()/zone_for_point() also fall back to the
-separate Lower Volta extended-coverage region; that fallback isn't ported
-yet since Phase 1's walking skeleton (report -> queue -> verify -> push)
-doesn't need it. Same file, same pattern, to add later:
-risk_engine/data/lower_volta_district_assemblies.geojson +
-lower_volta_risk_grid.geojson.
+Phase 1 simplification, noted rather than silently dropped: only the 7
+pilot-district assemblies and the 1013-cell pilot grid get the FULL
+scoring pipeline (contributing_factors, confidence) here. Three
+extended-coverage regions -- Ayawaso West (covers East Legon),
+La-Nkwantanang-Madina, and Lower Volta (Ada East/West, South/North/
+Central Tongu, Lower Manya, Asuogyaman -- the 2023 Akosombo dam-spillage
+flood corridor) -- are also wired into zone_info_for_point()/
+assign_district() at reduced fidelity (score/level only, via
+ayawaso_west_risk_grid()/madina_risk_grid()/lower_volta_risk_grid()),
+ported from streamlit_app/geo_tools.py's equivalent fallback (Madina) or
+written fresh following that same pattern (Ayawaso West and Lower Volta,
+neither of which had a citizen- or officer-facing point lookup anywhere
+before this, despite Lower Volta already having a full risk grid +
+channel-encroachment index computed and sitting in risk_engine/data/).
 """
 
 from __future__ import annotations
@@ -76,11 +82,132 @@ def assembly_scores() -> list[dict]:
 def encroachment_index() -> dict:
     """OSM building-to-waterway distance per grid cell, keyed by bare
     zone_id -- same file as streamlit_app/data_loader.load_encroachment_index().
-    Pilot-only: the multi-region search across Lower Volta/Ayawaso West/
-    Madina's separate index files that geo_tools.get_channel_encroachment_for_district()
-    does isn't ported here, same documented Phase 1 scope limit as every
-    other extended-coverage gap in this module."""
+    Pilot grid only; see madina_channel_encroachment_index()/
+    ayawaso_west_channel_encroachment_index()/
+    lower_volta_channel_encroachment_index() for the extended-coverage
+    equivalents."""
     return json.loads((DATA_DIR / "channel_encroachment_index.json").read_text())
+
+
+@lru_cache(maxsize=1)
+def madina_channel_encroachment_index() -> dict:
+    """Same shape as encroachment_index(), for madina_risk_grid()'s cells."""
+    return json.loads((DATA_DIR / "madina_channel_encroachment_index.json").read_text())
+
+
+@lru_cache(maxsize=1)
+def ayawaso_west_channel_encroachment_index() -> dict:
+    """Same shape as encroachment_index(), for ayawaso_west_risk_grid()'s
+    cells -- previously only read by streamlit_app/geo_tools.py's
+    get_channel_encroachment_for_district(), filtered by assembly name,
+    never joined to a specific point/zone lookup anywhere until now."""
+    return json.loads((DATA_DIR / "ayawaso_west_channel_encroachment_index.json").read_text())
+
+
+@lru_cache(maxsize=1)
+def lower_volta_channel_encroachment_index() -> dict:
+    """Same shape as encroachment_index(), for lower_volta_risk_grid()'s
+    cells."""
+    return json.loads((DATA_DIR / "lower_volta_channel_encroachment_index.json").read_text())
+
+
+def _channel_encroachment_for_zone(zone_id: str, index: dict) -> dict | None:
+    """The encroachment entry for one zone_id, reshaped to just the fields
+    worth surfacing to a citizen (or Tide) -- dropped the raw building/
+    waterway counts, kept score/level/min-distance. None when the cell
+    has no entry or was 'insufficient_data' (too few OSM buildings/
+    waterways mapped nearby to compute anything meaningful)."""
+    entry = index.get(zone_id)
+    if not entry or entry.get("status") != "ok":
+        return None
+    return {
+        "score": entry["encroachment_score"],
+        "level": entry["encroachment_level"],
+        "min_building_to_waterway_m": entry["min_building_to_waterway_m"],
+    }
+
+
+# Curated, trimmed subset of streamlit_app/geo_tools.py's
+# _DISTRICT_EVIDENCE_IMAGES (dropped the Lower Volta/South Tongu/etc.
+# entries this backend doesn't cover, and the falsecolor variant of each
+# site -- truecolor only, simpler for a citizen with no remote-sensing
+# background). Applies to any assembly that has imagery, pilot or
+# extended-coverage alike -- real evidence, no reason to withhold it from
+# pilot zones just because this started as an extended-coverage gap.
+_ASSEMBLY_EVIDENCE_IMAGES = {
+    "Korle Klottey Municipal": [
+        ("korle_klottey_christiansborg_s2_imagery.png", "Christiansborg"),
+        ("korle_klottey_adabraka_s2_imagery.png", "Adabraka"),
+    ],
+    "La-Nkwantanang-Madina Municipal": [
+        ("madina_zongo_s2_imagery.png", "Madina Zongo"),
+    ],
+    "Ablekuma Central Municipal": [
+        ("ablekuma_central_korlebu_s2_imagery.png", "Korle Bu"),
+        ("ablekuma_central_kaneshie_s2_imagery.png", "Kaneshie"),
+    ],
+    "Ablekuma North Municipal": [
+        ("ablekuma_north_s2_imagery.png", "Ablekuma North"),
+        ("alajo_s2_imagery.png", "Alajo"),
+    ],
+    "Weija Gbawe Municipal": [
+        ("weija_tetegu_truecolor.png", "Tetegu"),
+    ],
+    "Ayawaso West Municipal": [
+        ("ayawaso_west_encroachment_truecolor.png", "Ayawaso West encroachment site"),
+    ],
+    # Generated via risk_engine/pilot_sites_s2_truecolor.py -- the 3
+    # pilot assemblies that had a confirmed "Very High" encroachment
+    # score (channel_encroachment_index.json) but no satellite image
+    # until now, closing that gap for full parity across all 7 pilot +
+    # 2 extended-coverage assemblies.
+    "Ablekuma West Municipal": [
+        ("ablekuma_west_gbegbeyise_truecolor.png", "Gbegbeyise"),
+    ],
+    "Accra Metropolis": [
+        ("accra_metropolis_old_fadama_truecolor.png", "Old Fadama"),
+    ],
+    "Ayawaso Central Municipal": [
+        ("ayawaso_central_kokomlemle_truecolor.png", "Kokomlemle"),
+    ],
+    # Generated via risk_engine/lower_volta_s2_truecolor.py -- closing the
+    # same satellite-evidence gap for all 7 Lower Volta extended-coverage
+    # assemblies, each a confirmed "Very High" or "High" encroachment site.
+    "Asuogyaman": [
+        ("asuogyaman_akosombo_truecolor.png", "Akosombo"),
+    ],
+    "Lower Manya": [
+        ("lower_manya_akuse_truecolor.png", "Akuse"),
+    ],
+    "North Tongu": [
+        ("north_tongu_juapong_truecolor.png", "Juapong"),
+    ],
+    "South Tongu": [
+        ("south_tongu_sokpoe_truecolor.png", "Sokpoe"),
+    ],
+    "Ada East": [
+        ("ada_east_bigada_truecolor.png", "Big Ada"),
+    ],
+    "Ada West": [
+        ("ada_west_matsekope_truecolor.png", "Matsekope"),
+    ],
+    "Central Tongu": [
+        ("central_tongu_adidome_truecolor.png", "Adidome"),
+    ],
+}
+
+
+def _satellite_evidence_for_assembly(assembly: str) -> list[dict]:
+    """Real Sentinel-2 true-color imagery of a KNOWN hotspot site in this
+    assembly -- NOT the citizen's exact searched location, a fixed
+    reference image (see main.py's /evidence static mount). Only returns
+    entries whose file actually exists on this checkout, same discipline
+    as streamlit_app/geo_tools.py's get_satellite_evidence_paths_for_district."""
+    out = []
+    for filename, caption in _ASSEMBLY_EVIDENCE_IMAGES.get(assembly, []):
+        if (DATA_DIR / "evidence" / filename).exists():
+            out.append({"caption": caption, "url": f"/evidence/{filename}"})
+    return out
 
 
 @lru_cache(maxsize=1)
@@ -91,15 +218,150 @@ def population_exposure() -> dict:
     return json.loads((DATA_DIR / "population_exposure.json").read_text())
 
 
+@lru_cache(maxsize=1)
+def madina_risk_grid() -> gpd.GeoDataFrame:
+    """318-cell fine grid over La-Nkwantanang-Madina Municipal -- same
+    file streamlit_app/data_loader.load_madina_risk_grid_gdf() reads."""
+    return gpd.read_file(DATA_DIR / "madina_risk_grid.geojson")
+
+
+@lru_cache(maxsize=1)
+def ayawaso_west_risk_grid() -> gpd.GeoDataFrame:
+    """156-cell fine grid over Ayawaso West Municipal (covers East Legon).
+    Same file shape as madina_risk_grid() (zone_id/assembly/score/level/
+    geometry), but unlike Madina's, nothing anywhere in this project --
+    citizen backend or officer Streamlit app -- had a point-lookup
+    function reading it before this; only get_channel_encroachment_for_district()
+    read it, filtered by exact assembly-name match, not by point."""
+    return gpd.read_file(DATA_DIR / "ayawaso_west_risk_grid.geojson")
+
+
+@lru_cache(maxsize=1)
+def lower_volta_risk_grid() -> gpd.GeoDataFrame:
+    """16,941-cell grid over the Lower Volta extended-coverage region (Ada
+    East/West, South/North/Central Tongu, Lower Manya, Asuogyaman) -- the
+    2023 Akosombo dam-spillage flood corridor. Same schema as
+    madina_risk_grid()/ayawaso_west_risk_grid(); unlike those two, this
+    region is geographically far from the pilot area and from each other,
+    so there's no shared-border ambiguity needing a boundary polygon to
+    decide which grid to check first -- see zone_info_for_point()/
+    assign_district()."""
+    return gpd.read_file(DATA_DIR / "lower_volta_risk_grid.geojson")
+
+
+@lru_cache(maxsize=1)
+def _ayawaso_west_boundary():
+    """Ayawaso West Municipal's real administrative boundary, from
+    extended_district_assemblies.geojson (11 districts, pilot + extended;
+    only this one row is used here). NOT the same thing as
+    ayawaso_west_risk_grid()'s own cell geometries: those are a 500m grid
+    tiled over a buffered bounding box, so edge cells spill past the true
+    municipal line -- confirmed empirically (3/318 of Madina's own grid
+    cells' centroids fall inside this precise Ayawaso West boundary, and
+    23/156 of Ayawaso West's own grid cells' centroids fall OUTSIDE it).
+    Checking this real boundary first, before trying either fine grid,
+    resolves which region actually owns a point in that overlap zone --
+    checking the two fine grids directly in some arbitrary order (tried
+    first, caught by testing against real data before relying on it)
+    silently mislabeled points there depending on which grid happened to
+    be checked first."""
+    gdf = gpd.read_file(DATA_DIR / "extended_district_assemblies.geojson")
+    return gdf[gdf["name"] == "Ayawaso West Municipal"].geometry.iloc[0]
+
+
+# madina_risk_grid.geojson and ayawaso_west_risk_grid.geojson are both
+# buffered-bbox tilings whose edge cells can spill past the true
+# municipal line -- same failure mode _ayawaso_west_boundary() already
+# documents for the overlap BETWEEN these two grids, confirmed here to
+# also happen on their OUTER edges, into districts we don't cover at
+# all. Found when a citizen correctly pointed out that real Adenta
+# (Adentan Municipal District) coordinates were coming back labeled
+# "La-Nkwantanang-Madina Municipal." Sampling both grids afterward turned
+# up spillover into at least three different neighboring districts
+# (Adentan, Ga East, Ledzokuku) -- a blocklist of known-wrong neighbor
+# names would have to keep growing forever to stay ahead of this, so
+# instead of that, _confirm_extended_assembly() POSITIVELY checks that a
+# live reverse-geocode actually agrees with what the grid cell claims,
+# rejecting the match otherwise -- generalizes to any such spillover,
+# named or not, without having to enumerate every neighboring district
+# by hand. No Adentan/Ga East/Ledzokuku boundary polygon exists anywhere
+# in this project's data (extended_district_assemblies.geojson's 11 rows
+# don't include any of them, or La-Nkwantanang-Madina either), so there's
+# nothing to check against locally the way Ayawaso West's own real
+# boundary works -- this is why it's a live cross-check, not a second
+# local polygon. lower_volta_risk_grid.geojson is the same buffered-bbox
+# tiling (it even carries its own boundary_overlap_frac column, unused
+# here, as a hint that its own edge cells have the same issue), so its 7
+# assemblies get the same treatment rather than waiting for a citizen to
+# find the spillover first.
+_ASSEMBLY_CONFIRMATION_TERMS = {
+    "La-Nkwantanang-Madina Municipal": "madina",
+    "Ayawaso West Municipal": "ayawaso west",
+    "Ada East": "ada east",
+    "Ada West": "ada west",
+    "South Tongu": "south tongu",
+    "North Tongu": "north tongu",
+    "Central Tongu": "central tongu",
+    "Lower Manya": "lower manya",
+    "Asuogyaman": "asuogyaman",
+}
+
+
+def _confirm_extended_assembly(lon: float, lat: float, claimed_assembly: str) -> bool:
+    """True if a live Nominatim reverse-geocode of (lon, lat) corroborates
+    the extended-coverage grid's claimed assembly for this point. Fails
+    OPEN (returns True, i.e. trusts the grid) on any network error or an
+    empty/unparseable reverse-geocode result, and also if no confirmation
+    term is registered for this assembly -- this is a safety net that
+    rejects a KNOWN-WRONG match, not a strict allowlist that would start
+    rejecting genuinely fine matches over a network hiccup."""
+    term = _ASSEMBLY_CONFIRMATION_TERMS.get(claimed_assembly)
+    if not term:
+        return True
+    try:
+        resp = requests.get(
+            "https://nominatim.openstreetmap.org/reverse",
+            params={"lat": lat, "lon": lon, "format": "json"},
+            headers={"User-Agent": "ThirdWave-backend/1.0"},
+            timeout=5,
+        )
+        display_name = (resp.json().get("display_name") or "").lower()
+    except Exception:
+        return True
+    if not display_name:
+        return True
+    return term in display_name
+
+
 def assign_district(lon: float, lat: float) -> str | None:
-    """Point-in-polygon against the 7 pilot assemblies -- same approach as
-    incident_store.assign_district(), Lower Volta fallback not yet ported
-    (see module docstring)."""
+    """Point-in-polygon against the 7 pilot assemblies, falling back to
+    the Ayawaso West, Madina, and Lower Volta extended-coverage grids so a
+    report submitted from East Legon, Madina, or the Lower Volta region
+    gets tagged with its real district instead of silently None.
+
+    Which of Ayawaso West/Madina to check is decided by
+    _ayawaso_west_boundary() (the real admin line), not by trying both
+    grids in some fixed order -- see that function's docstring for why
+    (their buffered grid extents genuinely overlap near the shared
+    border). Lower Volta is geographically far from both, so it's just a
+    third fallback if neither of those two matched. A tentative hit is
+    then rejected if _confirm_extended_assembly() can't corroborate it
+    against a live reverse-geocode of the same point."""
     pt = Point(lon, lat)
     for _, row in assembly_geometries().iterrows():
         if row.geometry.contains(pt):
             return row["name"]
-    return None
+    gdf = ayawaso_west_risk_grid() if _ayawaso_west_boundary().contains(pt) else madina_risk_grid()
+    hits = gdf[gdf.contains(pt)]
+    if hits.empty:
+        lv = lower_volta_risk_grid()
+        hits = lv[lv.contains(pt)]
+    if hits.empty:
+        return None
+    assembly = hits.iloc[0]["assembly"]
+    if not _confirm_extended_assembly(lon, lat, assembly):
+        return None
+    return assembly
 
 
 def zone_for_point(lon: float, lat: float) -> dict | None:
@@ -110,6 +372,112 @@ def zone_for_point(lon: float, lat: float) -> dict | None:
         if shape(z["geometry"]).contains(pt):
             return z
     return None
+
+
+# Adapted from streamlit_app/geo_tools.py's _find_zone_in_madina() note,
+# rewritten to lead with a plain-language sentence a non-technical
+# citizen can follow, introducing the more precise/technical framing
+# afterward -- not field names like "channel_encroachment" or
+# "contributing_factors", which are API shape, not something a citizen
+# reading this on My Zone/Alert should ever see verbatim.
+_MADINA_COVERAGE_NOTE = (
+    "Madina is outside the main pilot area this app studies in full detail, so this score comes from a "
+    "simpler, lower-detail check and may be less accurate than a pilot-area score. At this area's "
+    "worst-known flooding spot (Madina Zongo), nearby buildings sit very close to a drainage channel -- a "
+    "real risk that this score alone doesn't capture, even though the score itself reads \"Low.\" Don't "
+    "treat a Low or Moderate score here as reassuring on its own -- also check the flood history below."
+)
+_AYAWASO_WEST_COVERAGE_NOTE = (
+    "East Legon (Ayawaso West Municipal) is outside the main pilot area this app studies in full detail, "
+    "so this score comes from a simpler, lower-detail check and may be less accurate than a pilot-area "
+    "score. Treat it as a rough first read, not the same level of evidence as a pilot-area score."
+)
+_LOWER_VOLTA_COVERAGE_NOTE = (
+    "This area is outside the main pilot area this app studies in full detail, so this score comes from a "
+    "simpler, lower-detail check and may be less accurate than a pilot-area score. This stretch of the "
+    "Lower Volta has a real history of flooding when water is released from the Akosombo Dam upstream -- "
+    "a risk a satellite/terrain-based score like this one can't fully capture, so also check the flood "
+    "history below."
+)
+
+# Curated, not fuzzy-matched against arbitrary resolved-address text: a
+# historical event's location_name can explicitly name an area ("also
+# affected ... East Legon") while its own stored lat/lon anchors at one
+# pinpoint far away (a regional event spanning many communities) -- so
+# nearby_historical_events()'s plain radius join misses it. Only these two
+# extended regions have aliases for now, matching what's actually been
+# asked for; the same gap exists for some pilot assemblies too (e.g.
+# "Alajo" named in a Circle-anchored event 4.24km away) and could be
+# extended here the same way.
+_ASSEMBLY_NAME_ALIASES = {
+    "Ayawaso West Municipal": ["East Legon"],
+    "La-Nkwantanang-Madina Municipal": ["Madina"],
+}
+
+
+def _regionally_named_events(assembly: str, exclude: list[dict]) -> list[dict]:
+    """Historical events whose location_name text names this assembly's
+    area, but that aren't already in `exclude` (the precise radius-based
+    nearby_historical_events() list) -- deduped by (name, date) so an
+    event that happens to match both ways isn't listed twice."""
+    aliases = _ASSEMBLY_NAME_ALIASES.get(assembly, [])
+    if not aliases:
+        return []
+    already = {(e["name"], e["date"]) for e in exclude}
+    out = []
+    for e in historical_events():
+        if (e["name"], e["date"]) in already:
+            continue
+        loc = e.get("location_name", "")
+        if any(alias in loc for alias in aliases):
+            out.append({
+                "date": e["date"], "name": e["name"], "hazard_type": e.get("hazard_type"),
+                "deaths": e.get("deaths"), "cause": e.get("cause"), "location_name": loc,
+            })
+    return out
+
+
+def _find_zone_in_grid(gdf, lon: float, lat: float, coverage_note: str) -> dict | None:
+    """Shared point-in-polygon lookup for the extended-coverage grids
+    (Madina, Ayawaso West) -- both have identical schema and mechanics to
+    streamlit_app/geo_tools.py's _find_zone_in_madina(), only the
+    coverage_note text differs per region, so it's written once here."""
+    pt = Point(lon, lat)
+    hits = gdf[gdf.contains(pt)]
+    if hits.empty:
+        return None
+    row = hits.iloc[0]
+    out = {"zone_id": row["zone_id"], "assembly": row["assembly"], "coverage_note": coverage_note}
+    if row.get("score") is not None:
+        out["score"] = round(float(row["score"]), 1)
+        out["level"] = row["level"]
+    return out
+
+
+def _score_hit_historical_note(events: list[dict], regional_events: list[dict] | None = None) -> str:
+    """historical_context_note wording for a zone that DID resolve to a
+    computed score -- pilot or extended-coverage, identical either way.
+    regional_events (see _regionally_named_events()) are events named in
+    this area's wider narrative without a precise nearby coordinate --
+    mentioned separately so they're never conflated with the radius-based
+    `events` count."""
+    if events:
+        note = (
+            f"{len(events)} documented flood event(s) happened within {HISTORICAL_EVENT_RADIUS_KM:.0f}km of "
+            "here -- worth weighing alongside the score above, since the score is based on satellite and "
+            "terrain data and can miss some real risks, like flooding caused by releasing water from a dam."
+        )
+    else:
+        note = (
+            f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our records -- but "
+            "that doesn't necessarily mean this area is safe, just that nothing has been recorded here yet."
+        )
+    if regional_events:
+        note += (
+            f" Separately, {len(regional_events)} past flood report(s) mention this general area by name, "
+            "even though their exact location was recorded somewhere else nearby -- see below."
+        )
+    return note
 
 
 def _geocode(address: str, region_hint: str = "Accra, Ghana") -> tuple[float, float, str] | None:
@@ -165,6 +533,80 @@ def geocode_address(address: str) -> dict:
     return {"lat": lat, "lon": lon, "resolved_address": label}
 
 
+@lru_cache(maxsize=1)
+def _known_landmarks() -> list[str]:
+    """Seed list for suggest_places()'s local/instant match -- assembled
+    from dicts this backend already has (assembly_scores()'s 7 pilot
+    names, _ASSEMBLY_NAME_ALIASES'/_ASSEMBLY_EVIDENCE_IMAGES' keys/values)
+    rather than retyped by hand, so it can't silently drift out of sync
+    with them, plus a short hand-picked list of well-known Accra
+    neighborhoods within/near the covered area. This is a SEED list, not
+    a rigorous mining of historical_flood_events.json's messy narrative
+    location_name strings -- honestly incomplete, meant to grow over
+    time, not a one-shot comprehensive solution."""
+    names: set[str] = {z["assembly"] for z in assembly_scores()}
+    names |= set(_ASSEMBLY_EVIDENCE_IMAGES.keys())
+    names |= set(_ASSEMBLY_NAME_ALIASES.keys())
+    for aliases in _ASSEMBLY_NAME_ALIASES.values():
+        names.update(aliases)
+    for images in _ASSEMBLY_EVIDENCE_IMAGES.values():
+        for _filename, caption in images:
+            if "encroachment site" not in caption:  # a description, not a place
+                names.add(caption)
+    names |= {
+        "Kwame Nkrumah Circle", "Osu", "Dansoman", "Mallam", "Lapaz", "Abeka",
+        "Achimota", "Oblogo", "Ashongman Estates", "Pantang", "Tse Addo",
+        "Ofankor", "Kokomlemle", "Bubuashie", "North Kaneshie",
+    }
+    # Lower Volta extended-coverage region (_ASSEMBLY_CONFIRMATION_TERMS'
+    # 7 assembly names, plus a few of its well-known towns).
+    names |= {
+        "Ada East", "Ada West", "South Tongu", "North Tongu", "Central Tongu",
+        "Lower Manya", "Asuogyaman", "Sogakope", "Adafoah", "Akuse", "Juapong", "Kpetoe",
+    }
+    return sorted(names)
+
+
+@lru_cache(maxsize=256)
+def _nominatim_suggestions(query: str, limit: int) -> list[dict]:
+    """Up to `limit` live candidates -- countrycodes=gh biases to Ghana,
+    a refinement _geocode() itself doesn't have (deliberately not
+    retrofitted there, see suggest_places()'s docstring). Cached so
+    retyping/backspacing back to an already-seen query doesn't re-hit
+    Nominatim; exceptions swallowed to [] since suggestions are a nicety,
+    never the critical path a citizen's search depends on."""
+    try:
+        resp = requests.get(
+            "https://nominatim.openstreetmap.org/search",
+            params={"q": f"{query}, Accra, Ghana", "format": "json", "limit": limit, "countrycodes": "gh"},
+            headers={"User-Agent": "ThirdWave-backend/1.0"},
+            timeout=5,
+        )
+        return [
+            {"label": r.get("display_name", query), "lat": float(r["lat"]), "lon": float(r["lon"]), "source": "nominatim"}
+            for r in resp.json()
+        ]
+    except Exception:
+        return []
+
+
+def suggest_places(query: str, limit: int = 8) -> list[dict]:
+    """Local curated matches first (instant, no network), falling back to
+    live Nominatim candidates only if the curated list didn't return
+    enough. Meant to be called debounced from the client (GET
+    /geocode/suggest) -- the throttling that actually matters (never
+    firing on every keystroke, respecting Nominatim's usage policy)
+    happens client-side; this function itself is just "given a query,
+    answer once," not a rate limiter."""
+    q = query.strip()
+    if len(q) < 2:
+        return []
+    local = [{"label": name, "source": "local"} for name in _known_landmarks() if q.lower() in name.lower()][:limit]
+    if len(local) >= limit or len(q) < 3:
+        return local
+    return local + _nominatim_suggestions(q, limit - len(local))
+
+
 def zone_info_for_point(lon: float, lat: float, label: str | None = None) -> dict:
     """Shared by find_zone_by_address() (address-in) and
     zone_info_by_point() (coordinates-in, e.g. from a GPS fix with no
@@ -177,26 +619,67 @@ def zone_info_for_point(lon: float, lat: float, label: str | None = None) -> dic
     to run report_queries.verified_reports_near() and to center a map,
     and this is the one place both call paths (address and point) already
     have them in scope, so neither router has to re-geocode or thread
-    them through separately."""
+    them through separately.
+
+    Falls back to the Ayawaso West (East Legon), Madina, and Lower Volta
+    extended-coverage grids when the pilot grid misses, before giving up
+    -- see _find_zone_in_grid()/the module docstring. Which of Ayawaso
+    West/Madina to try first is decided by _ayawaso_west_boundary() (the
+    real admin line), NOT by trying both fine grids in some order --
+    their buffered bounding boxes genuinely overlap near their shared
+    border, so order-based checking silently mislabels points there
+    (confirmed empirically, see _ayawaso_west_boundary()'s docstring).
+    Lower Volta is geographically far from both, so it's just a third
+    fallback tried if neither of those two matched."""
     events = nearby_historical_events(lat, lon)
     zone = zone_for_point(lon, lat)
 
     if zone:
+        zone_id = zone["id"].replace("RZ-", "")
         out = {
-            "resolved_address": label, "lon": lon, "lat": lat, "zone_id": zone["id"].replace("RZ-", ""),
+            "resolved_address": label, "lon": lon, "lat": lat, "zone_id": zone_id,
             "assembly": zone["assembly"], "score": zone["score"], "level": zone["level"],
             "confidence": zone["confidence"],
             "contributing_factors": [f["text"] for f in zone["contributing_factors"]],
             "nearby_historical_events": events,
         }
-        out["historical_context_note"] = (
-            f"{len(events)} documented flood event(s) within {HISTORICAL_EVENT_RADIUS_KM:.0f}km -- weigh "
-            "this alongside the computed score, don't rely on the score alone, especially for hazard types "
-            "(like dam-release floods) the score's satellite/terrain inputs can't see coming."
-            if events else
-            f"No documented flood events within {HISTORICAL_EVENT_RADIUS_KM:.0f}km in our curated record "
-            "-- absence of history here is not the same as absence of risk."
-        )
+        encroachment = _channel_encroachment_for_zone(zone_id, encroachment_index())
+        if encroachment:
+            out["channel_encroachment"] = encroachment
+        regional = _regionally_named_events(zone["assembly"], exclude=events)
+        if regional:
+            out["regionally_named_historical_events"] = regional
+        evidence = _satellite_evidence_for_assembly(zone["assembly"])
+        if evidence:
+            out["satellite_evidence"] = evidence
+        out["historical_context_note"] = _score_hit_historical_note(events, regional)
+        return out
+
+    if _ayawaso_west_boundary().contains(Point(lon, lat)):
+        extended = _find_zone_in_grid(ayawaso_west_risk_grid(), lon, lat, _AYAWASO_WEST_COVERAGE_NOTE)
+        encroachment_idx = ayawaso_west_channel_encroachment_index()
+    else:
+        extended = _find_zone_in_grid(madina_risk_grid(), lon, lat, _MADINA_COVERAGE_NOTE)
+        encroachment_idx = madina_channel_encroachment_index()
+    if extended and not _confirm_extended_assembly(lon, lat, extended["assembly"]):
+        extended = None
+    if not extended:
+        extended = _find_zone_in_grid(lower_volta_risk_grid(), lon, lat, _LOWER_VOLTA_COVERAGE_NOTE)
+        encroachment_idx = lower_volta_channel_encroachment_index()
+        if extended and not _confirm_extended_assembly(lon, lat, extended["assembly"]):
+            extended = None
+    if extended:
+        out = {"resolved_address": label, "lon": lon, "lat": lat, "nearby_historical_events": events, **extended}
+        encroachment = _channel_encroachment_for_zone(extended["zone_id"], encroachment_idx)
+        if encroachment:
+            out["channel_encroachment"] = encroachment
+        regional = _regionally_named_events(extended["assembly"], exclude=events)
+        if regional:
+            out["regionally_named_historical_events"] = regional
+        evidence = _satellite_evidence_for_assembly(extended["assembly"])
+        if evidence:
+            out["satellite_evidence"] = evidence
+        out["historical_context_note"] = _score_hit_historical_note(events, regional)
         return out
 
     out = {"resolved_address": label, "lon": lon, "lat": lat, "error": "This location is outside the pilot district's coverage area."}
@@ -210,12 +693,12 @@ def zone_info_for_point(lon: float, lat: float, label: str | None = None) -> dic
 
 
 def find_zone_by_address(address: str) -> dict:
-    """Ported from streamlit_app/geo_tools.py's function of the same name.
-    Lower Volta extended-coverage fallback is NOT ported -- same Phase 1
-    simplification as assign_district()/zone_for_point() (see module
-    docstring): a location outside the pilot grid returns an
-    out-of-coverage error here, where the Streamlit version would also
-    try the separate Lower Volta basin grid."""
+    """Ported from streamlit_app/geo_tools.py's function of the same name,
+    simplified: it just geocodes and delegates to zone_info_for_point(),
+    which already carries the Ayawaso West/Madina/Lower Volta extended-
+    coverage fallback (Streamlit's own version duplicates that fallback
+    chain inline instead, since it has no separate by-point entry
+    function)."""
     geocoded = geocode_address(address)
     if "error" in geocoded:
         return geocoded

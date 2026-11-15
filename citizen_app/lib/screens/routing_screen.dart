@@ -38,7 +38,9 @@ import 'package:latlong2/latlong.dart';
 
 import '../services/api_client.dart';
 import '../services/push_service.dart';
+import '../widgets/address_autocomplete_field.dart';
 import '../widgets/citizen_app_bar.dart';
+import '../widgets/map_style_control.dart';
 
 // Pilot district bbox centroid (risk_engine/channel_encroachment_timeseries.py's
 // own computed extent) -- the default map view before any route is found.
@@ -69,6 +71,8 @@ class _RoutingScreenState extends State<RoutingScreen> {
   LatLng? _originLatLng;
   LatLng? _destLatLng;
   bool _mapWidgetReady = false;
+  MapStyleKind _mapStyle = MapStyleKind.streets;
+  String? _mapboxToken;
 
   // Opt-in "Start navigation": live GPS position/heading/speed while the
   // citizen is actually driving/walking the found route. Off by default --
@@ -107,6 +111,33 @@ class _RoutingScreenState extends State<RoutingScreen> {
   bool _headingUpEnabled = true;
   double _mapRotationDeg = 0;
 
+  // Full-screen map, for actually using it while driving/walking rather
+  // than squinting at the 320px inline preview. Reuses the SAME
+  // _mapController and _result/_navSteps/etc. -- it's the same screen's
+  // state, just a different Scaffold pushed on top. Because that pushed
+  // page isn't part of what build() below returns, a plain setState()
+  // here doesn't reach it; _fullscreenRebuild captures a StatefulBuilder's
+  // setState while the full-screen page is open so every place that
+  // mutates live-nav state can also poke it to redraw. _isFullscreen just
+  // swaps the inline map for a placeholder while it's open, so only one
+  // FlutterMap is ever actually mounted against _mapController at a time.
+  bool _isFullscreen = false;
+  void Function(void Function())? _fullscreenRebuild;
+
+  Future<void> _openFullscreenMap() async {
+    setState(() => _isFullscreen = true);
+    await Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => StatefulBuilder(
+        builder: (context, setFullscreenState) {
+          _fullscreenRebuild = setFullscreenState;
+          return _fullscreenMapScaffold(context);
+        },
+      ),
+    ));
+    _fullscreenRebuild = null;
+    if (mounted) setState(() => _isFullscreen = false);
+  }
+
   void _toggleHeadingUp() {
     setState(() {
       _headingUpEnabled = !_headingUpEnabled;
@@ -115,6 +146,7 @@ class _RoutingScreenState extends State<RoutingScreen> {
         _mapController.rotate(0);
       }
     });
+    _fullscreenRebuild?.call(() {});
   }
 
   @override
@@ -123,6 +155,17 @@ class _RoutingScreenState extends State<RoutingScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) setState(() => _mapWidgetReady = true);
     });
+    loadMapStyle().then((style) {
+      if (mounted) setState(() => _mapStyle = style);
+    });
+    fetchMapboxToken(widget.apiClient).then((token) {
+      if (mounted) setState(() => _mapboxToken = token);
+    });
+  }
+
+  void _changeMapStyle(MapStyleKind style) {
+    setState(() => _mapStyle = style);
+    saveMapStyle(style);
   }
 
   @override
@@ -206,6 +249,7 @@ class _RoutingScreenState extends State<RoutingScreen> {
     _hasRegisteredPushForNav = false;
     _headingUpEnabled = true;
     setState(() { _navigating = true; _error = null; });
+    _fullscreenRebuild?.call(() {});
     if (_navSteps.isNotEmpty) {
       final turns = _navSteps.length - 1; // last step is always 'arrive', not a turn
       _speak('Starting navigation. $turns turn${turns == 1 ? '' : 's'} ahead.');
@@ -228,6 +272,7 @@ class _RoutingScreenState extends State<RoutingScreen> {
         _nextStepIdx = 0;
       });
     }
+    _fullscreenRebuild?.call(() {});
   }
 
   void _speak(String text) {
@@ -272,6 +317,7 @@ class _RoutingScreenState extends State<RoutingScreen> {
       }
     }
     _announceUpcomingTurn();
+    _fullscreenRebuild?.call(() {});
   }
 
   // Pre-announces a turn ~150m out ("In 150 meters, turn left"), then
@@ -491,13 +537,15 @@ class _RoutingScreenState extends State<RoutingScreen> {
           ),
           const SizedBox(height: 8),
           if (_originMode == _OriginMode.address)
-            TextField(
+            AddressAutocompleteField(
               controller: _originController,
+              apiClient: widget.apiClient,
               decoration: const InputDecoration(labelText: 'From', hintText: 'e.g. Kwame Nkrumah Circle'),
             ),
           const SizedBox(height: 8),
-          TextField(
+          AddressAutocompleteField(
             controller: _destController,
+            apiClient: widget.apiClient,
             decoration: const InputDecoration(labelText: 'To', hintText: 'e.g. Kaneshie Market'),
             onSubmitted: (_) => _findRoutes(),
           ),
@@ -525,21 +573,27 @@ class _RoutingScreenState extends State<RoutingScreen> {
               height: 320,
               child: Stack(
                 children: [
-                  !_mapWidgetReady
+                  !_mapWidgetReady || _isFullscreen
                       ? const ColoredBox(color: Color(0xFFE6ECEF))
                       : FlutterMap(
                     mapController: _mapController,
                     options: const MapOptions(initialCenter: _pilotCenter, initialZoom: 12),
                     children: [
-                      TileLayer(
-                        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                        userAgentPackageName: 'com.thirdwave.citizen',
-                      ),
+                      tileLayerFor(_mapStyle, _mapboxToken),
                       PolylineLayer(polylines: _polylines),
                       MarkerLayer(markers: _markers),
                     ],
                   ),
-                  if (_navigating && _liveLatLng != null)
+                  if (!_isFullscreen)
+                    Positioned(
+                      bottom: 10, left: 10,
+                      child: MapStyleButton(
+                        current: _mapStyle,
+                        mapboxAvailable: _mapboxToken != null,
+                        onChanged: _changeMapStyle,
+                      ),
+                    ),
+                  if (_navigating && _liveLatLng != null && !_isFullscreen)
                     Positioned(
                       top: 10, left: 10,
                       child: _NavHud(
@@ -550,10 +604,19 @@ class _RoutingScreenState extends State<RoutingScreen> {
                             : null,
                       ),
                     ),
-                  if (_navigating)
+                  if (_navigating && !_isFullscreen)
                     Positioned(
                       top: 10, right: 10,
                       child: _CompassButton(rotationDeg: _mapRotationDeg, onTap: _toggleHeadingUp),
+                    ),
+                  if (_result != null && !_isFullscreen)
+                    Positioned(
+                      bottom: 10, right: 10,
+                      child: _MapIconButton(
+                        icon: Icons.fullscreen,
+                        tooltip: 'Full screen',
+                        onTap: _openFullscreenMap,
+                      ),
                     ),
                 ],
               ),
@@ -569,6 +632,111 @@ class _RoutingScreenState extends State<RoutingScreen> {
           ]),
           if (_result != null) _RouteResultView(result: _result!),
         ],
+      ),
+    );
+  }
+
+  Widget _fullscreenMapScaffold(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: FlutterMap(
+              mapController: _mapController,
+              options: const MapOptions(initialCenter: _pilotCenter, initialZoom: 12),
+              children: [
+                tileLayerFor(_mapStyle, _mapboxToken),
+                PolylineLayer(polylines: _polylines),
+                MarkerLayer(markers: _markers),
+              ],
+            ),
+          ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      _MapIconButton(
+                        icon: Icons.close,
+                        tooltip: 'Exit full screen',
+                        onTap: () => Navigator.of(context).pop(),
+                      ),
+                      const Spacer(),
+                      MapStyleButton(
+                        current: _mapStyle,
+                        mapboxAvailable: _mapboxToken != null,
+                        onChanged: _changeMapStyle,
+                      ),
+                      if (_navigating) ...[
+                        const SizedBox(width: 8),
+                        _CompassButton(rotationDeg: _mapRotationDeg, onTap: _toggleHeadingUp),
+                      ],
+                    ],
+                  ),
+                  if (_navigating && _liveLatLng != null) ...[
+                    const SizedBox(height: 8),
+                    _NavHud(
+                      speedKmh: _liveSpeedKmh,
+                      routeLabel: _activeRouteLabel(_liveLatLng!),
+                      nextInstruction: _nextStepIdx < _navSteps.length
+                          ? _instructionFor(_navSteps[_nextStepIdx].direction)
+                          : null,
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            left: 0, right: 0, bottom: 0,
+            child: SafeArea(
+              top: false,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Center(
+                  child: ElevatedButton.icon(
+                    onPressed: _toggleNavigation,
+                    icon: Icon(_navigating ? Icons.stop_circle_outlined : Icons.navigation_outlined),
+                    label: Text(_navigating ? 'Stop navigation' : 'Start navigation'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// Small circular icon button overlaid on the map (full-screen toggle,
+// exit-full-screen) -- same translucent-white-circle treatment as
+// _CompassButton, generalized since it's used in more than one place now.
+class _MapIconButton extends StatelessWidget {
+  final IconData icon;
+  final String? tooltip;
+  final VoidCallback onTap;
+  const _MapIconButton({required this.icon, required this.onTap, this.tooltip});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white.withValues(alpha: 0.92),
+      shape: const CircleBorder(),
+      elevation: 2,
+      child: InkWell(
+        onTap: onTap,
+        customBorder: const CircleBorder(),
+        child: Tooltip(
+          message: tooltip ?? '',
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Icon(icon, color: const Color(0xFF0B2545), size: 24),
+          ),
+        ),
       ),
     );
   }

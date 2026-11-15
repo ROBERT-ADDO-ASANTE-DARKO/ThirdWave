@@ -29,6 +29,12 @@ class ApiClient {
     return http.get(uri);
   }
 
+  /// Resolves a relative path (e.g. a result's `satellite_evidence[].url`)
+  /// against the current base URL, same join `get()` does internally --
+  /// for widgets that need the full URL themselves (Image.network), not
+  /// a response body.
+  Future<String> imageUrl(String relativePath) async => '${await getBaseUrl()}$relativePath';
+
   Future<http.Response> postJson(String path, Map<String, dynamic> body) async {
     final base = await getBaseUrl();
     return http.post(

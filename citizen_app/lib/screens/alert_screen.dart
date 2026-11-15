@@ -21,10 +21,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
+import '../risk_colors.dart';
 import '../services/api_client.dart';
 import '../services/push_service.dart';
 import '../theme.dart';
+import '../widgets/address_autocomplete_field.dart';
 import '../widgets/citizen_app_bar.dart';
+import '../widgets/satellite_evidence_section.dart';
 
 const _nearbyRadiusKm = 1.5;
 
@@ -159,8 +162,9 @@ class _AlertScreenState extends State<AlertScreen> {
           ),
           const SizedBox(height: 12),
           Row(children: [
-            Expanded(child: TextField(
+            Expanded(child: AddressAutocompleteField(
               controller: _addressController,
+              apiClient: widget.apiClient,
               decoration: const InputDecoration(
                 hintText: 'Address or landmark',
                 prefixIcon: Icon(Icons.search, size: 20),
@@ -180,6 +184,7 @@ class _AlertScreenState extends State<AlertScreen> {
           if (_loading) const Center(child: CircularProgressIndicator()),
           if (_error != null) Text(_error!, style: const TextStyle(color: Colors.red)),
           if (_zone != null) _AlertBody(
+            apiClient: widget.apiClient,
             label: _label!, zone: _zone!, next6hRain: _next6hRain, warnMm: _warnMm,
             nearbyIncidents: _nearbyIncidents,
           ),
@@ -190,6 +195,7 @@ class _AlertScreenState extends State<AlertScreen> {
 }
 
 class _AlertBody extends StatelessWidget {
+  final ApiClient apiClient;
   final String label;
   final Map<String, dynamic> zone;
   final double? next6hRain;
@@ -197,7 +203,7 @@ class _AlertBody extends StatelessWidget {
   final List<Map<String, dynamic>> nearbyIncidents;
 
   const _AlertBody({
-    required this.label, required this.zone, required this.next6hRain,
+    required this.apiClient, required this.label, required this.zone, required this.next6hRain,
     required this.warnMm, required this.nearbyIncidents,
   });
 
@@ -242,6 +248,53 @@ class _AlertBody extends StatelessWidget {
             child: Text(bannerText, style: TextStyle(color: tintForeground(context, bannerBase), fontWeight: FontWeight.bold)),
           ),
         ),
+        if (zone['coverage_note'] != null) ...[
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: tintBackground(context, const Color(0xFFB8860B)),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Text(
+              zone['coverage_note'] as String,
+              style: TextStyle(fontSize: 12.5, height: 1.4, color: tintForeground(context, const Color(0xFFB8860B))),
+            ),
+          ),
+        ],
+        if (zone['channel_encroachment'] != null) ...[
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: tintBackground(context, const Color(0xFFC1621B)),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  channelEncroachmentHeadline(zone['channel_encroachment'] as Map<String, dynamic>),
+                  style: TextStyle(fontWeight: FontWeight.bold, color: tintForeground(context, const Color(0xFFC1621B))),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  'The nearest mapped building is ${(zone['channel_encroachment'] as Map)['min_building_to_waterway_m']} '
+                  'meters from a waterway. This is what we call "channel encroachment" -- a different risk signal '
+                  "zone vulnerability above doesn't capture on its own.",
+                  style: TextStyle(fontSize: 12, color: tintForeground(context, const Color(0xFFC1621B))),
+                ),
+              ],
+            ),
+          ),
+        ],
+        if ((zone['satellite_evidence'] as List?)?.isNotEmpty == true) ...[
+          const SizedBox(height: 12),
+          SatelliteEvidenceSection(
+            apiClient: apiClient,
+            evidence: (zone['satellite_evidence'] as List).cast<Map<String, dynamic>>(),
+          ),
+        ],
         const SizedBox(height: 12),
         Card(
           child: Padding(

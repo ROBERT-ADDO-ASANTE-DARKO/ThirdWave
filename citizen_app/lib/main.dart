@@ -14,9 +14,11 @@ import 'screens/assistant_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/rainfall_screen.dart';
 import 'screens/report_screen.dart';
+import 'screens/onboarding_screen.dart';
 import 'screens/routing_screen.dart';
 import 'services/api_client.dart';
 import 'services/identity_service.dart';
+import 'services/profile_controller.dart';
 import 'services/push_service.dart';
 import 'services/theme_controller.dart';
 import 'theme.dart';
@@ -33,10 +35,12 @@ Future<void> main() async {
   }
   final themeController = ThemeController();
   await themeController.load();
+  final profileController = ProfileController();
+  await profileController.load();
 
   runApp(CitizenApp(
     reporterRef: reporterRef, pushService: pushService, apiClient: apiClient,
-    themeController: themeController,
+    themeController: themeController, profileController: profileController,
   ));
 }
 
@@ -45,6 +49,7 @@ class CitizenApp extends StatelessWidget {
   final PushService pushService;
   final ApiClient apiClient;
   final ThemeController themeController;
+  final ProfileController profileController;
 
   const CitizenApp({
     super.key,
@@ -52,6 +57,7 @@ class CitizenApp extends StatelessWidget {
     required this.pushService,
     required this.apiClient,
     required this.themeController,
+    required this.profileController,
   });
 
   @override
@@ -65,7 +71,7 @@ class CitizenApp extends StatelessWidget {
         themeMode: themeController.mode,
         home: _NavShell(
           reporterRef: reporterRef, pushService: pushService, apiClient: apiClient,
-          themeController: themeController,
+          themeController: themeController, profileController: profileController,
         ),
       ),
     );
@@ -77,10 +83,11 @@ class _NavShell extends StatefulWidget {
   final PushService pushService;
   final ApiClient apiClient;
   final ThemeController themeController;
+  final ProfileController profileController;
 
   const _NavShell({
     required this.reporterRef, required this.pushService, required this.apiClient,
-    required this.themeController,
+    required this.themeController, required this.profileController,
   });
 
   @override
@@ -101,14 +108,14 @@ class _NavShellState extends State<_NavShell> {
   late final List<Widget> _screens = [
     HomeScreen(
       reporterRef: widget.reporterRef, pushService: widget.pushService, apiClient: widget.apiClient,
-      onNavigate: _goTo, themeController: widget.themeController,
+      onNavigate: _goTo, themeController: widget.themeController, profileController: widget.profileController,
     ),
     AddressVulnerabilityScreen(apiClient: widget.apiClient, pushService: widget.pushService),
     ReportScreen(apiClient: widget.apiClient, reporterRef: widget.reporterRef, pushService: widget.pushService),
     RainfallScreen(apiClient: widget.apiClient),
     AlertScreen(apiClient: widget.apiClient, pushService: widget.pushService),
     RoutingScreen(apiClient: widget.apiClient, pushService: widget.pushService),
-    AssistantScreen(apiClient: widget.apiClient),
+    AssistantScreen(apiClient: widget.apiClient, profileController: widget.profileController),
   ];
 
   void _goTo(int index) => setState(() => _index = index);
@@ -127,6 +134,16 @@ class _NavShellState extends State<_NavShell> {
   void initState() {
     super.initState();
     _pushSub = widget.pushService.onForegroundMessage.listen(_showPushBanner);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _maybeShowOnboarding());
+  }
+
+  Future<void> _maybeShowOnboarding() async {
+    final done = await OnboardingPrefs.hasCompletedOnboarding();
+    if (done || !mounted) return;
+    await Navigator.of(context).push(MaterialPageRoute(
+      fullscreenDialog: true,
+      builder: (_) => OnboardingScreen(profileController: widget.profileController),
+    ));
   }
 
   @override

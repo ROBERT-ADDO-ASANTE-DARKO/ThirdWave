@@ -19,7 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from db import init_db
-from routers import assistant, briefings, devices, forecast, geocode, incidents, reports, routing, zones
+from routers import assistant, briefings, config, devices, forecast, geocode, incidents, reports, routing, zones
 
 
 @asynccontextmanager
@@ -41,6 +41,13 @@ UPLOADS_DIR = Path(__file__).parent / "uploads"
 UPLOADS_DIR.mkdir(exist_ok=True)
 app.mount("/uploads", StaticFiles(directory=UPLOADS_DIR), name="uploads")
 
+# Curated subset of risk_engine/data/ (real Sentinel-2 imagery of known
+# encroachment hotspots, see geo_data.py's _satellite_evidence_for_assembly)
+# -- a dedicated directory, not risk_engine/data/ itself, which also holds
+# multi-megabyte geojson/grid files with no reason to be public.
+EVIDENCE_DIR = Path(__file__).parent.parent / "risk_engine" / "data" / "evidence"
+app.mount("/evidence", StaticFiles(directory=EVIDENCE_DIR), name="evidence")
+
 app.include_router(reports.router)
 app.include_router(incidents.router)
 app.include_router(devices.router)
@@ -50,6 +57,7 @@ app.include_router(geocode.router)
 app.include_router(forecast.router)
 app.include_router(routing.router)
 app.include_router(assistant.router)
+app.include_router(config.router)
 
 
 @app.get("/health")

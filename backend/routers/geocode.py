@@ -21,3 +21,8 @@ router = APIRouter(tags=["geocode"])
 @router.get("/geocode")
 def geocode(address: str):
     return geo_data.geocode_address(address)
+
+
+@router.get("/geocode/suggest")
+def suggest(q: str):
+    return geo_data.suggest_places(q)

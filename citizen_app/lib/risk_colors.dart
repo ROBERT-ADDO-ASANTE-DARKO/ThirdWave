@@ -35,3 +35,21 @@ RiskBadgeColors riskBadgeFor(BuildContext context, String level) {
   final base = riskBaseColor[level] ?? _unknownBase;
   return RiskBadgeColors(tintBackground(context, base), tintForeground(context, base));
 }
+
+/// A plain-language headline for a channel_encroachment result's level --
+/// leads with what it actually means before the technical term gets
+/// introduced in the sentence underneath, rather than opening with
+/// "Channel encroachment: Very High" as a jargon-first bold headline.
+/// Shared between My Zone and Alert, which both display this field.
+String channelEncroachmentHeadline(Map<String, dynamic> encroachment) {
+  final level = encroachment['level'] as String? ?? '';
+  switch (level) {
+    case 'Very High':
+    case 'High':
+      return 'Buildings here are built very close to a drainage channel';
+    case 'Moderate':
+      return 'Some buildings here are fairly close to a drainage channel';
+    default:
+      return 'Buildings here sit a safer distance from any mapped drainage channel';
+  }
+}

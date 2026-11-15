@@ -14,6 +14,7 @@ import 'package:image_picker/image_picker.dart';
 import '../services/api_client.dart';
 import '../services/push_service.dart';
 import '../theme.dart';
+import '../widgets/address_autocomplete_field.dart';
 import '../widgets/citizen_app_bar.dart';
 
 const _hazardTypes = ['flash_flood', 'urban_flood', 'river_flood'];
@@ -264,7 +265,12 @@ class _ReportScreenState extends State<ReportScreen> {
           Text('2. Where is this?', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
           Row(children: [
-            Expanded(child: TextField(controller: _addressController, decoration: const InputDecoration(hintText: 'Address or landmark'))),
+            Expanded(child: AddressAutocompleteField(
+              controller: _addressController,
+              apiClient: widget.apiClient,
+              decoration: const InputDecoration(hintText: 'Address or landmark'),
+              onSubmitted: (_) => _findAddress(),
+            )),
             const SizedBox(width: 8),
             ElevatedButton(onPressed: _findAddress, child: const Text('Find')),
           ]),
