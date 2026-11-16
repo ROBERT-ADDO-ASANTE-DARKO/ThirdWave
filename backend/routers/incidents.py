@@ -29,6 +29,19 @@ def list_active(district: Optional[str] = None, session: Session = Depends(get_s
     return [serialize_report(r) for r in reports]
 
 
+@router.get("/resolved", dependencies=[Depends(require_officer)])
+def list_resolved(district: Optional[str] = None, limit: int = 50, session: Session = Depends(get_session)):
+    """The third list endpoint alongside /reports/pending and /active --
+    completes the full Pending/Verified/Responding/Resolved lifecycle for
+    the government dashboard's reports queue (govt_reports_queue.py)."""
+    stmt = select(Report).where(Report.status == "resolved")
+    if district:
+        stmt = stmt.where(Report.district == district)
+    reports = list(session.exec(stmt).all())
+    reports.sort(key=lambda r: r.resolved_at, reverse=True)
+    return [serialize_report(r) for r in reports[:limit]]
+
+
 @router.get("/nearby")
 def nearby(lat: float, lon: float, radius_km: float = 1.5, session: Session = Depends(get_session)):
     """Active incidents within radius_km of a point -- for a citizen near

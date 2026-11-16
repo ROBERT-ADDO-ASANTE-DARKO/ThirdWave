@@ -417,13 +417,37 @@ def assign_district(lon: float, lat: float) -> str | None:
 
 
 def zone_for_point(lon: float, lat: float) -> dict | None:
-    """The fine-grained RiskZone containing this point, if any -- same
-    source and lookup as incident_store.zone_for_point()."""
+    """The fine-grained RiskZone containing this point, if any, falling
+    back to the Ayawaso West/Madina/Lower Volta extended-coverage grids
+    (tagged extended: True) the same way zone_info_for_point() does --
+    same source and lookup as incident_store.zone_for_point(), extended
+    to all three regions instead of just Lower Volta since this backend's
+    geo_data.py already has Ayawaso West/Madina fine grids incident_store.py
+    doesn't. Used by serializers.serialize_report() so a report submitted
+    from any covered region -- not just the pilot district -- gets a real
+    verification-context score instead of being silently reported as
+    "outside all scored coverage.\""""
     pt = Point(lon, lat)
     for z in risk_zones():
         if shape(z["geometry"]).contains(pt):
             return z
-    return None
+
+    if _ayawaso_west_boundary().contains(pt):
+        extended = _find_zone_in_grid(ayawaso_west_risk_grid(), lon, lat, _AYAWASO_WEST_COVERAGE_NOTE)
+    else:
+        extended = _find_zone_in_grid(madina_risk_grid(), lon, lat, _MADINA_COVERAGE_NOTE)
+    if extended and not _confirm_extended_assembly(lon, lat, extended["assembly"]):
+        extended = None
+    if not extended:
+        extended = _find_zone_in_grid(lower_volta_risk_grid(), lon, lat, _LOWER_VOLTA_COVERAGE_NOTE)
+        if extended and not _confirm_extended_assembly(lon, lat, extended["assembly"]):
+            extended = None
+    if not extended or "score" not in extended:
+        return None
+    return {
+        "id": extended["zone_id"], "score": extended["score"], "level": extended["level"],
+        "assembly": extended["assembly"], "extended": True,
+    }
 
 
 # Adapted from streamlit_app/geo_tools.py's _find_zone_in_madina() note,

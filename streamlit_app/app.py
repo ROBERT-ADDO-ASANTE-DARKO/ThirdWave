@@ -42,6 +42,7 @@ FEATURES = {
     # tracked in conversation, not duplicated into the UI.
     "Government": {
         "Live Incident Map": "govt_incident_map",
+        "Incoming Reports Queue": "govt_reports_queue",
         "District Vulnerability Dashboard": "govt_district_dashboard",
         "Drain Maintenance Prioritization": "govt_drain_priority",
         "Population / Infrastructure Exposure": "govt_exposure",

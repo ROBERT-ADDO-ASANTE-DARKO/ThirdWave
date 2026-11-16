@@ -25,7 +25,7 @@ React/Next.js app once the feature set is proven out, not before.
 |---|---------|--------|-----------|
 | 0 | AI Assistant extended-coverage wiring (`ai_tools.py`) | **Done** | -- (uncommitted) |
 | 1 | Live incident map (clustering + severity colors) | **Done** | -- (uncommitted) |
-| 2 | Incoming reports queue (Pending/Verified/Responding/Resolved) | Not started | -- |
+| 2 | Incoming reports queue (Pending/Verified/Responding/Resolved) | **Done** | -- (uncommitted) |
 | 3 | Report confidence score | Not started | -- |
 | 4 | Resource allocation (NADMO/fire/ambulance/boats/shelters) | Not started -- **open data gap, see below** | -- |
 | 5 | Road closure recommendations | Not started | -- |
@@ -90,16 +90,50 @@ reports (real reports near Kwame Nkrumah Circle from this project's
 earlier on-device testing session) / 0 active incidents, with the
 cluster table and legend rendering real content, not placeholders.
 
-## 2 — Incoming reports queue (Pending/Verified/Responding/Resolved)
+## 2 — Incoming reports queue (Pending/Verified/Responding/Resolved) — Done
 
-**Grounding:** `Report` (`backend/models.py`) already has this exact
-lifecycle: `status` (pending/verified/rejected/resolved) and a separate
-`response_status` (reported/responding/resolved), plus
-`assigned_responder`/`eta_minutes`. `routers/incidents.py` already has
-assign-responder and resolve endpoints; `routers/reports.py` has
-submit/pending/clusters/verify/verify-bulk. **Needed:** mostly a
-dashboard UI port of `govt_verification_sandbox.py`'s real verification
-queue onto these live endpoints, not new backend design.
+**Built:** `streamlit_app/features/govt_reports_queue.py`, new page,
+second in the Government nav (after Live Incident Map). Deliberately
+kept separate from `govt_verification_sandbox.py` rather than retrofit
+it in place: the sandbox's job is seeding synthetic demo data into
+`incident_store.py`'s isolated session state when no live flood is
+happening, and that's still a real, distinct need -- this page instead
+drives the real backend DB over HTTP (`/reports/clusters`,
+`/reports/{id}/verify`, `/reports/verify-bulk`,
+`/incidents/active`, `/incidents/{id}/assign-responder`,
+`/incidents/{id}/resolve`), one section per lifecycle stage, with a
+report card UI adapted from the sandbox's (photo, description, depth,
+verification-context zone badge, news corroboration).
+
+One small backend gap closed along the way: there was no endpoint to
+list *resolved* reports (only `/reports/pending` and `/incidents/active`
+existed) -- added `GET /incidents/resolved` to `routers/incidents.py`,
+same shape as the other two. Also found and fixed a real parity gap this
+page's zone badges exposed: `geo_data.zone_for_point()` (what
+`serializers.py` uses for every report's "verification context" score)
+was pilot-grid-only, unlike `zone_info_for_point()`'s address/point
+lookups which already fall back through Ayawaso West/Madina/Lower Volta.
+A report from any extended-coverage region was silently showing "outside
+all scored coverage" even where `geo_data.py` has long since had real
+data. Extended `zone_for_point()` with the same fallback chain (boundary-
+decided Ayawaso West vs. Madina, then Lower Volta, each
+`_confirm_extended_assembly()`-checked), tagged `extended: true`; threaded
+that flag through `serializers.serialize_report()`.
+
+**Verified:** `streamlit.testing.v1.AppTest` against the live backend and
+real data (no browser available in this environment) -- no exceptions;
+KPI row matched DB state (3 pending / 0 verified-awaiting / 0
+responding); the 3 pending reports correctly clustered into one group
+with working bulk + per-report Verify/Reject buttons; zone badges
+rendered with the right color/score; the Resolved section correctly
+listed 2 real historical resolved incidents. Also unit-verified
+`zone_for_point()`'s new fallback directly: a pilot point still returns
+its pilot zone unchanged, an Asuogyaman (Lower Volta) point now returns
+`{'id': 'lv_r117_c32', 'score': 11.6, 'level': 'Low', 'assembly':
+'Asuogyaman', 'extended': True}` instead of `None`, and a point with no
+coverage anywhere still correctly returns `None`. Did not click
+Verify/Reject/Assign/Resolve in testing -- these would mutate real,
+non-synthetic citizen report data.
 
 ## 3 — Report confidence score
 

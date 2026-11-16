@@ -34,5 +34,8 @@ def serialize_report(r: Report, include_zone: bool = True) -> dict:
     }
     if include_zone:
         zone = geo_data.zone_for_point(r.lon, r.lat)
-        out["zone"] = {"id": zone["id"], "score": zone["score"], "level": zone["level"]} if zone else None
+        out["zone"] = {
+            "id": zone["id"], "score": zone["score"], "level": zone["level"],
+            "extended": zone.get("extended", False),
+        } if zone else None
     return out
