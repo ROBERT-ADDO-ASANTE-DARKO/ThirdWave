@@ -78,6 +78,58 @@ def assembly_scores() -> list[dict]:
     ]
 
 
+# Score -> level breakpoints, copied from risk_engine/geospatial_vulnerability.py
+# (the same module that computed every *_district_vulnerability.json file
+# below) rather than imported -- that module isn't on this backend's import
+# path and pulling in its geopandas-heavy pipeline for one if/else isn't
+# worth it. Only used to derive Ayawaso West's assembly-level level from a
+# mean score, since (unlike Madina/Lower Volta) no ayawaso_west_district_
+# vulnerability.json exists -- see _ayawaso_west_assembly_vulnerability().
+def _score_to_level(score: float) -> str:
+    return "Very High" if score >= 65 else "High" if score >= 45 else "Moderate" if score >= 25 else "Low"
+
+
+@lru_cache(maxsize=1)
+def madina_assembly_vulnerability() -> dict:
+    """Assembly-level (not per-cell) SAR+DEM+LULC vulnerability for
+    La-Nkwantanang-Madina Municipal -- same shape/formula as
+    assembly_scores()'s pilot figures, independently computed and stored
+    (unlike Ayawaso West's, see _ayawaso_west_assembly_vulnerability())."""
+    return json.loads((DATA_DIR / "madina_district_vulnerability.json").read_text())
+
+
+@lru_cache(maxsize=1)
+def lower_volta_assembly_vulnerability() -> dict:
+    """Same shape as madina_assembly_vulnerability(), for the Lower Volta
+    region's 7 assemblies."""
+    return json.loads((DATA_DIR / "lower_volta_district_vulnerability.json").read_text())
+
+
+@lru_cache(maxsize=1)
+def ayawaso_west_assembly_vulnerability() -> dict:
+    """Ayawaso West Municipal has no independently-computed assembly-level
+    vulnerability file (unlike Madina/Lower Volta) -- only its 156-cell
+    ayawaso_west_risk_grid(). Derived here as the mean of those cells'
+    score/water_occ_pct/impervious_pct, with level re-derived from the
+    mean score via the same breakpoints _score_to_level() uses (the same
+    formula, just aggregated now instead of at grid-build time) --
+    labeled "derived", not claimed as independently computed, so a caller
+    can treat it differently if that distinction matters."""
+    g = ayawaso_west_risk_grid()
+    score = round(float(g["score"].mean()), 1)
+    return {
+        "Ayawaso West Municipal": {
+            "score": score, "level": _score_to_level(score),
+            "water_occ_pct": round(float(g["water_occ_pct"].mean()), 2),
+            "impervious_pct": round(float(g["impervious_pct"].mean()), 2),
+            "derived": True,
+            "note": "Derived as the mean of this assembly's 156 grid cells -- no independently "
+                    "computed assembly-level figure exists for Ayawaso West the way it does for "
+                    "Madina and Lower Volta.",
+        }
+    }
+
+
 @lru_cache(maxsize=1)
 def encroachment_index() -> dict:
     """OSM building-to-waterway distance per grid cell, keyed by bare

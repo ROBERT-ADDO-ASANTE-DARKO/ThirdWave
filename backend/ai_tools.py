@@ -7,10 +7,22 @@ anything new (same Tier 1 scope as the Streamlit version).
 
 Scope cuts from the Streamlit version, documented rather than silently
 dropped (same discipline as geo_data.py's Phase 1 notes):
-- Pilot district only -- no Lower Volta / Ayawaso West / La-Nkwantanang-
-  Madina extended-coverage fallback (find_zone_by_address, assembly
-  comparison, drain priority, population exposure are all pilot-only
-  here, same as everywhere else in this backend).
+- find_zone_by_address, get_assembly_comparison, and get_drain_priority
+  now also cover the 3 extended-coverage regions (Ayawaso West/East
+  Legon, La-Nkwantanang-Madina, Lower Volta) at the same reduced fidelity
+  geo_data.py's citizen-facing lookups use -- find_zone_by_address gets
+  this for free via zone_info_for_point()'s own fallback chain; the
+  other two merge in each region's grid/vulnerability data explicitly
+  (see their docstrings for how Ayawaso West's assembly-level figure,
+  which doesn't exist as an independently-computed file the way Madina's
+  and Lower Volta's do, is derived instead).
+- get_population_exposure_summary() remains PILOT-ONLY, and deliberately
+  not extended alongside the three tools above: Lower Volta has a real
+  population_exposure.json equivalent, but Madina and Ayawaso West don't,
+  and extending this for only one of three extended regions would read
+  as full extended-coverage parity when it isn't. Revisit once population
+  exposure is computed for all three (or clearly caveat partial coverage
+  in the tool's own output, not just here).
 - No Sentinel-1 SAR corroboration on citizen reports (citizen_report_sar_check.py
   is a separate offline pipeline script, not ported here) -- live reports
   are returned without the sar_corroboration field the Streamlit version
@@ -44,9 +56,12 @@ from report_queries import summarize, verified_reports_near
 NEARBY_REPORT_RADIUS_KM = 2.0
 
 SYSTEM_PROMPT = """You are the ThirdWave AI Assistant, embedded in a flood early-warning \
-system for a pilot district in Accra, Ghana. You answer questions about flood \
-vulnerability by calling the tools available to you -- all of them read data that \
-was already computed by an offline geospatial pipeline (Sentinel-1 SAR water \
+system for a pilot district in Accra, Ghana, plus three extended-coverage regions at \
+reduced fidelity: Ayawaso West Municipal (covers East Legon), La-Nkwantanang-Madina \
+Municipal, and the Lower Volta region (Ada East/West, South/North/Central Tongu, Lower \
+Manya, Asuogyaman -- the 2023 Akosombo dam-spillage flood corridor). You answer questions \
+about flood vulnerability by calling the tools available to you -- all of them read data \
+that was already computed by an offline geospatial pipeline (Sentinel-1 SAR water \
 occurrence, Copernicus DEM elevation, ESA WorldCover, OpenStreetMap buildings/waterways, \
 WorldPop population) or this app's own live, officer-verified citizen reports. You do \
 not have live satellite access and cannot run new geospatial analysis -- only look up \
@@ -55,11 +70,17 @@ what has already been computed.
 Rules:
 - Always call a tool rather than guessing at numbers, zone IDs, or scores.
 - If a tool returns an error (e.g. an address couldn't be geocoded, or a location is \
-outside the pilot district), say so plainly -- don't invent a fallback answer.
+outside both the pilot district and the three extended-coverage regions), say so plainly \
+-- don't invent a fallback answer.
 - Keep answers concise and concrete: cite zone IDs, scores, and levels when relevant.
-- This is a proof-of-concept pilot covering a small area of Accra, not all of Ghana -- \
-if asked about somewhere clearly outside the pilot district, say the pilot doesn't \
-cover it rather than guessing.
+- This is a proof-of-concept covering a small area of Ghana, not the whole country -- if \
+asked about somewhere clearly outside the pilot district AND the three extended-coverage \
+regions, say so rather than guessing.
+- A result from an extended-coverage region carries its own coverage_note (or, for \
+get_assembly_comparison/get_drain_priority, a "coverage": "extended" tag) -- always relay \
+that reduced-fidelity caveat when present, the same way you'd relay a coverage_note from \
+find_zone_by_address. Don't present an extended-coverage figure with the same confidence \
+as a pilot-area one.
 - The computed score is NOT the whole picture. find_zone_by_address also returns any \
 documented historical flood events, and any live verified citizen reports, near that \
 location -- always mention them when present, and treat them as real, independent \
@@ -98,26 +119,77 @@ def _get_top_risk_zones(n: int = 5, level_filter: str | None = None) -> dict:
 
 
 def _get_assembly_comparison() -> dict:
-    return {"assemblies": geo_data.assembly_scores()}
+    """Pilot's 7 assemblies plus the 3 extended-coverage regions' 9
+    assemblies (Madina, Ayawaso West, and Lower Volta's 7), each tagged
+    with `coverage` so a caller/Claude can tell a full-fidelity pilot
+    figure from a reduced-fidelity extended one -- same distinction the
+    citizen app's coverage_note text makes. Ayawaso West's entry also
+    carries `derived: true` (see _ayawaso_west_assembly_vulnerability())."""
+    assemblies = [{**a, "coverage": "pilot"} for a in geo_data.assembly_scores()]
+    for loader in (
+        geo_data.madina_assembly_vulnerability,
+        geo_data.lower_volta_assembly_vulnerability,
+        geo_data.ayawaso_west_assembly_vulnerability,
+    ):
+        for name, r in loader().items():
+            assemblies.append({
+                "assembly": name, "score": r["score"], "level": r["level"],
+                "water_occ_pct": r["water_occ_pct"], "impervious_pct": r["impervious_pct"],
+                "coverage": "extended", **({"derived": True} if r.get("derived") else {}),
+            })
+    return {"assemblies": assemblies}
 
 
 def _get_drain_priority(n: int = 5) -> dict:
-    zones = geo_data.risk_zones()
-    encroachment = geo_data.encroachment_index()
+    """Pilot's 1013-cell grid plus the 3 extended-coverage regions' grids,
+    merged into one list and sorted by closest building-to-waterway
+    distance -- every region has its own real channel-encroachment index
+    computed the same way, so this is a straightforward merge, not a
+    reduced-fidelity approximation like _get_assembly_comparison()'s
+    Ayawaso West entry. Each row's `coverage` still distinguishes pilot
+    from extended, since the underlying risk SCORE (not the encroachment
+    measurement) is reduced-fidelity outside the pilot grid."""
     rows = []
-    for z in zones:
+    for zone_id, assembly, score, enc in _pilot_encroachment_rows():
+        rows.append({"zone_id": zone_id, "assembly": assembly, "score": score, "coverage": "pilot", **enc})
+    for grid, index, coverage_label in (
+        (geo_data.madina_risk_grid(), geo_data.madina_channel_encroachment_index(), "extended"),
+        (geo_data.ayawaso_west_risk_grid(), geo_data.ayawaso_west_channel_encroachment_index(), "extended"),
+        (geo_data.lower_volta_risk_grid(), geo_data.lower_volta_channel_encroachment_index(), "extended"),
+    ):
+        for _, row in grid.iterrows():
+            enc = index.get(row["zone_id"], {})
+            if enc.get("status") != "ok":
+                continue
+            rows.append({
+                "zone_id": row["zone_id"], "assembly": row["assembly"], "score": round(float(row["score"]), 1),
+                "coverage": coverage_label,
+                "min_building_to_waterway_m": enc["min_building_to_waterway_m"],
+                "encroachment_level": enc["encroachment_level"],
+            })
+    rows.sort(key=lambda r: r["min_building_to_waterway_m"])
+    return {"priority_zones": rows[:n],
+            "note": "Sorted by closest building-to-waterway distance (most encroached first), "
+                    "across both the pilot district and the extended-coverage regions."}
+
+
+def _pilot_encroachment_rows():
+    """Yields (zone_id, assembly, score, encroachment_dict) for pilot
+    zones with an 'ok' encroachment entry -- factored out of
+    _get_drain_priority() so that function reads as "pilot rows + each
+    extended region's rows" without the pilot loop's zone_id-stripping
+    (RZ- prefix) mixed in among the three near-identical extended-region
+    loops."""
+    encroachment = geo_data.encroachment_index()
+    for z in geo_data.risk_zones():
         zone_id = z["id"].replace("RZ-", "")
         enc = encroachment.get(zone_id, {})
         if enc.get("status") != "ok":
             continue
-        rows.append({
-            "zone_id": zone_id, "assembly": z["assembly"], "score": z["score"],
+        yield zone_id, z["assembly"], z["score"], {
             "min_building_to_waterway_m": enc["min_building_to_waterway_m"],
             "encroachment_level": enc["encroachment_level"],
-        })
-    rows.sort(key=lambda r: r["min_building_to_waterway_m"])
-    return {"priority_zones": rows[:n],
-            "note": "Sorted by closest building-to-waterway distance (most encroached first)."}
+        }
 
 
 def _get_population_exposure_summary() -> dict:
@@ -178,7 +250,7 @@ def _get_verified_citizen_reports_for_district(session: Session, district: str) 
 TOOLS = [
     {
         "name": "find_zone_by_address",
-        "description": "Look up the flood vulnerability zone containing a given address or landmark in the pilot district. Also returns any documented historical flood events and live officer-verified citizen reports within ~2km, since the computed score alone can miss hazard types (like dam-release floods or localized drainage encroachment) its satellite/terrain inputs can't detect -- always consider all three together.",
+        "description": "Look up the flood vulnerability zone containing a given address or landmark, in the pilot district or one of the three extended-coverage regions (Ayawaso West/East Legon, La-Nkwantanang-Madina, Lower Volta). Also returns any documented historical flood events and live officer-verified citizen reports within ~2km, since the computed score alone can miss hazard types (like dam-release floods or localized drainage encroachment) its satellite/terrain inputs can't detect -- always consider all three together. A result outside the pilot district carries a coverage_note explaining its reduced fidelity -- always relay it.",
         "input_schema": {"type": "object", "properties": {
             "address": {"type": "string", "description": "An address or landmark, e.g. 'Kwame Nkrumah Circle'"}},
             "required": ["address"]},
@@ -194,18 +266,18 @@ TOOLS = [
     },
     {
         "name": "get_assembly_comparison",
-        "description": "Compare vulnerability scores across the pilot district's assemblies (municipal-level).",
+        "description": "Compare vulnerability scores across all assemblies this app covers: the pilot district's 7, plus the 9 extended-coverage assemblies (Ayawaso West, Madina, and Lower Volta's 7). Each entry's \"coverage\" field is \"pilot\" or \"extended\" -- extended figures are reduced-fidelity, and Ayawaso West's is additionally \"derived\" (averaged from its grid cells, not independently computed like the others).",
         "input_schema": {"type": "object", "properties": {}, "required": []},
     },
     {
         "name": "get_drain_priority",
-        "description": "Get the top N zones prioritized for drain maintenance, based on vulnerability score and how close buildings sit to mapped waterways (OSM encroachment analysis).",
+        "description": "Get the top N zones prioritized for drain maintenance, based on vulnerability score and how close buildings sit to mapped waterways (OSM encroachment analysis), across the pilot district and the three extended-coverage regions. Each entry's \"coverage\" field is \"pilot\" or \"extended\".",
         "input_schema": {"type": "object", "properties": {
             "n": {"type": "integer", "description": "Number of zones to return, default 5"}}, "required": []},
     },
     {
         "name": "get_population_exposure_summary",
-        "description": "Get pilot-wide estimated population and building counts, broken down by flood risk level.",
+        "description": "Get pilot-district-wide estimated population and building counts, broken down by flood risk level. Pilot district only -- not yet available for the extended-coverage regions.",
         "input_schema": {"type": "object", "properties": {}, "required": []},
     },
     {
