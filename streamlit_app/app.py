@@ -41,6 +41,7 @@ FEATURES = {
     # which silently eats the literal number. Checklist numbering is
     # tracked in conversation, not duplicated into the UI.
     "Government": {
+        "Live Incident Map": "govt_incident_map",
         "District Vulnerability Dashboard": "govt_district_dashboard",
         "Drain Maintenance Prioritization": "govt_drain_priority",
         "Population / Infrastructure Exposure": "govt_exposure",

@@ -24,7 +24,7 @@ React/Next.js app once the feature set is proven out, not before.
 | # | Feature | Status | Commit(s) |
 |---|---------|--------|-----------|
 | 0 | AI Assistant extended-coverage wiring (`ai_tools.py`) | **Done** | -- (uncommitted) |
-| 1 | Live incident map (clustering + severity colors) | Not started | -- |
+| 1 | Live incident map (clustering + severity colors) | **Done** | -- (uncommitted) |
 | 2 | Incoming reports queue (Pending/Verified/Responding/Resolved) | Not started | -- |
 | 3 | Report confidence score | Not started | -- |
 | 4 | Resource allocation (NADMO/fire/ambulance/boats/shelters) | Not started -- **open data gap, see below** | -- |
@@ -60,16 +60,35 @@ tests) -- asked it to compare Asuogyaman against the pilot district, and
 to list drain priorities pilot + extended-wide; both correctly labeled
 coverage tiers and surfaced the dam-spillage blind spot unprompted.
 
-## 1 — Live incident map (clustering + severity colors)
+## 1 — Live incident map (clustering + severity colors) — Done
 
-**Grounding:** `backend/clustering.py` already does complete-linkage
-spatial clustering of pending reports (300m threshold), ported from
-`streamlit_app/incident_store.py`. Severity coloring would reuse the
-same score/level convention used everywhere else in the app
-(`citizen_app/lib/risk_colors.dart`'s palette is the obvious reference).
-**Needed:** the actual map UI (Streamlit + folium, matching
-`govt_district_dashboard.py`'s existing approach) wired to live clusters
-instead of the pilot vulnerability choropleth it currently shows.
+**Built:** `streamlit_app/features/govt_incident_map.py`, new page, now
+first in the Government nav. Folium map (matching
+`govt_district_dashboard.py`'s approach) talking to the live backend
+over HTTP rather than `incident_store.py`'s session state -- same
+integration pattern `govt_briefing_review.py` established, with the
+officer-gated endpoints' `X-Officer-Key` header loaded from
+`backend/.env`. Pulls `GET /reports/clusters` (pending, already
+complete-linkage clustered by `clustering.py`) as colored/sized
+CircleMarkers, and `GET /incidents/active` (verified, not yet resolved)
+as pin Markers distinguishing "awaiting responder" vs "responder
+assigned." Severity coloring deliberately reuses `LEVEL_COLOR` (the same
+Low/Moderate/High/Very High convention as everywhere else, matching
+`citizen_app/lib/risk_colors.dart`'s palette) keyed off the worst
+vulnerability-zone level among a cluster's member reports' locations --
+not a second depth-based severity scale, which is a noisier, unverified
+citizen estimate. KPI row, popups (hazard types, depth estimates, news
+corroboration, synthetic badge), legend, and a worst-first table round
+it out. Read-only by design: verify/assign/resolve stays in Incident
+Verification.
+
+**Verified:** live against the real backend and real (non-synthetic)
+citizen-submitted data via `streamlit.testing.v1.AppTest` (no browser
+available in this environment) -- confirmed no exceptions, and the KPI
+row correctly reflects actual DB state: 1 pending cluster / 3 pending
+reports (real reports near Kwame Nkrumah Circle from this project's
+earlier on-device testing session) / 0 active incidents, with the
+cluster table and legend rendering real content, not placeholders.
 
 ## 2 — Incoming reports queue (Pending/Verified/Responding/Resolved)
 
