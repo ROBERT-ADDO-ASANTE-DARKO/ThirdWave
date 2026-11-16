@@ -19,6 +19,13 @@ Resource allocation (assigning a *specific* real responder from a real
 roster) is a separate, still-open feature -- see GOVT_DASHBOARD_PHASES.md
 #4. Assigning here just records a free-text responder name + ETA, same
 fields AssignResponderBody already defines.
+
+Every card also shows feature #3's composite confidence score (backend/
+report_confidence.py), computed server-side and attached to each report
+by the endpoints above -- this page only renders it, including a
+"Run satellite (SAR) check" button for verified/responding incidents
+that triggers backend/sar_corroboration.py's deliberately-manual,
+cached Sentinel-1 check.
 """
 
 from __future__ import annotations
@@ -30,11 +37,25 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 
-from data_loader import LEVEL_COLOR
+from data_loader import LEVEL_COLOR, INK_NAVY, STEEL_BLUE, SIGNAL_TEAL
 
 load_dotenv(Path(__file__).parent.parent.parent / "backend" / ".env")
 
 BACKEND_URL = os.environ.get("THIRDWAVE_BACKEND_URL", "http://localhost:8000")
+
+# Feature #3's confidence bands get their own palette, deliberately NOT
+# LEVEL_COLOR -- "how much evidence backs this one report" and "how
+# flood-prone this area is in general" are different axes; reusing the
+# same Low/Moderate/High/Very High colors would blur them. Reuses the
+# design system's existing navy/steel-blue/teal tokens plus the same gray
+# citizen_app/lib/risk_colors.dart uses for "unknown" -- new meaning,
+# borrowed hues, not a second ad-hoc palette.
+CONFIDENCE_COLOR = {
+    "Weak": "#6B7280",
+    "Some corroboration": STEEL_BLUE,
+    "Well-corroborated": SIGNAL_TEAL,
+    "Strongly corroborated": INK_NAVY,
+}
 
 
 def _headers(officer_key: str) -> dict:
@@ -80,6 +101,60 @@ def _zone_badge(zone: dict | None) -> None:
         )
 
 
+def _confidence_detail_lines(signals: dict) -> list[str]:
+    lines = []
+    pc = signals["photo_check"]
+    if pc["status"] == "no_photo":
+        lines.append("No photo submitted.")
+    elif pc["status"] == "checked":
+        verdict = "shows flooding" if pc["shows_flooding"] else "does **not** show flooding"
+        lines.append(f"Photo AI check: {verdict} -- {pc.get('note') or 'no further detail'}")
+    else:
+        lines.append(f"Photo AI check failed: {pc.get('detail', 'unknown error')}")
+
+    n = signals["cluster_size"]
+    lines.append(f"{n} independent report(s) within ~300m." if n > 1 else "Only 1 report at this location so far.")
+    lines.append(f"{signals['news_hits']} corroborating news hit(s) (last 72h)." if signals["news_hits"]
+                 else "No corroborating news found.")
+    lines.append(f"{signals['nearby_historical_events']} documented flood event(s) nearby."
+                 if signals["nearby_historical_events"] else "No documented flood history nearby.")
+
+    sar = signals["sar"]
+    if sar["status"] == "checked":
+        lines.append(f"Satellite (SAR) check: {sar['verdict']}")
+    elif sar["status"] == "not_yet_checked":
+        lines.append("Satellite (SAR) check: not yet run.")
+    elif sar["status"] == "not_applicable":
+        lines.append("Satellite (SAR) check: only available once verified.")
+    else:
+        lines.append(f"Satellite (SAR) check failed: {sar.get('detail', 'unknown error')}")
+    return lines
+
+
+def _confidence_badge(confidence: dict | None) -> None:
+    if not confidence:
+        return
+    color = CONFIDENCE_COLOR.get(confidence["band"], "#6B7280")
+    st.markdown(
+        f"<span style='background:{color}1A;border:1px solid {color};color:{color};"
+        f"border-radius:3px;padding:1px 7px;font-size:0.82rem;'>"
+        f"\U0001F9E0 Confidence: <b>{confidence['score']}/100 ({confidence['band']})</b></span>",
+        unsafe_allow_html=True,
+    )
+    with st.expander("Why this score? (aid, not a verdict -- use your own judgment)", expanded=False):
+        for line in _confidence_detail_lines(confidence["signals"]):
+            st.caption(f"• {line}")
+
+
+def _sar_check_button(report_id: str, officer_key: str) -> None:
+    if st.button("\U0001F6F0️ Run satellite (SAR) check", key=f"sar_{report_id}"):
+        with st.spinner("Querying Sentinel-1 -- this can take up to a minute..."):
+            _, err = _post(f"/incidents/{report_id}/sar-check", officer_key, {})
+        if err:
+            st.error(err)
+        st.rerun()
+
+
 def _render_pending_card(r: dict, officer_key: str) -> None:
     badge = " \U0001F9EA SYNTHETIC" if r.get("synthetic") else ""
     district = r["district"] or "outside pilot district"
@@ -100,6 +175,7 @@ def _render_pending_card(r: dict, officer_key: str) -> None:
         if r.get("depth_hi_m") is not None:
             st.caption(f"Estimated depth: {r['depth_lo_m']:.1f}-{r['depth_hi_m']:.1f}m")
         _zone_badge(r.get("zone"))
+        _confidence_badge(r.get("confidence"))
     with c2:
         if st.button("✅ Verify", key=f"verify_{r['id']}", type="primary"):
             _, err = _post(f"/reports/{r['id']}/verify", officer_key, {"approve": True})
@@ -182,6 +258,8 @@ def _render_verified_section(active: list[dict], officer_key: str):
                 st.markdown(f"`{inc['id']}`{badge} — **{inc['hazard_type'].replace('_', ' ').title()}** — {inc['district'] or 'outside pilot district'}")
                 st.caption(f"{inc['location_label']} · verified {inc['verified_at'][:16].replace('T', ' ')} UTC")
                 _zone_badge(inc.get("zone"))
+                _confidence_badge(inc.get("confidence"))
+                _sar_check_button(inc["id"], officer_key)
             with c2:
                 responder = st.text_input("Responder", key=f"responder_{inc['id']}", placeholder="e.g. NADMO Accra Team 3", label_visibility="collapsed")
             with c3:
@@ -211,6 +289,8 @@ def _render_responding_section(active: list[dict], officer_key: str):
                 st.caption(
                     f"{inc['location_label']} · {inc['assigned_responder']}, ETA {inc['eta_minutes']} min"
                 )
+                _confidence_badge(inc.get("confidence"))
+                _sar_check_button(inc["id"], officer_key)
             with c2:
                 if st.button("Mark resolved", key=f"resolve_{inc['id']}"):
                     _, err = _post(f"/incidents/{inc['id']}/resolve", officer_key, {})
@@ -230,10 +310,12 @@ def _render_resolved_section(officer_key: str):
             return
         for inc in resolved:
             badge = " \U0001F9EA SYNTHETIC" if inc.get("synthetic") else ""
+            conf = inc.get("confidence")
+            conf_txt = f" — confidence {conf['score']}/100 ({conf['band']})" if conf else ""
             st.markdown(
                 f"`{inc['id']}`{badge} — {inc['hazard_type'].replace('_', ' ').title()} — "
                 f"{inc['district'] or 'outside pilot district'} — "
-                f"resolved {inc['resolved_at'][:16].replace('T', ' ')} UTC"
+                f"resolved {inc['resolved_at'][:16].replace('T', ' ')} UTC{conf_txt}"
             )
 
 

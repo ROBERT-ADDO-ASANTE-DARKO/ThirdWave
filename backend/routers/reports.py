@@ -20,7 +20,9 @@ from sqlmodel import Session, select
 import clustering
 import geo_data
 import news_corroboration as news
+import photo_validation
 import push
+import report_confidence
 import vlm_client
 from auth import require_officer
 from db import get_session
@@ -137,6 +139,14 @@ def list_clusters(district: Optional[str] = None, session: Session = Depends(get
         hits = news.corroborating_news(
             recent_news, c["district"], *[r["location_label"] for r in c["reports"]],
         )
+        for r in c["reports"]:
+            vlm_check = photo_validation.get_or_check(r)
+            n_historical = len(geo_data.nearby_historical_events(r["lat"], r["lon"]))
+            r["confidence"] = report_confidence.compute(
+                r, vlm_check=vlm_check, sar_check=None,
+                n_reports_in_cluster=c["n_reports"], news_hit_count=len(hits),
+                n_nearby_historical_events=n_historical,
+            )
         out.append({**c, "corroborating_news": hits})
     return out
 

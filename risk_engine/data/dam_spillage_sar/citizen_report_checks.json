@@ -1,1 +1,8 @@
-{}
+{
+  "RPT-20261101-B5E276": {
+    "report_id": "RPT-20261101-B5E276",
+    "event_id": "CITIZEN-RPT-20261101-B5E276",
+    "error": "no sentinel-1-rtc scene near 2026-10-22",
+    "checked_at": "2026-11-16T22:55:37.051771+00:00"
+  }
+}

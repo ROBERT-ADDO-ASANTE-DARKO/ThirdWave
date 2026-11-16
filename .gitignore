@@ -31,6 +31,7 @@ risk_engine/cache/
 backend/thirdwave.db
 backend/uploads/*
 !backend/uploads/.gitkeep
+backend/vlm_checks.json
 
 # Firebase service-account credential -- a real secret, never committed
 backend/.env

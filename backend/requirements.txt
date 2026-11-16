@@ -17,3 +17,13 @@ python-dotenv
 anthropic
 Pillow
 networkx
+
+# Only on the lazy-import path inside sar_corroboration.py's run_check()
+# (POST /incidents/{id}/sar-check) -- the rest of the backend never
+# imports these, so a deployment that doesn't need live SAR corroboration
+# can still skip them.
+pystac-client
+planetary-computer
+odc-stac
+rasterio
+matplotlib

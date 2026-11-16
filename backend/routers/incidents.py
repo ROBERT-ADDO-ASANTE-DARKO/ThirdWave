@@ -9,6 +9,10 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 
+import geo_data
+import photo_validation
+import report_confidence
+import sar_corroboration
 from auth import require_officer
 from db import get_session
 from models import Report
@@ -19,6 +23,21 @@ from serializers import serialize_report
 router = APIRouter(prefix="/incidents", tags=["incidents"])
 
 
+def _with_confidence(serialized: dict) -> dict:
+    """Attaches feature #3's composite confidence score -- SAR
+    corroboration is read from cache only here (never computed live; see
+    sar_corroboration.py's docstring for why), so this stays cheap enough
+    to run for every row in a list response."""
+    vlm_check = photo_validation.get_or_check(serialized)
+    sar_check = sar_corroboration.get_cached(serialized["id"])
+    n_historical = len(geo_data.nearby_historical_events(serialized["lat"], serialized["lon"]))
+    serialized["confidence"] = report_confidence.compute(
+        serialized, vlm_check=vlm_check, sar_check=sar_check,
+        n_reports_in_cluster=1, news_hit_count=0, n_nearby_historical_events=n_historical,
+    )
+    return serialized
+
+
 @router.get("/active", dependencies=[Depends(require_officer)])
 def list_active(district: Optional[str] = None, session: Session = Depends(get_session)):
     stmt = select(Report).where(Report.status == "verified")
@@ -26,7 +45,7 @@ def list_active(district: Optional[str] = None, session: Session = Depends(get_s
         stmt = stmt.where(Report.district == district)
     reports = list(session.exec(stmt).all())
     reports.sort(key=lambda r: r.verified_at, reverse=True)
-    return [serialize_report(r) for r in reports]
+    return [_with_confidence(serialize_report(r)) for r in reports]
 
 
 @router.get("/resolved", dependencies=[Depends(require_officer)])
@@ -39,7 +58,22 @@ def list_resolved(district: Optional[str] = None, limit: int = 50, session: Sess
         stmt = stmt.where(Report.district == district)
     reports = list(session.exec(stmt).all())
     reports.sort(key=lambda r: r.resolved_at, reverse=True)
-    return [serialize_report(r) for r in reports[:limit]]
+    return [_with_confidence(serialize_report(r)) for r in reports[:limit]]
+
+
+@router.post("/{incident_id}/sar-check", dependencies=[Depends(require_officer)])
+def sar_check(incident_id: str, session: Session = Depends(get_session)):
+    """Explicit, officer-triggered Sentinel-1 corroboration check for one
+    verified/resolved incident -- see sar_corroboration.py's docstring for
+    why this is a deliberate action, not something list endpoints compute
+    automatically. Can take real wall-clock time (a live satellite-catalog
+    query), so this request is expected to block for it."""
+    report = session.get(Report, incident_id)
+    if report is None or report.status not in ("verified", "resolved"):
+        raise HTTPException(404, "verified or resolved incident not found")
+    serialized = serialize_report(report)
+    sar_corroboration.run_check(serialized)  # writes to the shared cache; _with_confidence below reads it back
+    return _with_confidence(serialized)
 
 
 @router.get("/nearby")

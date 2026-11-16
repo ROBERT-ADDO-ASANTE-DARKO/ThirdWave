@@ -26,7 +26,7 @@ React/Next.js app once the feature set is proven out, not before.
 | 0 | AI Assistant extended-coverage wiring (`ai_tools.py`) | **Done** | -- (uncommitted) |
 | 1 | Live incident map (clustering + severity colors) | **Done** | -- (uncommitted) |
 | 2 | Incoming reports queue (Pending/Verified/Responding/Resolved) | **Done** | -- (uncommitted) |
-| 3 | Report confidence score | Not started | -- |
+| 3 | Report confidence score | **Done** | -- (uncommitted) |
 | 4 | Resource allocation (NADMO/fire/ambulance/boats/shelters) | Not started -- **open data gap, see below** | -- |
 | 5 | Road closure recommendations | Not started | -- |
 | 6 | Flood/incident timeline | Not started | -- |
@@ -135,18 +135,58 @@ coverage anywhere still correctly returns `None`. Did not click
 Verify/Reject/Assign/Resolve in testing -- these would mutate real,
 non-synthetic citizen report data.
 
-## 3 — Report confidence score
+## 3 — Report confidence score — Done
 
-**Grounding:** three real signals exist, two already backend-ported and
-one not: `vlm_client.py` (Claude-vision photo validation -- has a
-validated test fixture), `news_corroboration.py` (backend port exists,
-checks live MyJoyOnline/3News), and `citizen_report_sar_check.py`
-(Sentinel-1 SAR cross-check -- exists only as an offline `risk_engine`
-script, never ported to the backend). Plus "multiple reports from the
-same area" is exactly what `clustering.py` already groups.
-**Needed:** port `citizen_report_sar_check.py`'s logic to the backend,
-then a composite score combining all three signals + cluster size +
-nearby historical events.
+**Built:** `backend/report_confidence.py`, a composite 0-100 score (own
+Weak/Some corroboration/Well-corroborated/Strongly corroborated bands,
+deliberately not the Low/Moderate/High/Very High vocabulary used for
+area flood-risk elsewhere, to avoid conflating the two axes) combining:
+
+- `backend/photo_validation.py` (new) -- re-runs `vlm_client.py`'s
+  describe_flood_photo() against the report's OWN submitted photo
+  (independent of whatever the citizen's AI-assisted draft said),
+  cached per report id (`backend/vlm_checks.json`) so it's one real
+  Claude vision call per report, not per page load. Runs automatically
+  (fast, cheap) -- `shows_flooding` true/false moves the score +25/-15.
+- Cluster size (`clustering.py`, already wired into `/reports/clusters`):
+  +15/+25 for 2 / 3+ independent reports nearby.
+- `news_corroboration.py` (already live): +20 for any 72h news hit.
+- `geo_data.nearby_historical_events()`: +10 if this location has
+  documented flood history.
+- `backend/sar_corroboration.py` (new) -- ported
+  `risk_engine/citizen_report_sar_check.py`'s core Sentinel-1 logic as an
+  importable function reading/writing the SAME cache file the offline
+  script does (`risk_engine/data/dam_spillage_sar/citizen_report_checks.json`),
+  so neither copy drifts. Unlike the photo check, this is deliberately
+  NOT automatic (public, rate-limited STAC API + real raster compute) --
+  new `POST /incidents/{id}/sar-check` endpoint triggers it explicitly
+  for one verified/resolved incident; +25/-10 once checked, 0 while
+  "not yet checked." Lazy-imported so the rest of the backend doesn't
+  need risk_engine's heavy deps (pystac-client/planetary-computer/
+  odc-stac/rasterio -- added to `backend/requirements.txt`, gated to
+  that one code path).
+
+Wired into `/reports/clusters`, `/incidents/active`, and
+`/incidents/resolved` (each report gets a `confidence` field); rendered
+in `govt_reports_queue.py` as a badge + "why this score" expander on
+every card, plus a "Run satellite (SAR) check" button on verified/
+responding cards.
+
+**Verified:** live against the real backend with real (non-synthetic)
+citizen photos -- first fetch of `/reports/clusters` triggered 3 real
+Claude vision calls (confirmed in `vlm_checks.json`), scored all 3 at
+75/100 (Well-corroborated: base 15 + photo +25 + cluster-of-3 +25 +
+historical +10); second fetch was ~150x faster (0.19s vs. ~30s),
+confirming the cache. `POST /incidents/{id}/sar-check` exercised against
+a real (synthetic-test) resolved incident -- caught and fixed a real gap
+along the way (`odc-stac` was missing from `.venv` entirely, even though
+`risk_engine/dam_spillage_sar_comparison.py` had produced real output
+before; installed it and added it + its STAC/raster siblings to
+`backend/requirements.txt`), then correctly returned and cached a
+`check_failed` result (no Sentinel-1 scene near the computed baseline
+date) without crashing, confidence score unchanged as designed.
+AppTest confirmed the Streamlit page renders the badges/expanders with
+no exceptions.
 
 ## 4 — Resource allocation — OPEN DATA GAP
 
