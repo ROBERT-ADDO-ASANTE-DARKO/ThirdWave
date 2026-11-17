@@ -17,6 +17,7 @@ import plotly.express as px
 import streamlit as st
 from streamlit_folium import st_folium
 
+import map_tiles
 from data_loader import (
     DATA_DIR, load_assembly_scores, load_extended_district_scores,
     load_assembly_geometries, load_extended_assembly_geometries,
@@ -211,7 +212,9 @@ def render():
                     opacity=1.0,
                     show=False,
                 ).add_to(m)
-            folium.LayerControl(collapsed=False).add_to(m)
+
+        map_tiles.add_style_layers(m)
+        folium.LayerControl(collapsed=False).add_to(m)
 
         st_folium(m, height=430, use_container_width=True, returned_objects=[])
         if manifest:

@@ -19,6 +19,39 @@ every feature below working in Streamlit first (fastest iteration,
 already has most of the groundwork), then migrate to a production-grade
 React/Next.js app once the feature set is proven out, not before.
 
+## Cross-cutting: map tile style picker — Done
+
+`streamlit_app/map_tiles.py` (new, shared) adds Satellite/Dark/Terrain as
+selectable base layers (Mapbox Styles API, same `MAPBOX_API_KEY` and
+style IDs `citizen_app/lib/widgets/map_style_control.dart` already uses)
+alongside every government folium map's existing Streets default,
+switchable via folium's own in-map `LayerControl` -- no Streamlit rerun,
+no lost pan/zoom, same reason the Flutter picker lives in the map widget
+itself. Wired into `govt_incident_map.py`, `govt_road_closures.py`, and
+`govt_district_dashboard.py` (whose existing SAR/DEM/WorldCover overlay
+toggle now always gets a `LayerControl`, not only when that manifest
+exists). Degrades to Streets-only, not an error, if `MAPBOX_API_KEY`
+isn't set. Verified directly (`add_style_layers()` against a real map
+object with the real token -- confirmed exactly 3 layers added, named
+Satellite/Dark/Terrain) and via AppTest across all three pages (no
+exceptions).
+
+**Real bug found and fixed after initial build:** the live app showed
+Streets only, no Satellite/Dark/Terrain, even though every isolated
+test above passed. Root cause (confirmed by a temporary debug line
+printed into the live running page, not guessed): Streamlit's own
+`streamlit/web/bootstrap.py` runs
+`os.environ.setdefault("MAPBOX_API_KEY", "")` at startup -- unrelated
+to this feature, it's there so Streamlit's own `st.map()`/PyDeck
+widgets don't throw when no token is configured -- which pre-sets the
+exact same env var name this module reuses to an empty string before
+any app code runs. `load_dotenv()`'s default (never override an
+already-present key) then silently discarded the real token from
+`.env` on every run, with no error. Fixed by passing `override=True` to
+`load_dotenv()` in `map_tiles.py`, documented there. Reproduced the
+collision standalone (`os.environ.setdefault(...)` then `import
+map_tiles`) to confirm the fix before redeploying.
+
 ## Status at a glance
 
 | # | Feature | Status | Commit(s) |
@@ -28,7 +61,7 @@ React/Next.js app once the feature set is proven out, not before.
 | 2 | Incoming reports queue (Pending/Verified/Responding/Resolved) | **Done** | -- (uncommitted) |
 | 3 | Report confidence score | **Done** | -- (uncommitted) |
 | 4 | Resource allocation (NADMO/fire/ambulance/boats/shelters) | Not started -- **open data gap, see below** | -- |
-| 5 | Road closure recommendations | Not started | -- |
+| 5 | Road closure recommendations | **Done** | -- (uncommitted) |
 | 6 | Flood/incident timeline | Not started | -- |
 | 7 | Analytics dashboard | Not started | -- |
 | 8 | Multi-year encroachment trend view | Not started | -- |
@@ -201,15 +234,89 @@ synthetic for the pilot (consistent with the rest of the project's
 honesty discipline), or invest time sourcing what real data is gettable
 (OSM for fire/hospital at minimum) and clearly caveat the rest.
 
-## 5 — Road closure recommendations
+## 5 — Road closure recommendations — Done
 
-**Grounding:** `backend/route_engine.py` already has a precomputed
-risk-weighted road graph for the pilot district (OSMnx + per-edge
-vulnerability cost), ported from `streamlit_app/features/citizen_routing.py`.
-**Needed:** flag edges passing through verified/responding incidents and
-feed that back into the existing risk-weighted routing, rather than
-building a second graph -- an officer-facing "recommend closing this
-segment" view on top of data that's already there.
+**Built:** Two layers, both reusing `INCIDENT_AVOID_RADIUS_DEG` (the
+EXACT ~200m radius `build_incident_aware_weight()`/`incidents_near_path()`
+already use to steer citizens around active incidents, so "flagged for
+closure" can never diverge from "already being avoided"):
+
+- `route_engine.segments_near_point()`/`road_closure_recommendations()`
+  -- per-INCIDENT view, grouping the graph's real OSM edges (actual
+  street names -- "Ring Road Central," "Nsawam Road," confirmed against
+  the live pilot graph's 58,962 edges) by name. `GET /routing/road-closures`.
+- `road_closure_score.py` (new) -- per-SEGMENT weighted closure score
+  (0-100, same Low/Moderate/High/Very High breakpoints/colors as every
+  other area score in this app, since closure urgency is that same kind
+  of severity axis): 0.35 water depth (this event's own verified-report
+  depth_hi_m, capped 1.5m) + 0.25 verified report count (diminishing
+  1/2/3+, same scale as feature #3's cluster-size signal) + 0.15 road
+  classification (OSM highway tag -- faster/busier roads score higher
+  because floodwater there is more dangerous, not more flood-prone) +
+  0.15 historical flood frequency (`geo_data.nearby_historical_events()`)
+  + 0.10 near-term rainfall forecast (`open_meteo.py`, relative to this
+  zone's own `rainfall_6h_critical_mm`, same comparison
+  `routers/forecast.py` already makes). `GET /routing/road-closure-scores`.
+  Found and fixed along the way: `route_engine._active_incidents()`
+  never included `district` or `depth_lo_m`/`depth_hi_m` -- added both,
+  the first a real crash (`KeyError: 'district'`) the user hit live
+  while verifying real reports to test this feature.
+
+New Streamlit page `govt_road_closures.py`, fourth in the Government
+nav: KPI row, the weighted score table (Road / Recommendation / Score /
+Reports / Road type -- the exact shape asked for), a "why this score"
+expander per road, a folium map colored by the same Low/Moderate/High/
+Very High palette, and a collapsed by-incident view underneath for the
+simpler framing. Advisory only -- an officer still decides whether to
+actually close anything.
+
+**Verified:** live against the user's own real verified incidents (3
+real reports at Kwame Nkrumah Circle, verified while testing this
+feature) -- `GET /routing/road-closure-scores` returned 10 real road
+segments with real, differentiated scores (86.2 for Nsawam Road/trunk
+down to 75.7 for Tip Toe Lane/residential -- same incident, same depth/
+reports/history, correctly separated only by road classification and
+rainfall), all real OSM names, real depth (1.4m from the actual citizen
+photo), real historical count (3), real near-term rainfall (0.0mm).
+AppTest confirmed the Streamlit page renders the table/map/expanders
+with no exceptions against this live data.
+
+**Action recommendation (added after the initial build):** the 4-tier
+Low/Moderate/High/Very High `level` above now feeds a separate, richer
+officer-facing ACTION, decided primarily by reported water depth, not
+the composite score -- Full closure (depth >= 1.0m) / Pedestrians only
+(0.6-1.0m) / Emergency vehicles only (0.4-0.6m) / Monitor (0.15-0.4m) /
+No action (< 0.15m), extending incident_store.py's existing shallow/
+moderate/severe depth bands (0.15m/0.4m) with two more cuts. A sixth
+action, "One lane restricted," was proposed, researched, and explicitly
+dropped: only ~3% of this graph's 58,962 edges carry OSM's `lanes` tag,
+so it couldn't be data-driven for the other 97% without guessing --
+documented as a deliberate gap in `road_closure_score.py`'s docstring
+rather than faked. When no report at a segment has a depth estimate,
+action falls back to the coarser 4-tier level instead (`action_basis:
+"score"` vs. `"depth"`, surfaced to the officer so they know which).
+Verified directly (`_recommended_action()` called with depths spanning
+all 5 bands) and live (`GET /routing/road-closure-scores` against the
+same 3 real verified reports, correctly returned `🚧 Full closure` for
+all 10 segments at their real 1.4m depth, `basis: "depth"`).
+
+**Future improvement, deliberately not done now:** `road_closure_score.py`'s
+five weights (0.35/0.25/0.15/0.15/0.10) are a reasoned starting point, not
+empirically validated -- there's no historical "was closing this road the
+right call" outcome data to validate or train against, and won't be until
+real verified incidents + real closure decisions accumulate over a real
+pilot deployment. Training an ML model now was considered and rejected:
+with zero labeled outcomes, a model would just fit noise while losing the
+transparency an officer needs to trust a specific recommendation (same
+"aid, not a verdict" discipline as the confidence score and every area
+score in this app). The recommended next step, if these weights are ever
+revisited, is NOT ML either -- it's eliciting better-justified weights from
+domain experts (NADMO/transport engineers) via AHP (Analytic Hierarchy
+Process, pairwise comparison of the 5 factors), which produces defensible
+weights without needing any training data. Only once real outcome data
+exists would a simple, auditable calibration (e.g. logistic regression on
+these same 5 signals against actual closure/outcome records) be worth
+doing -- and even then, not a black-box model, for the same trust reason.
 
 ## 6 — Flood/incident timeline
 

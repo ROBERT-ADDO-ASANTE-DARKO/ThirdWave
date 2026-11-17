@@ -32,6 +32,7 @@ from dotenv import load_dotenv
 from streamlit_folium import st_folium
 
 from data_loader import LEVEL_COLOR, INK_NAVY
+import map_tiles
 
 load_dotenv(Path(__file__).parent.parent.parent / "backend" / ".env")
 
@@ -147,6 +148,8 @@ def render():
             tooltip=f"Active: {i['hazard_type'].replace('_', ' ')}",
         ).add_to(m)
 
+    map_tiles.add_style_layers(m)
+    folium.LayerControl(collapsed=True).add_to(m)
     st_folium(m, height=480, use_container_width=True, returned_objects=[])
 
     st.markdown("**Map legend**")

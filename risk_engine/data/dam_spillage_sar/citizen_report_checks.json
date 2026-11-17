@@ -4,5 +4,33 @@
     "event_id": "CITIZEN-RPT-20261101-B5E276",
     "error": "no sentinel-1-rtc scene near 2026-10-22",
     "checked_at": "2026-11-16T22:55:37.051771+00:00"
+  },
+  "RPT-20261029-76CB65": {
+    "report_id": "RPT-20261029-76CB65",
+    "district": "Ablekuma North Municipal",
+    "location_label": "Kwame Nkrumah Circle, Avenor, Accra, Okaikoi South Sub Metropolitan District, Accra Metropolitan District, Greater Accra Region, Ghana",
+    "lon": -0.2157619,
+    "lat": 5.5694954,
+    "submitted_at": "2026-10-29T23:46:10.473599+00:00",
+    "checked_at": "2026-11-17T01:36:36.190098+00:00",
+    "event_id": "CITIZEN-RPT-20261029-76CB65",
+    "name": "Citizen report RPT-20261029-76CB65 (Kwame Nkrumah Circle, Avenor, Accra, Okaikoi South Sub Metropolitan District, Accra Metropolitan District, Greater Accra Region, Ghana)",
+    "bbox": [
+      -0.22576190000000002,
+      5.5594954,
+      -0.2057619,
+      5.5794954
+    ],
+    "scene_dates": {
+      "baseline": "2026-10-19",
+      "peak": "2026-10-31",
+      "recession": "2026-11-12"
+    },
+    "baseline_open_water_km2": 0.4,
+    "new_flood_at_peak_km2": 0.0,
+    "receded_by_recession_km2": 0.0,
+    "still_flooded_at_recession_km2": 0.0,
+    "method": "Sentinel-1 RTC (calibrated gamma0) VV change detection: >|3|dB drop baseline->peak, pre-existing water excluded (adaptive: max of -17 dB and the baseline's 8th percentile), blobs <8px removed. Rain-wetted soil also darkens VV -- read margins as indicative, not a surveyed flood line.",
+    "verdict": "No SAR-visible new water near this report -- could be a real miss (revisit timing, vegetation canopy, or a flood too small/shallow for this method), not evidence the report is wrong."
   }
 }

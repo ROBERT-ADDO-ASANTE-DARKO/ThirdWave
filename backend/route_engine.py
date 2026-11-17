@@ -149,10 +149,70 @@ def _active_incidents(session: Session) -> list[dict]:
     return [
         {
             "id": r.id, "lon": r.lon, "lat": r.lat, "hazard_type": r.hazard_type,
-            "location_label": r.location_label, "synthetic": r.synthetic,
+            "location_label": r.location_label, "district": r.district, "synthetic": r.synthetic,
+            "depth_lo_m": r.depth_lo_m, "depth_hi_m": r.depth_hi_m,
         }
         for r in reports
     ]
+
+
+def _edge_latlon_coords(G, u, v, d) -> list[list[float]]:
+    """[[lat, lon], ...] for one edge -- its real OSM geometry if OSMnx
+    kept one, else a straight line between its two endpoints (most short
+    residential edges have no stored geometry; a straight line between
+    nodes a few tens of meters apart is indistinguishable on a map)."""
+    geom = d.get("geometry")
+    if geom is not None:
+        return [[lat, lon] for lon, lat in geom.coords]
+    return [[G.nodes[u]["y"], G.nodes[u]["x"]], [G.nodes[v]["y"], G.nodes[v]["x"]]]
+
+
+def _edge_name(d) -> str:
+    name = d.get("name")
+    if not name:
+        return "Unnamed road"
+    return " / ".join(name) if isinstance(name, list) else name
+
+
+def road_closure_recommendations(session: Session) -> list[dict]:
+    """Feature #5: which real road segments sit inside the same
+    INCIDENT_AVOID_RADIUS_DEG every Safer Routing query already treats as
+    "near this incident" (build_incident_aware_weight/incidents_near_path)
+    -- reusing that exact radius so "flagged for closure" here can never
+    diverge from "already being avoided" there. An officer-facing summary
+    over the same avoidance data, not a second routing graph or a new
+    distance threshold.
+
+    Groups edges by street name (a MultiDiGraph stores both directions of
+    a two-way street, and sometimes several parallel OSM ways, under the
+    same name) so one flooded junction reads as "Plant Pool Road, 3
+    segments," not 6 near-duplicate rows."""
+    G = load_graph()
+    incidents = _active_incidents(session)
+    out = []
+    for inc in incidents:
+        segments = segments_near_point(G, inc["lon"], inc["lat"])
+        out.append({**inc, "affected_segments": segments, "n_segments": len(segments)})
+    return sorted(out, key=lambda r: -r["n_segments"])
+
+
+def segments_near_point(G, lon: float, lat: float) -> list[dict]:
+    """The per-point half of road_closure_recommendations() -- pulled out
+    so it's directly testable against a known point without needing a
+    live verified incident in the database."""
+    groups: dict[str, dict] = {}
+    for u, v, d in G.edges(data=True):
+        mx, my = _edge_midpoint(G, u, v)
+        if (mx - lon) ** 2 + (my - lat) ** 2 > INCIDENT_AVOID_RADIUS_DEG ** 2:
+            continue
+        name = _edge_name(d)
+        g = groups.setdefault(name, {"name": name, "highway": d.get("highway"), "coords": []})
+        g["coords"].append(_edge_latlon_coords(G, u, v, d))
+    return sorted(
+        [{"name": g["name"], "highway": g["highway"], "n_edges": len(g["coords"]), "coords": g["coords"]}
+         for g in groups.values()],
+        key=lambda s: -s["n_edges"],
+    )
 
 
 def compute_routes(session: Session, olat: float, olon: float, dlat: float, dlon: float) -> dict:
