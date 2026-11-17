@@ -64,7 +64,7 @@ map_tiles`) to confirm the fix before redeploying.
 | 5 | Road closure recommendations | **Done** | -- (uncommitted) |
 | 6 | Flood/incident timeline | **Done** | -- (uncommitted) |
 | 7 | Analytics dashboard | **Done** | -- (uncommitted) |
-| 8 | Multi-year encroachment trend view | Not started | -- |
+| 8 | Multi-year encroachment trend view | **Done** | -- (uncommitted) |
 | 9 | District briefing workflow | Partially built already | -- |
 
 ## 0 — AI Assistant extended-coverage wiring — Done
@@ -387,15 +387,110 @@ labeled with its n=5-report caveat. AppTest confirmed the Streamlit
 page renders the KPIs, chart, table, and hotspot cards with no
 exceptions.
 
-## 8 — Multi-year encroachment trend view
+## 8 — Multi-year encroachment trend view — Done
 
-**Grounding:** `risk_engine/channel_encroachment_timeseries.py` already
-computes NDBI-based "is this channel edge getting more built-up over
-time" per cell, pilot-grid only. Never surfaced in any UI (Streamlit or
-backend) yet. **Needed:** a loader + endpoint (same pattern as every
-other `geo_data.py` loader) and a chart, pairing naturally with feature
-#7's hotspot analytics as an "is it getting worse" view rather than a
-single snapshot.
+**Built:** `geo_data.channel_encroachment_timeseries()` (loader, same
+pattern as every other loader there), `encroachment_trend_cells()`
+(per-cell rows with a centroid joined in from `risk_zones()`'s geometry
+-- the timeseries file itself has no geometry, just `zone_id`), and
+`encroachment_trend_by_assembly()` (rollup). A 3-way Worsening/Stable/
+Improving label on top of each cell's real linear-fit `slope_per_year`
+(threshold +-0.01 NDBI/year, picked from this project's own real
+distribution -- median -0.019, only 14 of 272 cells positive at all --
+documented as a judgment call, not a validated cutoff). New
+`GET /encroachment-trend/{by-assembly,cells}`. New Streamlit page
+`govt_encroachment_trend.py`, seventh in the Government nav: KPI row,
+an assembly rollup table, and a per-assembly map (colored by trend
+direction) + a line chart of the 5 worst-trending cells' real 2019-2026
+NDBI values. Pairs with feature #7's hotspots as the "is it getting
+worse" independent-of-citizen-reports view.
+
+**Verified:** live against the real backend and the real, already-
+computed dataset (272 of 1013 pilot cells sit near a mapped waterway;
+all 272 have the full 8 requested years, no thin-sample issue) --
+`/encroachment-trend/by-assembly` correctly broke down all 7 pilot
+assemblies (Weija Gbawe Municipal has the most channel-adjacent cells,
+160, mean slope -0.0244), `/encroachment-trend/cells?assembly=...`
+returned real per-cell centroids and directions. AppTest confirmed the
+Streamlit page's KPIs (272 tracked, 5 worsening, 237 improving --
+exactly matching a direct check of the raw JSON), table, map, and chart
+all render with no exceptions.
+
+**Real finding, investigated and flagged, not just noticed:** asked to
+interpret the chart, inspected the actual year-by-year NDBI values (not
+just the slopes) for the steepest "Worsening" and "Improving" cells.
+The 5 steepest-improving cells turned out all in Weija Gbawe Municipal
+and spatially adjacent (rows 12-15, cols 3-6 -- one cluster, not 5
+independent samples), sharing one shape: moderate-positive NDBI in
+2019-2021, a sharp drop to strongly negative across 2022-2025, partial
+recovery in 2026. Cross-checked against `historical_flood_events.json`:
+this lines up with real documented Weija Gbawe dam-release/storm floods
+in 2020-10-11, 2022-10-04 (the sharp drop year, biggest documented
+event of the group), and 2025-05-22 -- standing floodwater reads as
+non-built-up in NDBI, same as any water body, so "Improving" for these
+cells most likely means recurring flooding near the channel, not
+reduced construction. (2026 had two more documented Weija floods yet
+recovers in the data anyway -- most likely the annual composite's
+cloud-free scenes didn't land during either flood week; noted as the
+one point that doesn't fit cleanly, not treated as disproving the rest.)
+
+Added `geo_data._documented_flood_years()` and a
+`possible_flood_contamination` flag on every cell/assembly row (any
+"Improving" cell in an assembly with a documented flood year inside its
+tracked window) -- explicitly documented as a coarse, assembly-level
+overlap check, not a verified per-cell match the way the 5 Weija cells
+above were hand-checked. Surfaced in `govt_encroachment_trend.py` as a
+dynamic warning banner (154 cells flagged: 147 Weija Gbawe, 7 Accra
+Metropolis), a table column, map-tooltip flags, and a second trend
+chart specifically for the steepest "Improving" cells. AppTest confirmed
+the warning renders with the real counts and both charts render with no
+exceptions.
+
+**Second dataset-wide finding, and a fix for it:** checked whether the
+2019-high pattern seen while reviewing individual assemblies was
+universal. It is: across all 272 channel-adjacent cells, 2019 is the
+single highest year of the 8-year series in 76.5% of them, higher than
+2020 in 87.1%, present in every one of the 7 assemblies (78.6%-100%
+each) -- too consistent to be independent real construction-clearing.
+Checked and ruled out as the cause: the known Sentinel-2
+baseline>=04.00 radiometric-offset bug (`channel_encroachment_timeseries.py`
+already compensates for it correctly) and annual rainfall as a moisture
+confound (pulled real Accra rainfall history: 2019 wasn't the driest
+year on record -- drier years read LOWER in NDBI, the opposite of what
+that would predict). Leading unconfirmed hypothesis: a scene-selection/
+seasonal skew specific to 2019's thinner early Sentinel-2 archive --
+not verifiable from the saved JSON, which only keeps a scene count per
+year, not dates. Refitting every cell's slope on 2020-2026 alone (2019
+dropped) flips the Worsening/Stable/Improving label for 22.1% of all
+272 cells (60 of them) -- large enough to surface rather than silently
+trust the 2019-inclusive slope alone.
+
+Added `geo_data._linear_slope()` and a second slope per cell,
+`slope_per_year_excl_2019`/`direction_excl_2019`, plus a
+`sensitive_to_2019` flag wherever the label depends on which slope you
+trust. Surfaced in `govt_encroachment_trend.py`: a 4th KPI ("Sensitive
+to 2019"), a warning banner, a table column, map-tooltip detail, and a
+🗓️ marker in the trend-chart legend (distinct from the ⚠️ flood-
+contamination marker). Verified directly (`n sensitive: 60`, matching
+the dataset-wide check) and via AppTest (no exception, both warnings
+render with the real counts).
+
+**Weija Gbawe flood-contamination finding, upgraded from possible to
+confirmed for 5 cells:** re-fetched a single clean, low-cloud Sentinel-2
+scene for the 5 hand-checked cells from a dry-season window far from
+each flood date (2022-02-10, cloud 26%; 2025-02-04, cloud 0.8%) instead
+of the flood-blended annual composite. Every cell's NDBI snapped back up
+to its 2019-2021 baseline on that clean day -- e.g. `grid_r14_c3`'s 2025
+composite of -0.379 becomes +0.180 on a clean day, at/above its own 2019
+value of +0.169. This rules out the competing "floods discouraged
+construction, so there's genuinely less built-up area" explanation for
+these 5 cells: the built-up signal is still there, just submerged on
+the days the annual composite happened to sample, not reduced. Updated
+the CONFIRMED language in `geo_data.py`'s comment and
+`govt_encroachment_trend.py`'s docstring/warning banner to reflect this
+stronger evidence; left the assembly-level `possible_flood_contamination`
+mechanism itself as a "lead to check," since only these 5 cells have
+been hand-verified against a clean-day scene.
 
 ## 9 — District briefing workflow
 

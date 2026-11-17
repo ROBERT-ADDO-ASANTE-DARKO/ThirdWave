@@ -46,6 +46,7 @@ FEATURES = {
         "Road Closure Recommendations": "govt_road_closures",
         "Flood/Incident Timeline": "govt_timeline",
         "Analytics Dashboard": "govt_analytics",
+        "Multi-Year Encroachment Trend": "govt_encroachment_trend",
         "District Vulnerability Dashboard": "govt_district_dashboard",
         "Drain Maintenance Prioritization": "govt_drain_priority",
         "Population / Infrastructure Exposure": "govt_exposure",

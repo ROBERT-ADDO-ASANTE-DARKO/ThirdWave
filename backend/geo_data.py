@@ -163,6 +163,202 @@ def lower_volta_channel_encroachment_index() -> dict:
     return json.loads((DATA_DIR / "lower_volta_channel_encroachment_index.json").read_text())
 
 
+@lru_cache(maxsize=1)
+def channel_encroachment_timeseries() -> dict:
+    """Feature #8 (govt dashboard): risk_engine/channel_encroachment_timeseries.py's
+    multi-year NDBI-near-channel trend, pilot grid only (272 of 1013
+    cells sit near a mapped waterway at all; the rest are
+    "no_waterway_nearby"). Never surfaced in any UI before -- this is
+    the first reader. See that script's own docstring for why it tracks
+    a continuous NDBI value rather than a binary built/not-built
+    threshold (tried, didn't validate at any cutoff for this landscape),
+    and why "trend" is a direction from a linear fit, not a forecast."""
+    return json.loads((DATA_DIR / "channel_encroachment_timeseries.json").read_text())
+
+
+# Thresholds on slope_per_year (NDBI units/year) for a 3-way trend
+# label -- a judgment call on top of real per-cell linear-fit slopes
+# (all 272 "ok" pilot cells have the full 8 requested years, 2019-2026,
+# so this isn't fighting a thin-sample problem), NOT a validated
+# ecological cutoff. Chosen from this project's own real distribution
+# (272 cells: median slope -0.019, only 14 are positive at all) so
+# "Worsening" isn't triggered by measurement noise around zero.
+_ENCROACHMENT_WORSENING_SLOPE = 0.01
+_ENCROACHMENT_IMPROVING_SLOPE = -0.01
+
+
+# Confirmed, not hypothetical: cross-checked against historical_flood_events.json
+# after the 5 steepest "Improving" cells (all in Weija Gbawe Municipal,
+# spatially adjacent -- rows 12-15, cols 3-6, not independent samples)
+# turned out to share one shape -- moderate-positive NDBI in 2019-2021,
+# a sharp drop to strongly negative across 2022-2025, partial recovery
+# in 2026 -- that lines up with WEIJA-DAM-FLOOD-2022-10-04 (the sharp
+# 2022 drop), a partial 2020 dip matching WEIJA-DAM-FLOOD-2020-10-11,
+# and continued depression in 2025 matching WEIJA-FLOOD-2025-05.
+# Standing floodwater reads as strongly non-built-up in NDBI, same as
+# any water body -- so "Improving" there most likely reflects recurring
+# dam-release/storm flooding near the channel, not reduced construction.
+# (2026 doesn't fit as cleanly despite two more documented Weija floods
+# that year -- most likely the annual composite's cloud-free scenes
+# just didn't land during either flood window; this doesn't overturn
+# the match on the other four years.)
+#
+# CONFIRMED for these 5 cells specifically, not just plausible: re-fetched
+# a single clean, low-cloud Sentinel-2 scene from a dry-season window far
+# from each flood date (2022-02-10, 2025-02-04) instead of the annual
+# median composite. Every cell's NDBI snapped back up to its 2019-2021
+# baseline on that clean day (e.g. grid_r14_c3: 2025 composite -0.379 ->
+# clean-day +0.180, at/above its own 2019 value of +0.169) -- the
+# built-up signal near the channel is still there, just submerged on the
+# days the annual composite happened to sample. Rules out the competing
+# "floods discouraged construction, so there's genuinely less built-up
+# area" explanation for these 5 cells: the clean-day signal is as strong
+# or stronger than the pre-flood baseline, not reduced.
+#
+# Flagged generically below for any assembly/years combination with a
+# documented flood, not hardcoded to Weija -- the same confound could
+# apply anywhere this project has recurring flood history on record; only
+# the 5 Weija cells above have been hand-verified against a clean-day
+# scene, so elsewhere this is still "possible," not confirmed.
+_FLOOD_HAZARD_TYPES = {"dam_release_flood", "urban_flood", "flash_flood", "river_flood"}
+
+
+def _documented_flood_years(assembly: str | None, years: list[int]) -> list[int]:
+    if not assembly:
+        return []
+    years_set = set(years)
+    hit_years = set()
+    for e in historical_events():
+        if e.get("district") != assembly or e.get("hazard_type") not in _FLOOD_HAZARD_TYPES:
+            continue
+        date = e.get("date")
+        if date and int(date[:4]) in years_set:
+            hit_years.add(int(date[:4]))
+    return sorted(hit_years)
+
+
+def _encroachment_trend_direction(slope_per_year: float) -> str:
+    if slope_per_year > _ENCROACHMENT_WORSENING_SLOPE:
+        return "Worsening"
+    if slope_per_year < _ENCROACHMENT_IMPROVING_SLOPE:
+        return "Improving"
+    return "Stable"
+
+
+def _linear_slope(points: list[tuple[float, float]]) -> float | None:
+    """Plain least-squares slope, no numpy -- this project's only other
+    user of a per-cell linear fit is risk_engine/channel_encroachment_timeseries.py
+    itself, which runs once offline; this is the one in-process fit."""
+    n = len(points)
+    if n < 2:
+        return None
+    mean_x = sum(x for x, _ in points) / n
+    mean_y = sum(y for _, y in points) / n
+    num = sum((x - mean_x) * (y - mean_y) for x, y in points)
+    den = sum((x - mean_x) ** 2 for x, _ in points)
+    return num / den if den else None
+
+
+# 2019 confirmed anomalous dataset-wide, not a per-cell quirk: across all
+# 272 channel-adjacent cells, 2019 is the single highest NDBI year of the
+# full 8-year series in 76.5% of them, and higher than 2020 in 87.1% --
+# present in every one of the 7 assemblies (78.6%-100%), which rules out
+# independent real construction-clearing (that wouldn't line up basin-
+# wide in one calendar year). Checked and ruled out as the cause: the
+# known Sentinel-2 baseline>=04.00 radiometric-offset bug (already
+# correctly compensated in channel_encroachment_timeseries.py) and annual
+# rainfall as a moisture confound (2019 wasn't the driest year on record
+# for Accra -- 2020 and 2021 were drier yet read LOWER in NDBI, the
+# opposite of what dry-soil-as-built-up would predict). Leading remaining
+# hypothesis, unconfirmed: a scene-selection/seasonal skew specific to
+# 2019's thinner early Sentinel-2 archive over Ghana -- not verifiable
+# from this saved JSON, which only keeps a scene count per year, not
+# dates. Refitting every cell's slope on 2020-2026 alone changes the
+# Worsening/Stable/Improving label for 22.1% of all 272 cells (60 of
+# them) -- a large enough swing that both slopes are surfaced below
+# rather than trusting the 2019-inclusive one alone.
+def encroachment_trend_cells(assembly: str | None = None) -> list[dict]:
+    """Per-cell trend rows with a centroid attached (for mapping) --
+    joined from risk_zones()'s geometry since the timeseries file itself
+    only has zone_id/assembly, not geometry. Only cells with status "ok"
+    AND a computable trend are returned (no waterway nearby, or no
+    cloud-clear scenes at all, are both real outcomes, just not ones a
+    trend chart can show)."""
+    data = channel_encroachment_timeseries()
+    geom_by_id = {z["id"].replace("RZ-", ""): z["geometry"] for z in risk_zones()}
+
+    out = []
+    for zone_id, z in data["zones"].items():
+        if z["status"] != "ok" or z["trend"]["status"] != "ok":
+            continue
+        if assembly and z.get("assembly") != assembly:
+            continue
+        geom = geom_by_id.get(zone_id)
+        if geom is None:
+            continue
+        centroid = shape(geom).centroid
+        slope = z["trend"]["slope_per_year"]
+        direction = _encroachment_trend_direction(slope)
+        years_int = sorted(int(y) for y in z["years"])
+        flood_years = _documented_flood_years(z.get("assembly"), years_int)
+
+        points_excl_2019 = [
+            (y, z["years"][str(y)]["mean_ndbi_near_channel"])
+            for y in years_int if y != 2019 and z["years"][str(y)].get("mean_ndbi_near_channel") is not None
+        ]
+        slope_excl_2019 = _linear_slope(points_excl_2019)
+        direction_excl_2019 = _encroachment_trend_direction(slope_excl_2019) if slope_excl_2019 is not None else None
+
+        out.append({
+            "zone_id": zone_id, "assembly": z.get("assembly"),
+            "lon": centroid.x, "lat": centroid.y,
+            "years": z["years"], "slope_per_year": slope, "n_years_used": z["trend"]["n_years_used"],
+            "trend_note": z["trend"]["note"], "direction": direction,
+            "slope_per_year_excl_2019": round(slope_excl_2019, 4) if slope_excl_2019 is not None else None,
+            "direction_excl_2019": direction_excl_2019,
+            "sensitive_to_2019": direction_excl_2019 is not None and direction_excl_2019 != direction,
+            "documented_flood_years": flood_years,
+            "possible_flood_contamination": direction == "Improving" and bool(flood_years),
+        })
+    return sorted(out, key=lambda r: r["slope_per_year"], reverse=True)
+
+
+def encroachment_trend_by_assembly() -> list[dict]:
+    """One row per assembly: how many of its channel-adjacent pilot
+    cells are trending Worsening/Stable/Improving, plus the mean slope.
+    Assemblies with zero channel-adjacent cells (no_waterway_nearby
+    everywhere) are omitted, not shown as a false "0 worsening" row.
+    n_possibly_flood_contaminated flags "Improving" cells in an
+    assembly with documented flood history during the tracked years --
+    see _documented_flood_years()'s comment for the confirmed Weija
+    Gbawe case that prompted this. n_sensitive_to_2019 counts cells whose
+    Worsening/Stable/Improving label flips once 2019 -- confirmed
+    dataset-wide anomalous, see encroachment_trend_cells()'s comment --
+    is dropped from the fit."""
+    by_assembly: dict[str, dict] = {}
+    for cell in encroachment_trend_cells():
+        assembly = cell["assembly"] or "Unknown"
+        row = by_assembly.setdefault(assembly, {
+            "assembly": assembly, "n_cells_near_channel": 0,
+            "n_worsening": 0, "n_stable": 0, "n_improving": 0,
+            "n_possibly_flood_contaminated": 0, "n_sensitive_to_2019": 0, "_slopes": [],
+        })
+        row["n_cells_near_channel"] += 1
+        row[f"n_{cell['direction'].lower()}"] += 1
+        if cell["possible_flood_contamination"]:
+            row["n_possibly_flood_contaminated"] += 1
+        if cell["sensitive_to_2019"]:
+            row["n_sensitive_to_2019"] += 1
+        row["_slopes"].append(cell["slope_per_year"])
+
+    out = []
+    for row in by_assembly.values():
+        slopes = row.pop("_slopes")
+        row["mean_slope_per_year"] = round(sum(slopes) / len(slopes), 4)
+        out.append(row)
+    return sorted(out, key=lambda r: -r["n_worsening"])
+
+
 def _channel_encroachment_for_zone(zone_id: str, index: dict) -> dict | None:
     """The encroachment entry for one zone_id, reshaped to just the fields
     worth surfacing to a citizen (or Tide) -- dropped the raw building/
