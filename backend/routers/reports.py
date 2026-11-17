@@ -23,6 +23,7 @@ import news_corroboration as news
 import photo_validation
 import push
 import report_confidence
+import report_events
 import vlm_client
 from auth import require_officer
 from db import get_session
@@ -84,6 +85,7 @@ def submit_report(
     session.add(report)
     session.commit()
     session.refresh(report)
+    report_events.record_event(session, report.id, "submitted")
     return serialize_report(report)
 
 
@@ -151,6 +153,18 @@ def list_clusters(district: Optional[str] = None, session: Session = Depends(get
     return out
 
 
+@router.get("/{report_id}/timeline", dependencies=[Depends(require_officer)])
+def timeline(report_id: str, session: Session = Depends(get_session)):
+    """Feature #6: every real status-change event logged for this
+    report, plus best-effort reconstruction from its own timestamp
+    columns for anything that happened before report_events.py existed
+    -- see that module's docstring."""
+    report = session.get(Report, report_id)
+    if report is None:
+        raise HTTPException(404, "report not found")
+    return report_events.timeline_for_report(session, report)
+
+
 def _notify(session: Session, lon: float, lat: float, hazard_types: list[str], location_label: str | None) -> dict:
     """Push is a side effect of verification, never a precondition for
     it -- a missing/misconfigured Firebase credential or an FCM outage
@@ -176,6 +190,7 @@ def verify_report(report_id: str, body: VerifyBody, session: Session = Depends(g
     session.add(report)
     session.commit()
     session.refresh(report)
+    report_events.record_event(session, report.id, "verified" if body.approve else "rejected", detail=body.verified_by)
 
     push_result = None
     if body.approve:
@@ -200,6 +215,7 @@ def verify_bulk(body: BulkVerifyBody, session: Session = Depends(get_session)):
     session.commit()
     for r in out:
         session.refresh(r)
+        report_events.record_event(session, r.id, "verified" if body.approve else "rejected", detail=body.verified_by)
 
     # One push for the whole bulk action, not one per report (see
     # push.py's module docstring) -- centroid of whichever reports were

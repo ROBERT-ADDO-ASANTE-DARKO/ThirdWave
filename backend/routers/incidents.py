@@ -12,6 +12,7 @@ from sqlmodel import Session, select
 import geo_data
 import photo_validation
 import report_confidence
+import report_events
 import sar_corroboration
 from auth import require_officer
 from db import get_session
@@ -98,6 +99,8 @@ def assign_responder(incident_id: str, body: AssignResponderBody, session: Sessi
     session.add(report)
     session.commit()
     session.refresh(report)
+    report_events.record_event(session, report.id, "responder_assigned",
+                                detail=f"{body.responder_name}, ETA {body.eta_minutes} min")
     return serialize_report(report)
 
 
@@ -112,4 +115,5 @@ def resolve(incident_id: str, session: Session = Depends(get_session)):
     session.add(report)
     session.commit()
     session.refresh(report)
+    report_events.record_event(session, report.id, "resolved")
     return serialize_report(report)

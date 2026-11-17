@@ -63,6 +63,27 @@ class Report(SQLModel, table=True):
     resolved_at: Optional[datetime] = None
 
 
+class ReportEvent(SQLModel, table=True):
+    """Feature #6 (Flood/Incident Timeline): an append-only log of a
+    Report's status transitions, since Report itself (above) only keeps
+    the CURRENT status/response_status -- a report that went pending ->
+    verified -> responding -> resolved has no record of *when* each step
+    happened, only submitted_at/verified_at/resolved_at for the first/
+    middle/last of those, and no timestamp at all for a responder being
+    assigned. A new table, not new Report columns: Report's shape is
+    unchanged, so nothing about the existing live thirdwave.db needs an
+    ALTER TABLE -- SQLModel.metadata.create_all() just adds this table
+    alongside it. See report_events.py for the write helper and the
+    fallback that reconstructs a reasonable timeline for reports that
+    existed before this table did."""
+
+    id: Optional[int] = Field(default=None, primary_key=True)
+    report_id: str = Field(foreign_key="report.id", index=True)
+    event_type: str  # submitted | verified | rejected | responder_assigned | resolved
+    occurred_at: datetime
+    detail: Optional[str] = None  # e.g. "Officer" (verified_by) or "NADMO Team 3, ETA 20 min"
+
+
 class Device(SQLModel, table=True):
     """Registered for push notifications (Phase 2) -- created now so the
     schema exists, even though nothing sends a push yet."""

@@ -62,8 +62,8 @@ map_tiles`) to confirm the fix before redeploying.
 | 3 | Report confidence score | **Done** | -- (uncommitted) |
 | 4 | Resource allocation (NADMO/fire/ambulance/boats/shelters) | Not started -- **open data gap, see below** | -- |
 | 5 | Road closure recommendations | **Done** | -- (uncommitted) |
-| 6 | Flood/incident timeline | Not started | -- |
-| 7 | Analytics dashboard | Not started | -- |
+| 6 | Flood/incident timeline | **Done** | -- (uncommitted) |
+| 7 | Analytics dashboard | **Done** | -- (uncommitted) |
 | 8 | Multi-year encroachment trend view | Not started | -- |
 | 9 | District briefing workflow | Partially built already | -- |
 
@@ -318,23 +318,74 @@ exists would a simple, auditable calibration (e.g. logistic regression on
 these same 5 signals against actual closure/outcome records) be worth
 doing -- and even then, not a black-box model, for the same trust reason.
 
-## 6 — Flood/incident timeline
+## 6 — Flood/incident timeline — Done
 
-**Grounding:** `Report` has `submitted_at`/`verified_at` timestamps, but
-no full state-change audit log -- there's no record of *when* a report
-moved from pending to verified to responding to resolved, only the
-current state. **Needed:** a new event-log table (or a simple append-only
-history on the Report row) before this feature can show real evolution
-over time, not just current snapshots.
+**Built:** `ReportEvent` (`backend/models.py`), a new append-only table
+-- not new `Report` columns, so the live `thirdwave.db`'s existing
+`Report` rows needed no migration, just `SQLModel.metadata.create_all()`
+adding the new table alongside it. `backend/report_events.py`'s
+`record_event()` is now called from every status-changing endpoint
+(`submit_report`, `verify_report`/`verify_bulk`, `assign_responder`,
+`resolve`), so every report gets a complete, real, timestamped event
+log going forward. For anything that happened before this table
+existed, `timeline_for_report()` reconstructs a best-effort timeline
+from the report's own `submitted_at`/`verified_at`/`verified_by`/
+`resolved_at` columns, each entry explicitly tagged
+`reconstructed: true` with a note -- never presented as a real logged
+event. One real gap even reconstruction can't close: there's no column
+anywhere recording *when* a responder was assigned, so an old report
+with `assigned_responder` set but no matching real event surfaces as
+an "untimed note" instead of a fabricated timestamp. New
+`GET /reports/{id}/timeline`. New Streamlit page `govt_timeline.py`,
+fifth in the Government nav: pick a report (dropdown of recent pending/
+verified/responding/resolved, or type an ID), see its event-by-event
+history with icons, timestamps, and reconstruction warnings where they
+apply.
 
-## 7 — Analytics dashboard
+**Verified:** against real data both directions. Backward: fetched the
+timeline for 2 real reports that predate this feature (one verified,
+one resolved) -- correctly reconstructed `submitted`/`verified`/
+`resolved` entries, each marked `reconstructed: true` with the
+explanatory note, correctly ordered. Forward: submitted a new tagged-
+synthetic test report through the real API end-to-end (submit -> verify
+-> assign-responder -> resolve), then fetched its timeline -- all 4
+events logged in real time, `reconstructed: false`, correct detail
+strings (`verified_by`, `responder name + ETA`), correctly ordered by
+actual timestamp. AppTest confirmed the Streamlit page renders both the
+picker (populated with real report IDs) and the full 4-event timeline
+with no exceptions.
 
-**Grounding:** response-time stats (`verified_at - submitted_at`, etc.)
-are computable today from existing timestamps. "Recurring hotspots"
-needs the same honest distinction `govt_drain_priority.py` already draws
-between multi-year SAR water-occurrence (persistent signal, have it) and
-verified repeat-incident history (needs live pilot data to accumulate,
-don't have it yet).
+## 7 — Analytics dashboard — Done
+
+**Built:** `backend/analytics.py`, three honest views over the live
+`Report` table: `response_time_stats()` (verification latency
+submitted->verified, resolution latency verified->resolved, n always
+reported alongside mean/median/min/max so a thin sample is never read
+as a stable number), `reports_by_district()` (plain count by district x
+status), `recurring_hotspots()` (clusters only VERIFIED/RESOLVED reports
+-- not pending/rejected -- with `clustering.py`'s same 300m grouping,
+flags >=2-report clusters as a repeat-incident candidate, pairs each
+with its location's existing static vulnerability score via
+`geo_data.zone_for_point()`, and always states the real n behind the
+claim rather than dressing up thin data as a trend -- the same
+persistent-signal-vs-still-accumulating distinction
+`govt_drain_priority.py` already draws). Three new endpoints under
+`GET /analytics/{response-times,by-district,hotspots}`. New Streamlit
+page `govt_analytics.py`, sixth in the Government nav: response-time
+KPIs, a stacked bar chart + table of reports by district, and a
+hotspots map/card view with the honesty caveat shown inline, not buried.
+
+**Verified:** live against the real backend with the real reports
+remaining after deleting the one synthetic test report from feature #6
+-- 5 total reports (3 verified, 2 resolved, all in Ablekuma North
+Municipal), 45.4h median verification time (n=5), 0min median
+resolution time (n=2, the two test incidents that were resolved
+instantly in an earlier session), and one real recurring-hotspot
+candidate (4 of the 5 reports clustered at Kwame Nkrumah Circle, paired
+with that zone's real static score of 29.8/Moderate), correctly
+labeled with its n=5-report caveat. AppTest confirmed the Streamlit
+page renders the KPIs, chart, table, and hotspot cards with no
+exceptions.
 
 ## 8 — Multi-year encroachment trend view
 
