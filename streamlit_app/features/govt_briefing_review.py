@@ -23,6 +23,7 @@ just with an extra manual handoff step this specific capability requires.
 
 from __future__ import annotations
 
+import json
 import os
 
 import requests
@@ -32,6 +33,7 @@ from data_loader import DATA_DIR
 from geo_tools import BRIEFING_SECTION_KEYS, draft_briefing
 
 BACKEND_URL = os.environ.get("THIRDWAVE_BACKEND_URL", "http://localhost:8000")
+BRIEFING_QUEUE_PATH = DATA_DIR / "briefing_queue.json"
 SECTION_TITLES = {
     "purpose": "Purpose", "context": "Context", "finding": "Finding",
     "implications": "What this means for the Assembly", "sources": "Sources",
@@ -40,10 +42,28 @@ SECTION_TITLES = {
 KNOWN_DISTRICTS = [
     "Ablekuma Central Municipal", "Ablekuma North Municipal", "Ablekuma West Municipal",
     "Accra Metropolis", "Ayawaso Central Municipal", "Korle Klottey Municipal",
-    "Weija Gbawe Municipal", "Ayawaso West Municipal",
+    "Weija Gbawe Municipal", "Ayawaso West Municipal", "La-Nkwantanang-Madina Municipal",
     "South Tongu", "North Tongu", "Central Tongu", "Lower Manya", "Asuogyaman",
     "Ada East", "Ada West",
 ]
+
+
+def _load_briefing_queue() -> list[dict]:
+    if not BRIEFING_QUEUE_PATH.exists():
+        return []
+    return json.loads(BRIEFING_QUEUE_PATH.read_text())
+
+
+def _district_options() -> list[str]:
+    """KNOWN_DISTRICTS plus whatever's actually sitting in the briefing
+    queue -- a real flag once showed up for "La-Nkwantanang-Madina"
+    (missing the "Municipal" suffix every other file in this project
+    uses for it) and couldn't be selected here at all. Added the correct
+    name above, but this union is the real fix: any future flag, under
+    any spelling a risk_engine script happens to use, stays selectable
+    instead of silently stuck."""
+    queue_districts = {e["district"] for e in _load_briefing_queue()}
+    return sorted(set(KNOWN_DISTRICTS) | queue_districts)
 
 
 def _backend_get(path: str, **params):
@@ -76,10 +96,21 @@ def _backend_patch(path: str, json_body: dict):
 
 
 def _render_draft_form():
+    # Pre-fill from a "Draft ->" click on the District Vulnerability
+    # Dashboard's briefing-queue banner, if that's how we got here --
+    # applied once (pop, not peek) so it doesn't keep stomping on
+    # manual edits across reruns while the form stays open.
+    prefill = st.session_state.pop("brf_prefill", None)
+    if prefill:
+        st.session_state["brf_district"] = prefill["district"]
+        st.session_state["brf_reason"] = prefill["reason"]
+        st.session_state["brf_source"] = prefill["source_finding"]
+        st.caption(f"📋 Pre-filled from the briefing queue: {prefill['source_finding']}")
+
     st.markdown("**Draft a new briefing**")
     col1, col2 = st.columns([2, 1])
     with col1:
-        district = st.selectbox("District", KNOWN_DISTRICTS, key="brf_district")
+        district = st.selectbox("District", _district_options(), key="brf_district")
     with col2:
         trigger_reason = st.selectbox("Reason", ["manual", "new_encroachment_finding", "new_historical_event"], key="brf_reason")
     source_finding = st.text_input("Source finding (optional note on what prompted this)", key="brf_source")
@@ -182,7 +213,8 @@ def render():
 
     st.metric("Pending review", len(pending or []))
 
-    with st.expander("➕ Draft a new briefing", expanded=not pending):
+    has_prefill = bool(st.session_state.get("brf_prefill"))
+    with st.expander("➕ Draft a new briefing", expanded=not pending or has_prefill):
         _render_draft_form()
 
     st.divider()

@@ -40,22 +40,34 @@ FEATURES = {
     # Markdown, and "N. " at the start of a line is ordered-list syntax,
     # which silently eats the literal number. Checklist numbering is
     # tracked in conversation, not duplicated into the UI.
+    # Split by institutional mandate, not just grouped for tidiness (see
+    # project chat history): Operations is NADMO's day-to-day live-incident
+    # tempo (verify -> allocate -> close roads -> brief), Planning is the
+    # Assembly's longer-term infrastructure/enforcement cycle (encroachment,
+    # drain budget, exposure, what-if simulators). In practice a district
+    # NADMO coordinator sits on the Assembly's security committee, so one
+    # officer may use both sections -- this split documents the mandate
+    # each feature actually serves, not a hard access restriction.
     "Government": {
-        "Live Incident Map": "govt_incident_map",
-        "Incoming Reports Queue": "govt_reports_queue",
-        "Road Closure Recommendations": "govt_road_closures",
-        "Flood/Incident Timeline": "govt_timeline",
-        "Analytics Dashboard": "govt_analytics",
-        "Multi-Year Encroachment Trend": "govt_encroachment_trend",
-        "District Vulnerability Dashboard": "govt_district_dashboard",
-        "Drain Maintenance Prioritization": "govt_drain_priority",
-        "Population / Infrastructure Exposure": "govt_exposure",
-        "Emergency Resource Allocation": "govt_resource_allocation",
-        "Before/After Scenario Simulator": "govt_scenario_simulator",
-        "Pluvial Flood Simulator": "govt_inundation_simulator",
-        "3D Flood View": "govt_3d_flood_view",
-        "Incident Verification": "govt_verification_sandbox",
-        "District Briefing Review": "govt_briefing_review",
+        "Operations": {
+            "Live Incident Map": "govt_incident_map",
+            "Incoming Reports Queue": "govt_reports_queue",
+            "Incident Verification": "govt_verification_sandbox",
+            "Emergency Resource Allocation": "govt_resource_allocation",
+            "Road Closure Recommendations": "govt_road_closures",
+            "Flood/Incident Timeline": "govt_timeline",
+            "Analytics Dashboard": "govt_analytics",
+            "District Briefing Review": "govt_briefing_review",
+        },
+        "Planning": {
+            "District Vulnerability Dashboard": "govt_district_dashboard",
+            "Multi-Year Encroachment Trend": "govt_encroachment_trend",
+            "Drain Maintenance Prioritization": "govt_drain_priority",
+            "Population / Infrastructure Exposure": "govt_exposure",
+            "Before/After Scenario Simulator": "govt_scenario_simulator",
+            "Pluvial Flood Simulator": "govt_inundation_simulator",
+            "3D Flood View": "govt_3d_flood_view",
+        },
         "AI Assistant": "ai_assistant",
     },
     "Citizen": {
@@ -76,13 +88,26 @@ with st.sidebar:
     if not available:
         st.info(f"No {role} features built yet -- next up per the checklist.")
         st.stop()
-    feature_label = st.radio("Feature", list(available.keys()))
+
+    # Government nests Operations/Planning sections; Citizen stays flat --
+    # handle both without duplicating the sidebar logic per role.
+    if any(isinstance(v, dict) for v in available.values()):
+        section_label = st.radio("Section", list(available.keys()))
+        section_value = available[section_label]
+        if isinstance(section_value, dict):
+            feature_label = st.radio("Feature", list(section_value.keys()))
+            module_name = section_value[feature_label]
+        else:
+            feature_label, module_name = section_label, section_value
+    else:
+        feature_label = st.radio("Feature", list(available.keys()))
+        module_name = available[feature_label]
+
     st.divider()
     st.caption(
         "Data: Sentinel-1 SAR, Copernicus DEM, ESA WorldCover, OpenStreetMap. "
         "Computed 2026-09-01, not live pilot data."
     )
 
-module_name = available[feature_label]
 module = __import__(f"features.{module_name}", fromlist=["render"])
 module.render()

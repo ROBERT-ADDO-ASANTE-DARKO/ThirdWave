@@ -359,6 +359,35 @@ def encroachment_trend_by_assembly() -> list[dict]:
     return sorted(out, key=lambda r: -r["n_worsening"])
 
 
+@lru_cache(maxsize=1)
+def emergency_facilities() -> dict:
+    """Feature #4 (govt dashboard): real fire stations and hospitals from
+    OSM Overpass (risk_engine/emergency_facilities.py, one-time fetch,
+    same pattern as every other Overpass-sourced dataset here). Coverage
+    checked before building on it, not assumed: 7 fire stations, 63
+    hospitals in/near the pilot bbox; every one of the 7 pilot assemblies
+    has a real fire station within ~0.6-4.6km of its centroid and at
+    least one real hospital. NADMO offices, flood-response boats, and
+    shelters are NOT in here -- not reliably mapped anywhere in Ghana
+    OSM data, confirmed by checking rather than assumed; the resource
+    allocation page keeps those as explicitly labeled fabricated demo
+    data."""
+    return json.loads((DATA_DIR / "emergency_facilities.json").read_text())
+
+
+def nearest_facility(lat: float, lon: float, kind: str) -> dict | None:
+    """Nearest real fire_station or hospital to one point, by straight-
+    line distance (haversine_km -- same measure used for report
+    clustering elsewhere in this project, good enough for "which real
+    facility is closest," not a road-network ETA). kind must be
+    "fire_stations" or "hospitals". None if that list is empty."""
+    facilities = emergency_facilities().get(kind, [])
+    if not facilities:
+        return None
+    best = min(facilities, key=lambda f: haversine_km(lat, lon, f["lat"], f["lon"]))
+    return {**best, "distance_km": round(haversine_km(lat, lon, best["lat"], best["lon"]), 2)}
+
+
 def _channel_encroachment_for_zone(zone_id: str, index: dict) -> dict | None:
     """The encroachment entry for one zone_id, reshaped to just the fields
     worth surfacing to a citizen (or Tide) -- dropped the raw building/

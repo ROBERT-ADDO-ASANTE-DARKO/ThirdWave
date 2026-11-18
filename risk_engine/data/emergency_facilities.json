@@ -1,0 +1,364 @@
+{
+  "source": "OSM Overpass, amenity=fire_station/hospital",
+  "fetched_at": "2026-11-17T22:23:10.821333+00:00",
+  "bbox": [
+    -0.447612304999968,
+    5.449726562000119,
+    -0.15510986299981802,
+    5.6326708980000895
+  ],
+  "fire_stations": [
+    {
+      "name": "Ghana National Fire Service Headquarters",
+      "lat": 5.5696908,
+      "lon": -0.1849408
+    },
+    {
+      "name": "Airport Fire Station",
+      "lat": 5.6037167,
+      "lon": -0.1725827
+    },
+    {
+      "name": "Industrial Area Fire Station",
+      "lat": 5.5649396,
+      "lon": -0.2252361
+    },
+    {
+      "name": "(unnamed)",
+      "lat": 5.5562719,
+      "lon": -0.3436426
+    },
+    {
+      "name": "Abelemkpe Fire Station",
+      "lat": 5.6090978,
+      "lon": -0.2111861
+    },
+    {
+      "name": "Ghana Fire Service",
+      "lat": 5.5698415,
+      "lon": -0.2143746
+    },
+    {
+      "name": "Accra City Fire Station",
+      "lat": 5.5493054,
+      "lon": -0.2073036
+    }
+  ],
+  "hospitals": [
+    {
+      "name": "Nyaho Medical Centre",
+      "lat": 5.5514896,
+      "lon": -0.2039394
+    },
+    {
+      "name": "Osu Maternity Home Hospital",
+      "lat": 5.553747,
+      "lon": -0.185228
+    },
+    {
+      "name": "(unnamed)",
+      "lat": 5.561609,
+      "lon": -0.2141144
+    },
+    {
+      "name": "Accra West Medical Centre",
+      "lat": 5.5463886,
+      "lon": -0.3262091
+    },
+    {
+      "name": "(unnamed)",
+      "lat": 5.5534886,
+      "lon": -0.3232397
+    },
+    {
+      "name": "Citadel Hospital",
+      "lat": 5.5964844,
+      "lon": -0.2168298
+    },
+    {
+      "name": "Atta Quarshie Merton Memorial Hospital",
+      "lat": 5.5619488,
+      "lon": -0.2137769
+    },
+    {
+      "name": "Scanport Healthcare and Medical Imaging",
+      "lat": 5.5328819,
+      "lon": -0.2372229
+    },
+    {
+      "name": "St. Kathryn's Hospital",
+      "lat": 5.5876402,
+      "lon": -0.2314676
+    },
+    {
+      "name": "AIMS Hospital",
+      "lat": 5.6060797,
+      "lon": -0.2254035
+    },
+    {
+      "name": "(unnamed)",
+      "lat": 5.6060615,
+      "lon": -0.225648
+    },
+    {
+      "name": "Citi Physiotherapy & Rehabilitation Centre",
+      "lat": 5.5374094,
+      "lon": -0.4180654
+    },
+    {
+      "name": "Premier Care Hospital",
+      "lat": 5.5238692,
+      "lon": -0.3884482
+    },
+    {
+      "name": "Karikari Brobbey Hospital",
+      "lat": 5.5310976,
+      "lon": -0.2615955
+    },
+    {
+      "name": "Ghana Police Hospital",
+      "lat": 5.5684386,
+      "lon": -0.181711
+    },
+    {
+      "name": "MBA Hospital",
+      "lat": 5.6013092,
+      "lon": -0.2568138
+    },
+    {
+      "name": "Korle Bu Policlinic",
+      "lat": 5.537867,
+      "lon": -0.2234721
+    },
+    {
+      "name": "Ridge Hospital",
+      "lat": 5.5622992,
+      "lon": -0.1993902
+    },
+    {
+      "name": "Nyaho Clinic",
+      "lat": 5.6145561,
+      "lon": -0.1849937
+    },
+    {
+      "name": "Korle Bu Teaching Hospital",
+      "lat": 5.5380807,
+      "lon": -0.2272021
+    },
+    {
+      "name": "Lapaz Community Hospital",
+      "lat": 5.6087666,
+      "lon": -0.2537327
+    },
+    {
+      "name": "Princess Marie Louie Children's Hospital",
+      "lat": 5.5446455,
+      "lon": -0.2132424
+    },
+    {
+      "name": "Kaneshie Polyclinic",
+      "lat": 5.5745779,
+      "lon": -0.2309253
+    },
+    {
+      "name": "Mamobi General Hospital",
+      "lat": 5.5913638,
+      "lon": -0.1990858
+    },
+    {
+      "name": "Achimota Hospital",
+      "lat": 5.629735,
+      "lon": -0.217263
+    },
+    {
+      "name": "Civil Service Polyclinic",
+      "lat": 5.5510399,
+      "lon": -0.1960103
+    },
+    {
+      "name": "North Deseret Hospital",
+      "lat": 5.6080307,
+      "lon": -0.2787828
+    },
+    {
+      "name": "University of Ghana Medical Center Limited",
+      "lat": 5.6318638,
+      "lon": -0.1859247
+    },
+    {
+      "name": "SSNIT Mother and Child",
+      "lat": 5.5551471,
+      "lon": -0.1792964
+    },
+    {
+      "name": "Faith Evangelical Mission Hospital",
+      "lat": 5.5792819,
+      "lon": -0.245048
+    },
+    {
+      "name": "Al-Ayar Hospital",
+      "lat": 5.6138369,
+      "lon": -0.2403674
+    },
+    {
+      "name": "Gewah Hospital",
+      "lat": 5.5616504,
+      "lon": -0.3100775
+    },
+    {
+      "name": "Weija-Gbawe Municipal Hospital",
+      "lat": 5.5651494,
+      "lon": -0.2903532
+    },
+    {
+      "name": "Advance Body Sculpture",
+      "lat": 5.5562003,
+      "lon": -0.3041977
+    },
+    {
+      "name": "Hajj Abdulai Yaro Memorial and Maternity Clinic",
+      "lat": 5.585305,
+      "lon": -0.1994805
+    },
+    {
+      "name": "Amoah Memorial Hospital",
+      "lat": 5.5907936,
+      "lon": -0.2872877
+    },
+    {
+      "name": "SSNIT Hospital",
+      "lat": 5.562561,
+      "lon": -0.1821125
+    },
+    {
+      "name": "Valley View Clinic",
+      "lat": 5.615057,
+      "lon": -0.1982268
+    },
+    {
+      "name": "Accra Psychiatric Hospital",
+      "lat": 5.5633354,
+      "lon": -0.2045885
+    },
+    {
+      "name": "German Egon Clinic",
+      "lat": 5.6123628,
+      "lon": -0.2143482
+    },
+    {
+      "name": "VRA Hospital & Pharmacy",
+      "lat": 5.553983,
+      "lon": -0.1807477
+    },
+    {
+      "name": "37 Military Hospital",
+      "lat": 5.5882682,
+      "lon": -0.1855948
+    },
+    {
+      "name": "Adabraka Polyclinic",
+      "lat": 5.5618213,
+      "lon": -0.2044306
+    },
+    {
+      "name": "Obaatan Pa Womens Hospital",
+      "lat": 5.6310246,
+      "lon": -0.1687017
+    },
+    {
+      "name": "Cocoa Clinic",
+      "lat": 5.5717974,
+      "lon": -0.2363327
+    },
+    {
+      "name": "Barnor Hospital",
+      "lat": 5.5492639,
+      "lon": -0.2411191
+    },
+    {
+      "name": "Anthon Memorial Hospital",
+      "lat": 5.5937013,
+      "lon": -0.2114515
+    },
+    {
+      "name": "Accra Medical Centre",
+      "lat": 5.5687182,
+      "lon": -0.1860394
+    },
+    {
+      "name": "Ngleshie Amanfro Polyclinic",
+      "lat": 5.5363505,
+      "lon": -0.4112793
+    },
+    {
+      "name": "(unnamed)",
+      "lat": 5.518498,
+      "lon": -0.3876228
+    },
+    {
+      "name": "Nyameadom Maternity Home",
+      "lat": 5.5518626,
+      "lon": -0.2643403
+    },
+    {
+      "name": "Dr. Beecham's Central Dansoman Clinic",
+      "lat": 5.552274,
+      "lon": -0.2622264
+    },
+    {
+      "name": "La General Hospital",
+      "lat": 5.5553984,
+      "lon": -0.1664951
+    },
+    {
+      "name": "Euracare",
+      "lat": 5.570436,
+      "lon": -0.1766637
+    },
+    {
+      "name": "Emmanuel Community Hospital",
+      "lat": 5.6065334,
+      "lon": -0.2375877
+    },
+    {
+      "name": "Armah Memorial",
+      "lat": 5.5584037,
+      "lon": -0.2433672
+    },
+    {
+      "name": "C&J Medicare Hospital",
+      "lat": 5.5535249,
+      "lon": -0.2100966
+    },
+    {
+      "name": "The Bank Hospital Anex",
+      "lat": 5.5833186,
+      "lon": -0.1608329
+    },
+    {
+      "name": "The Bank Hospital",
+      "lat": 5.5851287,
+      "lon": -0.162
+    },
+    {
+      "name": "Provident Specialist Hospital",
+      "lat": 5.6262736,
+      "lon": -0.2364287
+    },
+    {
+      "name": "Accra Medical Centre",
+      "lat": 5.5694068,
+      "lon": -0.1864111
+    },
+    {
+      "name": "Mamprobi Hospital",
+      "lat": 5.5381795,
+      "lon": -0.2452645
+    },
+    {
+      "name": "St. Martin's Memorial Hospital",
+      "lat": 5.5793621,
+      "lon": -0.2733738
+    }
+  ]
+}

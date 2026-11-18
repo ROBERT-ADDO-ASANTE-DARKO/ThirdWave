@@ -60,12 +60,12 @@ map_tiles`) to confirm the fix before redeploying.
 | 1 | Live incident map (clustering + severity colors) | **Done** | -- (uncommitted) |
 | 2 | Incoming reports queue (Pending/Verified/Responding/Resolved) | **Done** | -- (uncommitted) |
 | 3 | Report confidence score | **Done** | -- (uncommitted) |
-| 4 | Resource allocation (NADMO/fire/ambulance/boats/shelters) | Not started -- **open data gap, see below** | -- |
+| 4 | Resource allocation (NADMO/fire/ambulance/boats/shelters) | **Done** | -- (uncommitted) |
 | 5 | Road closure recommendations | **Done** | -- (uncommitted) |
 | 6 | Flood/incident timeline | **Done** | -- (uncommitted) |
 | 7 | Analytics dashboard | **Done** | -- (uncommitted) |
 | 8 | Multi-year encroachment trend view | **Done** | -- (uncommitted) |
-| 9 | District briefing workflow | Partially built already | -- |
+| 9 | District briefing workflow | **Done** | -- (uncommitted) |
 
 ## 0 — AI Assistant extended-coverage wiring — Done
 
@@ -221,18 +221,81 @@ date) without crashing, confidence score unchanged as designed.
 AppTest confirmed the Streamlit page renders the badges/expanders with
 no exceptions.
 
-## 4 — Resource allocation — OPEN DATA GAP
+## 4 — Resource allocation — Done
 
-**Grounding:** `govt_resource_allocation.py`'s own docstring says its
-responder list is **100% fabricated demo data**, explicitly labeled as
-such. No real NADMO/fire/ambulance/boat/shelter location data exists
-anywhere in this project. OSM Overpass can get real fire stations and
-hospitals (`amenity=fire_station`/`hospital`), but NADMO offices, boats,
-and shelters aren't reliably mapped in Ghana OSM data.
-**Decision needed before building this one:** stay honestly-labeled
-synthetic for the pilot (consistent with the rest of the project's
-honesty discipline), or invest time sourcing what real data is gettable
-(OSM for fire/hospital at minimum) and clearly caveat the rest.
+**Grounding:** `govt_resource_allocation.py`'s responder list was 100%
+fabricated demo data. Checked OSM Overpass coverage before deciding
+whether real data was gettable at all (not assumed): NADMO offices,
+flood-response boats, and shelters confirmed NOT reliably mapped
+anywhere in Ghana OSM data, but fire stations and hospitals
+(`amenity=fire_station`/`hospital`) are -- 7 real, named fire stations
+and 63 real, named hospitals turned up in/near the pilot bbox. Checked
+distance, not just presence, before trusting it: every one of the 7
+pilot assemblies has a real fire station within ~0.6-4.6km of its
+centroid and at least one real hospital (thinnest: Ayawaso Central
+Municipal). Went with the middle path -- real data where OSM actually
+supports it, explicitly-labeled synthetic where it doesn't -- rather
+than either staying 100% fabricated or pretending full coverage exists.
+
+**Built:** `risk_engine/emergency_facilities.py` (one-time Overpass
+fetch, same pattern as every other Overpass dataset here) ->
+`risk_engine/data/emergency_facilities.json`. `geo_data.emergency_facilities()`
+(loader) + `nearest_facility(lat, lon, kind)` (nearest real fire_station
+or hospital by haversine_km -- straight-line distance, not a road-
+network ETA, stated as such). New `GET /resource-allocation/nearest-facilities`.
+`govt_resource_allocation.py` now shows each active incident's real
+nearest fire station + hospital (name, distance) alongside the still-
+fabricated responder-unit assignment dropdown -- the two are visually
+distinct (one labeled "real," the other left exactly as fabricated as
+it always was). NADMO/boats/shelters untouched -- still `DEMO_RESPONDERS`,
+now with the reasoning for why documented rather than just asserted.
+
+**Verified:** live `GET /resource-allocation/nearest-facilities` against
+real coordinates -- correctly returned Ghana Fire Service (0.11km) and
+Atta Quarshie Merton Memorial Hospital (0.88km) for a point near Ghana
+Fire Service's own real OSM location. AppTest (with an injected active
+incident, since the seed data's own 2 incidents are both historical/
+closed on a fresh session) confirmed the page renders the real nearest-
+facility caption with no exceptions.
+
+**Restructured around how NADMO actually coordinates, not just skinned:**
+researched NADMO's real dispatch structure (nadmo.gov.gh + a Citi News
+interview with a NADMO Inspectorate officer -- no official step-by-step
+protocol found anywhere public, so this mirrors the publicly confirmed
+SHAPE, not a claimed replica of an internal SOP). Two confirmed facts
+drove the redesign: (1) District Directors stationed at the local
+Assembly are NADMO's own stated first responders for district-level
+emergencies, and (2) NADMO's Operations department lists "deployment of
+response teams" AND "liaison with military and police" as core
+functions, and pools Fire Service/Police/Red Cross/military alongside
+its own teams for larger floods -- i.e. one incident can have MULTIPLE
+responders, not a single pick from one flat list.
+
+Replaced the old flat `DEMO_RESPONDERS` (4 arbitrarily-named units) with
+four distinct categories: `DEMO_NADMO_TEAMS` (one fabricated team per
+pilot assembly -- mirrors the real one-office-per-assembly structure),
+`DEMO_LIAISON_UNITS` (Police/Military, fabricated -- mirrors the real
+liaison FUNCTION, not a real roster), and Fire Service/Medical, which
+now dispatch the REAL nearest station/hospital from feature #4's data
+instead of a separate fabricated entry. An incident's NADMO-team picker
+defaults to ITS OWN district's team (falls back with a visible warning
+if that team is already deployed elsewhere) rather than a flat
+statewide list with no geographic logic. Each incident can now
+accumulate any combination of NADMO/Fire/Medical/Liaison responders
+(`inc["responders"]` list) inside a "Coordinate response" expander;
+resolving an incident frees every responder type it picked up, not just
+one. `store.assign_responder()` (the one field the shared store/citizen-
+facing ETA can represent) is still called for the NADMO-team dispatch,
+same as before -- Fire/Medical/Liaison dispatch is page-local
+bookkeeping only, since OSM has no real availability feed to begin with.
+
+**Verified:** AppTest end-to-end -- dispatched NADMO team (correctly
+defaulted to the test incident's own assembly), Fire, and Medical, then
+multiselected and requested Police Liaison; the success banner listed
+all four (`NADMO: ... · Fire: Ghana Fire Service · Medical: Atta
+Quarshie Merton Memorial Hospital · Liaison: Police Liaison`); Mark
+Resolved correctly freed all four responder slots and returned the
+queue to "No active incidents." No exceptions at any step.
 
 ## 5 — Road closure recommendations — Done
 
@@ -492,7 +555,7 @@ stronger evidence; left the assembly-level `possible_flood_contamination`
 mechanism itself as a "lead to check," since only these 5 cells have
 been hand-verified against a clean-day scene.
 
-## 9 — District briefing workflow
+## 9 — District briefing workflow — gaps closed
 
 **Grounding:** furthest along of everything on this list.
 `backend/routers/briefings.py` already has a draft -> review -> approve/
@@ -502,3 +565,47 @@ talking to the backend over HTTP rather than session state. Known
 architectural limit (stated in both places): actually publishing
 approved text as a real Claude Doc isn't reachable from arbitrary backend
 Python, only from a Claude Code/claude.ai agentic session.
+
+**Checked and confirmed "partially built" with three concrete gaps,
+all now closed:**
+
+1. `risk_engine/briefing_queue.py`'s `clear_district()` was defined but
+   never called anywhere -- a flagged district stayed flagged forever,
+   even after a briefing was drafted and approved for it. Wired into
+   `backend/routers/briefings.py`'s `create_draft()`, matching the
+   module's own documented contract ("called once a Briefing for this
+   district has been drafted"). Imported from `risk_engine/` via a
+   `sys.path` insert rather than re-implemented, so the two can't drift
+   apart.
+2. `govt_district_dashboard.py`'s briefing-queue banner was pure text --
+   an officer had to manually re-type the district/reason on a separate
+   page. Each flag now gets its own "Draft ->" button that stores the
+   district/reason/source_finding in `st.session_state["brf_prefill"]`;
+   `govt_briefing_review.py`'s draft form picks it up and pre-fills all
+   three fields (consumed once via `.pop`, so it doesn't keep stomping
+   on manual edits). Streamlit's radio-based nav can't jump pages
+   itself, so the officer still switches tabs manually -- stated
+   plainly in the banner's own text rather than overclaiming.
+3. A real flag had been sitting in the queue since 2026-10-15 for
+   `"La-Nkwantanang-Madina"` (missing the "Municipal" suffix every other
+   file in this project uses for that assembly) and couldn't be
+   selected in the draft form's dropdown at all. Added the correct
+   `"La-Nkwantanang-Madina Municipal"` to `KNOWN_DISTRICTS`, and -- the
+   real fix -- the dropdown now always unions `KNOWN_DISTRICTS` with
+   whatever district names are actually sitting in the queue, so any
+   future naming mismatch stays selectable instead of silently stuck.
+
+**Verified:** live against the real backend and the real queue file
+(not a mock) -- added a disposable `"TEST-District-DoNotUse"` flag,
+drafted a briefing for it via `POST /briefings/draft`, confirmed the
+queue file afterward had that entry removed while the real, untouched
+`La-Nkwantanang-Madina` entry was still present (proving `clear_district`
+matches by exact district name and doesn't over-clear); deleted the
+test Briefing row directly from `thirdwave.db` afterward (no DELETE
+endpoint exists). AppTest confirmed the full UI loop end-to-end: clicking
+"Draft ->" on the District Dashboard's real queue entry set the prefill,
+switching pages (Operations -> District Briefing Review) picked it up,
+and all three fields (district, reason, source finding) matched the
+real queue entry exactly -- no exceptions anywhere, and the dropdown
+confirmed to contain both the real queue's exact string and the
+corrected canonical name.

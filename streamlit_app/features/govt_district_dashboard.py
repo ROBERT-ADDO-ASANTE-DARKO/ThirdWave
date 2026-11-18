@@ -35,17 +35,33 @@ def _render_briefing_queue_banner():
     risk_engine/briefing_queue.py's flag_district() when they find
     something briefing-worthy. See
     .claude/plans/temporal-waddling-trinket.md -- this is the
-    "semi-automatic flagging" trigger, not a real scheduler."""
+    "semi-automatic flagging" trigger, not a real scheduler.
+
+    Each flag gets its own "Draft ->" button rather than one plain
+    banner: clicking it stores the district/reason/source_finding in
+    st.session_state["brf_prefill"], which govt_briefing_review.py's
+    draft form picks up and pre-fills -- Streamlit can't jump the
+    sidebar nav itself from here, so the officer still switches pages
+    manually, but doesn't have to retype anything once there."""
     if not BRIEFING_QUEUE_PATH.exists():
         return
     queue = json.loads(BRIEFING_QUEUE_PATH.read_text())
     if not queue:
         return
-    districts = ", ".join(sorted({e["district"] for e in queue}))
-    st.info(
-        f"📋 **{len(queue)} district(s) have new findings worth briefing the assembly on:** {districts}. "
-        f"Go to **District Briefing Review** to draft and send an update."
-    )
+    st.info(f"📋 **{len(queue)} district(s) have new findings worth briefing the assembly on.** "
+            "Click one to pre-fill a draft, then open **District Briefing Review** "
+            "(Government -> Operations) in the sidebar to continue.")
+    for i, entry in enumerate(queue):
+        col1, col2 = st.columns([5, 1])
+        with col1:
+            st.caption(f"**{entry['district']}** -- {entry['reason'].replace('_', ' ')}: {entry['source_finding']}")
+        with col2:
+            if st.button("Draft ->", key=f"brf_prefill_btn_{i}"):
+                st.session_state["brf_prefill"] = {
+                    "district": entry["district"], "reason": entry["reason"],
+                    "source_finding": entry["source_finding"],
+                }
+                st.success("Pre-filled -- open District Briefing Review in the sidebar.")
 
 
 @st.cache_data

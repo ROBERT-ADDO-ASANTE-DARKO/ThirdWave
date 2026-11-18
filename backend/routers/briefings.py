@@ -16,7 +16,9 @@ router trying to produce one.
 """
 
 import json
+import sys
 from datetime import datetime, timezone
+from pathlib import Path
 from uuid import uuid4
 
 from fastapi import APIRouter, HTTPException
@@ -27,6 +29,13 @@ from auth import require_officer
 from db import get_session
 from models import Briefing
 from schemas import DraftBriefingBody, ReviewBriefingBody, UpdateBriefingSectionsBody
+
+# risk_engine/briefing_queue.py is the one place clear_district() is
+# defined (same module flag_district() lives in, so the two can't drift
+# apart) -- imported rather than re-implemented here, even though
+# backend/ and risk_engine/ are sibling dirs with no shared package.
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "risk_engine"))
+from briefing_queue import clear_district  # noqa: E402
 
 # Every endpoint here is an internal officer workflow (draft/list/edit/
 # approve a district briefing), never citizen-facing -- unlike
@@ -70,6 +79,7 @@ def create_draft(body: DraftBriefingBody, session: Session = Depends(get_session
     session.add(briefing)
     session.commit()
     session.refresh(briefing)
+    clear_district(body.district)  # matches briefing_queue.py's documented contract -- stop nagging once a draft exists
     return _serialize(briefing)
 
 
