@@ -1,0 +1,73 @@
+.rqq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rqq-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.rqq-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rqq-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.rqq-card-head code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.rqq-card-head strong {
+  color: var(--text-primary);
+}
+
+.rqq-district {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.rqq-awaiting-note {
+  margin: 4px 0 0;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.rqq-assigned-team {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--signal-teal);
+}
+
+.rqq-actions-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.rqq-resolved-row {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+.rqq-resolved-row code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+  margin-right: 6px;
+}

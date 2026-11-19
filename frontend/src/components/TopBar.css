@@ -1,0 +1,72 @@
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-title {
+  margin: 0 0 4px;
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.topbar-subtitle {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.topbar-search-icon {
+  position: absolute;
+  left: 12px;
+  display: flex;
+}
+
+.topbar-search input {
+  width: 260px;
+  padding: 9px 12px 9px 34px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--surface-input-border);
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--surface-card);
+  color: var(--text-primary);
+}
+
+.topbar-bell {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--surface-input-border);
+  background: var(--surface-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.topbar-bell-dot {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--level-very-high);
+}

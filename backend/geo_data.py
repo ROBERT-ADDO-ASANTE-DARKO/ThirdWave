@@ -50,6 +50,17 @@ def risk_zones() -> list[dict]:
 
 
 @lru_cache(maxsize=1)
+def obstruction_height() -> dict:
+    """Copernicus DEM minus FABDEM, per pilot grid cell -- a free, real
+    height-above-ground proxy (r=0.83 correlated with impervious land
+    cover, see risk_engine/building_obstruction_height.py). ~30m-class,
+    so it's a per-cell obstruction signal, not a building-level layer.
+    Reported for context, not blended into any score -- same discipline
+    as LULC elsewhere in this module."""
+    return json.loads((DATA_DIR / "building_obstruction_height.json").read_text())
+
+
+@lru_cache(maxsize=1)
 def historical_events() -> list[dict]:
     return json.loads((DATA_DIR / "historical_flood_events.json").read_text())["events"]
 
@@ -72,7 +83,9 @@ def assembly_scores() -> list[dict]:
     return [
         {
             "assembly": name, "score": r["score"], "level": r["level"],
-            "water_occ_pct": r["water_occ_pct"], "impervious_pct": r["impervious_pct"],
+            "water_occ_pct": r["water_occ_pct"], "low_elev_frac_pct": r["low_elev_frac_pct"],
+            "median_elev_m": r["median_elev_m"], "impervious_pct": r["impervious_pct"],
+            "wetland_water_pct": r["wetland_water_pct"],
         }
         for name, r in raw.items()
     ]

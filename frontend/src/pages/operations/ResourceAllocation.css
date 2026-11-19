@@ -1,0 +1,226 @@
+.ra-incident-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ra-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ra-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ra-card-head-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ra-card-head-left code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.ra-synthetic-badge {
+  font-size: 10px;
+  font-weight: 800;
+  background: #f0d9b5;
+  color: #7a5200;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.ra-card-location {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.ra-hazard {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+.ra-responding-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(30, 138, 76, 0.1);
+  color: var(--level-low);
+  font-weight: 700;
+  font-size: 12.5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin: 4px 0 6px;
+  width: fit-content;
+}
+
+.ra-coordinate summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.ra-coordinate summary::-webkit-details-marker {
+  display: none;
+}
+
+.ra-coordinate-summary {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-primary);
+  padding: 4px 0;
+}
+
+.ra-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.ra-column {
+  border: 1px solid var(--surface-border-soft);
+  border-radius: var(--radius-row);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ra-column-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.ra-column-note {
+  margin: 6px 0 10px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.ra-column-note-real {
+  color: var(--signal-teal);
+  font-weight: 700;
+}
+
+.ra-select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--surface-input-border);
+  font-size: 12.5px;
+  font-family: inherit;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.ra-eta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ra-eta-input {
+  width: 56px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--surface-input-border);
+  font-size: 12.5px;
+  font-family: inherit;
+}
+
+.ra-eta-label {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.ra-dispatch-btn {
+  width: 100%;
+}
+
+.ra-warning {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--level-moderate);
+}
+
+.ra-facility-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ra-facility-distance {
+  display: block;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin: 2px 0 10px;
+}
+
+.ra-liaison {
+  margin-top: 16px;
+  border-top: 1px solid var(--surface-border-soft);
+  padding-top: 16px;
+}
+
+.ra-liaison-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ra-liaison-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #3c4a57;
+  background: var(--surface-page);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.ra-resolve-btn {
+  margin-top: 16px;
+  align-self: flex-start;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.ra-availability-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.ra-availability-strip > * {
+  flex: 1;
+  min-width: 260px;
+}
+
+.ra-availability-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.ra-availability-pills {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}

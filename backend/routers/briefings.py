@@ -35,7 +35,7 @@ from schemas import DraftBriefingBody, ReviewBriefingBody, UpdateBriefingSection
 # apart) -- imported rather than re-implemented here, even though
 # backend/ and risk_engine/ are sibling dirs with no shared package.
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "risk_engine"))
-from briefing_queue import clear_district  # noqa: E402
+from briefing_queue import QUEUE_PATH, clear_district  # noqa: E402
 
 # Every endpoint here is an internal officer workflow (draft/list/edit/
 # approve a district briefing), never citizen-facing -- unlike
@@ -91,6 +91,17 @@ def list_pending(district: str | None = None, session: Session = Depends(get_ses
     rows = list(session.exec(stmt).all())
     rows.sort(key=lambda b: b.created_at, reverse=True)
     return [_serialize(b) for b in rows]
+
+
+@router.get("/queue")
+def list_queue():
+    """The "semi-automatic flagging" queue risk_engine scripts write to
+    via briefing_queue.flag_district() (e.g. a new Very High channel-
+    encroachment cell) -- read-only here; drafting a briefing for a
+    flagged district clears it (see create_draft() above)."""
+    if not QUEUE_PATH.exists():
+        return []
+    return json.loads(QUEUE_PATH.read_text())
 
 
 @router.get("/{briefing_id}")

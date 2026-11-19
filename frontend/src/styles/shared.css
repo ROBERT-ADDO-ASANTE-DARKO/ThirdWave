@@ -1,0 +1,58 @@
+/* Small cross-page layout primitives (KPI row, section headers, inline
+   error text) used by every Operations queue-style screen -- Incident
+   Verification, Reports Queue, and future ones. Kept separate from
+   components/ui.css's reusable widgets since these are plain layout
+   classes, not components. */
+
+.section-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.section-title-spaced {
+  margin-top: 10px;
+}
+
+.section-caption {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+.error-text {
+  margin: 0;
+  color: var(--level-very-high);
+  font-size: 13px;
+}
+
+/* A collapsible section header (plain button, no library) -- Reports
+   Queue's "Resolved" history and Road Closures' "by incident" detail
+   both use this. */
+.disclosure-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.disclosure-body {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

@@ -1,0 +1,81 @@
+/*
+ * Brand tokens mirror streamlit_app/data_loader.py (INK_NAVY, STEEL_BLUE,
+ * SIGNAL_TEAL, LEVEL_COLOR) so the React dashboard and the Streamlit one
+ * stay visually consistent while both exist.
+ */
+:root {
+  --ink-navy: #0b2545;
+  --steel-blue: #1e4e6b;
+  --signal-teal: #1b7a9e;
+  --signal-teal-light: #5fc9e8;
+  --signal-teal-hover: #15607d;
+
+  --level-low: #1e8a4c;
+  --level-moderate: #b8860b;
+  --level-high: #c1621b;
+  --level-very-high: #b0241d;
+
+  --surface-page: #f3f6f8;
+  --surface-card: #ffffff;
+  --surface-border: #e6ebef;
+  --surface-border-soft: #eceff2;
+  --surface-input-border: #dde4e9;
+  --surface-track: #eef2f4;
+
+  --text-primary: var(--ink-navy);
+  --text-secondary: #5b6b7a;
+  --text-muted: #8b98a5;
+
+  --sidebar-bg: var(--ink-navy);
+  --sidebar-text: #eaf0f4;
+  --sidebar-text-muted: #9fb2c2;
+  --sidebar-text-dim: #c7d4dd;
+  --sidebar-hairline: #6f89a0;
+  --sidebar-active-bg: rgba(27, 122, 158, 0.22);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+
+  --radius-card: 14px;
+  --radius-row: 12px;
+  --radius-control: 10px;
+  --radius-pill: 999px;
+
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--surface-page);
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--signal-teal);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--signal-teal-hover);
+}
+
+button {
+  font-family: inherit;
+}
+
+::placeholder {
+  color: var(--text-muted);
+}
+
+#root {
+  min-height: 100vh;
+}

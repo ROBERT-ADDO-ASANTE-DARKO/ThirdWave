@@ -1,0 +1,26 @@
+.map-style-picker {
+  display: flex;
+  gap: 8px;
+}
+
+.map-style-btn {
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--surface-input-border);
+  border-radius: 9px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.map-style-btn.is-active {
+  background: var(--ink-navy);
+  color: #ffffff;
+  border-color: var(--ink-navy);
+}
+
+.map-style-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

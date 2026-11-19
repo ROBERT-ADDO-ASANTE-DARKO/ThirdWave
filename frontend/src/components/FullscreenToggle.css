@@ -1,0 +1,19 @@
+.fullscreen-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 500;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--surface-input-border);
+  background: #ffffffee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fullscreen-toggle:hover {
+  background: #ffffff;
+}

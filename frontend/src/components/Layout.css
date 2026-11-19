@@ -1,0 +1,16 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--surface-page);
+}
+
+.app-main {
+  flex: 999 1 560px;
+  min-width: 0;
+  padding: 30px 40px 48px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
