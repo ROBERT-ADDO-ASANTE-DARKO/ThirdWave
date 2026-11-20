@@ -25,6 +25,15 @@ function highwayLabel(h: Highway): string {
   return Array.isArray(h) ? h.join(" / ") : h;
 }
 
+// A generic OSM name like "Unnamed road" legitimately recurs across
+// unrelated, non-contiguous regions (pilot/Lower Volta/Ayawaso West/
+// Madina) -- road_closure_score.py now keeps those as separate rows
+// (keyed by name+region server-side) instead of merging them, so
+// row.name alone is no longer a unique React key here either.
+function rowKey(row: RoadClosureScore): string {
+  return `${row.name}::${row.incident_ids.join(",")}`;
+}
+
 const SEVERITY_LEVELS = ["Very High", "High", "Moderate", "Low"] as const;
 
 const SIGNAL_ROWS: { key: keyof RoadClosureScore["signals"]; label: string; weightPct: number }[] = [
@@ -178,6 +187,25 @@ export function RoadClosures() {
     return [lat, lon];
   }, [filteredScores]);
 
+  // MapContainer's center/zoom props only apply at mount -- react-leaflet
+  // doesn't re-center an already-live map when they change later. Without
+  // this, picking a different district recomputes `center` above but the
+  // map itself never moves. Regions can be ~100km apart (pilot vs. Lower
+  // Volta vs. Ayawaso West/Madina), so fitBounds over every point, not a
+  // fixed zoom at the averaged centroid, is what actually gets the
+  // selected district on screen.
+  useEffect(() => {
+    const map = leafletMapRef.current;
+    if (!map) return;
+    const points = filteredScores.flatMap((s) => s.coords.flat());
+    if (points.length === 0) return;
+    if (points.length === 1) {
+      map.setView(points[0], 15);
+    } else {
+      map.fitBounds(points, { padding: [50, 50], maxZoom: 16 });
+    }
+  }, [filteredScores]);
+
   const fullClosure = scores.filter((r) => r.action === "Full closure").length;
   const noAction = scores.filter((r) => r.action === "No action").length;
 
@@ -235,7 +263,7 @@ export function RoadClosures() {
           <p className="section-caption">
             {query
               ? `No flagged segments match "${query}".`
-              : `No flagged road segments in ${district} — the loaded road network (risk_engine's pilot road graph) may not cover this area yet, even though the incident itself is real.`}
+              : `No flagged road segments in ${district} — the loaded road network (pilot district, Lower Volta basin, Ayawaso West, and Madina) may not cover this area yet, even though the incident itself is real.`}
           </p>
         </Card>
       )}
@@ -253,7 +281,7 @@ export function RoadClosures() {
             </div>
             <div className="rc-table-rows">
               {filteredScores.map((row) => (
-                <SegmentRow key={row.name} row={row} />
+                <SegmentRow key={rowKey(row)} row={row} />
               ))}
             </div>
           </Card>
@@ -263,7 +291,7 @@ export function RoadClosures() {
               <StyleTileLayer style={mapStyle} />
               {filteredScores.map((row) =>
                 row.coords.map((line, i) => (
-                  <Polyline key={`${row.name}-${i}`} positions={line} pathOptions={{ color: LEVEL_HEX[row.level], weight: 6, opacity: 0.85 }}>
+                  <Polyline key={`${rowKey(row)}-${i}`} positions={line} pathOptions={{ color: LEVEL_HEX[row.level], weight: 6, opacity: 0.85 }}>
                     <Tooltip>
                       {row.emoji} {row.name} ({highwayLabel(row.highway)}) — {row.action}
                     </Tooltip>

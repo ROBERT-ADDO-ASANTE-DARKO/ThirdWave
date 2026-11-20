@@ -61,6 +61,68 @@ def obstruction_height() -> dict:
 
 
 @lru_cache(maxsize=1)
+def extended_assembly_geometries() -> gpd.GeoDataFrame:
+    return gpd.read_file(DATA_DIR / "extended_district_assemblies.geojson")
+
+
+@lru_cache(maxsize=1)
+def extended_assembly_scores() -> list[dict]:
+    """11 districts (the 7 pilot assemblies + Ayawaso West, Ga South, Tema,
+    Ashaiman), added for regional context -- not part of the MVP pilot
+    deliverable. Deliberately minimal field set, mirrors
+    streamlit_app/data_loader.py's load_extended_district_scores(): this
+    set was never re-audited for the pilot's full component-level
+    display."""
+    raw = json.loads((DATA_DIR / "extended_district_vulnerability.json").read_text())
+    rows = [
+        {
+            "assembly": name,
+            "score": r["score"],
+            "level": r["level"],
+            "water_occ_pct": r["water_occ_pct"],
+            "low_elev_frac_pct": r["low_elev_frac_pct"],
+            "in_original_pilot": r.get("in_original_pilot", False),
+        }
+        for name, r in raw.items()
+    ]
+    return sorted(rows, key=lambda r: -r["score"])
+
+
+@lru_cache(maxsize=1)
+def lower_volta_assembly_geometries() -> gpd.GeoDataFrame:
+    return gpd.read_file(DATA_DIR / "lower_volta_district_assemblies.geojson")
+
+
+@lru_cache(maxsize=1)
+def lower_volta_assembly_scores() -> list[dict]:
+    """The 7 Lower Volta basin districts (Ada East/West, Asuogyaman, Lower
+    Manya, North/Central/South Tongu) -- full pilot-grade coverage, but a
+    separate, non-contiguous region (~150km away, spanning 3 regions)
+    from the Accra pilot, added for the 2023 Akosombo/Kpong dam-spillage
+    flood history. The composite score here is a multi-year statistical
+    measure (SAR + DEM + LULC) and cannot see a one-off dam-release flood
+    -- every district still scores Low/Moderate despite that event; see
+    historical_flood_events.json (AKOSOMBO-DAM-SPILLAGE-2023-09-15) for
+    the real, separately-documented incident."""
+    raw = json.loads((DATA_DIR / "lower_volta_district_vulnerability.json").read_text())
+    rows = [
+        {
+            "assembly": name,
+            "region": r.get("region"),
+            "score": r["score"],
+            "level": r["level"],
+            "water_occ_pct": r["water_occ_pct"],
+            "low_elev_frac_pct": r["low_elev_frac_pct"],
+            "median_elev_m": r["median_elev_m"],
+            "impervious_pct": r["impervious_pct"],
+            "wetland_water_pct": r["wetland_water_pct"],
+        }
+        for name, r in raw.items()
+    ]
+    return sorted(rows, key=lambda r: -r["score"])
+
+
+@lru_cache(maxsize=1)
 def historical_events() -> list[dict]:
     return json.loads((DATA_DIR / "historical_flood_events.json").read_text())["events"]
 

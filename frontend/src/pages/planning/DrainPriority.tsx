@@ -72,6 +72,23 @@ export function DrainPriority() {
 
   const center = useMemo(() => centerOf(top), [top]);
 
+  // MapContainer's center prop only applies at mount -- react-leaflet
+  // doesn't move an already-live map when it changes later. Narrowing
+  // via search or the top-N slider recomputes `top`/`center` above but,
+  // without this, the map itself never follows (same root cause as the
+  // Road Closures screen's "map doesn't adjust" bug).
+  useEffect(() => {
+    const map = leafletMapRef.current;
+    if (!map) return;
+    const points = top.flatMap((z) => geometryPoints(z.geometry));
+    if (points.length === 0) return;
+    if (points.length === 1) {
+      map.setView(points[0], 15);
+    } else {
+      map.fitBounds(points, { padding: [50, 50], maxZoom: 16 });
+    }
+  }, [top]);
+
   return (
     <>
       <TopBar

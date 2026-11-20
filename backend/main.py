@@ -48,6 +48,15 @@ app.mount("/uploads", StaticFiles(directory=UPLOADS_DIR), name="uploads")
 EVIDENCE_DIR = Path(__file__).parent.parent / "risk_engine" / "data" / "evidence"
 app.mount("/evidence", StaticFiles(directory=EVIDENCE_DIR), name="evidence")
 
+# Raster evidence-layer overlays (SAR water occurrence, DEM elevation, ESA
+# WorldCover) for District Vulnerability's pilot-scope-only overlay toggle --
+# exported once by risk_engine/export_raster_overlays.py, not served live.
+# Same "its own dedicated directory, not risk_engine/data/ itself" reasoning
+# as EVIDENCE_DIR above; manifest.json lives alongside the PNGs in here too,
+# so it's served the same static way, no dedicated endpoint needed for it.
+OVERLAYS_DIR = Path(__file__).parent.parent / "risk_engine" / "data" / "overlays"
+app.mount("/overlays", StaticFiles(directory=OVERLAYS_DIR), name="overlays")
+
 app.include_router(reports.router)
 app.include_router(incidents.router)
 app.include_router(devices.router)

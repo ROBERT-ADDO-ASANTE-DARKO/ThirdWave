@@ -95,6 +95,23 @@ export function AnalyticsDashboard() {
     return [filteredHotspots[0].centroid.lat, filteredHotspots[0].centroid.lon];
   }, [filteredHotspots]);
 
+  // MapContainer's center prop only applies at mount -- react-leaflet
+  // doesn't move an already-live map when it changes later. Searching
+  // recomputes `hotspotCenter` above but, without this, the map never
+  // follows (same root cause as the Road Closures screen's "map doesn't
+  // adjust" bug).
+  useEffect(() => {
+    const map = leafletMapRef.current;
+    if (!map) return;
+    const points = filteredHotspots.map((h): [number, number] => [h.centroid.lat, h.centroid.lon]);
+    if (points.length === 0) return;
+    if (points.length === 1) {
+      map.setView(points[0], 15);
+    } else {
+      map.fitBounds(points, { padding: [50, 50], maxZoom: 15 });
+    }
+  }, [filteredHotspots]);
+
   const verification = responseTimes ? kpiLatency(responseTimes.verification_latency) : null;
   const resolution = responseTimes ? kpiLatency(responseTimes.resolution_latency) : null;
 

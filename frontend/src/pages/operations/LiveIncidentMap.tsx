@@ -106,6 +106,26 @@ export function LiveIncidentMap() {
     return [lat, lon];
   }, [filteredClusters, filteredIncidents]);
 
+  // MapContainer's center prop only applies at mount -- react-leaflet
+  // doesn't move an already-live map when it changes later. Changing the
+  // district/hazard/severity filters or typing a search recomputes
+  // `center` above but, without this, the map never follows (same root
+  // cause as the Road Closures screen's "map doesn't adjust" bug).
+  useEffect(() => {
+    const map = leafletMapRef.current;
+    if (!map) return;
+    const points: [number, number][] = [
+      ...filteredClusters.map((c): [number, number] => [c.centroid.lat, c.centroid.lon]),
+      ...filteredIncidents.map((i): [number, number] => [i.lat, i.lon]),
+    ];
+    if (points.length === 0) return;
+    if (points.length === 1) {
+      map.setView(points[0], 15);
+    } else {
+      map.fitBounds(points, { padding: [50, 50], maxZoom: 15 });
+    }
+  }, [filteredClusters, filteredIncidents]);
+
   const nPending = clusters.reduce((s, c) => s + c.n_reports, 0);
   const nResponding = incidents.filter((i) => i.response_status === "responding").length;
 

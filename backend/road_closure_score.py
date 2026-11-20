@@ -70,6 +70,7 @@ close a segment.
 from __future__ import annotations
 
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 import geo_data
 import open_meteo
@@ -170,6 +171,40 @@ def _near_term_rainfall_mm(lat: float, lon: float) -> float | None:
     return near_term
 
 
+def _prewarm_rainfall_cache(points: list[tuple[float, float]]) -> None:
+    """Fetches every not-yet-cached (lat, lon) point concurrently, so
+    compute()'s main loop (one _rainfall_score() call per road segment)
+    never blocks on a SEQUENCE of slow/unresponsive Open-Meteo calls.
+
+    With regions now as far apart as pilot/Lower Volta/Ayawaso West/
+    Madina, a single request can need rainfall for several genuinely
+    distinct locations at once. Fetching those one at a time on a cold
+    cache (each with a 15s timeout, see open_meteo.fetch_rainfall_
+    forecast) could sum past the frontend's 30s request timeout --
+    exactly what happened. Fetched concurrently, the added latency is
+    bounded by the single slowest call, not their sum."""
+    now = time.time()
+    seen: set[tuple[float, float]] = set()
+    to_fetch: list[tuple[float, float]] = []
+    for lat, lon in points:
+        key = (round(lat, 3), round(lon, 3))
+        if key in seen:
+            continue
+        seen.add(key)
+        cached = _rainfall_cache.get(key)
+        if not cached or (now - cached[0]) >= RAINFALL_CACHE_TTL_S:
+            to_fetch.append((lat, lon))
+    if not to_fetch:
+        return
+    with ThreadPoolExecutor(max_workers=min(8, len(to_fetch))) as pool:
+        # Results populate _rainfall_cache as a side effect; the
+        # sequential main loop below then hits a warm cache for all of
+        # these. Exceptions are already swallowed inside
+        # _near_term_rainfall_mm (returns None on failure), so a single
+        # slow/broken location can't fail the others.
+        list(pool.map(lambda p: _near_term_rainfall_mm(*p), to_fetch))
+
+
 def _rainfall_score(lat: float, lon: float) -> tuple[float, float | None]:
     """-> (normalized score, raw near-term mm or None if the forecast
     call failed -- the caller shows the raw figure, the score silently
@@ -187,25 +222,44 @@ def _rainfall_score(lat: float, lon: float) -> tuple[float, float | None]:
 
 
 def compute(session) -> list[dict]:
-    G = route_engine.load_graph()
     incidents = route_engine._active_incidents(session)
 
-    segments: dict[str, dict] = {}
+    # Each incident picks its own graph (pilot / Lower Volta / Ayawaso
+    # West / Madina) -- see route_engine.pick_region()'s docstring;
+    # incidents can be far apart, so there's no single graph right for
+    # all of them.
+    #
+    # Keyed by (name, region), not name alone: a generic OSM name like
+    # "Unnamed road" recurs across these completely unrelated,
+    # non-contiguous regions. Keying on name alone merged those into one
+    # row with geometrically disjoint coords -- a "road" that jumped
+    # ~100km between Accra and the Lower Volta basin -- which then blew
+    # out the frontend map's fitBounds to a country-wide zoom whenever
+    # that merged row matched the selected district filter.
+    segments: dict[tuple[str, str], dict] = {}
     for inc in incidents:
+        region = route_engine.pick_region(inc["lon"], inc["lat"])
+        G = route_engine.load_graph(region)
         for seg in route_engine.segments_near_point(G, inc["lon"], inc["lat"]):
-            g = segments.setdefault(seg["name"], {
+            g = segments.setdefault((seg["name"], region), {
                 "name": seg["name"], "highway": seg["highway"],
                 "coords": seg["coords"], "n_edges": seg["n_edges"], "incidents": [],
             })
             g["incidents"].append(inc)
 
+    rep_points = {
+        key: (sum(i["lat"] for i in seg["incidents"]) / len(seg["incidents"]),
+              sum(i["lon"] for i in seg["incidents"]) / len(seg["incidents"]))
+        for key, seg in segments.items()
+    }
+    _prewarm_rainfall_cache(list(rep_points.values()))
+
     out = []
-    for seg in segments.values():
+    for key, seg in segments.items():
         incs = seg["incidents"]
         depths = [i["depth_hi_m"] for i in incs if i.get("depth_hi_m") is not None]
         max_depth = max(depths) if depths else None
-        rep_lat = sum(i["lat"] for i in incs) / len(incs)
-        rep_lon = sum(i["lon"] for i in incs) / len(incs)
+        rep_lat, rep_lon = rep_points[key]
         n_historical = len(geo_data.nearby_historical_events(rep_lat, rep_lon))
 
         depth_s = _depth_score(max_depth)

@@ -208,16 +208,23 @@ export interface Briefing {
 }
 
 // backend/routers/districts.py -- per-assembly composite vulnerability
-// score (SAR + DEM + LULC) + geometry, pilot scope only (7 assemblies).
+// score (SAR + DEM + LULC) + geometry. Three coverage scopes share this
+// shape, but "extended" only ever populates a minimal subset (score,
+// level, water_occ_pct, low_elev_frac_pct, in_original_pilot) -- the
+// optional fields reflect that real difference, not laziness.
+export type DistrictScope = "pilot" | "extended" | "lower_volta";
+
 export interface AssemblyScore {
   assembly: string;
   score: number;
   level: Level;
   water_occ_pct: number;
   low_elev_frac_pct: number;
-  median_elev_m: number;
-  impervious_pct: number;
-  wetland_water_pct: number;
+  median_elev_m?: number;
+  impervious_pct?: number;
+  wetland_water_pct?: number;
+  in_original_pilot?: boolean;
+  region?: string;
 }
 
 // Minimal local GeoJSON typing -- avoids pulling in @types/geojson for
@@ -315,6 +322,27 @@ export interface DrainPriorityGap {
 export interface DrainPriorityResponse {
   with_data: DrainPriorityZone[];
   without_data: DrainPriorityGap[];
+}
+
+// risk_engine/export_raster_overlays.py's output, served statically from
+// backend/main.py's /overlays mount -- pilot-scope-only raw SAR/DEM/
+// WorldCover evidence behind District Vulnerability Dashboard's overlay
+// toggle. bounds is [[south, west], [north, east]], same shape Leaflet's
+// ImageOverlay expects directly.
+export interface OverlayWorldCoverClass {
+  code: number;
+  name: string;
+  color_rgb: [number, number, number];
+}
+
+export interface OverlayManifest {
+  bounds: [[number, number], [number, number]];
+  scenes_used: number;
+  layers: {
+    sar_water_occurrence?: { file: string; min: number; max: number; legend: string };
+    dem_elevation?: { file: string; min_m: number; max_m: number; legend: string };
+    worldcover?: { file: string; legend: string; classes_present: OverlayWorldCoverClass[] };
+  };
 }
 
 export interface Cluster {

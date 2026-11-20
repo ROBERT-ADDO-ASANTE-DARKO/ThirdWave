@@ -23,6 +23,23 @@ Active-incident avoidance (same reasoning as the Streamlit version): a
 verified incident adds a heavy penalty to nearby edges AT QUERY TIME via a
 weight callable, never by mutating the cached graph in place (that would
 corrupt it for every other concurrent request).
+
+Four regions, not one (2026-11-20): risk_engine/build_road_network.py has
+also been run for Lower Volta, Ayawaso West, and Madina.
+pick_region() decides which precomputed graph covers a given point via a
+real boundary-polygon contains() check, not string-matching a district
+name. Lower Volta's boundary (lower_volta_district_boundary.geojson) was
+already real-admin-sourced; Ayawaso West's and Madina's boundaries
+(ayawaso_west_district_boundary.geojson/madina_district_boundary.geojson)
+were extracted fresh from risk_engine/data/gha_admin2.geojson (Ghana's
+real OCHA ADM2 dataset, already on disk -- no live geocoding needed for
+the boundaries themselves, only for each region's OSM road network via
+Overpass). Because all four boundaries are real, non-overlapping
+administrative polygons from the same authoritative source, pick_region()
+doesn't need geo_data.py's order-sensitive overlap handling (that exists
+there because its Ayawaso West/Madina FINE GRIDS are buffered bounding
+boxes that genuinely spill into each other near their shared border --
+these district boundaries don't have that problem).
 """
 
 from __future__ import annotations
@@ -31,30 +48,62 @@ import pickle
 from functools import lru_cache
 from pathlib import Path
 
+import geopandas as gpd
 import networkx as nx
 import numpy as np
+from shapely.geometry import Point
 from sqlmodel import Session, select
 
 from models import Report
 
-GRAPH_PATH = Path(__file__).parent.parent / "risk_engine" / "data" / "pilot_road_network.gpickle"
+DATA_DIR = Path(__file__).parent.parent / "risk_engine" / "data"
+GRAPH_PATHS = {
+    "pilot": DATA_DIR / "pilot_road_network.gpickle",
+    "lower_volta": DATA_DIR / "lower_volta_road_network.gpickle",
+    "ayawaso_west": DATA_DIR / "ayawaso_west_road_network.gpickle",
+    "madina": DATA_DIR / "madina_road_network.gpickle",
+}
+BOUNDARY_PATHS = {
+    "lower_volta": DATA_DIR / "lower_volta_district_boundary.geojson",
+    "ayawaso_west": DATA_DIR / "ayawaso_west_district_boundary.geojson",
+    "madina": DATA_DIR / "madina_district_boundary.geojson",
+}
 INCIDENT_AVOID_RADIUS_DEG = 0.0018  # ~200m at this latitude
 INCIDENT_PENALTY_FACTOR = 30.0
 SNAP_WARNING_KM = 0.3
 
 
-@lru_cache(maxsize=1)
-def load_graph() -> nx.MultiDiGraph:
-    with open(GRAPH_PATH, "rb") as f:
+@lru_cache(maxsize=4)
+def _boundary(region: str):
+    return gpd.read_file(BOUNDARY_PATHS[region]).union_all()
+
+
+def pick_region(lon: float, lat: float) -> str:
+    """Which precomputed road graph covers this point -- checks each
+    non-pilot region's real boundary polygon (see module docstring for
+    why order doesn't matter between them) and falls back to "pilot" for
+    anything outside all of them. That fallback is the honest remaining
+    coverage gap (areas with no road graph at all yet), not new
+    behavior."""
+    pt = Point(lon, lat)
+    for region in BOUNDARY_PATHS:
+        if _boundary(region).contains(pt):
+            return region
+    return "pilot"
+
+
+@lru_cache(maxsize=4)
+def load_graph(region: str = "pilot") -> nx.MultiDiGraph:
+    with open(GRAPH_PATHS[region], "rb") as f:
         return pickle.load(f)
 
 
-@lru_cache(maxsize=1)
-def _node_arrays() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+@lru_cache(maxsize=4)
+def _node_arrays(region: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Parallel numpy arrays (ids, lons, lats) over every graph node, built
-    once -- nearest_node() below vectorizes the haversine search over these
-    instead of looping in Python per request."""
-    G = load_graph()
+    once per region -- nearest_node() below vectorizes the haversine search
+    over these instead of looping in Python per request."""
+    G = load_graph(region)
     ids, lons, lats = zip(*((n, d["x"], d["y"]) for n, d in G.nodes(data=True)))
     return np.array(ids), np.array(lons), np.array(lats)
 
@@ -67,12 +116,12 @@ def _haversine_km_vec(lon1: float, lat1: float, lon2: np.ndarray, lat2: np.ndarr
     return 2 * 6371 * np.arcsin(np.sqrt(a))
 
 
-def nearest_node(lon: float, lat: float) -> tuple[int, float]:
+def nearest_node(lon: float, lat: float, region: str = "pilot") -> tuple[int, float]:
     """-> (node_id, snap_distance_km). Same "nearest_nodes always returns
     SOMETHING, however far" caveat as the Streamlit version: a point well
-    outside the pilot district's mapped roads still snaps to whatever's
-    closest, so the caller must surface snap distance, not hide it."""
-    ids, lons, lats = _node_arrays()
+    outside this region's mapped roads still snaps to whatever's closest,
+    so the caller must surface snap distance, not hide it."""
+    ids, lons, lats = _node_arrays(region)
     d_km = _haversine_km_vec(lon, lat, lons, lats)
     i = int(np.argmin(d_km))
     return int(ids[i]), float(d_km[i])
@@ -186,11 +235,15 @@ def road_closure_recommendations(session: Session) -> list[dict]:
     Groups edges by street name (a MultiDiGraph stores both directions of
     a two-way street, and sometimes several parallel OSM ways, under the
     same name) so one flooded junction reads as "Plant Pool Road, 3
-    segments," not 6 near-duplicate rows."""
-    G = load_graph()
+    segments," not 6 near-duplicate rows.
+
+    Each incident picks its own graph via pick_region() -- incidents can
+    be ~150km apart (pilot district vs. Lower Volta), so there's no one
+    graph that's right for all of them at once."""
     incidents = _active_incidents(session)
     out = []
     for inc in incidents:
+        G = load_graph(pick_region(inc["lon"], inc["lat"]))
         segments = segments_near_point(G, inc["lon"], inc["lat"])
         out.append({**inc, "affected_segments": segments, "n_segments": len(segments)})
     return sorted(out, key=lambda r: -r["n_segments"])
@@ -216,9 +269,15 @@ def segments_near_point(G, lon: float, lat: float) -> list[dict]:
 
 
 def compute_routes(session: Session, olat: float, olon: float, dlat: float, dlon: float) -> dict:
-    G = load_graph()
-    orig_node, origin_snap_km = nearest_node(olon, olat)
-    dest_node, dest_snap_km = nearest_node(dlon, dlat)
+    # Region picked from the origin -- a real query has both points in
+    # the same region in practice (pilot and Lower Volta are ~150km
+    # apart); if they're not, the destination will just snap with a
+    # large, honestly-surfaced dest_snap_km rather than silently routing
+    # on the wrong graph.
+    region = pick_region(olon, olat)
+    G = load_graph(region)
+    orig_node, origin_snap_km = nearest_node(olon, olat, region)
+    dest_node, dest_snap_km = nearest_node(dlon, dlat, region)
     active_incidents = _active_incidents(session)
 
     try:
@@ -226,7 +285,7 @@ def compute_routes(session: Session, olat: float, olon: float, dlat: float, dlon
         safe_weight = build_incident_aware_weight(G, active_incidents) if active_incidents else "risk_weight"
         safe_path = nx.shortest_path(G, orig_node, dest_node, weight=safe_weight)
     except nx.NetworkXNoPath:
-        return {"error": "No route found between these two points on the pilot district's road network."}
+        return {"error": "No route found between these two points on this region's road network."}
 
     fast_len, fast_avg_score = route_stats(G, fast_path, "length")
     safe_len, safe_avg_score = route_stats(G, safe_path, "risk_weight")
